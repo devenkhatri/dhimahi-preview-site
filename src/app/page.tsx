@@ -253,7 +253,6 @@ export default function HomePage() {
               data-netlify-honeypot="bot-field"
               action="/success"
               className="mt-6 grid gap-4"
-              netlify
             >
               <input type="hidden" name="form-name" value="contact" />
               <p className="hidden">
