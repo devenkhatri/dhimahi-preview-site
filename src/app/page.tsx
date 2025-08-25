@@ -183,8 +183,8 @@ export default function HomePage() {
           </p>
 
           <div className="mt-8 sm:mt-12 grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <ReasonCard icon="🧑‍�" title="25+ Years of Experience" body="Deep expertise in IT, digital marketing, and AI — guiding SMEs with proven strategies, not experiments." />
-            <ReasonCard icon="�" title="Local Focus" body={`We understand the needs of ${CITY_LINE} businesses and provide solutions tailored to your market.`} />
+            <ReasonCard icon="👨‍💼" title="25+ Years of Experience" body="Deep expertise in IT, digital marketing, and AI — guiding SMEs with proven strategies, not experiments." />
+            <ReasonCard icon="📍" title="Local Focus" body={`We understand the needs of ${CITY_LINE} businesses and provide solutions tailored to your market.`} />
             <ReasonCard icon="💡" title="Practical & Affordable" body="No enterprise complexity — just straightforward, cost-effective IT and digital solutions that deliver ROI." />
             <ReasonCard icon="🚀" title="Future-Ready Solutions" body="From AI to automation, we help you stay ahead of the curve and prepare your business for tomorrow." />
           </div>
