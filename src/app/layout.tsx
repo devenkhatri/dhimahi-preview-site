@@ -1,18 +1,45 @@
-import type { Metadata } from "next";
 import "./globals.css";
-import Link from "next/link";
-import Script from "next/script";
 import { COMPANY_NAME } from "@/lib/constants";
 
-export const metadata: Metadata = {
+export const metadata = {
   metadataBase: new URL("https://www.dhimahitechnolabs.com"),
-  title: `${COMPANY_NAME} – IT Consulting for SMEs`,
+  title: `${COMPANY_NAME} – Future-Ready IT Consulting for SMEs | AI Solutions & Digital Growth`,
   description:
-    "AI, Digital Growth, and IT Strategy for SMEs in Ahmedabad & Gandhinagar.",
-  icons: { icon: "/favicon.ico" },
+    "Transform your SME with AI solutions, digital marketing, and smart IT strategy. 25+ years experience helping Gujarat businesses grow. Free consultation available.",
+  keywords: [
+    "IT consulting SME",
+    "AI solutions Gujarat",
+    "digital marketing Ahmedabad",
+    "business automation",
+    "CRM implementation",
+    "website development",
+    "SEO services",
+    "fractional CTO",
+    "small business IT",
+    "Gandhinagar IT services"
+  ],
+  authors: [{ name: COMPANY_NAME }],
+  creator: COMPANY_NAME,
+  publisher: COMPANY_NAME,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico"
+  },
   openGraph: {
-    title: `${COMPANY_NAME} – IT Consulting for SMEs`,
-    description: "AI, Digital Growth, and IT Strategy for SMEs in Ahmedabad & Gandhinagar.",
+    title: `${COMPANY_NAME} – Future-Ready IT Consulting for SMEs`,
+    description: "Transform your SME with AI solutions, digital marketing, and smart IT strategy. 25+ years experience helping Gujarat businesses grow without enterprise complexity.",
     url: "https://www.dhimahitechnolabs.com",
     siteName: COMPANY_NAME,
     images: [
@@ -20,7 +47,8 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: COMPANY_NAME,
+        alt: `${COMPANY_NAME} - IT Consulting for SMEs in Gujarat`,
+        type: "image/png",
       },
     ],
     locale: "en_IN",
@@ -28,11 +56,16 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${COMPANY_NAME} – IT Consulting for SMEs`,
-    description: "AI, Digital Growth, and IT Strategy for SMEs in Ahmedabad & Gandhinagar.",
+    title: `${COMPANY_NAME} – Future-Ready IT Consulting for SMEs`,
+    description: "Transform your SME with AI solutions, digital marketing, and smart IT strategy. 25+ years experience helping Gujarat businesses grow.",
     images: ["/og-image.png"],
-    creator: "@yourhandle",
+    creator: "@dhimahitechnolabs",
+    site: "@dhimahitechnolabs",
   },
+  alternates: {
+    canonical: "https://www.dhimahitechnolabs.com",
+  },
+  category: "Technology",
 };
 
 export default function RootLayout({
@@ -42,10 +75,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#3B82F6" />
+      </head>
       <body className="antialiased text-gray-800">
         {/* LocalBusiness JSON-LD */}
-        <Script
-          id="ld-localbusiness"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -67,7 +103,6 @@ export default function RootLayout({
           }}
         />
 
-        
         {/* Site Launch Notice Banner */}
         <div className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white py-2 px-2 sm:px-4 text-center relative overflow-hidden z-50">
           <div className="absolute inset-0 bg-black/10"></div>
@@ -87,11 +122,11 @@ export default function RootLayout({
         {/* Sticky Header */}
         <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-gray-200 shadow-sm">
           <div className="container mx-auto px-4 h-14 flex items-center justify-between">
-            <Link href="/" className="font-semibold flex items-center gap-2">
+            <a href="/" className="font-semibold flex items-center gap-2">
               <span className="text-sm sm:text-base">{COMPANY_NAME}</span>
               <span className="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded-full font-medium">PREVIEW</span>
-            </Link>
-            
+            </a>
+
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-6 text-sm">
               <a href="/#services" className="hover:text-primary">Services</a>
@@ -99,7 +134,7 @@ export default function RootLayout({
               <a href="/insights" className="hover:text-primary">Insights</a>
               <a href="/#contact-form" className="rounded-xl bg-primary px-4 py-2 text-white font-medium hover:bg-primary-dark">Book Free Consultation</a>
             </nav>
-            
+
             {/* Mobile Menu Button */}
             <button className="md:hidden p-2" id="mobile-menu-button">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -107,7 +142,7 @@ export default function RootLayout({
               </svg>
             </button>
           </div>
-          
+
           {/* Mobile Navigation */}
           <div className="md:hidden border-t border-gray-200 bg-white/95 backdrop-blur hidden" id="mobile-menu">
             <div className="container mx-auto px-4 py-4 space-y-3">
@@ -118,7 +153,7 @@ export default function RootLayout({
             </div>
           </div>
         </header>
-        
+
         {/* Mobile Menu Script */}
         <script dangerouslySetInnerHTML={{
           __html: `
