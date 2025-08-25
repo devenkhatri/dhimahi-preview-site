@@ -1,7 +1,15 @@
 import { COMPANY_NAME, PHONE, CITY_LINE } from "@/lib/constants";
 import { getAllServices } from "@/lib/services";
 
-function ServiceCard({ icon, title, body, features, slug }: { icon: string; title: string; body: string; features: string[]; slug: string; }) {
+interface ServiceCardProps {
+  icon: string;
+  title: string;
+  body: string;
+  features: string[];
+  slug: string;
+}
+
+function ServiceCard({ icon, title, body, features, slug }: ServiceCardProps) {
   return (
     <div className="rounded-2xl bg-white p-4 sm:p-6 shadow-soft">
       <div className="text-3xl sm:text-4xl mb-4">{icon}</div>
@@ -245,6 +253,7 @@ export default function HomePage() {
               data-netlify-honeypot="bot-field"
               action="/success"
               className="mt-6 grid gap-4"
+              netlify
             >
               <input type="hidden" name="form-name" value="contact" />
               <p className="hidden">
