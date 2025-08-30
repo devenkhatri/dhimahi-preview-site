@@ -2,8 +2,8 @@
   <defs>
     <!-- Gradients -->
     <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0FB5AE;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#0A66C2;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#7cc0ba;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#215b6f;stop-opacity:1" />
     </linearGradient>
     
     <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -51,8 +51,8 @@
     <!-- Charts and Graphs -->
     <g transform="translate(60, 70)">
       <!-- Bar Chart -->
-      <rect x="0" y="40" width="15" height="30" fill="#0FB5AE"/>
-      <rect x="20" y="25" width="15" height="45" fill="#0A66C2"/>
+      <rect x="0" y="40" width="15" height="30" fill="#7cc0ba"/>
+      <rect x="20" y="25" width="15" height="45" fill="#215b6f"/>
       <rect x="40" y="15" width="15" height="55" fill="#FF6B6B"/>
       <rect x="60" y="5" width="15" height="65" fill="#4ECDC4"/>
       
@@ -101,19 +101,19 @@
   <g transform="translate(650, 250)">
     <!-- Smartphone -->
     <rect x="0" y="0" width="40" height="70" rx="8" fill="#2C3E50"/>
-    <rect x="5" y="8" width="30" height="50" rx="3" fill="#0FB5AE"/>
+    <rect x="5" y="8" width="30" height="50" rx="3" fill="#7cc0ba"/>
     <circle cx="20" cy="65" r="3" fill="#BDC3C7"/>
     
     <!-- Tablet -->
     <rect x="60" y="10" width="60" height="45" rx="6" fill="#34495E"/>
-    <rect x="65" y="15" width="50" height="35" rx="3" fill="#0A66C2"/>
+    <rect x="65" y="15" width="50" height="35" rx="3" fill="#215b6f"/>
     
     <animateTransform attributeName="transform" type="translate" 
                       values="0,0; -5,5; 0,0" dur="6s" repeatCount="indefinite"/>
   </g>
 
   <!-- Data Flow Lines -->
-  <g stroke="#0FB5AE" stroke-width="2" fill="none" opacity="0.6">
+  <g stroke="#7cc0ba" stroke-width="2" fill="none" opacity="0.6">
     <!-- Connecting lines with animation -->
     <path d="M 180 150 Q 250 100 350 120">
       <animate attributeName="stroke-dasharray" values="0,100; 100,0; 0,100" dur="3s" repeatCount="indefinite"/>
@@ -153,11 +153,11 @@
 
   <!-- Floating Particles -->
   <g opacity="0.4">
-    <circle cx="150" cy="150" r="3" fill="#0FB5AE">
+    <circle cx="150" cy="150" r="3" fill="#7cc0ba">
       <animateTransform attributeName="transform" type="translate" 
                         values="0,0; 10,-15; 0,0" dur="5s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="650" cy="400" r="2" fill="#0A66C2">
+    <circle cx="650" cy="400" r="2" fill="#215b6f">
       <animateTransform attributeName="transform" type="translate" 
                         values="0,0; -8,12; 0,0" dur="4s" repeatCount="indefinite"/>
     </circle>

@@ -10,12 +10,12 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#0A66C2",
-          dark: "#094F97"
+          DEFAULT: "#215b6f",
+          dark: "#1a4a5a"
         },
         accent: {
-          DEFAULT: "#0FB5AE",
-          soft: "#D6FFFB"
+          DEFAULT: "#7cc0ba",
+          soft: "#e8f5f3"
         }
       },
       boxShadow: {

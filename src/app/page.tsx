@@ -52,28 +52,7 @@ export default function HomePage() {
 
   return (
     <main>
-      {/* PROMINENT LAUNCH NOTICE */}
-      <div className="bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 text-white py-3 sm:py-4 px-2 sm:px-4 text-center relative overflow-hidden border-b-4 border-yellow-400">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative z-10">
-          <div className="flex items-center justify-center gap-2 sm:gap-3 text-base sm:text-lg md:text-xl font-bold mb-1">
-            <span className="text-xl sm:text-2xl animate-bounce">🚀</span>
-            <span className="bg-yellow-400 text-purple-900 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-black">COMING SOON</span>
-            <span className="text-xl sm:text-2xl animate-bounce delay-300">🚀</span>
-          </div>
-          <p className="text-xs sm:text-sm md:text-base font-medium opacity-95 px-2">
-            This is a preview of our new website • Full launch with advanced features happening soon!
-          </p>
-        </div>
-        {/* Enhanced animated elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-2 left-[5%] w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
-          <div className="absolute top-3 right-[8%] w-1 h-1 bg-yellow-300 rounded-full animate-ping delay-500"></div>
-          <div className="absolute bottom-2 left-[25%] w-1.5 h-1.5 bg-yellow-400 rounded-full animate-ping delay-1000"></div>
-          <div className="absolute bottom-3 right-[30%] w-1 h-1 bg-yellow-300 rounded-full animate-ping delay-700"></div>
-          <div className="absolute top-1 left-[70%] w-1 h-1 bg-yellow-400 rounded-full animate-ping delay-200"></div>
-        </div>
-      </div>
+
 
       {/* HERO */}
       <section id="hero" className="relative overflow-hidden">
@@ -82,8 +61,8 @@ export default function HomePage() {
           <svg className="absolute -top-24 -left-24 h-[320px] sm:h-[420px] md:h-[520px] w-[320px] sm:w-[420px] md:w-[520px] opacity-20" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden>
             <defs>
               <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
-                <stop offset="0%" stopColor="#0FB5AE" />
-                <stop offset="100%" stopColor="#0A66C2" />
+                <stop offset="0%" stopColor="#7cc0ba" />
+                <stop offset="100%" stopColor="#215b6f" />
               </linearGradient>
             </defs>
             <path fill="url(#g1)" d="M37.3,-63.4C47.4,-55.2,54.8,-47,60.9,-37.2C66.9,-27.3,71.6,-15.6,72.1,-3.6C72.6,8.4,68.7,20.7,63.2,32.1C57.7,43.4,50.6,53.8,40.4,60.8C30.2,67.7,16.9,71.3,3.1,67.2C-10.6,63.2,-21.2,51.6,-32.6,43.4C-44,35.1,-56.2,30.2,-63.7,20.9C-71.2,11.7,-74,-1.9,-70.5,-14.2C-67,-26.5,-57.1,-37.6,-45.7,-46C-34.3,-54.5,-21.4,-60.3,-8.2,-60.8C5,-61.4,10,-56.7,37.3,-63.4Z" transform="translate(100 100)" />
@@ -93,9 +72,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 py-12 sm:py-16 md:py-24">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             <div className="max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
-              <div className="inline-block mb-3 rounded-full bg-gradient-to-r from-red-500 to-pink-600 text-white px-3 sm:px-5 py-2 text-xs sm:text-sm font-bold shadow-lg animate-pulse border-2 border-yellow-400">
-                🚧 PREVIEW SITE • Full launch coming soon! 🚧
-              </div>
+
               <span className="inline-flex items-center gap-2 rounded-full bg-accent-soft px-3 py-1 text-xs sm:text-sm font-medium text-primary">
                 Gujarat SMEs • AI • Digital Growth
               </span>
@@ -149,10 +126,7 @@ export default function HomePage() {
 
       {/* SERVICES */}
       <section id="services" className="py-12 sm:py-16 md:py-20 bg-gray-50 relative">
-        {/* Services Launch Notice */}
-        <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-yellow-400 text-black px-2 sm:px-4 py-1 sm:py-2 rounded-full text-xs font-bold shadow-lg animate-pulse z-10">
-          🔥 More services coming in full launch!
-        </div>
+
 
         <div className="container mx-auto px-4">
           <h2 className="section-title">Our Services</h2>
@@ -160,12 +134,7 @@ export default function HomePage() {
             Helping SMEs in {CITY_LINE} grow with AI, digital marketing, and smart IT strategy.
           </p>
 
-          {/* Preview Notice */}
-          <div className="mb-6 sm:mb-8 text-center">
-            <div className="inline-block bg-blue-100 text-blue-800 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium border border-blue-200">
-              📋 Preview of our core services • Full service portfolio launching soon with detailed case studies!
-            </div>
-          </div>
+
 
           <div className="mt-8 sm:mt-12 grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
@@ -297,11 +266,7 @@ export default function HomePage() {
 
       <footer className="py-6 sm:py-8 text-center text-xs sm:text-sm text-gray-500 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="inline-block mb-2 bg-orange-100 text-orange-600 px-3 py-1 rounded-full text-xs font-semibold">
-            PREVIEW VERSION
-          </div>
           <p>© {new Date().getFullYear()} {COMPANY_NAME}. All rights reserved.</p>
-          <p className="mt-1 text-xs">Full website launching soon with enhanced features!</p>
         </div>
       </footer>
     </main>

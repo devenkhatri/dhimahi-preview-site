@@ -77,7 +77,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#3B82F6" />
+        <meta name="theme-color" content="#215b6f" />
       </head>
       <body className="antialiased text-gray-800">
         {/* LocalBusiness JSON-LD */}
@@ -103,21 +103,7 @@ export default function RootLayout({
           }}
         />
 
-        {/* Site Launch Notice Banner */}
-        <div className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white py-2 px-2 sm:px-4 text-center relative overflow-hidden z-50">
-          <div className="absolute inset-0 bg-black/10"></div>
-          <div className="relative z-10 flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-bold animate-pulse">
-            <span className="text-yellow-300 hidden sm:inline">⚡</span>
-            <span className="text-center">PREVIEW SITE • Full website launching soon!</span>
-            <span className="text-yellow-300 hidden sm:inline">⚡</span>
-          </div>
-          {/* Animated sparkles */}
-          <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-            <div className="absolute top-1 left-[10%] w-1 h-1 bg-yellow-300 rounded-full animate-ping"></div>
-            <div className="absolute top-1 right-[15%] w-1 h-1 bg-yellow-300 rounded-full animate-ping delay-300"></div>
-            <div className="absolute top-1 left-[60%] w-1 h-1 bg-yellow-300 rounded-full animate-ping delay-700"></div>
-          </div>
-        </div>
+
 
         {/* Sticky Header */}
         <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-gray-200 shadow-sm">
@@ -128,10 +114,7 @@ export default function RootLayout({
                 alt={`${COMPANY_NAME} Logo`}
                 className="w-8 h-8 sm:w-10 sm:h-10"
               />
-              <div className="flex items-center gap-2">
-                <span className="text-sm sm:text-base">{COMPANY_NAME}</span>
-                <span className="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded-full font-medium">PREVIEW</span>
-              </div>
+              <span className="text-sm sm:text-base">{COMPANY_NAME}</span>
             </a>
 
             {/* Desktop Navigation */}
