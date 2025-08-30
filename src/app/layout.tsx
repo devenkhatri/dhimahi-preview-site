@@ -1,5 +1,7 @@
 import "./globals.css";
 import { COMPANY_NAME } from "@/lib/constants";
+import Header from "@/components/Header";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 export const metadata = {
   metadataBase: new URL("https://www.dhimahitechnolabs.com"),
@@ -103,63 +105,10 @@ export default function RootLayout({
           }}
         />
 
-
-
-        {/* Sticky Header */}
-        <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-gray-200 shadow-sm">
-          <div className="container mx-auto px-4 h-14 flex items-center justify-between">
-            <a href="/" className="font-semibold flex items-center gap-3">
-              <img
-                src="/favicon.svg"
-                alt={`${COMPANY_NAME} Logo`}
-                className="w-8 h-8 sm:w-10 sm:h-10"
-              />
-              <span className="text-sm sm:text-base">{COMPANY_NAME}</span>
-            </a>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-6 text-sm">
-              <a href="/#services" className="hover:text-primary">Services</a>
-              <a href="/#case-studies" className="hover:text-primary">Case Studies</a>
-              <a href="/insights" className="hover:text-primary">Insights</a>
-              <a href="/#contact-form" className="rounded-xl bg-primary px-4 py-2 text-white font-medium hover:bg-primary-dark">Book Free Consultation</a>
-            </nav>
-
-            {/* Mobile Menu Button */}
-            <button className="md:hidden p-2" id="mobile-menu-button">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-
-          {/* Mobile Navigation */}
-          <div className="md:hidden border-t border-gray-200 bg-white/95 backdrop-blur hidden" id="mobile-menu">
-            <div className="container mx-auto px-4 py-4 space-y-3">
-              <a href="/#services" className="block py-2 hover:text-primary">Services</a>
-              <a href="/#case-studies" className="block py-2 hover:text-primary">Case Studies</a>
-              <a href="/insights" className="block py-2 hover:text-primary">Insights</a>
-              <a href="/#contact-form" className="block rounded-xl bg-primary px-4 py-3 text-white font-medium text-center">Book Free Consultation</a>
-            </div>
-          </div>
-        </header>
-
-        {/* Mobile Menu Script */}
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            document.addEventListener('DOMContentLoaded', function() {
-              const button = document.getElementById('mobile-menu-button');
-              const menu = document.getElementById('mobile-menu');
-              if (button && menu) {
-                button.addEventListener('click', function() {
-                  menu.classList.toggle('hidden');
-                });
-              }
-            });
-          `
-        }} />
-
-        {children}
+        <LanguageProvider>
+          <Header />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );
