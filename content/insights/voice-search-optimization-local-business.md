@@ -6,7 +6,6 @@ author: "Dhimahi Technolabs"
 tags: ["Voice Search", "Local SEO", "Voice Optimization", "Mobile Search", "Digital Marketing"]
 ---
 
-# Voice Search Optimization for Local Businesses: Capture Voice Queries
 
 Optimize your business for voice search to capture the growing number of voice queries and local 'near me' searches.
 

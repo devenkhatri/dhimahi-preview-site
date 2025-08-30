@@ -6,8 +6,6 @@ author: "Dhimahi Technolabs"
 tags: ["AI", "Chatbots", "Customer Service", "Automation", "SME"]
 ---
 
-# AI Chatbots for SME Customer Service: Implementation Guide
-
 Deploy smart chatbots to handle 80% of customer queries while maintaining personal touch.
 
 ## Why SMEs Need Chatbots

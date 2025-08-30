@@ -81,3 +81,21 @@ export function getAllPostSlugs() {
       };
     });
 }
+
+export function getAllTags(): string[] {
+  const posts = getAllPosts();
+  const allTags = new Set<string>();
+  
+  posts.forEach(post => {
+    post.tags.forEach(tag => allTags.add(tag));
+  });
+  
+  return Array.from(allTags).sort();
+}
+
+export function getPostsByTag(tag: string): PostMeta[] {
+  const posts = getAllPosts();
+  return posts.filter(post => 
+    post.tags.some(postTag => postTag.toLowerCase() === tag.toLowerCase())
+  );
+}

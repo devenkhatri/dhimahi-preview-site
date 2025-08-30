@@ -6,7 +6,6 @@ author: "Dhimahi Technolabs"
 tags: ["Email Marketing", "Marketing Automation", "Lead Nurturing", "SME", "Sales"]
 ---
 
-# Email Marketing Automation for SMEs: Drive Sales on Autopilot
 
 Set up automated email campaigns that nurture leads and drive sales while you focus on running your business.
 

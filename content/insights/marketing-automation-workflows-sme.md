@@ -6,7 +6,6 @@ author: "Dhimahi Technolabs"
 tags: ["Marketing Automation", "Lead Nurturing", "Email Marketing", "Customer Journey", "SME Marketing"]
 ---
 
-# Marketing Automation Workflows for SMEs: Scale Your Marketing Efforts
 
 Design and implement automated marketing workflows that nurture leads, engage customers, and drive sales without constant manual effort.
 

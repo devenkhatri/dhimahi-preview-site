@@ -6,7 +6,6 @@ author: "Dhimahi Technolabs"
 tags: ["GST", "Compliance", "Automation", "Accounting", "SME"]
 ---
 
-# GST Compliance Made Easy: Automation Tools for SMEs
 
 Streamline GST filing, invoice generation, and compliance tracking with the right tools.
 

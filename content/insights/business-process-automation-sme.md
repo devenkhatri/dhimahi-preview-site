@@ -6,7 +6,6 @@ author: "Dhimahi Technolabs"
 tags: ["Process Automation", "Workflow Automation", "Business Efficiency", "SME", "Digital Transformation"]
 ---
 
-# Business Process Automation for SMEs: Eliminate Manual Work
 
 Identify and automate repetitive business processes to save time, reduce errors, and focus on growth activities.
 

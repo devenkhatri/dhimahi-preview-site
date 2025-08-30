@@ -6,8 +6,6 @@ author: "Dhimahi Technolabs"
 tags: ["WhatsApp", "Automation", "Customer Service", "SME"]
 ---
 
-# WhatsApp Business Automation for Gujarat SMEs
-
 Automate customer support and sales on WhatsApp without losing the personal touch.
 
 ## Why WhatsApp Matters for Indian SMEs

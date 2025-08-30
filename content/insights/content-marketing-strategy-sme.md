@@ -6,7 +6,6 @@ author: "Dhimahi Technolabs"
 tags: ["Content Marketing", "Brand Building", "SEO", "Lead Generation", "SME"]
 ---
 
-# Content Marketing Strategy for SMEs: Build Authority and Drive Growth
 
 Create valuable content that attracts customers, builds trust, and establishes your business as an industry leader.
 

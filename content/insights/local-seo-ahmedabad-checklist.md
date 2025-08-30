@@ -6,7 +6,6 @@ author: "Dhimahi Technolabs"
 tags: ["SEO", "Local Business", "Ahmedabad", "Digital Marketing"]
 ---
 
-# Local SEO Checklist for Ahmedabad Businesses
 
 Practical steps to rank in Maps and drive real footfall and leads.
 

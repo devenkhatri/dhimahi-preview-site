@@ -6,7 +6,6 @@ author: "Dhimahi Technolabs"
 tags: ["Mobile App Development", "Digital Strategy", "SME Technology", "App Strategy", "Business Apps"]
 ---
 
-# Mobile App Development for SMEs: Build or Buy Decision Guide
 
 Strategic guide to mobile app development for SMEs - when to build custom, when to use no-code, and how to maximize ROI.
 

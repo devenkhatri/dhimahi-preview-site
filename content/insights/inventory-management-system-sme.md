@@ -6,7 +6,6 @@ author: "Dhimahi Technolabs"
 tags: ["Inventory Management", "ERP", "Supply Chain", "Cost Optimization", "SME"]
 ---
 
-# Inventory Management Systems for SMEs: Stop Losing Money on Stock
 
 Choose and implement the right inventory management system to reduce costs, prevent stockouts, and optimize cash flow.
 

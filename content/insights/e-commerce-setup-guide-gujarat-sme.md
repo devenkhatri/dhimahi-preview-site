@@ -6,7 +6,6 @@ author: "Dhimahi Technolabs"
 tags: ["E-commerce", "Online Sales", "Digital Transformation", "Gujarat", "SME"]
 ---
 
-# E-commerce Setup Guide for Gujarat SMEs: From Zero to Online Sales
 
 Complete roadmap to launch your online store and start selling digitally in the Gujarat market.
 

@@ -6,7 +6,6 @@ author: "Dhimahi Technolabs"
 tags: ["CRM", "ERP", "HR", "SME", "Software Selection"]
 ---
 
-# Choosing the Right Tools: CRM, ERP, and HR for SMEs
 
 Buy what you'll use. A simple guide to avoid overpaying for software.
 

@@ -6,7 +6,6 @@ author: "Dhimahi Technolabs"
 tags: ["Cloud Migration", "Security", "Cost Optimization", "SME", "IT Strategy"]
 ---
 
-# Cloud Migration for SMEs: Security and Cost Optimization Guide
 
 Move to cloud safely while reducing IT costs by 40-60% with proper planning and security measures.
 

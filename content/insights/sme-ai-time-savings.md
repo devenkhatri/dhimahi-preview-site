@@ -6,7 +6,6 @@ author: "Dhimahi Technolabs"
 tags: ["AI", "Automation", "SME", "Productivity"]
 ---
 
-# How SMEs Can Save 5+ Hours/Week with AI
 
 Start with small, repetitive tasks: follow-up emails, lead qualification, content drafts, and weekly reports. Pilot one workflow at a time, measure the time saved, then scale.
 

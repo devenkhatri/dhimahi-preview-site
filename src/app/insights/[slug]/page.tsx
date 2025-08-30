@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function PostPage({ params }: Props) {
   let post;
-  
+
   try {
     post = await getPostData(params.slug);
   } catch {
@@ -44,13 +44,17 @@ export default async function PostPage({ params }: Props) {
         <Link href="/insights" className="inline-flex items-center text-primary hover:underline mb-6">
           ← Back to Insights
         </Link>
-        
+
         <div className="mb-6">
           <div className="flex flex-wrap gap-2 mb-3">
             {post.tags.map((tag) => (
-              <span key={tag} className="text-sm bg-gray-100 text-gray-600 px-3 py-1 rounded-full">
+              <a
+                key={tag}
+                href={`/insights/tag/${encodeURIComponent(tag)}`}
+                className="text-sm bg-gray-100 text-gray-600 px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-colors"
+              >
                 {tag}
-              </span>
+              </a>
             ))}
           </div>
           <h1 className="text-3xl md:text-4xl font-bold">{post.title}</h1>
@@ -60,8 +64,8 @@ export default async function PostPage({ params }: Props) {
           </div>
         </div>
 
-        <article 
-          className="prose prose-slate max-w-none prose-headings:font-semibold prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-ul:list-disc prose-ol:list-decimal prose-li:ml-4"
+        <article
+          className="markdown-content"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
 

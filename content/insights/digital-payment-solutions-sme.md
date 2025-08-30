@@ -6,7 +6,6 @@ author: "Dhimahi Technolabs"
 tags: ["Digital Payments", "Payment Gateway", "Fintech", "UPI", "E-commerce Payments"]
 ---
 
-# Digital Payment Solutions for SMEs: Accept Payments Seamlessly
 
 Implement modern payment solutions to improve cash flow, reduce transaction costs, and enhance customer experience.
 

@@ -6,7 +6,6 @@ author: "Dhimahi Technolabs"
 tags: ["Website Speed", "SEO", "User Experience", "Performance", "Web Development"]
 ---
 
-# Website Speed Optimization: Boost SEO and User Experience
 
 Improve your website loading speed to rank higher on Google and reduce bounce rates by up to 50%.
 
@@ -211,7 +210,6 @@ Improve your website loading speed to rank higher on Google and reduce bounce ra
 ### Browser Caching
 **Cache Headers Configuration:**
 ```apache
-# Apache .htaccess
 <IfModule mod_expires.c>
 ExpiresActive On
 ExpiresByType text/css "access plus 1 year"

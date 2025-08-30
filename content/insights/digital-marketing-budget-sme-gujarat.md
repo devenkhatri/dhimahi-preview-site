@@ -6,7 +6,6 @@ author: "Dhimahi Technolabs"
 tags: ["Digital Marketing", "Budget", "ROI", "Gujarat", "SME"]
 ---
 
-# Digital Marketing Budget Guide for Gujarat SMEs
 
 How to allocate your marketing budget across channels for maximum ROI in the Gujarat market.
 
