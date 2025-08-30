@@ -33,13 +33,35 @@ export default function ServicesPage() {
                 {service.title}
               </h3>
               <p className="text-sm sm:text-base text-gray-600 mb-4">{service.excerpt}</p>
+              
+              {/* Pricing and Timeline */}
+              {(service.startingPrice || service.timeline) && (
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {service.startingPrice && (
+                    <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium">
+                      From {service.startingPrice}
+                    </span>
+                  )}
+                  {service.timeline && (
+                    <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-medium">
+                      ⏱️ {service.timeline}
+                    </span>
+                  )}
+                </div>
+              )}
+              
               <ul className="space-y-2">
-                {service.features.map((feature, index) => (
+                {service.features.slice(0, 4).map((feature, index) => (
                   <li key={index} className="text-xs sm:text-sm text-gray-500 flex items-center">
                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></span>
                     {feature}
                   </li>
                 ))}
+                {service.features.length > 4 && (
+                  <li className="text-xs sm:text-sm text-gray-400 italic">
+                    +{service.features.length - 4} more features
+                  </li>
+                )}
               </ul>
               <div className="mt-4 sm:mt-6 text-primary font-medium group-hover:underline text-sm sm:text-base">
                 Learn More →

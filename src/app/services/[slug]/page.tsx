@@ -1,6 +1,10 @@
 import { getServiceData, getAllServices } from "@/lib/services";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import PricingTiers from "@/components/PricingTiers";
+import ProcessSteps from "@/components/ProcessSteps";
+import TechnologyStackComponent from "@/components/TechnologyStack";
+import ServiceFAQ from "@/components/ServiceFAQ";
 
 interface Props {
   params: {
@@ -52,9 +56,37 @@ export default async function ServicePage({ params }: Props) {
         <div className="text-center mb-12">
           <div className="text-6xl mb-4">{service.icon}</div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{service.title}</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
             {service.excerpt}
           </p>
+          
+          {/* Quick Info */}
+          {(service.startingPrice || service.timeline) && (
+            <div className="flex flex-wrap justify-center gap-4 mb-6">
+              {service.startingPrice && (
+                <div className="bg-primary/10 text-primary px-6 py-3 rounded-full font-medium">
+                  Starting from {service.startingPrice}
+                </div>
+              )}
+              {service.timeline && (
+                <div className="bg-gray-100 text-gray-700 px-6 py-3 rounded-full font-medium">
+                  ⏱️ Typical timeline: {service.timeline}
+                </div>
+              )}
+            </div>
+          )}
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              href="/#contact-form"
+              className="rounded-2xl bg-primary px-8 py-4 font-medium text-white shadow-soft hover:bg-primary-dark text-center"
+            >
+              Get Free Consultation
+            </Link>
+            <button className="rounded-2xl border border-gray-300 px-8 py-4 font-medium hover:bg-gray-50 text-center">
+              Download Service Guide
+            </button>
+          </div>
         </div>
 
         {/* Key Features */}
@@ -90,6 +122,26 @@ export default async function ServicePage({ params }: Props) {
             prose-pre:bg-gray-900 prose-pre:text-white prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto"
           dangerouslySetInnerHTML={{ __html: service.content }}
         />
+
+        {/* Pricing Tiers */}
+        {service.pricingTiers && service.pricingTiers.length > 0 && (
+          <PricingTiers tiers={service.pricingTiers} serviceName={service.title} />
+        )}
+
+        {/* Process Steps */}
+        {service.processSteps && service.processSteps.length > 0 && (
+          <ProcessSteps steps={service.processSteps} serviceName={service.title} />
+        )}
+
+        {/* Technology Stack */}
+        {service.technologyStack && service.technologyStack.length > 0 && (
+          <TechnologyStackComponent stack={service.technologyStack} serviceName={service.title} />
+        )}
+
+        {/* FAQ Section */}
+        {service.faqs && service.faqs.length > 0 && (
+          <ServiceFAQ faqs={service.faqs} serviceName={service.title} />
+        )}
 
         {/* CTA Section */}
         <div className="mt-16 text-center bg-gray-50 rounded-2xl p-8">

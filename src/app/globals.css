@@ -40,6 +40,14 @@
     color: var(--primary);
   }
   
+  .text-accent {
+    color: var(--accent);
+  }
+  
+  .bg-accent {
+    background-color: var(--accent);
+  }
+  
   .border-primary {
     border-color: var(--primary);
   }
