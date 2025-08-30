@@ -33,7 +33,7 @@
   - Add FAQ sections to service pages
   - _Requirements: 2.1, 2.2, 2.3, 2.4_
 
-- [ ] 5. Develop Case Study and Portfolio Showcase
+- [x] 5. Develop Case Study and Portfolio Showcase
   - Create case study data structure and content management
   - Build case study detail page templates with before/after showcases
   - Implement portfolio gallery with filtering capabilities

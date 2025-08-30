@@ -1,0 +1,31 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#f3f4f6"/>
+  <rect x="50" y="50" width="700" height="500" fill="#ffffff" stroke="#d1d5db" stroke-width="2"/>
+  <text x="400" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#374151">Manual Inventory Tracking</text>
+  <text x="400" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#6b7280">Paper-based processes and disconnected systems</text>
+  
+  <!-- Paper documents -->
+  <rect x="100" y="200" width="150" height="200" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+  <text x="175" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#92400e">Inventory</text>
+  <text x="175" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#92400e">Sheets</text>
+  
+  <rect x="300" y="200" width="150" height="200" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+  <text x="375" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#92400e">Order</text>
+  <text x="375" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#92400e">Forms</text>
+  
+  <rect x="500" y="200" width="150" height="200" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+  <text x="575" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#92400e">Reports</text>
+  
+  <!-- Warning indicators -->
+  <circle cx="175" cy="450" r="15" fill="#ef4444"/>
+  <text x="175" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">!</text>
+  <text x="175" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#ef4444">Errors</text>
+  
+  <circle cx="375" cy="450" r="15" fill="#ef4444"/>
+  <text x="375" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">!</text>
+  <text x="375" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#ef4444">Delays</text>
+  
+  <circle cx="575" cy="450" r="15" fill="#ef4444"/>
+  <text x="575" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">!</text>
+  <text x="575" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#ef4444">Manual</text>
+</svg>

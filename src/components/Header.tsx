@@ -71,7 +71,7 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
 
   const navigationItems = [
     { href: '/services', label: translations.services },
-    { href: '/#case-studies', label: translations.portfolio },
+    { href: '/portfolio', label: translations.portfolio },
     { href: '/insights', label: translations.insights },
     { href: '/#about', label: translations.about },
   ];
