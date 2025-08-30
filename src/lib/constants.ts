@@ -1,4 +1,4 @@
-export const COMPANY_NAME = "Dhimahi Technolabs";
+export const COMPANY_NAME = "Dhīmahi Technolabs";
 // export const PHONE = "+91 99999 99999"; // replace
 export const PHONE = ""; // replace
 export const EMAIL = "hello@dhimahitechnolabs.com"; // replace

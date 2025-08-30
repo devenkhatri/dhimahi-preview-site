@@ -122,9 +122,16 @@ export default function RootLayout({
         {/* Sticky Header */}
         <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-gray-200 shadow-sm">
           <div className="container mx-auto px-4 h-14 flex items-center justify-between">
-            <a href="/" className="font-semibold flex items-center gap-2">
-              <span className="text-sm sm:text-base">{COMPANY_NAME}</span>
-              <span className="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded-full font-medium">PREVIEW</span>
+            <a href="/" className="font-semibold flex items-center gap-3">
+              <img
+                src="/favicon.svg"
+                alt={`${COMPANY_NAME} Logo`}
+                className="w-8 h-8 sm:w-10 sm:h-10"
+              />
+              <div className="flex items-center gap-2">
+                <span className="text-sm sm:text-base">{COMPANY_NAME}</span>
+                <span className="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded-full font-medium">PREVIEW</span>
+              </div>
             </a>
 
             {/* Desktop Navigation */}
