@@ -47,6 +47,55 @@
   .hover\:bg-primary-dark:hover {
     background-color: var(--primary-dark);
   }
+  
+  /* Service content formatting */
+  .service-content h1 {
+    @apply text-3xl font-bold text-gray-900 mb-6 mt-0;
+  }
+  
+  .service-content h1:first-child {
+    @apply mt-0;
+  }
+  
+  .service-content > h1:first-child {
+    @apply mt-0;
+  }
+  
+  .service-content h2 {
+    @apply text-2xl font-bold text-gray-900 mb-6 mt-10 border-b border-gray-200 pb-2;
+  }
+  
+  .service-content h3 {
+    @apply text-xl font-semibold text-primary mb-4 mt-8;
+  }
+  
+  .service-content h4 {
+    @apply text-lg font-semibold text-gray-800 mb-3 mt-6;
+  }
+  
+  .service-content p {
+    @apply text-gray-700 leading-relaxed mb-4;
+  }
+  
+  .service-content ul {
+    @apply space-y-3 mb-6;
+  }
+  
+  .service-content li {
+    @apply text-gray-700 leading-relaxed;
+  }
+  
+  .service-content strong {
+    @apply text-gray-900 font-semibold;
+  }
+  
+  .service-content blockquote {
+    @apply border-l-4 border-primary pl-4 italic text-gray-600 my-6;
+  }
+  
+  .service-content hr {
+    @apply border-0 border-t border-gray-200 my-8;
+  }
 }
 
 @layer utilities {

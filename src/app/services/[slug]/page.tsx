@@ -72,7 +72,22 @@ export default async function ServicePage({ params }: Props) {
 
         {/* Content */}
         <article 
-          className="prose prose-slate max-w-none prose-headings:font-semibold prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-ul:list-disc prose-ol:list-decimal prose-li:ml-4"
+          className="service-content prose prose-slate max-w-none 
+            prose-headings:font-semibold prose-headings:text-gray-900
+            prose-h1:text-3xl prose-h1:mb-6 prose-h1:mt-0 prose-h1:first:mt-0
+            prose-h2:text-2xl prose-h2:mb-6 prose-h2:mt-10 prose-h2:border-b prose-h2:border-gray-200 prose-h2:pb-2
+            prose-h3:text-xl prose-h3:mb-4 prose-h3:mt-8 prose-h3:text-primary
+            prose-h4:text-lg prose-h4:mb-3 prose-h4:mt-6 prose-h4:font-semibold
+            prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-4
+            prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-a:font-medium
+            prose-ul:space-y-3 prose-ul:mb-6
+            prose-ol:space-y-3 prose-ol:mb-6
+            prose-li:text-gray-700 prose-li:leading-relaxed
+            prose-strong:text-gray-900 prose-strong:font-semibold
+            prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-600 prose-blockquote:my-6
+            prose-hr:border-0 prose-hr:border-t prose-hr:border-gray-200 prose-hr:my-8
+            prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
+            prose-pre:bg-gray-900 prose-pre:text-white prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto"
           dangerouslySetInnerHTML={{ __html: service.content }}
         />
 
