@@ -1,5 +1,6 @@
 import { COMPANY_NAME, PHONE, CITY_LINE } from "@/lib/constants";
 import { getAllServices } from "@/lib/services";
+import HeroSection from "@/components/HeroSection";
 
 interface ServiceCardProps {
   icon: string;
@@ -55,74 +56,7 @@ export default function HomePage() {
 
 
       {/* HERO */}
-      <section id="hero" className="relative overflow-hidden">
-        {/* Decorative background */}
-        <div className="absolute inset-0 -z-10">
-          <svg className="absolute -top-24 -left-24 h-[320px] sm:h-[420px] md:h-[520px] w-[320px] sm:w-[420px] md:w-[520px] opacity-20" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-            <defs>
-              <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
-                <stop offset="0%" stopColor="#7cc0ba" />
-                <stop offset="100%" stopColor="#215b6f" />
-              </linearGradient>
-            </defs>
-            <path fill="url(#g1)" d="M37.3,-63.4C47.4,-55.2,54.8,-47,60.9,-37.2C66.9,-27.3,71.6,-15.6,72.1,-3.6C72.6,8.4,68.7,20.7,63.2,32.1C57.7,43.4,50.6,53.8,40.4,60.8C30.2,67.7,16.9,71.3,3.1,67.2C-10.6,63.2,-21.2,51.6,-32.6,43.4C-44,35.1,-56.2,30.2,-63.7,20.9C-71.2,11.7,-74,-1.9,-70.5,-14.2C-67,-26.5,-57.1,-37.6,-45.7,-46C-34.3,-54.5,-21.4,-60.3,-8.2,-60.8C5,-61.4,10,-56.7,37.3,-63.4Z" transform="translate(100 100)" />
-          </svg>
-        </div>
-
-        <div className="container mx-auto px-4 py-12 sm:py-16 md:py-24">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
-            <div className="max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
-
-              <span className="inline-flex items-center gap-2 rounded-full bg-accent-soft px-3 py-1 text-xs sm:text-sm font-medium text-primary">
-                Gujarat SMEs • AI • Digital Growth
-              </span>
-              <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Future-Ready IT Consulting for SMEs
-              </h1>
-              <p className="mt-4 text-base sm:text-lg md:text-xl text-gray-700">
-                At <strong>{COMPANY_NAME}</strong>, we help small and medium businesses in {CITY_LINE} grow with
-                <strong> AI solutions, digital marketing, and smart IT strategy</strong> — without enterprise complexity or cost.
-              </p>
-              <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3">
-                <a
-                  href="#contact-form"
-                  className="rounded-2xl bg-primary px-4 sm:px-6 py-3 font-medium text-white shadow-soft hover:bg-primary-dark text-center text-sm sm:text-base"
-                >
-                  Book Your Free Consultation
-                </a>
-                <a
-                  href="#services"
-                  className="rounded-2xl border border-gray-300 px-4 sm:px-6 py-3 font-medium hover:bg-gray-50 text-center text-sm sm:text-base"
-                >
-                  Explore Services
-                </a>
-              </div>
-              <p className="mt-3 text-xs sm:text-sm text-gray-500">25+ years experience • Local focus • Practical, ROI-first.</p>
-            </div>
-
-            {/* Hero Illustration */}
-            <div className="relative mt-8 lg:mt-0">
-              <div className="rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-50 to-indigo-100 p-4 sm:p-6 lg:p-8">
-                <img
-                  src="/hero-illustration.svg"
-                  alt="IT Consulting for SMEs - Digital Transformation, AI Solutions, and Business Growth"
-                  className="w-full h-auto animate-fade-in"
-                />
-                {/* Floating badges */}
-                <div className="absolute top-2 sm:top-4 left-2 sm:left-4 bg-green-500 text-white px-2 sm:px-3 py-1 rounded-full text-xs font-bold animate-pulse">
-                  ✓ 25+ Years
-                </div>
-                <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-blue-500 text-white px-2 sm:px-3 py-1 rounded-full text-xs font-bold animate-pulse delay-500">
-                  🚀 AI Ready
-                </div>
-                <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 bg-purple-500 text-white px-2 sm:px-3 py-1 rounded-full text-xs font-bold animate-pulse delay-1000">
-                  📈 ROI Focused
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* SERVICES */}
       <section id="services" className="py-12 sm:py-16 md:py-20 bg-gray-50 relative">
