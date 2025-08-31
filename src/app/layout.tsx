@@ -5,6 +5,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import FormProvider from "@/components/forms/FormProvider";
 import WebVitals from "@/components/WebVitals";
 import Analytics from "@/components/Analytics";
+import PerformanceMonitor from "@/components/PerformanceMonitor";
 
 export const metadata = {
   metadataBase: new URL("https://www.dhimahitechnolabs.com"),
@@ -181,6 +182,7 @@ export default function RootLayout({
           <FormProvider>
             <Analytics />
             <WebVitals />
+            <PerformanceMonitor />
             <Header />
             {children}
           </FormProvider>

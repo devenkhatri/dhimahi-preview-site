@@ -4,6 +4,8 @@ import ExitIntentPopup from "./ExitIntentPopup";
 import ScrollBasedReveal from "./ScrollBasedReveal";
 import ProgressiveProfilingForm from "./ProgressiveProfilingForm";
 import { submitFormData, FormSubmission } from "@/lib/form-integrations";
+import { useFormTracking, useConversionFunnel } from "@/hooks/useConversionTracking";
+import { FunnelStage } from "@/lib/analytics";
 
 interface FormContextType {
   showExitIntent: boolean;
@@ -83,9 +85,32 @@ export default function FormProvider({
     localStorage.setItem('userProfile', JSON.stringify(profile));
   };
 
+  const { trackConversion } = useConversionFunnel();
+
   const submitForm = async (data: FormSubmission) => {
     try {
       await submitFormData(data);
+      
+      // Track conversion based on form type
+      const conversionGoalMap: Record<string, string> = {
+        'consultation-booking': 'consultation_request',
+        'project-quote': 'quote_request',
+        'newsletter': 'newsletter_signup',
+        'resource-download': 'resource_download',
+        'exit-intent-popup': 'newsletter_signup',
+        'scroll-based-reveal': 'newsletter_signup',
+        'progressive-profiling': 'newsletter_signup'
+      };
+
+      const goalId = conversionGoalMap[data.formType];
+      if (goalId) {
+        trackConversion(goalId, {
+          form_type: data.formType,
+          email: data.email,
+          company: data.company,
+          service_interest: data.serviceInterest
+        });
+      }
       
       // Update user profile if email is provided
       if (data.email) {

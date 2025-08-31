@@ -2,6 +2,7 @@
 import { useState } from "react";
 import MultiStepForm, { FormStep } from "./MultiStepForm";
 import { CalendarDaysIcon, ClockIcon } from "@heroicons/react/24/outline";
+import { useFormTracking } from "@/hooks/useConversionTracking";
 
 interface ConsultationBookingFormProps {
   onSubmit?: (data: Record<string, any>) => Promise<void>;
@@ -55,6 +56,10 @@ export default function ConsultationBookingForm({
   className = "" 
 }: ConsultationBookingFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { startTracking, trackFieldInteraction, trackCompletion, trackAbandonment } = useFormTracking(
+    'consultation-booking-form',
+    'consultation'
+  );
 
   const steps: FormStep[] = [
     {
