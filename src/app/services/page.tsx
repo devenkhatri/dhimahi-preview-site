@@ -34,19 +34,12 @@ export default function ServicesPage() {
               </h3>
               <p className="text-sm sm:text-base text-gray-600 mb-4">{service.excerpt}</p>
               
-              {/* Pricing and Timeline */}
-              {(service.startingPrice || service.timeline) && (
+              {/* Timeline */}
+              {service.timeline && (
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {service.startingPrice && (
-                    <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium">
-                      From {service.startingPrice}
-                    </span>
-                  )}
-                  {service.timeline && (
-                    <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-medium">
-                      ⏱️ {service.timeline}
-                    </span>
-                  )}
+                  <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-medium">
+                    ⏱️ {service.timeline}
+                  </span>
                 </div>
               )}
               

@@ -3,7 +3,6 @@ title: "AI & Automation Consulting"
 icon: "🤖"
 excerpt: "AI adoption strategy, business process automation, chatbots, and data insights to transform your business operations."
 order: 3
-startingPrice: "₹25,000"
 timeline: "2-12 weeks"
 features:
   - "AI Adoption Strategy"
@@ -13,40 +12,7 @@ features:
   - "Workflow Automation"
   - "Document Processing Automation"
   - "Custom AI Solutions"
-pricingTiers:
-  - name: "Automation Starter"
-    price: "₹25,000"
-    duration: "One-time"
-    features:
-      - "Process automation audit"
-      - "1-2 workflow automations"
-      - "Basic chatbot setup"
-      - "Documentation & training"
-      - "1 month support"
-  - name: "AI Integration"
-    price: "₹75,000"
-    duration: "One-time"
-    popular: true
-    features:
-      - "Comprehensive AI strategy"
-      - "3-5 process automations"
-      - "Advanced chatbot with AI"
-      - "Data analytics dashboard"
-      - "Team training sessions"
-      - "3 months support"
-      - "ROI tracking setup"
-  - name: "Enterprise Automation"
-    price: "₹2,00,000"
-    duration: "One-time"
-    features:
-      - "Full business automation"
-      - "Custom AI solutions"
-      - "Multi-platform chatbots"
-      - "Advanced analytics & reporting"
-      - "Integration with existing systems"
-      - "6 months support"
-      - "Dedicated project manager"
-      - "Ongoing optimization"
+
 processSteps:
   - step: 1
     title: "Business Process Assessment"
@@ -154,7 +120,7 @@ faqs:
   - question: "What types of business processes can be automated?"
     answer: "Almost any repetitive task can be automated including data entry, invoice processing, customer onboarding, inventory management, email responses, social media posting, and report generation."
   - question: "How much time and money can automation save?"
-    answer: "Most businesses save 5-10 hours per week and reduce operational costs by 30-50%. The exact savings depend on which processes you automate and their current complexity."
+    answer: "Most businesses save 5-10 hours per week and significantly reduce operational overhead. The exact savings depend on which processes you automate and their current complexity."
   - question: "Do I need technical knowledge to use automated systems?"
     answer: "No, we design all automation solutions to be user-friendly. We provide comprehensive training and documentation so your team can easily manage and use the automated systems."
   - question: "Can automation integrate with our existing software?"
@@ -226,7 +192,7 @@ Transform your business with AI solutions and process automation that save time,
 ## Expected Benefits
 
 - **5-10 hours per week** saved on repetitive tasks
-- **30-50% reduction** in operational costs
+- **Significant reduction** in operational overhead
 - **25-40% increase** in productivity and efficiency
 - **90% reduction** in manual errors and mistakes
 - **24/7 availability** for customer service and support
@@ -242,7 +208,7 @@ Transform your business with AI solutions and process automation that save time,
 
 ### Retail & E-commerce
 - Product recommendation engines
-- Dynamic pricing optimization
+- Dynamic inventory optimization
 - Customer service chatbots
 - Inventory management AI
 - Sales forecasting
@@ -266,4 +232,4 @@ Transform your business with AI solutions and process automation that save time,
 
 Ready to automate your business and implement AI solutions? Contact us for a free automation assessment and discover how AI can transform your operations.
 
-**Investment Range**: ₹25,000 - ₹10,00,000 depending on complexity and scope of automation.
+Contact us for a free automation assessment and customized quote based on your business processes and automation goals.

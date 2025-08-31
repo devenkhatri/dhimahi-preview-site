@@ -3,7 +3,6 @@ title: "Digital Marketing"
 icon: "📢"
 excerpt: "Comprehensive digital marketing strategies including SEO, social media, PPC, and content marketing to grow your online presence."
 order: 2
-startingPrice: "₹15,000/month"
 timeline: "3-6 months for results"
 features:
   - "Search Engine Optimization (SEO)"
@@ -13,41 +12,7 @@ features:
   - "Local SEO & Google My Business"
   - "Analytics & Performance Tracking"
   - "Brand Building & Online Reputation"
-pricingTiers:
-  - name: "Starter Package"
-    price: "₹15,000"
-    duration: "Per month"
-    features:
-      - "Basic SEO optimization"
-      - "Google My Business setup"
-      - "2 social media platforms"
-      - "Monthly performance report"
-      - "Basic content creation"
-      - "Email support"
-  - name: "Growth Package"
-    price: "₹35,000"
-    duration: "Per month"
-    popular: true
-    features:
-      - "Comprehensive SEO strategy"
-      - "4 social media platforms"
-      - "Google Ads management"
-      - "Content marketing (8 posts/month)"
-      - "Email marketing campaigns"
-      - "Bi-weekly strategy calls"
-      - "Detailed analytics reports"
-  - name: "Enterprise Package"
-    price: "₹75,000"
-    duration: "Per month"
-    features:
-      - "Full-service digital marketing"
-      - "All social media platforms"
-      - "Multi-platform advertising"
-      - "Advanced content strategy"
-      - "Marketing automation"
-      - "Dedicated account manager"
-      - "Weekly strategy sessions"
-      - "Custom reporting dashboard"
+
 processSteps:
   - step: 1
     title: "Digital Audit & Strategy"
@@ -254,4 +219,4 @@ Grow your business online with data-driven digital marketing strategies that del
 
 Ready to accelerate your digital growth? Contact us for a free digital marketing audit and strategy consultation.
 
-**Investment Range**: ₹15,000 - ₹1,00,000 per month depending on scope and channels.
+Contact us for a customized digital marketing strategy and quote based on your business goals and requirements.

@@ -3,7 +3,6 @@ title: "Web Development"
 icon: "🌐"
 excerpt: "Custom website design & development, e-commerce solutions, and CMS implementation for modern businesses."
 order: 1
-startingPrice: "₹25,000"
 timeline: "2-8 weeks"
 features:
   - "Custom Website Design & Development"
@@ -13,42 +12,7 @@ features:
   - "Mobile-First Responsive Design"
   - "SEO & Performance Optimization"
   - "Ongoing Support & Maintenance"
-pricingTiers:
-  - name: "Starter Website"
-    price: "₹25,000"
-    duration: "One-time"
-    features:
-      - "5-page responsive website"
-      - "Mobile-optimized design"
-      - "Basic SEO setup"
-      - "Contact form integration"
-      - "1 month free support"
-      - "SSL certificate included"
-  - name: "Business Website"
-    price: "₹75,000"
-    duration: "One-time"
-    popular: true
-    features:
-      - "10-page responsive website"
-      - "Custom design & branding"
-      - "CMS integration (WordPress)"
-      - "Advanced SEO optimization"
-      - "Google Analytics setup"
-      - "3 months free support"
-      - "Performance optimization"
-      - "Social media integration"
-  - name: "E-commerce Store"
-    price: "₹1,50,000"
-    duration: "One-time"
-    features:
-      - "Full e-commerce functionality"
-      - "Product catalog management"
-      - "Payment gateway integration"
-      - "Inventory management"
-      - "Order management system"
-      - "Customer account portal"
-      - "6 months free support"
-      - "Mobile app integration ready"
+
 processSteps:
   - step: 1
     title: "Discovery & Planning"
@@ -142,7 +106,7 @@ faqs:
   - question: "How long does it take to build a website?"
     answer: "Timeline depends on complexity. A basic business website takes 2-3 weeks, while complex e-commerce sites may take 6-8 weeks. We provide detailed timelines during the planning phase."
   - question: "Do you provide ongoing maintenance and support?"
-    answer: "Yes, we offer comprehensive maintenance packages including security updates, performance monitoring, content updates, and technical support. All projects include free support for the first month."
+    answer: "Yes, we offer comprehensive maintenance including security updates, performance monitoring, content updates, and technical support."
   - question: "Will my website be mobile-friendly?"
     answer: "Absolutely! All our websites are built with a mobile-first approach, ensuring they look and function perfectly on all devices including smartphones, tablets, and desktops."
   - question: "Can I update the website content myself?"
@@ -150,7 +114,7 @@ faqs:
   - question: "Do you help with domain and hosting setup?"
     answer: "Yes, we can help you choose and set up domain names and hosting services. We work with reliable hosting providers and can manage the technical setup for you."
   - question: "What if I need changes after the website is launched?"
-    answer: "We offer post-launch support and can make changes as needed. Minor updates are often included in our maintenance packages, while major changes are quoted separately."
+    answer: "We offer post-launch support and can make changes as needed. We provide ongoing support for all website updates and modifications."
 ---
 
 # Web Development 🌐
@@ -203,7 +167,7 @@ Transform your online presence with professional web development solutions that 
 - **Local Market Understanding** - Knowledge of Gujarat business needs and customer preferences
 - **End-to-End Solutions** - From concept to launch and ongoing maintenance
 - **Future-Ready Technology** - Modern, scalable solutions that grow with your business
-- **Transparent Pricing** - Clear, upfront pricing with no hidden costs
+- **Transparent Process** - Clear communication and project management throughout
 
 ## Technology Stack
 
@@ -218,4 +182,4 @@ Transform your online presence with professional web development solutions that 
 
 Ready to transform your online presence? Contact us for a free consultation and let's discuss how we can help your business succeed online.
 
-**Investment Range**: ₹25,000 - ₹5,00,000 depending on complexity and requirements.
+Contact us for a detailed quote based on your specific requirements and project complexity.

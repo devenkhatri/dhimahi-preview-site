@@ -6,13 +6,7 @@ import html from 'remark-html';
 
 const servicesDirectory = path.join(process.cwd(), 'content/services');
 
-export interface PricingTier {
-  name: string;
-  price: string;
-  duration: string;
-  features: string[];
-  popular?: boolean;
-}
+
 
 export interface ProcessStep {
   step: number;
@@ -44,12 +38,11 @@ export interface ServiceData {
   order: number;
   features: string[];
   content: string;
-  pricingTiers?: PricingTier[];
+
   processSteps?: ProcessStep[];
   technologyStack?: TechnologyStack[];
   faqs?: FAQ[];
   timeline?: string;
-  startingPrice?: string;
 }
 
 export interface ServiceMeta {
@@ -59,7 +52,6 @@ export interface ServiceMeta {
   excerpt: string;
   order: number;
   features: string[];
-  startingPrice?: string;
   timeline?: string;
 }
 
@@ -80,7 +72,7 @@ export function getAllServices(): ServiceMeta[] {
         excerpt: matterResult.data.excerpt,
         order: matterResult.data.order || 999,
         features: matterResult.data.features || [],
-        startingPrice: matterResult.data.startingPrice,
+
         timeline: matterResult.data.timeline,
       };
     });
@@ -106,7 +98,7 @@ export async function getServiceData(slug: string): Promise<ServiceData> {
     order: matterResult.data.order || 999,
     features: matterResult.data.features || [],
     content: contentHtml,
-    pricingTiers: matterResult.data.pricingTiers,
+
     processSteps: matterResult.data.processSteps,
     technologyStack: matterResult.data.technologyStack,
     faqs: matterResult.data.faqs,

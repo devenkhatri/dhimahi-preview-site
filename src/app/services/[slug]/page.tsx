@@ -1,7 +1,7 @@
 import { getServiceData, getAllServices } from "@/lib/services";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import PricingTiers from "@/components/PricingTiers";
+
 import ProcessSteps from "@/components/ProcessSteps";
 import TechnologyStackComponent from "@/components/TechnologyStack";
 import ServiceFAQ from "@/components/ServiceFAQ";
