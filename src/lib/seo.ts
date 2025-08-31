@@ -189,7 +189,7 @@ export function generateStructuredData({ type, data }: StructuredDataProps): str
           telephone: '+91 99999 99999',
           contactType: 'customer service',
           areaServed: 'IN',
-          availableLanguage: ['English', 'Gujarati', 'Hindi'],
+          availableLanguage: ['English'],
         },
       };
       break;

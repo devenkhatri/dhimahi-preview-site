@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { COMPANY_NAME } from '@/lib/constants';
-import { useLanguage, translations } from '@/contexts/LanguageContext';
 
 interface HeaderProps {
   transparent?: boolean;
@@ -14,7 +13,6 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const { language, setLanguage, t } = useLanguage();
 
   // Close mobile menu when clicking outside
   useEffect(() => {
@@ -57,9 +55,7 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
     }
   };
 
-  const handleLanguageSwitch = (lang: 'en' | 'gu') => {
-    setLanguage(lang);
-  };
+
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -70,11 +66,11 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
   };
 
   const navigationItems = [
-    { href: '/services', label: translations.services },
-    { href: '/portfolio', label: translations.portfolio },
-    { href: '/insights', label: translations.insights },
-    { href: '/resources', label: { en: 'Resources', gu: 'સંસાધનો' } },
-    { href: '/about', label: translations.about },
+    { href: '/services', label: 'Services' },
+    { href: '/portfolio', label: 'Portfolio' },
+    { href: '/insights', label: 'Insights' },
+    { href: '/resources', label: 'Resources' },
+    { href: '/about', label: 'About' },
   ];
 
   const headerClasses = `
@@ -106,7 +102,7 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
                 {COMPANY_NAME}
               </span>
               <span className="text-xs text-gray-600 leading-tight hidden sm:block">
-                {t('tagline', translations.futureReadyIT.en, translations.futureReadyIT.gu)}
+                Future-Ready IT Solutions
               </span>
             </div>
           </Link>
@@ -119,7 +115,7 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
                 href={item.href}
                 className="text-gray-700 hover:text-[#215b6f] font-medium transition-colors duration-200 relative group"
               >
-                {language === 'en' ? item.label.en : item.label.gu}
+                {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#215b6f] transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
@@ -138,25 +134,14 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
               </svg>
             </button>
 
-            {/* Language Switcher */}
-            <div className="relative">
-              <button
-                onClick={() => handleLanguageSwitch(language === 'en' ? 'gu' : 'en')}
-                className="flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-[#215b6f] border border-gray-300 rounded-lg hover:border-[#215b6f] transition-all duration-200"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-                </svg>
-                {language === 'en' ? 'ગુજરાતી' : 'English'}
-              </button>
-            </div>
+
 
             {/* CTA Button */}
             <Link
               href="/consultation"
               className="bg-[#215b6f] hover:bg-[#1a4a5a] text-white px-6 py-2.5 rounded-xl font-semibold transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
             >
-              {t('cta', translations.freeConsultation.en, translations.freeConsultation.gu)}
+              Free Consultation
             </Link>
           </div>
 
@@ -207,7 +192,7 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder={t('searchPlaceholder', translations.searchPlaceholder.en, translations.searchPlaceholder.gu)}
+                  placeholder="Search services, insights, or solutions..."
                   className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#215b6f] focus:border-transparent outline-none transition-all duration-200"
                 />
                 <div className="absolute inset-y-0 right-0 flex items-center pr-3">
@@ -220,7 +205,7 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
                 type="submit"
                 className="px-6 py-2.5 bg-[#215b6f] text-white rounded-lg hover:bg-[#1a4a5a] transition-colors duration-200 font-medium"
               >
-                {t('search', translations.search.en, translations.search.gu)}
+                Search
               </button>
             </form>
           </div>
@@ -241,20 +226,10 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
                 className="block px-4 py-3 text-gray-700 hover:text-[#215b6f] hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                {language === 'en' ? item.label.en : item.label.gu}
+                {item.label}
               </Link>
             ))}
-            
-            {/* Mobile Language Switcher */}
-            <button
-              onClick={() => handleLanguageSwitch(language === 'en' ? 'gu' : 'en')}
-              className="w-full text-left px-4 py-3 text-gray-700 hover:text-[#215b6f] hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium flex items-center gap-2"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-              </svg>
-              {t('switchLanguage', translations.switchToGujarati.en, translations.switchToGujarati.gu)}
-            </button>
+
 
             {/* Mobile CTA */}
             <div className="px-4 pt-2">
@@ -263,7 +238,7 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
                 className="block w-full text-center bg-[#215b6f] hover:bg-[#1a4a5a] text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 shadow-md"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                {t('cta', translations.freeConsultation.en, translations.freeConsultation.gu)}
+                Free Consultation
               </Link>
             </div>
           </div>

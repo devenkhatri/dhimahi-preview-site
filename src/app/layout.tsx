@@ -1,7 +1,6 @@
 import "./globals.css";
 import { COMPANY_NAME } from "@/lib/constants";
 import Header from "@/components/Header";
-import { LanguageProvider } from "@/contexts/LanguageContext";
 import FormProvider from "@/components/forms/FormProvider";
 import WebVitals from "@/components/WebVitals";
 import Analytics from "@/components/Analytics";
@@ -123,7 +122,7 @@ export default function RootLayout({
                 "telephone": "+91 99999 99999",
                 "contactType": "customer service",
                 "areaServed": "IN",
-                "availableLanguage": ["English", "Gujarati", "Hindi"]
+                "availableLanguage": ["English"]
               },
               "areaServed": [
                 {
@@ -178,15 +177,13 @@ export default function RootLayout({
           }}
         />
 
-        <LanguageProvider>
-          <FormProvider>
-            <Analytics />
-            <WebVitals />
-            <PerformanceMonitor />
-            <Header />
-            {children}
-          </FormProvider>
-        </LanguageProvider>
+        <FormProvider>
+          <Analytics />
+          <WebVitals />
+          <PerformanceMonitor />
+          <Header />
+          {children}
+        </FormProvider>
       </body>
     </html>
   );

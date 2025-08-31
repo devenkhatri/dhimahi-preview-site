@@ -93,11 +93,10 @@ export default function AboutPage() {
                 <div className="container mx-auto px-4">
                     <div className="max-w-4xl mx-auto text-center">
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                            About {COMPANY_NAME}
+                            {aboutContent.hero.title}
                         </h1>
                         <p className="text-xl md:text-2xl opacity-90 leading-relaxed">
-                            Making technology accessible to SMEs across Gujarat for over 25 years.
-                            We bridge the gap between traditional business values and modern digital solutions.
+                            {aboutContent.hero.subtitle}
                         </p>
                     </div>
                 </div>
@@ -110,12 +109,10 @@ export default function AboutPage() {
                         <div className="grid md:grid-cols-2 gap-12 items-center">
                             <div>
                                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                                    Our Mission
+                                    {aboutContent.mission.title}
                                 </h2>
                                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                                    To empower small and medium businesses in {CITY_LINE} and beyond with
-                                    practical, affordable, and future-ready technology solutions that drive
-                                    real business growth.
+                                    {aboutContent.mission.description}
                                 </p>
                                 <p className="text-gray-600 leading-relaxed">
                                     We believe that every business, regardless of size, deserves access to
@@ -126,9 +123,7 @@ export default function AboutPage() {
                             <div className="bg-gray-50 rounded-2xl p-8">
                                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
                                 <p className="text-gray-600 leading-relaxed">
-                                    To be Gujarat's most trusted IT consultancy, known for transforming
-                                    SMEs into digitally empowered, future-ready businesses that compete
-                                    confidently in the modern marketplace.
+                                    {aboutContent.mission.vision}
                                 </p>
                             </div>
                         </div>
@@ -144,31 +139,14 @@ export default function AboutPage() {
                             Our Journey
                         </h2>
                         <div className="space-y-8">
-                            <Milestone
-                                year="1999"
-                                title="Foundation & Early Years"
-                                description="Started as a small IT services company, focusing on basic web development and computer solutions for local businesses in Ahmedabad."
-                            />
-                            <Milestone
-                                year="2005"
-                                title="Digital Marketing Expansion"
-                                description="Expanded into digital marketing services as businesses began recognizing the importance of online presence and search engine visibility."
-                            />
-                            <Milestone
-                                year="2015"
-                                title="Cloud & Mobile Revolution"
-                                description="Embraced cloud technologies and mobile-first approaches, helping clients transition from traditional systems to modern, scalable solutions."
-                            />
-                            <Milestone
-                                year="2020"
-                                title="AI & Automation Focus"
-                                description="Pivoted to include AI consulting and business process automation, recognizing the transformative potential for SMEs."
-                            />
-                            <Milestone
-                                year="2024"
-                                title="Future-Ready Consultancy"
-                                description="Evolved into a comprehensive IT consultancy, offering fractional CTO services and strategic technology guidance for growing businesses."
-                            />
+                            {aboutContent.timeline.map((milestone, index) => (
+                                <Milestone
+                                    key={index}
+                                    year={milestone.year}
+                                    title={milestone.title}
+                                    description={milestone.description}
+                                />
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -182,36 +160,14 @@ export default function AboutPage() {
                             What Drives Us
                         </h2>
                         <div className="grid md:grid-cols-3 gap-8">
-                            <ValueCard
-                                icon="🤝"
-                                title="Trust & Transparency"
-                                description="We build lasting relationships through honest communication, clear pricing, and reliable delivery. Your success is our success."
-                            />
-                            <ValueCard
-                                icon="💡"
-                                title="Innovation with Purpose"
-                                description="We don't chase every tech trend. Instead, we carefully select solutions that deliver real business value and ROI."
-                            />
-                            <ValueCard
-                                icon="🎯"
-                                title="SME-Focused Approach"
-                                description="We understand the unique challenges of small and medium businesses and tailor our solutions accordingly."
-                            />
-                            <ValueCard
-                                icon="📚"
-                                title="Continuous Learning"
-                                description="Technology evolves rapidly. We stay ahead of the curve to ensure our clients benefit from the latest innovations."
-                            />
-                            <ValueCard
-                                icon="🌱"
-                                title="Sustainable Growth"
-                                description="We help businesses grow sustainably, building strong foundations rather than quick fixes."
-                            />
-                            <ValueCard
-                                icon="🏠"
-                                title="Local Expertise"
-                                description="Deep understanding of the Gujarat business landscape and local market dynamics."
-                            />
+                            {aboutContent.values.map((value, index) => (
+                                <ValueCard
+                                    key={index}
+                                    icon={value.icon}
+                                    title={value.title}
+                                    description={value.description}
+                                />
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -229,24 +185,15 @@ export default function AboutPage() {
                             ensuring we deliver both proven strategies and innovative solutions.
                         </p>
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            <TeamMember
-                                name="Rajesh Patel"
-                                role="Founder & Chief Technology Officer"
-                                bio="With 25+ years in IT, Rajesh leads our technology vision and ensures we stay ahead of industry trends while maintaining practical, business-focused solutions."
-                                expertise={["IT Strategy", "AI Consulting", "Business Automation", "Team Leadership"]}
-                            />
-                            <TeamMember
-                                name="Priyansh Shah"
-                                role="Digital Marketing Director"
-                                bio="Priyansh brings 15+ years of digital marketing expertise, specializing in helping SMEs build strong online presence and generate quality leads."
-                                expertise={["SEO", "PPC", "Social Media", "Content Strategy"]}
-                            />
-                            <TeamMember
-                                name="Amit Desai"
-                                role="Senior Web Developer"
-                                bio="Amit is our technical lead for web development projects, ensuring every website we build is fast, secure, and user-friendly."
-                                expertise={["React", "Next.js", "WordPress", "E-commerce"]}
-                            />
+                            {aboutContent.team.map((member, index) => (
+                                <TeamMember
+                                    key={index}
+                                    name={member.name}
+                                    role={member.role}
+                                    bio={member.bio}
+                                    expertise={member.expertise}
+                                />
+                            ))}
                         </div>
                     </div>
                 </div>
