@@ -74,7 +74,7 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
     { href: '/portfolio', label: translations.portfolio },
     { href: '/insights', label: translations.insights },
     { href: '/resources', label: { en: 'Resources', gu: 'સંસાધનો' } },
-    { href: '/#about', label: translations.about },
+    { href: '/about', label: translations.about },
   ];
 
   const headerClasses = `

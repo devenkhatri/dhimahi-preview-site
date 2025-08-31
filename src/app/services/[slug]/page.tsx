@@ -202,11 +202,6 @@ export default async function ServicePage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: service.content }}
         />
 
-        {/* Pricing Tiers */}
-        {service.pricingTiers && service.pricingTiers.length > 0 && (
-          <PricingTiers tiers={service.pricingTiers} serviceName={service.title} />
-        )}
-
         {/* Process Steps */}
         {service.processSteps && service.processSteps.length > 0 && (
           <ProcessSteps steps={service.processSteps} serviceName={service.title} />

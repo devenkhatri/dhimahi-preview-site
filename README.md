@@ -44,6 +44,7 @@ dhimahi-site/
 │   ├── app/                    # Next.js App Router pages
 │   │   ├── layout.tsx         # Root layout with navigation
 │   │   ├── page.tsx           # Homepage
+│   │   ├── about/             # About page
 │   │   ├── services/          # Services pages
 │   │   ├── insights/          # Blog/insights pages
 │   │   └── success/           # Form success page
@@ -51,7 +52,8 @@ dhimahi-site/
 │   │   ├── constants.ts       # Site configuration
 │   │   ├── services.ts        # Services data
 │   │   └── markdown.ts        # Blog post utilities
-│   └── content/               # Markdown content
+│   └── content/               # Content and data
+│       ├── about.ts           # About page content (multilingual)
 │       ├── services/          # Service descriptions
 │       └── insights/          # Blog posts
 ├── public/                    # Static assets
@@ -78,6 +80,13 @@ dhimahi-site/
 - **Business Tips** - Practical advice for SMEs in Gujarat
 - **Technology Guides** - How-to articles on digital transformation
 - **Industry Insights** - Market trends and business strategies
+
+### 👥 About
+- **Company Story** - 25+ year journey from IT services to AI consultancy
+- **Mission & Vision** - Clear articulation of company purpose and goals
+- **Team Profiles** - Key team members with expertise and backgrounds
+- **Company Values** - Core principles that guide business decisions
+- **Timeline** - Major milestones and evolution over the years
 
 ## � NGetting Started
 
