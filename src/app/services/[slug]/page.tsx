@@ -5,6 +5,8 @@ import PricingTiers from "@/components/PricingTiers";
 import ProcessSteps from "@/components/ProcessSteps";
 import TechnologyStackComponent from "@/components/TechnologyStack";
 import ServiceFAQ from "@/components/ServiceFAQ";
+import { generateMetadata as generateSEOMetadata, generateStructuredData } from "@/lib/seo";
+import { COMPANY_NAME } from "@/lib/constants";
 
 interface Props {
   params: {
@@ -22,10 +24,24 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props) {
   try {
     const service = await getServiceData(params.slug);
-    return {
-      title: `${service.title} Services | Dhimahi Technolabs`,
+    const canonicalUrl = `https://www.dhimahitechnolabs.com/services/${params.slug}`;
+    
+    return generateSEOMetadata({
+      title: `${service.title} Services`,
       description: service.excerpt,
-    };
+      keywords: [
+        service.title.toLowerCase(),
+        `${service.title.toLowerCase()} services`,
+        `${service.title.toLowerCase()} Gujarat`,
+        `${service.title.toLowerCase()} Ahmedabad`,
+        'IT consulting',
+        'SME solutions',
+        'business automation',
+        ...service.features.slice(0, 5).map(f => f.toLowerCase()),
+      ],
+      canonicalUrl,
+      ogType: 'website',
+    });
   } catch {
     return {
       title: "Service Not Found",
@@ -42,8 +58,71 @@ export default async function ServicePage({ params }: Props) {
     notFound();
   }
 
+  const serviceStructuredData = generateStructuredData({
+    type: 'Service',
+    data: {
+      name: service.title,
+      description: service.excerpt,
+      serviceType: service.title,
+      category: service.title,
+      url: `https://www.dhimahitechnolabs.com/services/${params.slug}`,
+      offers: service.startingPrice ? {
+        price: service.startingPrice,
+      } : undefined,
+    },
+  });
+
+  const faqStructuredData = service.faqs && service.faqs.length > 0 ? generateStructuredData({
+    type: 'FAQPage',
+    data: {
+      faqs: service.faqs,
+    },
+  }) : null;
+
+  const breadcrumbStructuredData = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://www.dhimahitechnolabs.com',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Services',
+        item: 'https://www.dhimahitechnolabs.com/services',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: service.title,
+        item: `https://www.dhimahitechnolabs.com/services/${params.slug}`,
+      },
+    ],
+  });
+
   return (
-    <main className="py-16">
+    <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serviceStructuredData }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: breadcrumbStructuredData }}
+      />
+      {faqStructuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: faqStructuredData }}
+        />
+      )}
+
+      <main className="py-16">
       <div className="container mx-auto px-4 max-w-4xl">
         {/* Breadcrumb */}
         <nav className="mb-8">
@@ -173,5 +252,6 @@ export default async function ServicePage({ params }: Props) {
         </div>
       </div>
     </main>
+    </>
   );
 }

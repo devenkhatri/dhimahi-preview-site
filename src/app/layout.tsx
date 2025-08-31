@@ -3,6 +3,8 @@ import { COMPANY_NAME } from "@/lib/constants";
 import Header from "@/components/Header";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import FormProvider from "@/components/forms/FormProvider";
+import WebVitals from "@/components/WebVitals";
+import Analytics from "@/components/Analytics";
 
 export const metadata = {
   metadataBase: new URL("https://www.dhimahitechnolabs.com"),
@@ -81,33 +83,104 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#215b6f" />
+        
+        {/* Preconnect to external domains for performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        
+        {/* DNS prefetch for better performance */}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
       </head>
       <body className="antialiased text-gray-800">
-        {/* LocalBusiness JSON-LD */}
+        {/* Organization JSON-LD */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "LocalBusiness",
+              "@type": "Organization",
               "name": COMPANY_NAME,
-              "image": "/favicon.ico",
+              "alternateName": "Dhimahi Technolabs",
               "url": "https://www.dhimahitechnolabs.com",
-              "telephone": " +91 99999 99999 ",
+              "logo": "https://www.dhimahitechnolabs.com/favicon.ico",
+              "image": "https://www.dhimahitechnolabs.com/og-image.png",
+              "description": "Transform your SME with AI solutions, digital marketing, and smart IT strategy. 25+ years experience helping Gujarat businesses grow.",
+              "foundingDate": "1999",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Ahmedabad",
                 "addressRegion": "Gujarat",
                 "addressCountry": "IN"
               },
-              "areaServed": ["Ahmedabad", "Gandhinagar", "Gujarat"],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+91 99999 99999",
+                "contactType": "customer service",
+                "areaServed": "IN",
+                "availableLanguage": ["English", "Gujarati", "Hindi"]
+              },
+              "areaServed": [
+                {
+                  "@type": "City",
+                  "name": "Ahmedabad"
+                },
+                {
+                  "@type": "City", 
+                  "name": "Gandhinagar"
+                },
+                {
+                  "@type": "State",
+                  "name": "Gujarat"
+                }
+              ],
+              "serviceArea": {
+                "@type": "State",
+                "name": "Gujarat"
+              },
+              "knowsAbout": [
+                "AI Solutions",
+                "Digital Marketing", 
+                "Web Development",
+                "Business Automation",
+                "CRM Implementation",
+                "IT Consulting"
+              ],
               "sameAs": []
+            })
+          }}
+        />
+
+        {/* WebSite JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": COMPANY_NAME,
+              "url": "https://www.dhimahitechnolabs.com",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://www.dhimahitechnolabs.com/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": COMPANY_NAME
+              }
             })
           }}
         />
 
         <LanguageProvider>
           <FormProvider>
+            <Analytics />
+            <WebVitals />
             <Header />
             {children}
           </FormProvider>

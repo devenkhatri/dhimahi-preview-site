@@ -5,6 +5,7 @@ import SocialShare from "@/components/SocialShare";
 import AuthorProfile from "@/components/AuthorProfile";
 import RelatedArticles from "@/components/RelatedArticles";
 import NewsletterSubscription from "@/components/NewsletterSubscription";
+import { generateMetadata as generateSEOMetadata, generateStructuredData } from "@/lib/seo";
 
 interface Props {
   params: {
@@ -22,23 +23,28 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props) {
   try {
     const post = await getPostData(params.slug);
-    return {
-      title: `${post.title} | Dhimahi Technolabs`,
+    const canonicalUrl = `https://www.dhimahitechnolabs.com/insights/${params.slug}`;
+    
+    return generateSEOMetadata({
+      title: post.title,
       description: post.excerpt,
-      openGraph: {
-        title: post.title,
-        description: post.excerpt,
-        type: 'article',
-        publishedTime: post.date,
-        authors: [post.author],
-        tags: post.tags,
-      },
-      twitter: {
-        card: 'summary_large_image',
-        title: post.title,
-        description: post.excerpt,
-      },
-    };
+      keywords: [
+        ...post.tags,
+        post.category || '',
+        'IT consulting',
+        'SME solutions',
+        'business automation',
+        'Gujarat business',
+        'Ahmedabad IT services',
+      ].filter(Boolean),
+      canonicalUrl,
+      ogType: 'article',
+      publishedTime: post.date,
+      modifiedTime: post.date,
+      author: post.author,
+      section: post.category,
+      tags: post.tags,
+    });
   } catch {
     return {
       title: "Post Not Found",
@@ -59,10 +65,64 @@ export default async function PostPage({ params }: Props) {
   const relatedPosts = getRelatedPosts(post.slug, post.tags, 3);
   
   // Construct full URL for sharing
-  const fullUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://dhimahi.com'}/insights/${post.slug}`;
+  const fullUrl = `https://www.dhimahitechnolabs.com/insights/${post.slug}`;
+
+  // Generate structured data
+  const articleStructuredData = generateStructuredData({
+    type: 'Article',
+    data: {
+      title: post.title,
+      description: post.excerpt,
+      author: post.author,
+      publishedTime: post.date,
+      modifiedTime: post.date,
+      image: 'https://www.dhimahitechnolabs.com/og-image.png',
+      url: fullUrl,
+      keywords: post.tags,
+      section: post.category,
+      wordCount: post.content.split(' ').length,
+      readTime: post.readTime,
+    },
+  });
+
+  const breadcrumbStructuredData = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://www.dhimahitechnolabs.com',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Insights',
+        item: 'https://www.dhimahitechnolabs.com/insights',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: post.title,
+        item: fullUrl,
+      },
+    ],
+  });
 
   return (
-    <main className="py-16">
+    <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: articleStructuredData }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: breadcrumbStructuredData }}
+      />
+
+      <main className="py-16">
       <div className="container mx-auto px-4">
         {/* Breadcrumb */}
         <div className="max-w-4xl mx-auto mb-8">
@@ -182,5 +242,6 @@ export default async function PostPage({ params }: Props) {
         </div>
       </div>
     </main>
+    </>
   );
 }
