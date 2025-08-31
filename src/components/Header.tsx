@@ -73,6 +73,7 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
     { href: '/services', label: translations.services },
     { href: '/portfolio', label: translations.portfolio },
     { href: '/insights', label: translations.insights },
+    { href: '/resources', label: { en: 'Resources', gu: 'સંસાધનો' } },
     { href: '/#about', label: translations.about },
   ];
 
@@ -152,7 +153,7 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
 
             {/* CTA Button */}
             <Link
-              href="/#contact-form"
+              href="/consultation"
               className="bg-[#215b6f] hover:bg-[#1a4a5a] text-white px-6 py-2.5 rounded-xl font-semibold transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
             >
               {t('cta', translations.freeConsultation.en, translations.freeConsultation.gu)}
@@ -258,7 +259,7 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
             {/* Mobile CTA */}
             <div className="px-4 pt-2">
               <Link
-                href="/#contact-form"
+                href="/consultation"
                 className="block w-full text-center bg-[#215b6f] hover:bg-[#1a4a5a] text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 shadow-md"
                 onClick={() => setIsMobileMenuOpen(false)}
               >

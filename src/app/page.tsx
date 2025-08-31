@@ -135,8 +135,8 @@ export default function HomePage() {
               <p className="mt-2 opacity-90 text-sm sm:text-base">Your first consultation is <strong>free</strong>. Let's explore how AI, digital growth, and smart IT strategy can help your business scale.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-              <a href="mailto:hello@dhimahitechnolabs.com" className="inline-block rounded-xl bg-white text-primary px-4 sm:px-5 py-3 font-medium hover:opacity-90 text-center text-sm sm:text-base">Book Free Consultation</a>
-              {PHONE && <a href={`tel:${PHONE}`} className="inline-block rounded-xl border border-white/70 px-4 sm:px-5 py-3 font-medium hover:bg-white/10 text-center text-sm sm:text-base">Call {PHONE}</a>}
+              <a href="/consultation" className="inline-block rounded-xl bg-white text-primary px-4 sm:px-5 py-3 font-medium hover:opacity-90 text-center text-sm sm:text-base">Book Free Consultation</a>
+              <a href="/quote" className="inline-block rounded-xl border border-white/70 px-4 sm:px-5 py-3 font-medium hover:bg-white/10 text-center text-sm sm:text-base">Get Project Quote</a>
             </div>
           </div>
         </div>

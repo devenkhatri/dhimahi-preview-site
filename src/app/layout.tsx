@@ -2,6 +2,7 @@ import "./globals.css";
 import { COMPANY_NAME } from "@/lib/constants";
 import Header from "@/components/Header";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import FormProvider from "@/components/forms/FormProvider";
 
 export const metadata = {
   metadataBase: new URL("https://www.dhimahitechnolabs.com"),
@@ -106,8 +107,10 @@ export default function RootLayout({
         />
 
         <LanguageProvider>
-          <Header />
-          {children}
+          <FormProvider>
+            <Header />
+            {children}
+          </FormProvider>
         </LanguageProvider>
       </body>
     </html>
