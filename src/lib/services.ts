@@ -43,6 +43,7 @@ export interface ServiceData {
   technologyStack?: TechnologyStack[];
   faqs?: FAQ[];
   timeline?: string;
+  startingPrice?: string;
 }
 
 export interface ServiceMeta {
