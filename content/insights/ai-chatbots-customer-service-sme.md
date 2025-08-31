@@ -3,7 +3,9 @@ title: "AI Chatbots for SME Customer Service: Implementation Guide"
 excerpt: "Deploy smart chatbots to handle 80% of customer queries while maintaining personal touch."
 date: "2024-02-12"
 author: "Dhimahi Technolabs"
+category: "AI & Automation"
 tags: ["AI", "Chatbots", "Customer Service", "Automation", "SME"]
+relatedPosts: ["business-process-automation-sme", "sme-ai-time-savings"]
 ---
 
 Deploy smart chatbots to handle 80% of customer queries while maintaining personal touch.

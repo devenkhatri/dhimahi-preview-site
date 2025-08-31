@@ -1,5 +1,6 @@
-import { getAllPosts } from "@/lib/markdown";
+import { getAllPosts, getPostsByTag, getTagsWithCounts } from "@/lib/markdown";
 import { notFound } from "next/navigation";
+import NewsletterSubscription from "@/components/NewsletterSubscription";
 
 interface Props {
   params: {
@@ -22,18 +23,25 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props) {
   const decodedTag = decodeURIComponent(params.tag);
+  const tagPosts = getPostsByTag(decodedTag);
+  
   return {
     title: `${decodedTag} Articles | Dhimahi Technolabs`,
-    description: `All insights and articles about ${decodedTag} for SMEs in Gujarat.`,
+    description: `${tagPosts.length} insights and articles about ${decodedTag} for SMEs in Gujarat. Practical guides to help your business grow.`,
+    openGraph: {
+      title: `${decodedTag} Articles`,
+      description: `${tagPosts.length} insights about ${decodedTag} for SMEs in Gujarat`,
+      type: 'website',
+    },
   };
 }
 
 export default function TagPage({ params }: Props) {
   const decodedTag = decodeURIComponent(params.tag);
-  const allPosts = getAllPosts();
-  const tagPosts = allPosts.filter(post => 
-    post.tags.some(tag => tag.toLowerCase() === decodedTag.toLowerCase())
-  );
+  const tagPosts = getPostsByTag(decodedTag);
+  const relatedTags = getTagsWithCounts().filter(({ tag }) => 
+    tag.toLowerCase() !== decodedTag.toLowerCase()
+  ).slice(0, 8);
 
   if (tagPosts.length === 0) {
     notFound();
@@ -42,68 +50,133 @@ export default function TagPage({ params }: Props) {
   return (
     <main className="py-12 sm:py-16">
       <div className="container mx-auto px-4">
-        <div className="mb-6">
+        {/* Header */}
+        <div className="mb-8">
           <a href="/insights" className="inline-flex items-center text-primary hover:underline mb-4">
             ← Back to All Insights
           </a>
           
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-lg bg-primary text-white px-4 py-2 rounded-full font-medium">
-              {decodedTag}
-            </span>
-            <span className="text-gray-600">
-              {tagPosts.length} article{tagPosts.length !== 1 ? 's' : ''}
-            </span>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
+            <div className="flex items-center gap-3">
+              <span className="text-lg bg-primary text-white px-4 py-2 rounded-full font-medium">
+                #{decodedTag}
+              </span>
+              <span className="text-gray-600">
+                {tagPosts.length} article{tagPosts.length !== 1 ? 's' : ''}
+              </span>
+            </div>
+            
+            <div className="sm:ml-auto">
+              <a 
+                href="/insights/tags" 
+                className="inline-flex items-center text-sm text-primary hover:underline"
+              >
+                Browse all topics →
+              </a>
+            </div>
           </div>
           
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
             {decodedTag} Articles
           </h1>
-          <p className="mt-2 text-gray-600 text-sm sm:text-base">
-            Insights and guides about {decodedTag.toLowerCase()} for SMEs in Gujarat.
+          <p className="text-gray-600 text-sm sm:text-base max-w-2xl">
+            Comprehensive insights and practical guides about {decodedTag.toLowerCase()} to help SMEs in Gujarat leverage technology for business growth.
           </p>
         </div>
 
-        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Articles Grid */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-12">
           {tagPosts.map((post) => (
-            <a 
-              href={`/insights/${post.slug}`} 
+            <article 
               key={post.slug} 
-              className="rounded-2xl border border-gray-200 p-4 sm:p-6 hover:shadow-soft transition-shadow"
+              className="rounded-2xl border border-gray-200 p-6 hover:shadow-soft transition-shadow"
             >
+              {/* Tags */}
               <div className="flex flex-wrap gap-1 mb-3">
-                {post.tags.slice(0, 2).map((tag) => (
-                  <span 
-                    key={tag} 
-                    className={`text-xs px-2 py-1 rounded ${
+                {post.tags.slice(0, 3).map((tag) => (
+                  <a
+                    key={tag}
+                    href={`/insights/tag/${encodeURIComponent(tag)}`}
+                    className={`text-xs px-2 py-1 rounded transition-colors ${
                       tag.toLowerCase() === decodedTag.toLowerCase() 
                         ? 'bg-primary text-white' 
-                        : 'bg-gray-100 text-gray-600'
+                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                     }`}
                   >
                     {tag}
-                  </span>
+                  </a>
                 ))}
+                {post.category && (
+                  <span className="text-xs bg-accent/20 text-accent px-2 py-1 rounded">
+                    {post.category}
+                  </span>
+                )}
               </div>
-              <h3 className="font-semibold text-sm sm:text-base">{post.title}</h3>
-              <p className="mt-2 text-gray-600 text-xs sm:text-sm">{post.excerpt}</p>
-              <div className="mt-3 flex items-center justify-between">
-                <span className="text-xs text-gray-500">
-                  {new Date(post.date).toLocaleDateString()}
-                </span>
-                <span className="text-primary font-medium text-xs sm:text-sm">Read →</span>
-              </div>
-            </a>
+
+              {/* Content */}
+              <a href={`/insights/${post.slug}`} className="block">
+                <h3 className="font-semibold text-base hover:text-primary transition-colors mb-2 line-clamp-2">
+                  {post.title}
+                </h3>
+                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                  {post.excerpt}
+                </p>
+                
+                {/* Meta */}
+                <div className="flex items-center justify-between text-xs text-gray-500">
+                  <div className="flex items-center gap-3">
+                    <span>{new Date(post.date).toLocaleDateString()}</span>
+                    <span>•</span>
+                    <span>{post.readTime} min read</span>
+                  </div>
+                  <span className="text-primary font-medium">Read →</span>
+                </div>
+              </a>
+            </article>
           ))}
         </div>
 
-        <div className="mt-8 text-center">
-          <a 
-            href="/insights" 
-            className="inline-flex items-center text-primary hover:underline"
-          >
-            ← View all insights
-          </a>
+        {/* Related Tags */}
+        {relatedTags.length > 0 && (
+          <div className="mb-12">
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">Related Topics</h2>
+            <div className="flex flex-wrap gap-2">
+              {relatedTags.map(({ tag, count }) => (
+                <a
+                  key={tag}
+                  href={`/insights/tag/${encodeURIComponent(tag)}`}
+                  className="inline-flex items-center gap-1 px-3 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-primary hover:text-white transition-colors text-sm"
+                >
+                  {tag}
+                  <span className="text-xs opacity-75">({count})</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Newsletter Subscription */}
+        <div className="mb-12">
+          <NewsletterSubscription variant="inline" />
+        </div>
+
+        {/* Navigation */}
+        <div className="text-center">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a 
+              href="/insights" 
+              className="inline-flex items-center text-primary hover:underline"
+            >
+              ← View all insights
+            </a>
+            <span className="hidden sm:block text-gray-400">•</span>
+            <a 
+              href="/insights/tags" 
+              className="inline-flex items-center text-primary hover:underline"
+            >
+              Browse all topics →
+            </a>
+          </div>
         </div>
       </div>
     </main>

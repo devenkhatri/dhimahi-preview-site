@@ -64,8 +64,8 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      // Navigate to search results page
-      window.location.href = `/search?q=${encodeURIComponent(searchQuery.trim())}`;
+      // Navigate to insights search results page
+      window.location.href = `/insights/search?q=${encodeURIComponent(searchQuery.trim())}`;
     }
   };
 
