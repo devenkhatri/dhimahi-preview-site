@@ -91,12 +91,7 @@ export function useLeadTracking() {
     });
   }, []);
 
-  const trackNewsletterSignup = useCallback((email: string, source: string) => {
-    trackLeadEvent(LeadEvent.NEWSLETTER_SIGNUP, {
-      email_address: email,
-      signup_source: source
-    });
-  }, []);
+
 
   const trackResourceDownload = useCallback((resourceName: string, resourceType: string) => {
     trackLeadEvent(LeadEvent.RESOURCE_DOWNLOAD, {
@@ -109,7 +104,6 @@ export function useLeadTracking() {
     trackLead,
     trackPhoneClick,
     trackEmailClick,
-    trackNewsletterSignup,
     trackResourceDownload
   };
 }

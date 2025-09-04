@@ -1,6 +1,5 @@
 import { getAllPosts, getPostsByTag, getTagsWithCounts } from "@/lib/markdown";
 import { notFound } from "next/navigation";
-import NewsletterSubscription from "@/components/NewsletterSubscription";
 
 interface Props {
   params: {
@@ -154,11 +153,6 @@ export default function TagPage({ params }: Props) {
             </div>
           </div>
         )}
-
-        {/* Newsletter Subscription */}
-        <div className="mb-12">
-          <NewsletterSubscription variant="inline" />
-        </div>
 
         {/* Navigation */}
         <div className="text-center">

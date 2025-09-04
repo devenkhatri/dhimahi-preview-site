@@ -43,7 +43,6 @@ export enum LeadEvent {
   FORM_COMPLETE = 'form_complete',
   CONSULTATION_REQUEST = 'consultation_request',
   QUOTE_REQUEST = 'quote_request',
-  NEWSLETTER_SIGNUP = 'newsletter_signup',
   RESOURCE_DOWNLOAD = 'resource_download',
   PHONE_CLICK = 'phone_click',
   EMAIL_CLICK = 'email_click'
@@ -202,7 +201,7 @@ export function trackConversion(
 // Track form submissions
 export function trackFormSubmission(
   formName: string,
-  formType: 'contact' | 'consultation' | 'quote' | 'newsletter' | 'download',
+  formType: 'contact' | 'consultation' | 'quote' | 'download',
   additionalData?: Record<string, any>
 ) {
   trackEvent('form_submit', 'Lead Generation', formName, undefined, {
@@ -442,7 +441,6 @@ export function trackLeadEvent(
       [LeadEvent.FORM_COMPLETE]: 'Lead',
       [LeadEvent.CONSULTATION_REQUEST]: 'Lead',
       [LeadEvent.QUOTE_REQUEST]: 'Lead',
-      [LeadEvent.NEWSLETTER_SIGNUP]: 'Subscribe',
       [LeadEvent.RESOURCE_DOWNLOAD]: 'Lead',
       [LeadEvent.PHONE_CLICK]: 'Contact',
       [LeadEvent.EMAIL_CLICK]: 'Contact',

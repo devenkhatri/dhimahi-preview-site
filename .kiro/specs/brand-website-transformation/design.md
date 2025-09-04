@@ -201,7 +201,6 @@ interface InsightPost {
 - Reading time estimation
 - Social sharing integration
 - Comment system (optional)
-- Newsletter subscription
 
 ### 6. Contact and Lead Generation
 
@@ -221,7 +220,6 @@ Form Types:
 - Quick consultation booking
 - Detailed project quote request
 - General inquiry form
-- Newsletter subscription
 - Resource download forms
 ```
 
@@ -322,7 +320,7 @@ interface Lead {
   name: string;
   company?: string;
   phone?: string;
-  source: 'contact-form' | 'consultation' | 'newsletter' | 'download';
+  source: 'contact-form' | 'consultation' | 'download';
   interests: string[];
   message?: string;
   status: 'new' | 'contacted' | 'qualified' | 'converted';

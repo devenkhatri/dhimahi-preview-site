@@ -35,13 +35,7 @@ export const CONVERSION_GOALS: ConversionGoal[] = [
     category: 'lead',
     funnelStage: FunnelStage.EVALUATION
   },
-  {
-    id: 'newsletter_signup',
-    name: 'Newsletter Signup',
-    value: 50,
-    category: 'lead',
-    funnelStage: FunnelStage.INTEREST
-  },
+
   {
     id: 'resource_download',
     name: 'Resource Download',

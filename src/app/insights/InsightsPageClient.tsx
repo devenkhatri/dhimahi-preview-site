@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import InsightsSearch from '@/components/InsightsSearch';
-import NewsletterSubscription from '@/components/NewsletterSubscription';
 import { PostMeta } from '@/lib/markdown';
 
 interface InsightsPageClientProps {
@@ -121,11 +120,6 @@ export default function InsightsPageClient({
             </a>
           </div>
         )}
-
-        {/* Newsletter Subscription */}
-        <div className="mt-16">
-          <NewsletterSubscription variant="inline" />
-        </div>
       </div>
     </main>
   );

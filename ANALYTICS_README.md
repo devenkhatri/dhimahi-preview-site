@@ -24,7 +24,7 @@ The analytics system includes:
 
 ### 2. Lead Generation Tracking
 - **Form Lifecycle**: Start, progress, completion, abandonment
-- **Lead Events**: Consultation requests, quote requests, newsletter signups
+- **Lead Events**: Consultation requests, quote requests, resource downloads
 - **Attribution**: UTM parameters and referrer tracking
 - **Progressive Profiling**: Enhanced user data collection
 
@@ -201,7 +201,6 @@ The system tracks the following conversion goals:
 |---------|------|-----------|----------|--------------|
 | `consultation_request` | Consultation Request | 500 | Lead | Intent |
 | `quote_request` | Quote Request | 1,000 | Lead | Evaluation |
-| `newsletter_signup` | Newsletter Signup | 50 | Lead | Interest |
 | `resource_download` | Resource Download | 100 | Lead | Consideration |
 | `phone_call` | Phone Call Click | 200 | Lead | Intent |
 | `service_purchase` | Service Purchase | 50,000 | Sale | Purchase |

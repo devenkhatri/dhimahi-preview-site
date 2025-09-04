@@ -167,34 +167,7 @@ export default function ResourcesPage() {
           </div>
         </div>
 
-        {/* Newsletter signup */}
-        <div className="max-w-3xl mx-auto mt-16">
-          <div className="bg-white rounded-2xl shadow-soft p-8 text-center">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-              Get New Resources First
-            </h2>
-            <p className="text-gray-600 mb-6">
-              Subscribe to our newsletter and be the first to access new templates, 
-              guides, and business insights. We publish new resources monthly.
-            </p>
-            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary"
-              />
-              <button
-                type="submit"
-                className="bg-primary text-white font-medium py-3 px-6 rounded-xl hover:bg-primary-dark transition-colors"
-              >
-                Subscribe
-              </button>
-            </form>
-            <p className="text-xs text-gray-500 mt-3">
-              ✓ Monthly resources • ✓ Business tips • ✓ Unsubscribe anytime
-            </p>
-          </div>
-        </div>
+
 
         {/* FAQ */}
         <div className="max-w-3xl mx-auto mt-12">
@@ -235,7 +208,7 @@ export default function ResourcesPage() {
               </summary>
               <p className="mt-3 text-gray-600 text-sm">
                 We add new resources monthly based on the latest trends and feedback from our clients. 
-                Subscribe to our newsletter to get notified of new releases.
+                Check back regularly or follow us on social media for updates.
               </p>
             </details>
           </div>

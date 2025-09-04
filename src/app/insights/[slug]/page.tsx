@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import SocialShare from "@/components/SocialShare";
 import AuthorProfile from "@/components/AuthorProfile";
 import RelatedArticles from "@/components/RelatedArticles";
-import NewsletterSubscription from "@/components/NewsletterSubscription";
 import { generateMetadata as generateSEOMetadata, generateStructuredData } from "@/lib/seo";
 
 interface Props {
@@ -228,11 +227,6 @@ export default async function PostPage({ params }: Props) {
             <RelatedArticles articles={relatedPosts} />
           </div>
         )}
-
-        {/* Newsletter Subscription */}
-        <div className="max-w-2xl mx-auto mt-16">
-          <NewsletterSubscription />
-        </div>
 
         {/* Back to Insights */}
         <div className="max-w-4xl mx-auto mt-12 pt-8 border-t border-gray-200 text-center">

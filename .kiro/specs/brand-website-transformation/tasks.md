@@ -48,7 +48,6 @@
   - Implement reading time estimation and author profiles
   - Create related articles recommendation system
   - Add social sharing integration
-  - Build newsletter subscription components
   - _Requirements: 3.1, 3.2, 3.3, 3.4, 3.5_
 
 - [x] 7. Create Multi-Step Contact and Lead Generation Forms

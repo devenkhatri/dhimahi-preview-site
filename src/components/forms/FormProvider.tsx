@@ -1,19 +1,13 @@
 "use client";
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
-import ExitIntentPopup from "./ExitIntentPopup";
-import ScrollBasedReveal from "./ScrollBasedReveal";
 import ProgressiveProfilingForm from "./ProgressiveProfilingForm";
 import { submitFormData, FormSubmission } from "@/lib/form-integrations";
 import { useFormTracking, useConversionFunnel } from "@/hooks/useConversionTracking";
 import { FunnelStage } from "@/lib/analytics";
 
 interface FormContextType {
-  showExitIntent: boolean;
-  showScrollReveal: boolean;
   showProgressiveProfiling: boolean;
   userProfile: any;
-  setShowExitIntent: (show: boolean) => void;
-  setShowScrollReveal: (show: boolean) => void;
   setShowProgressiveProfiling: (show: boolean) => void;
   updateUserProfile: (profile: any) => void;
   submitForm: (data: FormSubmission) => Promise<void>;
@@ -31,19 +25,13 @@ export function useFormContext() {
 
 interface FormProviderProps {
   children: ReactNode;
-  enableExitIntent?: boolean;
-  enableScrollReveal?: boolean;
   enableProgressiveProfiling?: boolean;
 }
 
 export default function FormProvider({
   children,
-  enableExitIntent = true,
-  enableScrollReveal = true,
   enableProgressiveProfiling = true
 }: FormProviderProps) {
-  const [showExitIntent, setShowExitIntent] = useState(false);
-  const [showScrollReveal, setShowScrollReveal] = useState(false);
   const [showProgressiveProfiling, setShowProgressiveProfiling] = useState(false);
   const [userProfile, setUserProfile] = useState<any>(null);
 
@@ -95,11 +83,8 @@ export default function FormProvider({
       const conversionGoalMap: Record<string, string> = {
         'consultation-booking': 'consultation_request',
         'project-quote': 'quote_request',
-        'newsletter': 'newsletter_signup',
         'resource-download': 'resource_download',
-        'exit-intent-popup': 'newsletter_signup',
-        'scroll-based-reveal': 'newsletter_signup',
-        'progressive-profiling': 'newsletter_signup'
+        'progressive-profiling': 'progressive_profiling'
       };
 
       const goalId = conversionGoalMap[data.formType];
@@ -132,12 +117,8 @@ export default function FormProvider({
   };
 
   const contextValue: FormContextType = {
-    showExitIntent,
-    showScrollReveal,
     showProgressiveProfiling,
     userProfile,
-    setShowExitIntent,
-    setShowScrollReveal,
     setShowProgressiveProfiling,
     updateUserProfile,
     submitForm
@@ -147,34 +128,6 @@ export default function FormProvider({
     <FormContext.Provider value={contextValue}>
       {children}
       
-      {/* Exit Intent Popup */}
-      {enableExitIntent && (
-        <ExitIntentPopup
-          onSubmit={async (email) => {
-            await submitForm({
-              formType: 'exit-intent-popup',
-              email,
-              submittedAt: new Date().toISOString()
-            });
-          }}
-          onClose={() => setShowExitIntent(false)}
-        />
-      )}
-
-      {/* Scroll-based Reveal */}
-      {enableScrollReveal && (
-        <ScrollBasedReveal
-          onSubmit={async (data) => {
-            await submitForm({
-              formType: 'scroll-based-reveal',
-              ...data,
-              submittedAt: new Date().toISOString()
-            });
-          }}
-          onClose={() => setShowScrollReveal(false)}
-        />
-      )}
-
       {/* Progressive Profiling */}
       {enableProgressiveProfiling && showProgressiveProfiling && userProfile?.email && (
         <ProgressiveProfilingForm

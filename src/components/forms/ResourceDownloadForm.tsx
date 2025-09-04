@@ -147,8 +147,7 @@ export default function ResourceDownloadForm({
             Download Ready!
           </h3>
           <p className="text-gray-600 mb-6 text-sm">
-            Check your email for the download link. We've also added you to our newsletter 
-            for more valuable business insights.
+            Check your email for the download link. Thank you for your interest in our resources!
           </p>
           
           {resource.downloadUrl && (
