@@ -14,18 +14,17 @@ hero:
     - value: 200
       suffix: + SMEs
       label: Served
-    - value: 95
+    - value: 102
       suffix: "%"
       label: Client Satisfaction
   trustBadge: Trusted by 200+ SMEs across Gujarat
-  mainHeadline: Transform Your Business with AI
+  mainHeadline: Transform Your Business with AI & Digital Growth
   ctaButtons:
     primary: Get Free AI Consultation
     secondary: Explore Our Services
-  subheadline: >
-    **Dhīmahi Technolabs** helps SMEs in Ahmedabad & Gandhinagar grow with **AI
-    automation, digital marketing, and smart IT strategy** — practical solutions
-    that deliver real ROI.
+  subheadline: At **Dhīmahi Technolabs** helps Small and Medium businesses to grow
+    with **AI automation, digital marketing, and smart IT strategies** —
+    practical solutions that deliver measurable ROI.
   floatingBadges:
     - icon: 🏆
       text: 25+ Years Expertise
@@ -41,22 +40,38 @@ hero:
     - ✓ Local Gujarat expertise
 servicesOverview:
   title: Our Services
-  description: Helping SMEs in Ahmedabad & Gandhinagar grow with AI, digital
-    marketing, and smart IT strategy.
+  description: "Helping SMEs in Ahmedabad & Gandhinagar grow with Practical,
+    future-ready solutions in AI, digital marketing, and smart IT strategy. "
   featuredServices:
     - title: AI & Automation Consulting
-      description: AI adoption strategy, business process automation, chatbots, and
-        data insights to transform your business operations.
+      description: |-
+        AI Adoption Strategy
+
+        Business Process Automation
+
+        Chatbots & Virtual Assistants
+
+        Data-Driven Insights
       icon: ai
       link: /services/ai-automation
     - title: Digital Marketing
-      description: Comprehensive digital marketing strategies including SEO, social
-        media, PPC, and content marketing to grow your online presence.
+      description: |-
+        Search Engine Optimization (SEO)
+
+        Social Media Marketing (SMM)
+
+        Pay-Per-Click (PPC) Campaigns
+
+        Content Marketing
       icon: growth
       link: /services/digital-marketing
     - title: Web Development
-      description: Custom website design & development, e-commerce solutions, and CMS
-        implementation for modern businesses.
+      description: |-
+        Custom Website Design & Development
+
+        E-Commerce Solutions
+
+        CMS Implementation (WordPress, Shopify, WooCommerce)
       icon: compass
       link: /services/web-development
 whyChooseUs:
@@ -88,7 +103,7 @@ testimonials:
       closes more deals effortlessly.
     rating: 5
     clientImage: ""
-  - clientName: Priya Shah
+  - clientName: Priyansh Shah
     company: Service Company, Gandhinagar
     testimonial: Our website was outdated and invisible on Google. Dhimahi
       redesigned it and implemented SEO. Within 3 months, we started getting
