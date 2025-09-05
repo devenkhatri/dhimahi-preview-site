@@ -1,5 +1,6 @@
 import { readFileSync, existsSync } from 'fs';
 import { join } from 'path';
+import { execSync } from 'child_process';
 
 // Determine if we should use static export
 const isStaticBuild = process.env.NODE_ENV === 'production' || 
@@ -120,7 +121,6 @@ const nextConfig = {
           apply: (compiler) => {
             compiler.hooks.beforeCompile.tapAsync('ContentValidation', (params, callback) => {
               try {
-                const { execSync } = require('child_process');
                 execSync('node scripts/validate-cms-build.js --build', { stdio: 'inherit' });
                 callback();
               } catch (error) {
