@@ -228,7 +228,7 @@ export default function ResourceDownloadForm({
               value={formData.name}
               onChange={(e) => handleInputChange('name', e.target.value)}
               placeholder="Enter your full name"
-              className={`w-full px-3 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition-colors ${
+              className={`w-full px-3 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-gray-900 transition-colors ${
                 errors.name ? 'border-red-300' : 'border-gray-300'
               }`}
             />
@@ -244,7 +244,7 @@ export default function ResourceDownloadForm({
               value={formData.email}
               onChange={(e) => handleInputChange('email', e.target.value)}
               placeholder="your@email.com"
-              className={`w-full px-3 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition-colors ${
+              className={`w-full px-3 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-gray-900 transition-colors ${
                 errors.email ? 'border-red-300' : 'border-gray-300'
               }`}
             />
@@ -260,7 +260,7 @@ export default function ResourceDownloadForm({
               value={formData.company}
               onChange={(e) => handleInputChange('company', e.target.value)}
               placeholder="Your company name (optional)"
-              className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
+              className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-gray-900 transition-colors"
             />
           </div>
 
@@ -271,7 +271,7 @@ export default function ResourceDownloadForm({
             <select
               value={formData.companySize}
               onChange={(e) => handleInputChange('companySize', e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
+              className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-gray-900 transition-colors"
             >
               <option value="">Select company size</option>
               {COMPANY_SIZES.map(option => (
@@ -289,7 +289,7 @@ export default function ResourceDownloadForm({
             <select
               value={formData.interest}
               onChange={(e) => handleInputChange('interest', e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
+              className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-gray-900 transition-colors"
             >
               <option value="">Select your primary interest</option>
               {INTERESTS.map(option => (

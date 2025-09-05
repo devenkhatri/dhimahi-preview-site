@@ -119,7 +119,7 @@ export default function MultiStepForm({
     const fieldError = errors[field.name];
     const fieldValue = formData[field.name] || '';
 
-    const baseInputClasses = `mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary transition-colors ${
+    const baseInputClasses = `form-input mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary transition-colors ${
       fieldError ? 'border-red-300 focus:ring-red-500' : 'border-gray-300'
     }`;
 
@@ -127,7 +127,7 @@ export default function MultiStepForm({
       case 'textarea':
         return (
           <div key={field.name} className="space-y-1">
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="form-label block text-sm font-medium">
               {field.label}
               {field.required && <span className="text-red-500 ml-1">*</span>}
             </label>
@@ -137,7 +137,7 @@ export default function MultiStepForm({
               onChange={(e) => updateFormData(field.name, e.target.value)}
               placeholder={field.placeholder}
               rows={4}
-              className={baseInputClasses}
+              className={`form-textarea ${baseInputClasses}`}
             />
             {fieldError && <p className="text-sm text-red-600">{fieldError}</p>}
           </div>
@@ -146,7 +146,7 @@ export default function MultiStepForm({
       case 'select':
         return (
           <div key={field.name} className="space-y-1">
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="form-label block text-sm font-medium">
               {field.label}
               {field.required && <span className="text-red-500 ml-1">*</span>}
             </label>
@@ -154,7 +154,7 @@ export default function MultiStepForm({
               name={field.name}
               value={fieldValue}
               onChange={(e) => updateFormData(field.name, e.target.value)}
-              className={baseInputClasses}
+              className={`form-select ${baseInputClasses}`}
             >
               <option value="">Select an option</option>
               {field.options?.map(option => (
@@ -170,7 +170,7 @@ export default function MultiStepForm({
       case 'radio':
         return (
           <div key={field.name} className="space-y-2">
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="form-label block text-sm font-medium">
               {field.label}
               {field.required && <span className="text-red-500 ml-1">*</span>}
             </label>
@@ -185,7 +185,7 @@ export default function MultiStepForm({
                     onChange={(e) => updateFormData(field.name, e.target.value)}
                     className="h-4 w-4 text-primary focus:ring-primary border-gray-300"
                   />
-                  <span className="ml-2 text-sm text-gray-700">{option.label}</span>
+                  <span className="form-label ml-2 text-sm">{option.label}</span>
                 </label>
               ))}
             </div>
@@ -204,7 +204,7 @@ export default function MultiStepForm({
                 onChange={(e) => updateFormData(field.name, e.target.checked)}
                 className="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
               />
-              <span className="ml-2 text-sm text-gray-700">
+              <span className="form-label ml-2 text-sm">
                 {field.label}
                 {field.required && <span className="text-red-500 ml-1">*</span>}
               </span>
@@ -216,7 +216,7 @@ export default function MultiStepForm({
       default:
         return (
           <div key={field.name} className="space-y-1">
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="form-label block text-sm font-medium">
               {field.label}
               {field.required && <span className="text-red-500 ml-1">*</span>}
             </label>

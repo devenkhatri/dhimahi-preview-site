@@ -8,13 +8,13 @@ hero:
     - 📈 Proven ROI Results
     - 🎯 Gujarat SME Focus
   statistics:
-    - value: 24
+    - value: 25
       suffix: + Years
       label: Experience
     - value: 200
       suffix: + SMEs
       label: Served
-    - value: 102
+    - value: 100
       suffix: "%"
       label: Client Satisfaction
   trustBadge: Trusted by 200+ SMEs across Gujarat
@@ -36,11 +36,11 @@ hero:
       text: Gujarat SME Focus
   trustIndicators:
     - ✓ Free consultation
-    - ✓ ROI-focused approach
-    - ✓ Local Gujarat expertise
+    - ✓ Practical solutions
+    - ✓ ROI-focused approach        
 servicesOverview:
   title: Our Services
-  description: "Helping SMEs in Ahmedabad & Gandhinagar grow with Practical,
+  description: "Helping SMEs in Ahmedabad & Gandhinagar grow with practical,
     future-ready solutions in AI, digital marketing, and smart IT strategy. "
   featuredServices:
     - title: AI & Automation Consulting
