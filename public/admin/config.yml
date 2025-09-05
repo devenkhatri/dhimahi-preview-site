@@ -4,13 +4,11 @@ backend:
   # Authentication configuration
   identity_url: "https://dhimahitechnolabs.com/.netlify/identity"
   gateway_url: "https://dhimahitechnolabs.com/.netlify/git/github"
-  # Enable editorial workflow for content approval
-  editorial_workflow: true
   # Squash merge commits for cleaner history
   squash_merges: true
 
-# User roles and permissions
-publish_mode: editorial_workflow
+# Simple publish mode - direct to main branch
+publish_mode: simple
 site_url: "https://dhimahi-preview-site.netlify.app"
 display_url: "https://dhimahi-preview-site.netlify.app"
 logo_url: "https://dhimahi-preview-site.netlify.app/favicon.svg"
