@@ -1,9 +1,6 @@
 [build]
   command = "npm run cms:build"
   publish = "out"
-  
-  # Build environment variables
-  environment = { NODE_VERSION = "20", NPM_FLAGS = "--production=false" }
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
@@ -12,7 +9,8 @@
   external_node_modules = ["sharp"]
 
 [build.environment]
-  NODE_VERSION = "20"
+  NODE_VERSION = "22"
+  NPM_FLAGS = "--production=false"
   # CMS-specific environment variables
   CMS_CONTENT_PATH = "./content"
   CMS_MEDIA_PATH = "./public/uploads"
