@@ -19,7 +19,14 @@
 # Production build settings
 [context.production]
   command = "npm run cms:build"
-  environment = { NODE_ENV = "production" }
+
+[context.production.environment]
+  NODE_ENV = "production"
+  NETLIFY_IDENTITY_ENABLED = "true"
+  NETLIFY_IDENTITY_SIGNUP = "invite_only"
+  NETLIFY_IDENTITY_CONFIRM_IDENTITY = "true"
+  NETLIFY_IDENTITY_RECOVERY = "true"
+  NETLIFY_IDENTITY_EXTERNAL_PROVIDERS = "github"
 
 # Deploy preview settings for CMS content testing
 [context.deploy-preview]
@@ -33,14 +40,6 @@
 # Identity and Git Gateway settings for Decap CMS
 [[plugins]]
   package = "netlify-plugin-git-gateway"
-
-# Netlify Identity configuration
-[context.production.environment]
-  NETLIFY_IDENTITY_ENABLED = "true"
-  NETLIFY_IDENTITY_SIGNUP = "invite_only"
-  NETLIFY_IDENTITY_CONFIRM_IDENTITY = "true"
-  NETLIFY_IDENTITY_RECOVERY = "true"
-  NETLIFY_IDENTITY_EXTERNAL_PROVIDERS = "github"
 
 # Identity widget configuration
 [[headers]]
