@@ -38,9 +38,7 @@
 [context.branch-deploy]
   command = "npm run cms:build"
 
-# Identity and Git Gateway settings for Decap CMS
-[[plugins]]
-  package = "netlify-plugin-git-gateway"
+
 
 # Identity widget configuration
 [[headers]]
