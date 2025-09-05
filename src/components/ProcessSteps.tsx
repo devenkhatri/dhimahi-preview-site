@@ -1,4 +1,4 @@
-import { ProcessStep } from '@/lib/services';
+import { ProcessStep } from '@/lib/cms-content';
 
 interface ProcessStepsProps {
   steps: ProcessStep[];

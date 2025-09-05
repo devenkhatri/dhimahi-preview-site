@@ -4,6 +4,7 @@ icon: "🌐"
 excerpt: "Custom website design & development, e-commerce solutions, and CMS implementation for modern businesses."
 order: 1
 timeline: "2-8 weeks"
+startingPrice: "Starting from ₹25,000"
 features:
   - "Custom Website Design & Development"
   - "E-commerce Solutions"

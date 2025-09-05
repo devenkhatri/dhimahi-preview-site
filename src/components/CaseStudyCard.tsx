@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { CaseStudyMeta } from '@/lib/case-studies';
+import { CaseStudyMeta } from '@/lib/cms-content';
 
 interface CaseStudyCardProps {
   caseStudy: CaseStudyMeta;

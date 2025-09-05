@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { CaseStudyMeta } from '@/lib/case-studies';
+import { CaseStudyMeta } from '@/lib/cms-content';
 import CaseStudyCard from './CaseStudyCard';
 
 interface PortfolioFiltersProps {

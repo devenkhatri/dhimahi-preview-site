@@ -2,8 +2,20 @@
 
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { PostMeta } from '@/lib/markdown';
 import Link from 'next/link';
+
+// Define PostMeta interface for compatibility with existing components
+interface PostMeta {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  author: string;
+  tags: string[];
+  category: string;
+  readTime: number;
+  relatedPosts: any[];
+}
 
 interface InsightsSearchClientProps {
   allPosts: PostMeta[];

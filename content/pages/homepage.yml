@@ -1,0 +1,105 @@
+hero:
+  mainHeadline: "Transform Your Business with AI"
+  subheadline: |
+    **Dhīmahi Technolabs** helps SMEs in Ahmedabad & Gandhinagar grow with **AI automation, digital marketing, and smart IT strategy** — practical solutions that deliver real ROI.
+  trustBadge: "Trusted by 200+ SMEs across Gujarat"
+  statistics:
+    - value: 25
+      suffix: "+ Years"
+      label: "Experience"
+    - value: 200
+      suffix: "+ SMEs"
+      label: "Served"
+    - value: 95
+      suffix: "%"
+      label: "Client Satisfaction"
+  ctaButtons:
+    primary: "Get Free AI Consultation"
+    secondary: "Explore Our Services"
+  ctaButton:
+    text: "Get Free AI Consultation"
+    url: "/consultation"
+  trustIndicators:
+    - "✓ Free consultation"
+    - "✓ ROI-focused approach"
+    - "✓ Local Gujarat expertise"
+  floatingBadges:
+    - icon: "🏆"
+      text: "25+ Years Expertise"
+    - icon: "🚀"
+      text: "AI-Ready Solutions"
+    - icon: "📈"
+      text: "Proven ROI Results"
+    - icon: "🎯"
+      text: "Gujarat SME Focus"
+  floatingTrustBadges:
+    - "🏆 25+ Years Expertise"
+    - "🚀 AI-Ready Solutions"
+    - "📈 Proven ROI Results"
+    - "🎯 Gujarat SME Focus"
+
+servicesOverview:
+  title: "Our Services"
+  description: "Helping SMEs in Ahmedabad & Gandhinagar grow with AI, digital marketing, and smart IT strategy."
+  featuredServices:
+    - title: "AI & Automation Consulting"
+      description: "AI adoption strategy, business process automation, chatbots, and data insights to transform your business operations."
+      icon: "ai"
+      link: "/services/ai-automation"
+    - title: "Digital Marketing"
+      description: "Comprehensive digital marketing strategies including SEO, social media, PPC, and content marketing to grow your online presence."
+      icon: "growth"
+      link: "/services/digital-marketing"
+    - title: "Web Development"
+      description: "Custom website design & development, e-commerce solutions, and CMS implementation for modern businesses."
+      icon: "compass"
+      link: "/services/web-development"
+
+whyChooseUs:
+  title: "Why Choose Dhīmahi Technolabs?"
+  subtitle: "With 25+ years of IT expertise, we help SMEs take smarter digital steps — practical, affordable, and future-ready."
+  reasons:
+    - title: "25+ Years of Experience"
+      icon: "👨‍💼"
+      description: "Deep expertise in IT, digital marketing, and AI — guiding SMEs with proven strategies, not experiments."
+    - title: "Local Focus"
+      icon: "📍"
+      description: "We understand the needs of Ahmedabad & Gandhinagar businesses and provide solutions tailored to your market."
+    - title: "Practical & Affordable"
+      icon: "💡"
+      description: "No enterprise complexity — just straightforward, cost-effective IT and digital solutions that deliver ROI."
+    - title: "Future-Ready Solutions"
+      icon: "🚀"
+      description: "From AI to automation, we help you stay ahead of the curve and prepare your business for tomorrow."
+
+testimonials:
+  - clientName: "Rajesh Patel"
+    company: "Manufacturing SME, Ahmedabad"
+    testimonial: "With Dhimahi Technolabs, we automated our sales follow-ups using AI tools. Our response time improved by 70%, and our small sales team now closes more deals effortlessly."
+    rating: 5
+    clientImage: ""
+  - clientName: "Priya Shah"
+    company: "Service Company, Gandhinagar"
+    testimonial: "Our website was outdated and invisible on Google. Dhimahi redesigned it and implemented SEO. Within 3 months, we started getting steady inquiries and 40% more leads."
+    rating: 5
+    clientImage: ""
+  - clientName: "Amit Desai"
+    company: "Trading Firm, Ahmedabad"
+    testimonial: "As a growing business, we were confused about which CRM and ERP tools to invest in. Dhimahi guided us like a Fractional CTO and saved us lakhs in wrong purchases."
+    rating: 5
+    clientImage: ""
+
+contactCTA:
+  title: "Let's Discuss Your Business Goals"
+  description: "Your first consultation is **free**. Let's explore how AI, digital growth, and smart IT strategy can help your business scale."
+  primaryButton:
+    text: "Book Free Consultation"
+    url: "/consultation"
+  secondaryButton:
+    text: "Get Project Quote"
+    url: "/quote"
+
+contactForm:
+  title: "Send us a message"
+  description: "Tell us briefly about your goals. We'll reply within 1 business day."
+  contactEmail: "hello@dhimahitechnolabs.com"

@@ -1,0 +1,56 @@
+title: "Resources & Downloads"
+description: "Access our collection of free guides, templates, and tools designed to help SMEs navigate their digital transformation journey successfully."
+
+categories:
+  - name: "Digital Marketing Guides"
+    description: "Comprehensive guides to help you build and execute effective digital marketing strategies."
+    resources:
+      - title: "SME Digital Marketing Checklist"
+        description: "A complete checklist covering SEO, social media, content marketing, and PPC for small businesses in Gujarat."
+        type: "Checklist"
+        requiresEmail: true
+      - title: "Local SEO Guide for Gujarat Businesses"
+        description: "Step-by-step guide to improve your local search rankings and attract more customers in your area."
+        type: "Guide"
+        requiresEmail: true
+      - title: "Social Media Content Calendar Template"
+        description: "Ready-to-use template for planning and scheduling your social media content across platforms."
+        type: "Template"
+        requiresEmail: false
+  - name: "Web Development Resources"
+    description: "Tools and guides for planning and managing your website development projects."
+    resources:
+      - title: "Website Planning Worksheet"
+        description: "Comprehensive worksheet to help you define your website requirements, goals, and content strategy."
+        type: "Template"
+        requiresEmail: true
+      - title: "E-commerce Setup Guide"
+        description: "Complete guide for setting up an online store, including platform selection and payment integration."
+        type: "Guide"
+        requiresEmail: true
+  - name: "AI & Automation Tools"
+    description: "Resources to help you understand and implement AI and automation in your business."
+    resources:
+      - title: "AI Readiness Assessment"
+        description: "Evaluate your business's readiness for AI implementation with this comprehensive assessment tool."
+        type: "Checklist"
+        requiresEmail: true
+      - title: "Business Process Automation Guide"
+        description: "Learn how to identify and automate repetitive tasks to improve efficiency and reduce costs."
+        type: "Guide"
+        requiresEmail: true
+  - name: "Case Studies"
+    description: "Real-world examples of successful digital transformations for SMEs in Gujarat."
+    resources:
+      - title: "Healthcare Clinic Digital Transformation"
+        description: "How a local clinic increased patient bookings by 300% through website and digital marketing improvements."
+        type: "Case Study"
+        requiresEmail: false
+      - title: "Manufacturing ERP Integration Success"
+        description: "Complete case study of how a textile manufacturer streamlined operations with custom ERP integration."
+        type: "Case Study"
+        requiresEmail: false
+
+seo:
+  metaTitle: "Free IT Resources & Downloads - Dhīmahi Technolabs"
+  metaDescription: "Download free digital marketing guides, web development templates, and AI automation resources for SMEs. Expert insights from Gujarat's leading IT consultancy."

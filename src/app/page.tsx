@@ -1,5 +1,5 @@
 import { COMPANY_NAME, PHONE, CITY_LINE } from "@/lib/constants";
-import { getAllServices } from "@/lib/services";
+import { getAllCMSServices, getCMSHomepageContent } from "@/lib/cms-content";
 import HeroSection from "@/components/HeroSection";
 
 interface ServiceCardProps {
@@ -49,23 +49,24 @@ function TestimonialCard({ quote, author }: { quote: string; author: string; }) 
 }
 
 export default function HomePage() {
-  const services = getAllServices();
+  const services = getAllCMSServices();
+  const homepageContent = getCMSHomepageContent();
 
   return (
     <main>
 
 
       {/* HERO */}
-      <HeroSection />
+      <HeroSection content={homepageContent.hero} />
 
       {/* SERVICES */}
       <section id="services" className="py-12 sm:py-16 md:py-20 bg-gray-50 relative">
 
 
         <div className="container mx-auto px-4">
-          <h2 className="section-title">Our Services</h2>
+          <h2 className="section-title">{homepageContent.services.title}</h2>
           <p className="section-subtitle">
-            Helping SMEs in {CITY_LINE} grow with AI, digital marketing, and smart IT strategy.
+            {homepageContent.services.subtitle}
           </p>
 
 
@@ -88,16 +89,20 @@ export default function HomePage() {
       {/* WHY CHOOSE US */}
       <section className="py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4">
-          <h2 className="section-title">Why Choose {COMPANY_NAME}?</h2>
+          <h2 className="section-title">{homepageContent.whyChooseUs.title}</h2>
           <p className="section-subtitle">
-            With 25+ years of IT expertise, we help SMEs take smarter digital steps — practical, affordable, and future-ready.
+            {homepageContent.whyChooseUs.subtitle}
           </p>
 
           <div className="mt-8 sm:mt-12 grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <ReasonCard icon="👨‍💼" title="25+ Years of Experience" body="Deep expertise in IT, digital marketing, and AI — guiding SMEs with proven strategies, not experiments." />
-            <ReasonCard icon="📍" title="Local Focus" body={`We understand the needs of ${CITY_LINE} businesses and provide solutions tailored to your market.`} />
-            <ReasonCard icon="💡" title="Practical & Affordable" body="No enterprise complexity — just straightforward, cost-effective IT and digital solutions that deliver ROI." />
-            <ReasonCard icon="🚀" title="Future-Ready Solutions" body="From AI to automation, we help you stay ahead of the curve and prepare your business for tomorrow." />
+            {homepageContent.whyChooseUs.reasons.map((reason, index) => (
+              <ReasonCard 
+                key={index}
+                icon={reason.icon} 
+                title={reason.title} 
+                body={reason.description} 
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -105,23 +110,18 @@ export default function HomePage() {
       {/* TESTIMONIALS */}
       <section id="case-studies" className="py-12 sm:py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="section-title">Client Success Stories</h2>
+          <h2 className="section-title">{homepageContent.testimonials.title}</h2>
           <p className="section-subtitle">
-            We've helped SMEs across Gujarat streamline operations, grow online, and adopt future-ready IT solutions.
+            {homepageContent.testimonials.subtitle}
           </p>
           <div className="mt-8 sm:mt-12 grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <TestimonialCard
-              quote="With Dhimahi Technolabs, we automated our sales follow-ups using AI tools. Our response time improved by 70%, and our small sales team now closes more deals effortlessly."
-              author="Owner, Manufacturing SME (Ahmedabad)"
-            />
-            <TestimonialCard
-              quote="Our website was outdated and invisible on Google. Dhimahi redesigned it and implemented SEO. Within 3 months, we started getting steady inquiries and 40% more leads."
-              author="Director, Service Company (Gandhinagar)"
-            />
-            <TestimonialCard
-              quote="As a growing business, we were confused about which CRM and ERP tools to invest in. Dhimahi guided us like a Fractional CTO and saved us lakhs in wrong purchases."
-              author="Founder, Trading Firm (Ahmedabad)"
-            />
+            {homepageContent.testimonials.items.map((testimonial, index) => (
+              <TestimonialCard
+                key={index}
+                quote={testimonial.quote}
+                author={testimonial.author}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -131,12 +131,12 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="rounded-2xl bg-primary text-white p-6 sm:p-8 md:p-12 shadow-soft flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold">Let's Discuss Your Business Goals</h2>
-              <p className="mt-2 opacity-90 text-sm sm:text-base">Your first consultation is <strong>free</strong>. Let's explore how AI, digital growth, and smart IT strategy can help your business scale.</p>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold">{homepageContent.contactCta.title}</h2>
+              <p className="mt-2 opacity-90 text-sm sm:text-base" dangerouslySetInnerHTML={{ __html: homepageContent.contactCta.description }} />
             </div>
             <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-              <a href="/consultation" className="inline-block rounded-xl bg-white text-primary px-4 sm:px-5 py-3 font-medium hover:opacity-90 text-center text-sm sm:text-base">Book Free Consultation</a>
-              <a href="/quote" className="inline-block rounded-xl border border-white/70 px-4 sm:px-5 py-3 font-medium hover:bg-white/10 text-center text-sm sm:text-base">Get Project Quote</a>
+              <a href="/consultation" className="inline-block rounded-xl bg-white text-primary px-4 sm:px-5 py-3 font-medium hover:opacity-90 text-center text-sm sm:text-base">{homepageContent.contactCta.buttons.primary}</a>
+              <a href="/quote" className="inline-block rounded-xl border border-white/70 px-4 sm:px-5 py-3 font-medium hover:bg-white/10 text-center text-sm sm:text-base">{homepageContent.contactCta.buttons.secondary}</a>
             </div>
           </div>
         </div>
@@ -146,8 +146,8 @@ export default function HomePage() {
       <section id="contact-form" className="py-12 sm:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto rounded-2xl bg-white shadow-soft p-4 sm:p-6 md:p-8">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold">Send us a message</h2>
-            <p className="mt-2 text-gray-600 text-sm sm:text-base">Tell us briefly about your goals. We'll reply within 1 business day.</p>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold">{homepageContent.contactForm.title}</h2>
+            <p className="mt-2 text-gray-600 text-sm sm:text-base">{homepageContent.contactForm.description}</p>
 
             <form
               name="contact"
@@ -191,7 +191,7 @@ export default function HomePage() {
 
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <button type="submit" className="rounded-xl bg-primary px-5 py-3 text-white font-medium text-sm sm:text-base">Send Message</button>
-                <span className="text-xs sm:text-sm text-gray-500 text-center sm:text-left">Or email us at <a className="underline" href="mailto:hello@dhimahitechnolabs.com">hello@dhimahitechnolabs.com</a></span>
+                <span className="text-xs sm:text-sm text-gray-500 text-center sm:text-left">Or email us at <a className="underline" href={`mailto:${homepageContent.contactForm.email}`}>{homepageContent.contactForm.email}</a></span>
               </div>
             </form>
           </div>

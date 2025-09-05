@@ -1,0 +1,1737 @@
+backend:
+  name: git-gateway
+  branch: v3-decapcms
+  # Authentication configuration
+  identity_url: "https://dhimahitechnolabs.com/.netlify/identity"
+  gateway_url: "https://dhimahitechnolabs.com/.netlify/git/github"
+  # Enable editorial workflow for content approval
+  editorial_workflow: true
+  # Squash merge commits for cleaner history
+  squash_merges: true
+
+# User roles and permissions
+publish_mode: editorial_workflow
+site_url: "https://dhimahi-preview-site.netlify.app"
+display_url: "https://dhimahi-preview-site.netlify.app"
+logo_url: "https://dhimahi-preview-site.netlify.app/favicon.svg"
+
+# User access control
+access_control:
+  default_role: editor
+  roles:
+    admin:
+      - create
+      - update
+      - delete
+      - publish
+      - unpublish
+      - media_library
+    editor:
+      - create
+      - update
+      - media_library
+    contributor:
+      - create
+      - media_library
+
+media_folder: public/uploads
+public_folder: /uploads
+
+# Media management configuration
+media_library:
+  name: uploadcare
+  config:
+    publicKey: "demopublickey"
+    multiple: true
+    tabs: "file camera url facebook gdrive gphotos dropbox instagram"
+    effects: "crop,rotate,enhance,grayscale"
+    imageShrink: "2048x2048"
+    previewStep: true
+    clearable: true
+    
+# Alternative media configuration for better organization
+media_folder_relative: true
+media_library_config:
+  max_file_size: 10485760  # 10MB limit
+  folder_support: true
+
+collections:
+  # Global Settings
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "general"
+        label: "General Settings"
+        file: "content/settings/general.yml"
+        fields:
+          - label: "Site Title"
+            name: "siteTitle"
+            widget: "string"
+            required: true
+            hint: "The main title of your website (used in browser tabs and search results)"
+            pattern: [".{10,60}", "Must be between 10 and 60 characters"]
+          - label: "Site Description"
+            name: "siteDescription"
+            widget: "text"
+            required: true
+            hint: "Brief description of your website (used for SEO meta description)"
+            pattern: [".{50,160}", "Must be between 50 and 160 characters for optimal SEO"]
+          - label: "Contact Email"
+            name: "contactEmail"
+            widget: "string"
+            required: true
+            pattern: ["^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", "Must be a valid email address"]
+            hint: "Primary contact email for your business"
+          - label: "Phone Number"
+            name: "phone"
+            widget: "string"
+            required: true
+            hint: "Primary contact phone number (include country code)"
+          - label: "Address"
+            name: "address"
+            widget: "text"
+            required: true
+            hint: "Complete business address for contact and local SEO"
+          - label: "Social Media"
+            name: "socialMedia"
+            widget: "object"
+            collapsed: false
+            fields:
+              - label: "LinkedIn"
+                name: "linkedin"
+                widget: "string"
+                required: false
+                pattern: ["^https://linkedin\\.com/.*", "Must be a valid LinkedIn URL"]
+                hint: "Full LinkedIn company page URL"
+              - label: "Twitter"
+                name: "twitter"
+                widget: "string"
+                required: false
+                pattern: ["^https://twitter\\.com/.*", "Must be a valid Twitter URL"]
+                hint: "Full Twitter profile URL"
+              - label: "Facebook"
+                name: "facebook"
+                widget: "string"
+                required: false
+                pattern: ["^https://facebook\\.com/.*", "Must be a valid Facebook URL"]
+                hint: "Full Facebook page URL"
+
+  # Homepage Content
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - name: "homepage"
+        label: "Homepage Content"
+        file: "content/pages/homepage.yml"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            collapsed: false
+            summary: "{{fields.mainHeadline}}"
+            fields:
+              - label: "Main Headline"
+                name: "mainHeadline"
+                widget: "string"
+                required: true
+                hint: "Primary headline that appears prominently on the homepage"
+                pattern: [".{10,80}", "Must be between 10 and 80 characters for optimal impact"]
+              - label: "Subheadline"
+                name: "subheadline"
+                widget: "markdown"
+                required: true
+                hint: "Supporting text that explains your value proposition (supports markdown formatting)"
+                modes: ["rich_text"]
+                editor_components: ["bold", "italic"]
+              - label: "Trust Badge"
+                name: "trustBadge"
+                widget: "string"
+                required: true
+                hint: "Short credibility statement (e.g., 'Trusted by 200+ SMEs')"
+                pattern: [".{10,50}", "Must be between 10 and 50 characters"]
+              - label: "Statistics"
+                name: "statistics"
+                widget: "list"
+                required: true
+                min: 2
+                max: 4
+                hint: "Key metrics that build credibility (2-4 statistics recommended)"
+                summary: "{{fields.value}}{{fields.suffix}} {{fields.label}}"
+                fields:
+                  - label: "Value"
+                    name: "value"
+                    widget: "number"
+                    required: true
+                    min: 1
+                    hint: "Numeric value (e.g., 25, 200, 95)"
+                  - label: "Suffix"
+                    name: "suffix"
+                    widget: "string"
+                    required: true
+                    hint: "Unit or suffix (e.g., '+', '%', '+ Years')"
+                    pattern: [".{1,10}", "Must be 1-10 characters"]
+                  - label: "Label"
+                    name: "label"
+                    widget: "string"
+                    required: true
+                    hint: "Description of the statistic (e.g., 'Experience', 'Clients Served')"
+                    pattern: [".{3,20}", "Must be between 3 and 20 characters"]
+              - label: "CTA Button"
+                name: "ctaButton"
+                widget: "object"
+                required: true
+                collapsed: false
+                fields:
+                  - label: "Text"
+                    name: "text"
+                    widget: "string"
+                    required: true
+                    hint: "Button text that encourages action"
+                    pattern: [".{5,30}", "Must be between 5 and 30 characters"]
+                  - label: "URL"
+                    name: "url"
+                    widget: "string"
+                    required: true
+                    hint: "Destination URL (use relative paths like '/consultation')"
+                    pattern: ["^(/|https?://).*", "Must be a valid URL or relative path"]
+          - label: "Services Overview"
+            name: "servicesOverview"
+            widget: "object"
+            required: true
+            collapsed: false
+            summary: "{{fields.title}}"
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+                required: true
+                hint: "Section heading for services overview"
+                pattern: [".{5,50}", "Must be between 5 and 50 characters"]
+              - label: "Description"
+                name: "description"
+                widget: "text"
+                required: true
+                hint: "Brief description of your services offering"
+                pattern: [".{20,200}", "Must be between 20 and 200 characters"]
+              - label: "Featured Services"
+                name: "featuredServices"
+                widget: "list"
+                required: true
+                min: 3
+                max: 3
+                hint: "Exactly 3 featured services to highlight on homepage"
+                summary: "{{fields.title}}"
+                fields:
+                  - label: "Service Title"
+                    name: "title"
+                    widget: "string"
+                    required: true
+                    hint: "Name of the service"
+                    pattern: [".{5,40}", "Must be between 5 and 40 characters"]
+                  - label: "Description"
+                    name: "description"
+                    widget: "text"
+                    required: true
+                    hint: "Brief description of what this service offers"
+                    pattern: [".{20,150}", "Must be between 20 and 150 characters"]
+                  - label: "Icon"
+                    name: "icon"
+                    widget: "select"
+                    required: true
+                    options: ["ai", "growth", "compass", "shield", "chart", "cog"]
+                    hint: "Icon identifier for this service"
+                  - label: "Link"
+                    name: "link"
+                    widget: "string"
+                    required: true
+                    hint: "URL to the full service page"
+                    pattern: ["^/services/.*", "Must be a service page URL starting with '/services/'"]
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            required: true
+            min: 2
+            max: 6
+            hint: "Client testimonials (2-6 recommended for credibility)"
+            summary: "{{fields.clientName}} - {{fields.company}}"
+            fields:
+              - label: "Client Name"
+                name: "clientName"
+                widget: "string"
+                required: true
+                hint: "Full name of the client (can be anonymized if needed)"
+                pattern: [".{2,50}", "Must be between 2 and 50 characters"]
+              - label: "Company"
+                name: "company"
+                widget: "string"
+                required: true
+                hint: "Company name and location (e.g., 'Manufacturing SME, Ahmedabad')"
+                pattern: [".{5,80}", "Must be between 5 and 80 characters"]
+              - label: "Testimonial"
+                name: "testimonial"
+                widget: "text"
+                required: true
+                hint: "The actual testimonial text - keep it authentic and specific"
+                pattern: [".{50,500}", "Must be between 50 and 500 characters for readability"]
+              - label: "Rating"
+                name: "rating"
+                widget: "number"
+                required: true
+                min: 1
+                max: 5
+                value_type: "int"
+                hint: "Star rating from 1 to 5"
+              - label: "Client Image"
+                name: "clientImage"
+                widget: "image"
+                required: false
+                hint: "Optional profile photo of the client (improves credibility)"
+                media_folder: "/uploads/testimonials"
+
+  # Services Collection
+  - name: "services"
+    label: "Services"
+    folder: "content/services"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} - {{timeline}}"
+    sortable_fields: ["order", "title", "timeline"]
+    view_filters:
+      - label: "Web Development"
+        field: "title"
+        pattern: "Web Development"
+      - label: "Digital Marketing"
+        field: "title"
+        pattern: "Digital Marketing"
+      - label: "AI & Automation"
+        field: "title"
+        pattern: "AI"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        required: true
+        hint: "Service name (e.g., 'Web Development', 'Digital Marketing')"
+        pattern: [".{5,50}", "Must be between 5 and 50 characters"]
+      - label: "Icon"
+        name: "icon"
+        widget: "string"
+        required: true
+        hint: "Emoji or icon identifier for this service (e.g., '🌐', '📢', '🤖')"
+        pattern: [".{1,10}", "Must be 1-10 characters"]
+      - label: "Excerpt"
+        name: "excerpt"
+        widget: "text"
+        required: true
+        hint: "Brief description of the service for cards and previews"
+        pattern: [".{50,200}", "Must be between 50 and 200 characters for optimal display"]
+      - label: "Order"
+        name: "order"
+        widget: "number"
+        required: true
+        min: 1
+        max: 10
+        value_type: "int"
+        hint: "Display order on services page (1 = first, 2 = second, etc.)"
+      - label: "Timeline"
+        name: "timeline"
+        widget: "string"
+        required: true
+        hint: "Typical project duration (e.g., '2-8 weeks', '3-6 months for results')"
+        pattern: [".{5,30}", "Must be between 5 and 30 characters"]
+      - label: "Starting Price"
+        name: "startingPrice"
+        widget: "string"
+        required: false
+        hint: "Optional starting price or price range (e.g., 'Starting from ₹25,000')"
+      - label: "Featured Image"
+        name: "featuredImage"
+        widget: "image"
+        required: false
+        hint: "Optional hero image for the service page"
+        media_folder: "/uploads/services"
+      - label: "Service Features"
+        name: "features"
+        widget: "list"
+        required: true
+        min: 3
+        max: 10
+        hint: "Key features or offerings of this service (3-10 items recommended)"
+        summary: "{{fields.feature}}"
+        field:
+          label: "Feature"
+          name: "feature"
+          widget: "string"
+          hint: "Brief feature description (e.g., 'Custom Website Design & Development')"
+          pattern: [".{10,100}", "Must be between 10 and 100 characters"]
+      - label: "Process Steps"
+        name: "processSteps"
+        widget: "list"
+        required: true
+        min: 3
+        max: 8
+        hint: "Step-by-step process for delivering this service (3-8 steps recommended)"
+        summary: "Step {{fields.step}}: {{fields.title}}"
+        fields:
+          - label: "Step Number"
+            name: "step"
+            widget: "number"
+            required: true
+            min: 1
+            max: 10
+            value_type: "int"
+            hint: "Sequential step number (1, 2, 3, etc.)"
+          - label: "Step Title"
+            name: "title"
+            widget: "string"
+            required: true
+            hint: "Name of this process step (e.g., 'Discovery & Planning')"
+            pattern: [".{5,50}", "Must be between 5 and 50 characters"]
+          - label: "Description"
+            name: "description"
+            widget: "text"
+            required: true
+            hint: "Detailed explanation of what happens in this step"
+            pattern: [".{50,300}", "Must be between 50 and 300 characters"]
+          - label: "Duration"
+            name: "duration"
+            widget: "string"
+            required: true
+            hint: "Time required for this step (e.g., '3-5 days', '1-2 weeks')"
+            pattern: [".{3,20}", "Must be between 3 and 20 characters"]
+          - label: "Deliverables"
+            name: "deliverables"
+            widget: "list"
+            required: true
+            min: 1
+            max: 6
+            hint: "What the client receives at the end of this step"
+            summary: "{{fields.deliverable}}"
+            field:
+              label: "Deliverable"
+              name: "deliverable"
+              widget: "string"
+              hint: "Specific output or result (e.g., 'Project requirements document')"
+              pattern: [".{5,80}", "Must be between 5 and 80 characters"]
+      - label: "Technology Stack"
+        name: "technologyStack"
+        widget: "list"
+        required: true
+        min: 1
+        max: 6
+        hint: "Technology categories used in this service (1-6 categories recommended)"
+        summary: "{{fields.category}} ({{fields.technologies.length}} technologies)"
+        fields:
+          - label: "Category"
+            name: "category"
+            widget: "string"
+            required: true
+            hint: "Technology category name (e.g., 'Frontend Technologies', 'SEO & Analytics')"
+            pattern: [".{5,50}", "Must be between 5 and 50 characters"]
+          - label: "Technologies"
+            name: "technologies"
+            widget: "list"
+            required: true
+            min: 2
+            max: 8
+            hint: "Specific technologies in this category (2-8 technologies recommended)"
+            summary: "{{fields.name}}"
+            fields:
+              - label: "Technology Name"
+                name: "name"
+                widget: "string"
+                required: true
+                hint: "Name of the technology (e.g., 'React.js', 'Google Analytics')"
+                pattern: [".{2,30}", "Must be between 2 and 30 characters"]
+              - label: "Icon"
+                name: "icon"
+                widget: "string"
+                required: true
+                hint: "Emoji or icon for this technology (e.g., '⚛️', '📊')"
+                pattern: [".{1,5}", "Must be 1-5 characters"]
+              - label: "Description"
+                name: "description"
+                widget: "text"
+                required: true
+                hint: "Brief explanation of this technology's role"
+                pattern: [".{20,150}", "Must be between 20 and 150 characters"]
+      - label: "Frequently Asked Questions"
+        name: "faqs"
+        widget: "list"
+        required: true
+        min: 4
+        max: 10
+        hint: "Common questions and answers about this service (4-10 FAQs recommended)"
+        summary: "{{fields.question}}"
+        fields:
+          - label: "Question"
+            name: "question"
+            widget: "string"
+            required: true
+            hint: "Common question clients ask about this service"
+            pattern: [".{10,150}", "Must be between 10 and 150 characters"]
+          - label: "Answer"
+            name: "answer"
+            widget: "markdown"
+            required: true
+            hint: "Detailed answer to the question (supports markdown formatting)"
+            modes: ["rich_text"]
+            editor_components: ["bold", "italic", "link"]
+      - label: "Page Content"
+        name: "body"
+        widget: "markdown"
+        required: true
+        hint: "Main content for the service page (supports full markdown formatting)"
+        modes: ["rich_text"]
+        editor_components: ["bold", "italic", "link", "heading-two", "heading-three", "bulleted-list", "numbered-list"]
+
+  # Case Studies Collection
+  - name: "caseStudies"
+    label: "Case Studies"
+    folder: "content/case-studies"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} - {{client.name}} ({{category}})"
+    sortable_fields: ["publishDate", "title", "category", "featured"]
+    view_filters:
+      - label: "Web Development"
+        field: "category"
+        pattern: "web-development"
+      - label: "Digital Marketing"
+        field: "category"
+        pattern: "digital-marketing"
+      - label: "AI & Automation"
+        field: "category"
+        pattern: "ai-automation"
+      - label: "Featured"
+        field: "featured"
+        pattern: true
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        required: true
+        hint: "Descriptive title of the case study project"
+        pattern: [".{10,100}", "Must be between 10 and 100 characters"]
+      - label: "Excerpt"
+        name: "excerpt"
+        widget: "text"
+        required: true
+        hint: "Brief summary of the project and its impact (used in previews and SEO)"
+        pattern: [".{50,300}", "Must be between 50 and 300 characters for optimal display"]
+      - label: "Featured"
+        name: "featured"
+        widget: "boolean"
+        default: false
+        hint: "Mark as featured to highlight on homepage and portfolio page"
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        required: true
+        options:
+          - label: "Web Development"
+            value: "web-development"
+          - label: "Digital Marketing"
+            value: "digital-marketing"
+          - label: "AI & Automation"
+            value: "ai-automation"
+        hint: "Primary service category for this project"
+      - label: "Services"
+        name: "services"
+        widget: "list"
+        required: true
+        min: 1
+        max: 3
+        hint: "All services involved in this project (1-3 services recommended)"
+        summary: "{{fields.service}}"
+        field:
+          label: "Service"
+          name: "service"
+          widget: "select"
+          options: ["web-development", "digital-marketing", "ai-automation"]
+      - label: "Publish Date"
+        name: "publishDate"
+        widget: "datetime"
+        required: true
+        hint: "Date when the project was completed or case study was published"
+      - label: "Project Type"
+        name: "projectType"
+        widget: "string"
+        required: true
+        hint: "Specific type of project (e.g., 'E-commerce Website Development', 'SEO Campaign')"
+        pattern: [".{10,80}", "Must be between 10 and 80 characters"]
+      - label: "Duration"
+        name: "duration"
+        widget: "string"
+        required: true
+        hint: "Project timeline (e.g., '3 months', '6 weeks')"
+        pattern: [".{3,20}", "Must be between 3 and 20 characters"]
+      - label: "Team Size"
+        name: "teamSize"
+        widget: "number"
+        required: true
+        min: 1
+        max: 20
+        value_type: "int"
+        hint: "Number of team members involved in the project"
+      - label: "Client Information"
+        name: "client"
+        widget: "object"
+        required: true
+        collapsed: false
+        summary: "{{fields.name}} - {{fields.industry}}"
+        fields:
+          - label: "Client Name"
+            name: "name"
+            widget: "string"
+            required: true
+            hint: "Company or organization name (can be anonymized if needed)"
+            pattern: [".{2,80}", "Must be between 2 and 80 characters"]
+          - label: "Industry"
+            name: "industry"
+            widget: "string"
+            required: true
+            hint: "Client's business sector (e.g., 'Healthcare', 'Manufacturing', 'Retail')"
+            pattern: [".{3,50}", "Must be between 3 and 50 characters"]
+          - label: "Company Size"
+            name: "size"
+            widget: "select"
+            required: true
+            options:
+              - label: "Startup (1-10 employees)"
+                value: "1-10 employees"
+              - label: "Small Business (11-50 employees)"
+                value: "11-50 employees"
+              - label: "Medium Business (51-200 employees)"
+                value: "51-200 employees"
+              - label: "Large Business (200+ employees)"
+                value: "200+ employees"
+            hint: "Size category of the client organization"
+          - label: "Location"
+            name: "location"
+            widget: "string"
+            required: true
+            hint: "Client's primary location (city, state/region)"
+            pattern: [".{3,50}", "Must be between 3 and 50 characters"]
+      - label: "Challenge"
+        name: "challenge"
+        widget: "markdown"
+        required: true
+        hint: "Detailed description of the client's challenges and pain points (supports markdown)"
+        modes: ["rich_text"]
+        editor_components: ["bold", "italic", "bulleted-list", "numbered-list"]
+      - label: "Solution"
+        name: "solution"
+        widget: "list"
+        required: true
+        min: 3
+        max: 8
+        hint: "Key solution components implemented (3-8 items recommended)"
+        summary: "{{fields.solution}}"
+        field:
+          label: "Solution Component"
+          name: "solution"
+          widget: "string"
+          hint: "Specific solution or feature implemented"
+          pattern: [".{10,150}", "Must be between 10 and 150 characters"]
+      - label: "Results & Metrics"
+        name: "results"
+        widget: "list"
+        required: true
+        min: 2
+        max: 6
+        hint: "Quantifiable results achieved (2-6 metrics recommended)"
+        summary: "{{fields.label}}: {{fields.value}}{{fields.improvement}}"
+        fields:
+          - label: "Metric Label"
+            name: "label"
+            widget: "string"
+            required: true
+            hint: "Name of the metric (e.g., 'Website Traffic', 'Conversion Rate')"
+            pattern: [".{5,50}", "Must be between 5 and 50 characters"]
+          - label: "Value"
+            name: "value"
+            widget: "string"
+            required: true
+            hint: "The achieved value (e.g., '150%', '4.9/5', '60%')"
+            pattern: [".{1,20}", "Must be between 1 and 20 characters"]
+          - label: "Improvement Type"
+            name: "improvement"
+            widget: "select"
+            required: true
+            options: ["increase", "decrease", "improved", "achieved", "rating", "reduced"]
+            hint: "Type of improvement achieved"
+          - label: "Timeframe"
+            name: "timeframe"
+            widget: "string"
+            required: true
+            hint: "When this result was achieved (e.g., 'within 3 months', 'ongoing')"
+            pattern: [".{3,30}", "Must be between 3 and 30 characters"]
+          - label: "Icon"
+            name: "icon"
+            widget: "string"
+            required: true
+            hint: "Emoji or icon representing this metric (e.g., '📈', '💰', '⏰')"
+            pattern: [".{1,5}", "Must be 1-5 characters"]
+      - label: "Technology Stack"
+        name: "technologies"
+        widget: "list"
+        required: true
+        min: 3
+        max: 10
+        hint: "Technologies and tools used in the project (3-10 technologies recommended)"
+        summary: "{{fields.name}} ({{fields.category}})"
+        fields:
+          - label: "Technology Name"
+            name: "name"
+            widget: "string"
+            required: true
+            hint: "Name of the technology or tool (e.g., 'React.js', 'Google Analytics')"
+            pattern: [".{2,30}", "Must be between 2 and 30 characters"]
+          - label: "Category"
+            name: "category"
+            widget: "select"
+            required: true
+            options:
+              - "Frontend Framework"
+              - "Backend"
+              - "Database"
+              - "Cloud Hosting"
+              - "Payment Processing"
+              - "Analytics"
+              - "Communication"
+              - "Security"
+              - "Design Tools"
+              - "Marketing Tools"
+              - "Other"
+            hint: "Category of this technology"
+      - label: "Image Gallery"
+        name: "images"
+        widget: "list"
+        required: true
+        min: 2
+        max: 8
+        hint: "Project screenshots and images (2-8 images recommended)"
+        summary: "{{fields.alt}} ({{fields.type}})"
+        fields:
+          - label: "Image"
+            name: "src"
+            widget: "image"
+            required: true
+            hint: "Upload project image or screenshot"
+            media_folder: "/uploads/case-studies"
+          - label: "Alt Text"
+            name: "alt"
+            widget: "string"
+            required: true
+            hint: "Descriptive alt text for accessibility (describe what's shown in the image)"
+            pattern: [".{10,150}", "Must be between 10 and 150 characters"]
+          - label: "Image Type"
+            name: "type"
+            widget: "select"
+            required: true
+            options:
+              - label: "Before (Original State)"
+                value: "before"
+              - label: "After (Final Result)"
+                value: "after"
+              - label: "Process (Work in Progress)"
+                value: "process"
+              - label: "Feature (Specific Feature)"
+                value: "feature"
+            hint: "Type of image for proper categorization"
+          - label: "Caption"
+            name: "caption"
+            widget: "string"
+            required: false
+            hint: "Optional caption describing the image context"
+            pattern: [".{5,100}", "Must be between 5 and 100 characters if provided"]
+      - label: "Client Testimonial"
+        name: "testimonial"
+        widget: "object"
+        required: false
+        collapsed: true
+        summary: "{{fields.author}} - {{fields.position}}"
+        fields:
+          - label: "Quote"
+            name: "quote"
+            widget: "text"
+            required: true
+            hint: "Client's testimonial about the project"
+            pattern: [".{50,500}", "Must be between 50 and 500 characters"]
+          - label: "Author Name"
+            name: "author"
+            widget: "string"
+            required: true
+            hint: "Name of the person giving the testimonial"
+            pattern: [".{2,50}", "Must be between 2 and 50 characters"]
+          - label: "Position"
+            name: "position"
+            widget: "string"
+            required: true
+            hint: "Job title or role of the testimonial author"
+            pattern: [".{2,50}", "Must be between 2 and 50 characters"]
+          - label: "Company"
+            name: "company"
+            widget: "string"
+            required: true
+            hint: "Company name (should match client name)"
+            pattern: [".{2,80}", "Must be between 2 and 80 characters"]
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        min: 0
+        max: 8
+        hint: "Optional tags for categorization and filtering (0-8 tags recommended)"
+        summary: "{{fields.tag}}"
+        field:
+          label: "Tag"
+          name: "tag"
+          widget: "string"
+          hint: "Tag for categorization (e.g., 'responsive-design', 'e-commerce', 'seo')"
+          pattern: [".{2,30}", "Must be between 2 and 30 characters"]
+      - label: "SEO Settings"
+        name: "seo"
+        widget: "object"
+        required: false
+        collapsed: true
+        summary: "Meta Title: {{fields.metaTitle}}"
+        fields:
+          - label: "Meta Title"
+            name: "metaTitle"
+            widget: "string"
+            required: false
+            hint: "Custom SEO title (if different from main title)"
+            pattern: [".{10,60}", "Must be between 10 and 60 characters for optimal SEO"]
+          - label: "Meta Description"
+            name: "metaDescription"
+            widget: "text"
+            required: false
+            hint: "Custom SEO description (if different from excerpt)"
+            pattern: [".{50,160}", "Must be between 50 and 160 characters for optimal SEO"]
+          - label: "Keywords"
+            name: "keywords"
+            widget: "string"
+            required: false
+            hint: "Comma-separated keywords for SEO (e.g., 'web development, healthcare, patient portal')"
+      - label: "Case Study Content"
+        name: "body"
+        widget: "markdown"
+        required: true
+        hint: "Detailed case study content with project overview, process, and outcomes (supports full markdown)"
+        modes: ["rich_text"]
+        editor_components: ["bold", "italic", "link", "heading-two", "heading-three", "bulleted-list", "numbered-list"]
+
+  # Pages Collection (About, Contact, and other static pages)
+  - name: "pages"
+    label: "Static Pages"
+    files:
+      - name: "about"
+        label: "About Page"
+        file: "content/pages/about.yml"
+        fields:
+          - label: "Page Title"
+            name: "title"
+            widget: "string"
+            required: true
+            hint: "Main page title (e.g., 'About Dhīmahi Technolabs')"
+            pattern: [".{5,80}", "Must be between 5 and 80 characters"]
+          - label: "Page Introduction"
+            name: "introduction"
+            widget: "markdown"
+            required: true
+            hint: "Brief introduction or tagline for the about page"
+            modes: ["rich_text"]
+            editor_components: ["bold", "italic"]
+          - label: "Company Story"
+            name: "story"
+            widget: "object"
+            required: true
+            collapsed: false
+            summary: "{{fields.title}}"
+            fields:
+              - label: "Section Title"
+                name: "title"
+                widget: "string"
+                required: true
+                hint: "Title for the company story section (e.g., 'Our Story')"
+                pattern: [".{5,50}", "Must be between 5 and 50 characters"]
+              - label: "Story Content"
+                name: "content"
+                widget: "markdown"
+                required: true
+                hint: "Detailed company story and background (supports markdown formatting)"
+                modes: ["rich_text"]
+                editor_components: ["bold", "italic", "link", "heading-three", "bulleted-list", "numbered-list"]
+          - label: "Mission Statement"
+            name: "mission"
+            widget: "object"
+            required: true
+            collapsed: false
+            summary: "{{fields.title}}"
+            fields:
+              - label: "Section Title"
+                name: "title"
+                widget: "string"
+                required: true
+                hint: "Title for the mission section (e.g., 'Our Mission')"
+                pattern: [".{5,50}", "Must be between 5 and 50 characters"]
+              - label: "Mission Statement"
+                name: "statement"
+                widget: "text"
+                required: true
+                hint: "Clear, concise mission statement"
+                pattern: [".{50,500}", "Must be between 50 and 500 characters"]
+          - label: "Vision Statement"
+            name: "vision"
+            widget: "object"
+            required: false
+            collapsed: true
+            summary: "{{fields.title}}"
+            fields:
+              - label: "Section Title"
+                name: "title"
+                widget: "string"
+                required: true
+                hint: "Title for the vision section (e.g., 'Our Vision')"
+                pattern: [".{5,50}", "Must be between 5 and 50 characters"]
+              - label: "Vision Statement"
+                name: "statement"
+                widget: "text"
+                required: true
+                hint: "Clear, inspiring vision statement"
+                pattern: [".{50,500}", "Must be between 50 and 500 characters"]
+          - label: "Company Values"
+            name: "values"
+            widget: "list"
+            required: true
+            min: 3
+            max: 8
+            hint: "Core company values (3-8 values recommended)"
+            summary: "{{fields.title}}"
+            fields:
+              - label: "Value Title"
+                name: "title"
+                widget: "string"
+                required: true
+                hint: "Name of the company value (e.g., 'Trust & Transparency')"
+                pattern: [".{5,50}", "Must be between 5 and 50 characters"]
+              - label: "Icon"
+                name: "icon"
+                widget: "string"
+                required: true
+                hint: "Emoji or icon representing this value (e.g., '🤝', '💡')"
+                pattern: [".{1,5}", "Must be 1-5 characters"]
+              - label: "Description"
+                name: "description"
+                widget: "text"
+                required: true
+                hint: "Detailed explanation of this value"
+                pattern: [".{50,300}", "Must be between 50 and 300 characters"]
+          - label: "Company Timeline"
+            name: "timeline"
+            widget: "list"
+            required: false
+            min: 0
+            max: 10
+            hint: "Key milestones in company history (optional, 0-10 items)"
+            summary: "{{fields.year}} - {{fields.title}}"
+            fields:
+              - label: "Year"
+                name: "year"
+                widget: "string"
+                required: true
+                hint: "Year or year range (e.g., '2020', '2015-2018')"
+                pattern: [".{4,10}", "Must be between 4 and 10 characters"]
+              - label: "Milestone Title"
+                name: "title"
+                widget: "string"
+                required: true
+                hint: "Brief title for this milestone"
+                pattern: [".{10,80}", "Must be between 10 and 80 characters"]
+              - label: "Description"
+                name: "description"
+                widget: "text"
+                required: true
+                hint: "Detailed description of what happened during this period"
+                pattern: [".{50,400}", "Must be between 50 and 400 characters"]
+          - label: "Team Members"
+            name: "team"
+            widget: "list"
+            required: true
+            min: 1
+            max: 15
+            hint: "Team member profiles (1-15 members)"
+            summary: "{{fields.name}} - {{fields.role}}"
+            fields:
+              - label: "Full Name"
+                name: "name"
+                widget: "string"
+                required: true
+                hint: "Full name of the team member"
+                pattern: [".{2,50}", "Must be between 2 and 50 characters"]
+              - label: "Role/Position"
+                name: "role"
+                widget: "string"
+                required: true
+                hint: "Job title or role (e.g., 'Founder & CTO', 'Digital Marketing Director')"
+                pattern: [".{5,80}", "Must be between 5 and 80 characters"]
+              - label: "Bio"
+                name: "bio"
+                widget: "text"
+                required: true
+                hint: "Professional biography and background"
+                pattern: [".{100,800}", "Must be between 100 and 800 characters"]
+              - label: "Profile Image"
+                name: "image"
+                widget: "image"
+                required: false
+                hint: "Professional headshot or profile photo"
+                media_folder: "/uploads/team"
+              - label: "Expertise Areas"
+                name: "expertise"
+                widget: "list"
+                required: false
+                min: 0
+                max: 8
+                hint: "Key areas of expertise (0-8 areas)"
+                summary: "{{fields.area}}"
+                field:
+                  label: "Expertise Area"
+                  name: "area"
+                  widget: "string"
+                  hint: "Specific skill or expertise area"
+                  pattern: [".{3,50}", "Must be between 3 and 50 characters"]
+              - label: "Years of Experience"
+                name: "experience"
+                widget: "number"
+                required: false
+                min: 0
+                max: 50
+                value_type: "int"
+                hint: "Years of professional experience (optional)"
+          - label: "Contact Information"
+            name: "contact"
+            widget: "object"
+            required: true
+            collapsed: false
+            summary: "Contact Details"
+            fields:
+              - label: "Primary Email"
+                name: "email"
+                widget: "string"
+                required: true
+                pattern: ["^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", "Must be a valid email address"]
+                hint: "Main contact email address"
+              - label: "Phone Number"
+                name: "phone"
+                widget: "string"
+                required: true
+                hint: "Primary contact phone number with country code"
+                pattern: [".{10,20}", "Must be between 10 and 20 characters"]
+              - label: "Business Address"
+                name: "address"
+                widget: "object"
+                required: true
+                collapsed: false
+                fields:
+                  - label: "Street Address"
+                    name: "street"
+                    widget: "string"
+                    required: true
+                    hint: "Street address and building number"
+                    pattern: [".{10,100}", "Must be between 10 and 100 characters"]
+                  - label: "City"
+                    name: "city"
+                    widget: "string"
+                    required: true
+                    hint: "City name"
+                    pattern: [".{2,50}", "Must be between 2 and 50 characters"]
+                  - label: "State/Region"
+                    name: "state"
+                    widget: "string"
+                    required: true
+                    hint: "State or region"
+                    pattern: [".{2,50}", "Must be between 2 and 50 characters"]
+                  - label: "Postal Code"
+                    name: "postalCode"
+                    widget: "string"
+                    required: true
+                    hint: "ZIP or postal code"
+                    pattern: [".{3,10}", "Must be between 3 and 10 characters"]
+                  - label: "Country"
+                    name: "country"
+                    widget: "string"
+                    required: true
+                    hint: "Country name"
+                    pattern: [".{2,50}", "Must be between 2 and 50 characters"]
+              - label: "Business Hours"
+                name: "businessHours"
+                widget: "object"
+                required: false
+                collapsed: true
+                fields:
+                  - label: "Monday to Friday"
+                    name: "weekdays"
+                    widget: "string"
+                    required: false
+                    hint: "Business hours for weekdays (e.g., '9:00 AM - 6:00 PM')"
+                  - label: "Saturday"
+                    name: "saturday"
+                    widget: "string"
+                    required: false
+                    hint: "Saturday business hours (leave empty if closed)"
+                  - label: "Sunday"
+                    name: "sunday"
+                    widget: "string"
+                    required: false
+                    hint: "Sunday business hours (leave empty if closed)"
+                  - label: "Timezone"
+                    name: "timezone"
+                    widget: "string"
+                    required: false
+                    hint: "Timezone (e.g., 'IST', 'GMT+5:30')"
+          - label: "SEO Settings"
+            name: "seo"
+            widget: "object"
+            required: false
+            collapsed: true
+            summary: "Meta Title: {{fields.metaTitle}}"
+            fields:
+              - label: "Meta Title"
+                name: "metaTitle"
+                widget: "string"
+                required: false
+                hint: "Custom SEO title for the about page"
+                pattern: [".{10,60}", "Must be between 10 and 60 characters for optimal SEO"]
+              - label: "Meta Description"
+                name: "metaDescription"
+                widget: "text"
+                required: false
+                hint: "SEO description for search results"
+                pattern: [".{50,160}", "Must be between 50 and 160 characters for optimal SEO"]
+              - label: "Keywords"
+                name: "keywords"
+                widget: "string"
+                required: false
+                hint: "Comma-separated keywords for SEO"
+      - name: "contact"
+        label: "Contact Page"
+        file: "content/pages/contact.yml"
+        fields:
+          - label: "Page Title"
+            name: "title"
+            widget: "string"
+            required: true
+            hint: "Main page title (e.g., 'Contact Us')"
+            pattern: [".{5,50}", "Must be between 5 and 50 characters"]
+          - label: "Page Description"
+            name: "description"
+            widget: "text"
+            required: true
+            hint: "Brief description or introduction for the contact page"
+            pattern: [".{50,300}", "Must be between 50 and 300 characters"]
+          - label: "Contact Methods"
+            name: "contactMethods"
+            widget: "list"
+            required: true
+            min: 2
+            max: 6
+            hint: "Different ways to contact the company (2-6 methods recommended)"
+            summary: "{{fields.type}}: {{fields.value}}"
+            fields:
+              - label: "Contact Type"
+                name: "type"
+                widget: "select"
+                required: true
+                options: ["Email", "Phone", "WhatsApp", "Address", "Social Media", "Other"]
+                hint: "Type of contact method"
+              - label: "Label"
+                name: "label"
+                widget: "string"
+                required: true
+                hint: "Display label (e.g., 'General Inquiries', 'Sales Team')"
+                pattern: [".{3,50}", "Must be between 3 and 50 characters"]
+              - label: "Value"
+                name: "value"
+                widget: "string"
+                required: true
+                hint: "Contact information (email, phone, address, etc.)"
+                pattern: [".{5,200}", "Must be between 5 and 200 characters"]
+              - label: "Icon"
+                name: "icon"
+                widget: "string"
+                required: true
+                hint: "Emoji or icon for this contact method"
+                pattern: [".{1,5}", "Must be 1-5 characters"]
+              - label: "Primary"
+                name: "primary"
+                widget: "boolean"
+                default: false
+                hint: "Mark as primary contact method"
+          - label: "Office Locations"
+            name: "offices"
+            widget: "list"
+            required: false
+            min: 0
+            max: 5
+            hint: "Physical office locations (0-5 locations)"
+            summary: "{{fields.name}} - {{fields.city}}"
+            fields:
+              - label: "Office Name"
+                name: "name"
+                widget: "string"
+                required: true
+                hint: "Name or identifier for this office (e.g., 'Main Office', 'Ahmedabad Branch')"
+                pattern: [".{5,50}", "Must be between 5 and 50 characters"]
+              - label: "Address"
+                name: "address"
+                widget: "object"
+                required: true
+                collapsed: false
+                fields:
+                  - label: "Street Address"
+                    name: "street"
+                    widget: "string"
+                    required: true
+                    hint: "Complete street address"
+                    pattern: [".{10,150}", "Must be between 10 and 150 characters"]
+                  - label: "City"
+                    name: "city"
+                    widget: "string"
+                    required: true
+                    hint: "City name"
+                    pattern: [".{2,50}", "Must be between 2 and 50 characters"]
+                  - label: "State/Region"
+                    name: "state"
+                    widget: "string"
+                    required: true
+                    hint: "State or region"
+                    pattern: [".{2,50}", "Must be between 2 and 50 characters"]
+                  - label: "Postal Code"
+                    name: "postalCode"
+                    widget: "string"
+                    required: true
+                    hint: "ZIP or postal code"
+                    pattern: [".{3,10}", "Must be between 3 and 10 characters"]
+              - label: "Phone"
+                name: "phone"
+                widget: "string"
+                required: false
+                hint: "Office-specific phone number"
+              - label: "Email"
+                name: "email"
+                widget: "string"
+                required: false
+                pattern: ["^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", "Must be a valid email address"]
+                hint: "Office-specific email address"
+              - label: "Business Hours"
+                name: "businessHours"
+                widget: "string"
+                required: false
+                hint: "Office hours (e.g., 'Mon-Fri: 9 AM - 6 PM')"
+          - label: "Contact Form Settings"
+            name: "contactForm"
+            widget: "object"
+            required: false
+            collapsed: true
+            summary: "Form Configuration"
+            fields:
+              - label: "Form Title"
+                name: "title"
+                widget: "string"
+                required: false
+                hint: "Title for the contact form section"
+                pattern: [".{5,50}", "Must be between 5 and 50 characters"]
+              - label: "Form Description"
+                name: "description"
+                widget: "text"
+                required: false
+                hint: "Description or instructions for the contact form"
+              - label: "Success Message"
+                name: "successMessage"
+                widget: "text"
+                required: false
+                hint: "Message shown after successful form submission"
+              - label: "Required Fields"
+                name: "requiredFields"
+                widget: "list"
+                required: false
+                hint: "List of required form fields"
+                field:
+                  label: "Field Name"
+                  name: "field"
+                  widget: "select"
+                  options: ["name", "email", "phone", "company", "message", "service", "budget"]
+          - label: "SEO Settings"
+            name: "seo"
+            widget: "object"
+            required: false
+            collapsed: true
+            summary: "Meta Title: {{fields.metaTitle}}"
+            fields:
+              - label: "Meta Title"
+                name: "metaTitle"
+                widget: "string"
+                required: false
+                hint: "Custom SEO title for the contact page"
+                pattern: [".{10,60}", "Must be between 10 and 60 characters for optimal SEO"]
+              - label: "Meta Description"
+                name: "metaDescription"
+                widget: "text"
+                required: false
+                hint: "SEO description for search results"
+                pattern: [".{50,160}", "Must be between 50 and 160 characters for optimal SEO"]
+              - label: "Keywords"
+                name: "keywords"
+                widget: "string"
+                required: false
+                hint: "Comma-separated keywords for SEO"
+      - name: "consultation"
+        label: "Consultation Page"
+        file: "content/pages/consultation.yml"
+        fields:
+          - label: "Page Title"
+            name: "title"
+            widget: "string"
+            required: true
+            hint: "Main page title (e.g., 'Free Consultation')"
+            pattern: [".{5,50}", "Must be between 5 and 50 characters"]
+          - label: "Page Description"
+            name: "description"
+            widget: "text"
+            required: true
+            hint: "Brief description of the consultation service"
+            pattern: [".{50,300}", "Must be between 50 and 300 characters"]
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            required: true
+            collapsed: false
+            fields:
+              - label: "Headline"
+                name: "headline"
+                widget: "string"
+                required: true
+                hint: "Main headline for the consultation page"
+                pattern: [".{10,80}", "Must be between 10 and 80 characters"]
+              - label: "Subheadline"
+                name: "subheadline"
+                widget: "text"
+                required: true
+                hint: "Supporting text explaining the consultation offer"
+                pattern: [".{50,200}", "Must be between 50 and 200 characters"]
+          - label: "Consultation Benefits"
+            name: "benefits"
+            widget: "list"
+            required: true
+            min: 3
+            max: 8
+            hint: "Benefits of the free consultation (3-8 benefits)"
+            summary: "{{fields.title}}"
+            fields:
+              - label: "Benefit Title"
+                name: "title"
+                widget: "string"
+                required: true
+                hint: "Name of the benefit"
+                pattern: [".{5,50}", "Must be between 5 and 50 characters"]
+              - label: "Description"
+                name: "description"
+                widget: "text"
+                required: true
+                hint: "Detailed explanation of this benefit"
+                pattern: [".{30,200}", "Must be between 30 and 200 characters"]
+              - label: "Icon"
+                name: "icon"
+                widget: "string"
+                required: true
+                hint: "Emoji or icon for this benefit"
+                pattern: [".{1,5}", "Must be 1-5 characters"]
+          - label: "Process Steps"
+            name: "process"
+            widget: "list"
+            required: true
+            min: 3
+            max: 6
+            hint: "Steps in the consultation process (3-6 steps)"
+            summary: "Step {{fields.step}}: {{fields.title}}"
+            fields:
+              - label: "Step Number"
+                name: "step"
+                widget: "number"
+                required: true
+                min: 1
+                max: 10
+                value_type: "int"
+                hint: "Sequential step number"
+              - label: "Step Title"
+                name: "title"
+                widget: "string"
+                required: true
+                hint: "Name of this step"
+                pattern: [".{5,50}", "Must be between 5 and 50 characters"]
+              - label: "Description"
+                name: "description"
+                widget: "text"
+                required: true
+                hint: "What happens in this step"
+                pattern: [".{30,200}", "Must be between 30 and 200 characters"]
+          - label: "SEO Settings"
+            name: "seo"
+            widget: "object"
+            required: false
+            collapsed: true
+            fields:
+              - label: "Meta Title"
+                name: "metaTitle"
+                widget: "string"
+                required: false
+                pattern: [".{10,60}", "Must be between 10 and 60 characters for optimal SEO"]
+              - label: "Meta Description"
+                name: "metaDescription"
+                widget: "text"
+                required: false
+                pattern: [".{50,160}", "Must be between 50 and 160 characters for optimal SEO"]
+      - name: "resources"
+        label: "Resources Page"
+        file: "content/pages/resources.yml"
+        fields:
+          - label: "Page Title"
+            name: "title"
+            widget: "string"
+            required: true
+            hint: "Main page title (e.g., 'Resources & Downloads')"
+            pattern: [".{5,50}", "Must be between 5 and 50 characters"]
+          - label: "Page Description"
+            name: "description"
+            widget: "text"
+            required: true
+            hint: "Brief description of available resources"
+            pattern: [".{50,300}", "Must be between 50 and 300 characters"]
+          - label: "Resource Categories"
+            name: "categories"
+            widget: "list"
+            required: true
+            min: 1
+            max: 8
+            hint: "Categories of resources available (1-8 categories)"
+            summary: "{{fields.name}} ({{fields.resources.length}} resources)"
+            fields:
+              - label: "Category Name"
+                name: "name"
+                widget: "string"
+                required: true
+                hint: "Name of the resource category"
+                pattern: [".{3,50}", "Must be between 3 and 50 characters"]
+              - label: "Description"
+                name: "description"
+                widget: "text"
+                required: true
+                hint: "Description of this resource category"
+                pattern: [".{30,200}", "Must be between 30 and 200 characters"]
+              - label: "Resources"
+                name: "resources"
+                widget: "list"
+                required: true
+                min: 1
+                max: 10
+                hint: "Individual resources in this category"
+                summary: "{{fields.title}}"
+                fields:
+                  - label: "Resource Title"
+                    name: "title"
+                    widget: "string"
+                    required: true
+                    hint: "Name of the resource"
+                    pattern: [".{5,80}", "Must be between 5 and 80 characters"]
+                  - label: "Description"
+                    name: "description"
+                    widget: "text"
+                    required: true
+                    hint: "What this resource contains"
+                    pattern: [".{30,300}", "Must be between 30 and 300 characters"]
+                  - label: "Resource Type"
+                    name: "type"
+                    widget: "select"
+                    required: true
+                    options: ["PDF", "Checklist", "Template", "Guide", "Whitepaper", "Case Study", "Video", "Webinar"]
+                    hint: "Type of resource"
+                  - label: "File"
+                    name: "file"
+                    widget: "file"
+                    required: false
+                    hint: "Upload the resource file (optional)"
+                    media_folder: "/uploads/resources"
+                  - label: "External Link"
+                    name: "link"
+                    widget: "string"
+                    required: false
+                    hint: "External link to the resource (if not uploaded)"
+                  - label: "Requires Email"
+                    name: "requiresEmail"
+                    widget: "boolean"
+                    default: true
+                    hint: "Whether email is required to download"
+          - label: "SEO Settings"
+            name: "seo"
+            widget: "object"
+            required: false
+            collapsed: true
+            fields:
+              - label: "Meta Title"
+                name: "metaTitle"
+                widget: "string"
+                required: false
+                pattern: [".{10,60}", "Must be between 10 and 60 characters for optimal SEO"]
+              - label: "Meta Description"
+                name: "metaDescription"
+                widget: "text"
+                required: false
+                pattern: [".{50,160}", "Must be between 50 and 160 characters for optimal SEO"]
+
+  # Insights/Blog Collection
+  - name: "insights"
+    label: "Insights"
+    folder: "content/insights"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} - {{author}} ({{publishDate}})"
+    sortable_fields: ["publishDate", "title", "author", "featured"]
+    view_filters:
+      - label: "Featured Articles"
+        field: "featured"
+        pattern: true
+      - label: "Published"
+        field: "publishDate"
+        pattern: ".*"
+      - label: "AI & Automation"
+        field: "tags"
+        pattern: "ai"
+      - label: "Digital Marketing"
+        field: "tags"
+        pattern: "marketing"
+      - label: "Web Development"
+        field: "tags"
+        pattern: "development"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        required: true
+        hint: "Article title that will appear as the main heading (optimized for SEO and readability)"
+        pattern: [".{10,100}", "Must be between 10 and 100 characters for optimal SEO and readability"]
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        required: true
+        hint: "URL-friendly version of the title (lowercase, hyphens instead of spaces)"
+        pattern: ["^[a-z0-9-]+$", "Must contain only lowercase letters, numbers, and hyphens"]
+      - label: "Excerpt"
+        name: "excerpt"
+        widget: "text"
+        required: true
+        hint: "Brief summary of the article (used in previews, social sharing, and SEO meta description)"
+        pattern: [".{50,300}", "Must be between 50 and 300 characters for optimal display and SEO"]
+      - label: "Content"
+        name: "body"
+        widget: "markdown"
+        required: true
+        hint: "Main article content with full markdown support (headings, lists, links, images, etc.)"
+        modes: ["rich_text"]
+        editor_components: ["bold", "italic", "link", "heading-two", "heading-three", "bulleted-list", "numbered-list", "quote", "code-block"]
+      - label: "Featured Image"
+        name: "featuredImage"
+        widget: "image"
+        required: false
+        hint: "Main image for the article (used in social sharing, article header, and previews)"
+        media_folder: "/uploads/insights"
+      - label: "Featured Image Alt Text"
+        name: "featuredImageAlt"
+        widget: "string"
+        required: false
+        hint: "Descriptive alt text for the featured image (important for accessibility and SEO)"
+        pattern: [".{10,150}", "Must be between 10 and 150 characters if provided"]
+      - label: "Publish Date"
+        name: "publishDate"
+        widget: "datetime"
+        required: true
+        hint: "Date and time when the article should be published (future dates will be treated as scheduled)"
+      - label: "Author"
+        name: "author"
+        widget: "string"
+        required: true
+        hint: "Name of the article author (will be displayed in byline and author bio)"
+        pattern: [".{2,50}", "Must be between 2 and 50 characters"]
+      - label: "Author Bio"
+        name: "authorBio"
+        widget: "text"
+        required: false
+        hint: "Brief bio of the author (optional, displayed at the end of articles)"
+        pattern: [".{20,200}", "Must be between 20 and 200 characters if provided"]
+      - label: "Reading Time"
+        name: "readingTime"
+        widget: "number"
+        required: false
+        min: 1
+        max: 60
+        value_type: "int"
+        hint: "Estimated reading time in minutes (leave empty for automatic calculation)"
+      - label: "Featured Article"
+        name: "featured"
+        widget: "boolean"
+        default: false
+        hint: "Mark as featured to highlight on homepage and insights page"
+      - label: "Article Category"
+        name: "category"
+        widget: "select"
+        required: true
+        options:
+          - label: "AI & Automation"
+            value: "ai-automation"
+          - label: "Digital Marketing"
+            value: "digital-marketing"
+          - label: "Web Development"
+            value: "web-development"
+          - label: "Business Strategy"
+            value: "business-strategy"
+          - label: "Technology Trends"
+            value: "technology-trends"
+          - label: "Case Studies"
+            value: "case-studies"
+        hint: "Primary category for this article (helps with organization and filtering)"
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: true
+        min: 2
+        max: 10
+        hint: "Relevant tags for categorization and SEO (2-10 tags recommended)"
+        summary: "{{fields.tag}}"
+        field:
+          label: "Tag"
+          name: "tag"
+          widget: "string"
+          hint: "Specific tag (e.g., 'seo', 'small-business', 'automation', 'ahmedabad')"
+          pattern: [".{2,30}", "Must be between 2 and 30 characters"]
+      - label: "Related Articles"
+        name: "relatedArticles"
+        widget: "list"
+        required: false
+        min: 0
+        max: 5
+        hint: "Optional list of related article slugs (0-5 articles recommended)"
+        summary: "{{fields.slug}}"
+        field:
+          label: "Article Slug"
+          name: "slug"
+          widget: "string"
+          hint: "Slug of a related article (must match existing article slug exactly)"
+          pattern: ["^[a-z0-9-]+$", "Must contain only lowercase letters, numbers, and hyphens"]
+      - label: "SEO Settings"
+        name: "seo"
+        widget: "object"
+        required: false
+        collapsed: true
+        summary: "Meta Title: {{fields.metaTitle}}"
+        fields:
+          - label: "Meta Title"
+            name: "metaTitle"
+            widget: "string"
+            required: false
+            hint: "Custom SEO title (if different from article title) - appears in search results and browser tabs"
+            pattern: [".{10,60}", "Must be between 10 and 60 characters for optimal SEO"]
+          - label: "Meta Description"
+            name: "metaDescription"
+            widget: "text"
+            required: false
+            hint: "Custom SEO description (if different from excerpt) - appears in search results"
+            pattern: [".{50,160}", "Must be between 50 and 160 characters for optimal SEO"]
+          - label: "Focus Keywords"
+            name: "keywords"
+            widget: "string"
+            required: false
+            hint: "Comma-separated focus keywords for SEO (e.g., 'digital marketing, SME, Gujarat, automation')"
+          - label: "Canonical URL"
+            name: "canonicalUrl"
+            widget: "string"
+            required: false
+            hint: "Canonical URL if this content exists elsewhere (prevents duplicate content issues)"
+            pattern: ["^https?://.*", "Must be a valid URL starting with http:// or https://"]
+      - label: "Social Sharing"
+        name: "social"
+        widget: "object"
+        required: false
+        collapsed: true
+        summary: "Social Title: {{fields.title}}"
+        fields:
+          - label: "Social Media Title"
+            name: "title"
+            widget: "string"
+            required: false
+            hint: "Custom title for social media sharing (if different from article title)"
+            pattern: [".{10,70}", "Must be between 10 and 70 characters for optimal social sharing"]
+          - label: "Social Media Description"
+            name: "description"
+            widget: "text"
+            required: false
+            hint: "Custom description for social media sharing (if different from excerpt)"
+            pattern: [".{50,200}", "Must be between 50 and 200 characters for optimal social sharing"]
+          - label: "Social Media Image"
+            name: "image"
+            widget: "image"
+            required: false
+            hint: "Custom image for social media sharing (if different from featured image)"
+            media_folder: "/uploads/insights"
+      - label: "Article Status"
+        name: "status"
+        widget: "select"
+        required: true
+        default: "draft"
+        options:
+          - label: "Draft"
+            value: "draft"
+          - label: "Ready for Review"
+            value: "review"
+          - label: "Published"
+            value: "published"
+          - label: "Archived"
+            value: "archived"
+        hint: "Current status of the article (controls visibility and workflow)"
+      - label: "Content Notes"
+        name: "notes"
+        widget: "text"
+        required: false
+        hint: "Internal notes about the article (not displayed publicly, for editorial use)"
+
+
+
+# Editor configuration for rich text and markdown
+editor:
+  preview: true
+
+# Media folder organization
+media_folders:
+  - name: "uploads"
+    label: "General Uploads"
+    folder: "public/uploads/general"
+  - name: "testimonials"
+    label: "Testimonial Images"
+    folder: "public/uploads/testimonials"
+  - name: "services"
+    label: "Service Images"
+    folder: "public/uploads/services"
+  - name: "case-studies"
+    label: "Case Study Images"
+    folder: "public/uploads/case-studies"
+  - name: "insights"
+    label: "Insights Images"
+    folder: "public/uploads/insights"
+  - name: "team"
+    label: "Team Photos"
+    folder: "public/uploads/team"
+
+# Preview settings
+show_preview_links: true
+preview_path: "{{slug}}"

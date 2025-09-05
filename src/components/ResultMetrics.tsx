@@ -1,6 +1,6 @@
 'use client';
 
-import { ResultMetric } from '@/lib/case-studies';
+import { ResultMetric } from '@/lib/cms-content';
 
 interface ResultMetricsProps {
   results: ResultMetric[];

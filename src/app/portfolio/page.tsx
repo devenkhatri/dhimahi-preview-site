@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { getAllCaseStudies, CaseStudyMeta } from '@/lib/case-studies';
+import { getAllCMSCaseStudies, CaseStudyMeta } from '@/lib/cms-content';
 import { COMPANY_NAME } from '@/lib/constants';
 import CaseStudyCard from '@/components/CaseStudyCard';
 import PortfolioFilters from '@/components/PortfolioFilters';
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 };
 
 export default function PortfolioPage() {
-  const caseStudies = getAllCaseStudies();
+  const caseStudies = getAllCMSCaseStudies();
   const featuredCaseStudies = caseStudies.filter(cs => cs.featured);
   const categories = ['all', 'web-development', 'digital-marketing', 'ai-automation'];
 

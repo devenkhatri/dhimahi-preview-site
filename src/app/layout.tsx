@@ -5,6 +5,8 @@ import FormProvider from "@/components/forms/FormProvider";
 import WebVitals from "@/components/WebVitals";
 import Analytics from "@/components/Analytics";
 import PerformanceMonitor from "@/components/PerformanceMonitor";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
+import ClientOnly from "@/components/ClientOnly";
 
 export const metadata = {
   metadataBase: new URL("https://www.dhimahitechnolabs.com"),
@@ -79,24 +81,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#215b6f" />
-        
+
         {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
-        
+
         {/* DNS prefetch for better performance */}
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
         <link rel="dns-prefetch" href="//www.google-analytics.com" />
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
       </head>
-      <body className="antialiased text-gray-800">
+      <body className="antialiased text-gray-800" suppressHydrationWarning>
         {/* Organization JSON-LD */}
         <script
           type="application/ld+json"
@@ -130,7 +132,7 @@ export default function RootLayout({
                   "name": "Ahmedabad"
                 },
                 {
-                  "@type": "City", 
+                  "@type": "City",
                   "name": "Gandhinagar"
                 },
                 {
@@ -144,7 +146,7 @@ export default function RootLayout({
               },
               "knowsAbout": [
                 "AI Solutions",
-                "Digital Marketing", 
+                "Digital Marketing",
                 "Web Development",
                 "Business Automation",
                 "CRM Implementation",
@@ -178,11 +180,19 @@ export default function RootLayout({
         />
 
         <FormProvider>
-          <Analytics />
-          <WebVitals />
-          <PerformanceMonitor />
           <Header />
           {children}
+          <ClientOnly>
+            <ErrorBoundary fallback={<div style={{ display: 'none' }}>Analytics loading...</div>}>
+              <Analytics />
+            </ErrorBoundary>
+            <ErrorBoundary fallback={<div style={{ display: 'none' }}>WebVitals loading...</div>}>
+              <WebVitals />
+            </ErrorBoundary>
+            <ErrorBoundary fallback={<div style={{ display: 'none' }}>Performance monitor loading...</div>}>
+              <PerformanceMonitor />
+            </ErrorBoundary>
+          </ClientOnly>
         </FormProvider>
       </body>
     </html>

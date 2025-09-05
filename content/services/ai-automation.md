@@ -4,6 +4,7 @@ icon: "🤖"
 excerpt: "AI adoption strategy, business process automation, chatbots, and data insights to transform your business operations."
 order: 3
 timeline: "2-12 weeks"
+startingPrice: "Starting from ₹20,000"
 features:
   - "AI Adoption Strategy"
   - "Business Process Automation"

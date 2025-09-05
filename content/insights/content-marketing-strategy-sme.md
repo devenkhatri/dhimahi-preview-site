@@ -1,9 +1,16 @@
 ---
 title: "Content Marketing Strategy for SMEs: Build Authority and Drive Growth"
+slug: "content-marketing-strategy-sme"
 excerpt: "Create valuable content that attracts customers, builds trust, and establishes your business as an industry leader."
-date: "2024-01-05"
+publishDate: "2024-01-05"
 author: "Dhimahi Technolabs"
+category: "Digital Marketing"
 tags: ["Content Marketing", "Brand Building", "SEO", "Lead Generation", "SME"]
+featuredImage: ""
+seo:
+  metaTitle: "Content Marketing Strategy for SMEs: Build Authority and ..."
+  metaDescription: "Create valuable content that attracts customers, builds trust, and establishes your business as an industry leader."
+  keywords: "content, marketing, strategy, content marketing, brand building, seo"
 ---
 
 

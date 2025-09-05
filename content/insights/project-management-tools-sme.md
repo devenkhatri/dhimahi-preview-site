@@ -1,9 +1,16 @@
 ---
 title: "Project Management Tools for SMEs: Deliver Projects On Time and Budget"
+slug: "project-management-tools-sme"
 excerpt: "Choose the right project management software to improve team collaboration, track progress, and deliver successful projects."
-date: "2023-12-28"
+publishDate: "2023-12-28"
 author: "Dhimahi Technolabs"
+category: "Business Strategy"
 tags: ["Project Management", "Team Collaboration", "Productivity", "SME Tools", "Workflow Management"]
+featuredImage: ""
+seo:
+  metaTitle: "Project Management Tools for SMEs: Deliver Projects On Ti..."
+  metaDescription: "Choose the right project management software to improve team collaboration, track progress, and deliver successful projects."
+  keywords: "project, management, tools, project management, team collaboration, productivity"
 ---
 
 

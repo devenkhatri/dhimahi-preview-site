@@ -1,9 +1,16 @@
 ---
 title: "Customer Data Analytics for SMEs: Turn Data into Profitable Insights"
+slug: "customer-data-analytics-sme"
 excerpt: "Use customer data analytics to increase sales, improve retention, and make data-driven business decisions."
-date: "2024-01-20"
+publishDate: "2024-01-20"
 author: "Dhimahi Technolabs"
+category: "Business Strategy"
 tags: ["Data Analytics", "Customer Insights", "Business Intelligence", "SME", "Data-Driven Decisions"]
+featuredImage: ""
+seo:
+  metaTitle: "Customer Data Analytics for SMEs: Turn Data into Profitab..."
+  metaDescription: "Use customer data analytics to increase sales, improve retention, and make data-driven business decisions."
+  keywords: "customer, data, analytics, data analytics, customer insights, business intelligence"
 ---
 
 

@@ -1,9 +1,16 @@
 ---
 title: "Marketing Automation Workflows for SMEs: Scale Your Marketing Efforts"
+slug: "marketing-automation-workflows-sme"
 excerpt: "Design and implement automated marketing workflows that nurture leads, engage customers, and drive sales without constant manual effort."
-date: "2023-12-20"
+publishDate: "2023-12-20"
 author: "Dhimahi Technolabs"
+category: "AI & Automation"
 tags: ["Marketing Automation", "Lead Nurturing", "Email Marketing", "Customer Journey", "SME Marketing"]
+featuredImage: ""
+seo:
+  metaTitle: "Marketing Automation Workflows for SMEs: Scale Your Marke..."
+  metaDescription: "Design and implement automated marketing workflows that nurture leads, engage customers, and drive sales without constant manual effort."
+  keywords: "marketing, automation, workflows, marketing automation, lead nurturing, email marketing"
 ---
 
 

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
-import { getAllPosts, getAllTags, getAllCategories } from "@/lib/markdown";
-import { getAllServices } from "@/lib/services";
-import { getAllCaseStudies } from "@/lib/case-studies";
+import { getAllCMSInsights, getAllCMSServices, getAllCMSCaseStudies } from "@/lib/cms-content";
+
+export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.dhimahitechnolabs.com";
@@ -60,7 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Service pages
-  const services = getAllServices();
+  const services = getAllCMSServices();
   const servicePages: MetadataRoute.Sitemap = services.map((service) => ({
     url: `${base}/services/${service.slug}`,
     lastModified: currentDate,
@@ -69,7 +69,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // Case study pages
-  const caseStudies = getAllCaseStudies();
+  const caseStudies = getAllCMSCaseStudies();
   const caseStudyPages: MetadataRoute.Sitemap = caseStudies.map((caseStudy) => ({
     url: `${base}/portfolio/${caseStudy.slug}`,
     lastModified: caseStudy.publishDate,
@@ -78,17 +78,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // Blog/Insights pages
-  const posts = getAllPosts();
-  const postPages: MetadataRoute.Sitemap = posts.map((post) => ({
-    url: `${base}/insights/${post.slug}`,
-    lastModified: new Date(post.date),
+  const insights = getAllCMSInsights();
+  const postPages: MetadataRoute.Sitemap = insights.map((insight) => ({
+    url: `${base}/insights/${insight.slug}`,
+    lastModified: insight.publishDate,
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
 
-  // Tag pages
-  const tags = getAllTags();
-  const tagPages: MetadataRoute.Sitemap = tags.map((tag) => ({
+  // Tag pages - extract tags from insights
+  const allTags = new Set<string>();
+  insights.forEach(insight => {
+    insight.tags.forEach(tag => allTags.add(tag));
+  });
+  const tagPages: MetadataRoute.Sitemap = Array.from(allTags).map((tag) => ({
     url: `${base}/insights/tag/${encodeURIComponent(tag)}`,
     lastModified: currentDate,
     changeFrequency: 'weekly' as const,

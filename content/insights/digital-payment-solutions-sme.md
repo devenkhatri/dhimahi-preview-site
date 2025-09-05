@@ -1,9 +1,16 @@
 ---
 title: "Digital Payment Solutions for SMEs: Accept Payments Seamlessly"
+slug: "digital-payment-solutions-sme"
 excerpt: "Implement modern payment solutions to improve cash flow, reduce transaction costs, and enhance customer experience."
-date: "2023-12-10"
+publishDate: "2023-12-10"
 author: "Dhimahi Technolabs"
+category: "Business Strategy"
 tags: ["Digital Payments", "Payment Gateway", "Fintech", "UPI", "E-commerce Payments"]
+featuredImage: ""
+seo:
+  metaTitle: "Digital Payment Solutions for SMEs: Accept Payments Seaml..."
+  metaDescription: "Implement modern payment solutions to improve cash flow, reduce transaction costs, and enhance customer experience."
+  keywords: "digital, payment, solutions, digital payments, payment gateway, fintech"
 ---
 
 

@@ -13,7 +13,21 @@ category: "digital-marketing"
 services: ["digital-marketing", "web-development"]
 publishDate: "2024-02-20"
 featured: true
-challenge: "Traditional restaurant chain with 5 locations struggling with low online visibility, declining foot traffic post-COVID, and inability to compete with food delivery platforms and modern restaurants."
+challenge: |
+  Traditional restaurant chain with 5 locations struggling with low online visibility, declining foot traffic post-COVID, and inability to compete with food delivery platforms and modern restaurants.
+
+  **Online Presence Issues:**
+  - Minimal social media presence with inconsistent posting
+  - Poor Google My Business optimization affecting local search visibility
+  - Outdated website that wasn't mobile-friendly or conversion-optimized
+  - No online ordering system losing customers to delivery platforms
+
+  **Marketing Challenges:**
+  - Traditional marketing approach not reaching younger demographics
+  - Inconsistent brand messaging across locations
+  - Limited customer data for targeted marketing
+  - High dependency on walk-in traffic which declined significantly
+
 solution:
   - "Developed comprehensive digital marketing strategy with local SEO focus"
   - "Created engaging social media presence across Instagram, Facebook, and Google My Business"

@@ -1,9 +1,16 @@
 ---
 title: "Video Marketing Strategy for SMEs: Engage and Convert with Video Content"
+slug: "video-marketing-strategy-sme"
 excerpt: "Create compelling video content that drives engagement, builds trust, and converts viewers into customers."
-date: "2024-01-08"
+publishDate: "2024-01-08"
 author: "Dhimahi Technolabs"
+category: "Digital Marketing"
 tags: ["Video Marketing", "Content Marketing", "Digital Marketing", "SME", "Brand Building"]
+featuredImage: ""
+seo:
+  metaTitle: "Video Marketing Strategy for SMEs: Engage and Convert wit..."
+  metaDescription: "Create compelling video content that drives engagement, builds trust, and converts viewers into customers."
+  keywords: "video, marketing, strategy, video marketing, content marketing, digital marketing"
 ---
 
 

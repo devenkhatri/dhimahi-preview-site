@@ -1,9 +1,16 @@
 ---
 title: "Business Process Automation for SMEs: Eliminate Manual Work"
+slug: "business-process-automation-sme"
 excerpt: "Identify and automate repetitive business processes to save time, reduce errors, and focus on growth activities."
-date: "2024-01-10"
+publishDate: "2024-01-10"
 author: "Dhimahi Technolabs"
+category: "AI & Automation"
 tags: ["Process Automation", "Workflow Automation", "Business Efficiency", "SME", "Digital Transformation"]
+featuredImage: ""
+seo:
+  metaTitle: "Business Process Automation for SMEs: Complete Guide to Eliminate Manual Work"
+  metaDescription: "Learn how to identify and automate repetitive business processes to save time, reduce errors, and focus on growth activities. Complete SME automation guide."
+  keywords: "business process automation, SME automation, workflow automation, business efficiency, digital transformation"
 ---
 
 

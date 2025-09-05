@@ -1,4 +1,4 @@
-import { getPostData, getAllPosts, getRelatedPosts } from "@/lib/markdown";
+import { getCMSInsightData, getAllCMSInsights, getRelatedCMSInsights } from "@/lib/cms-content";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SocialShare from "@/components/SocialShare";
@@ -7,29 +7,30 @@ import RelatedArticles from "@/components/RelatedArticles";
 import { generateMetadata as generateSEOMetadata, generateStructuredData } from "@/lib/seo";
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
-  const posts = getAllPosts();
-  return posts.map((post) => ({
-    slug: post.slug,
+  const insights = getAllCMSInsights();
+  return insights.map((insight) => ({
+    slug: insight.slug,
   }));
 }
 
 export async function generateMetadata({ params }: Props) {
   try {
-    const post = await getPostData(params.slug);
-    const canonicalUrl = `https://www.dhimahitechnolabs.com/insights/${params.slug}`;
+    const { slug } = await params;
+    const insight = await getCMSInsightData(slug);
+    const canonicalUrl = `https://www.dhimahitechnolabs.com/insights/${slug}`;
     
     return generateSEOMetadata({
-      title: post.title,
-      description: post.excerpt,
+      title: insight.title,
+      description: insight.excerpt,
       keywords: [
-        ...post.tags,
-        post.category || '',
+        ...insight.tags,
+        insight.category || '',
         'IT consulting',
         'SME solutions',
         'business automation',
@@ -38,11 +39,11 @@ export async function generateMetadata({ params }: Props) {
       ].filter(Boolean),
       canonicalUrl,
       ogType: 'article',
-      publishedTime: post.date,
-      modifiedTime: post.date,
-      author: post.author,
-      section: post.category,
-      tags: post.tags,
+      publishedTime: insight.publishDate.toISOString(),
+      modifiedTime: insight.publishDate.toISOString(),
+      author: insight.author,
+      section: insight.category,
+      tags: insight.tags,
     });
   } catch {
     return {
@@ -52,35 +53,63 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function PostPage({ params }: Props) {
-  let post;
+  let insight;
+  const { slug } = await params;
 
   try {
-    post = await getPostData(params.slug);
+    insight = await getCMSInsightData(slug);
   } catch {
     notFound();
   }
 
-  // Get related posts based on tags
-  const relatedPosts = getRelatedPosts(post.slug, post.tags, 3);
+  // Get related insights based on tags
+  const relatedInsights = getRelatedCMSInsights(insight.slug, insight.tags, 3);
+  
+  // Convert insight to post format for compatibility
+  const post = {
+    slug: insight.slug,
+    title: insight.title,
+    excerpt: insight.excerpt,
+    date: insight.publishDate.toISOString(),
+    author: insight.author,
+    tags: insight.tags,
+    category: insight.category,
+    readTime: Math.ceil(insight.content.split(' ').length / 200),
+    content: insight.content,
+    relatedPosts: []
+  };
+  
+  // Convert related insights to posts format
+  const relatedPosts = relatedInsights.map(related => ({
+    slug: related.slug,
+    title: related.title,
+    excerpt: related.excerpt,
+    date: related.publishDate.toISOString(),
+    author: related.author,
+    tags: related.tags,
+    category: related.category,
+    readTime: Math.ceil(related.excerpt.split(' ').length / 200),
+    relatedPosts: []
+  }));
   
   // Construct full URL for sharing
-  const fullUrl = `https://www.dhimahitechnolabs.com/insights/${post.slug}`;
+  const fullUrl = `https://www.dhimahitechnolabs.com/insights/${slug}`;
 
   // Generate structured data
   const articleStructuredData = generateStructuredData({
     type: 'Article',
     data: {
-      title: post.title,
-      description: post.excerpt,
-      author: post.author,
-      publishedTime: post.date,
-      modifiedTime: post.date,
-      image: 'https://www.dhimahitechnolabs.com/og-image.png',
+      title: insight.title,
+      description: insight.excerpt,
+      author: insight.author,
+      publishedTime: insight.publishDate.toISOString(),
+      modifiedTime: insight.publishDate.toISOString(),
+      image: insight.featuredImage || 'https://www.dhimahitechnolabs.com/og-image.png',
       url: fullUrl,
-      keywords: post.tags,
-      section: post.category,
-      wordCount: post.content.split(' ').length,
-      readTime: post.readTime,
+      keywords: insight.tags,
+      section: insight.category,
+      wordCount: insight.content.split(' ').length,
+      readTime: Math.ceil(insight.content.split(' ').length / 200),
     },
   });
 
@@ -103,7 +132,7 @@ export default async function PostPage({ params }: Props) {
       {
         '@type': 'ListItem',
         position: 3,
-        name: post.title,
+        name: insight.title,
         item: fullUrl,
       },
     ],

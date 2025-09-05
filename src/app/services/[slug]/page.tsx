@@ -1,4 +1,4 @@
-import { getServiceData, getAllServices } from "@/lib/services";
+import { getCMSServiceData, getAllCMSServices } from "@/lib/cms-content";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -9,13 +9,13 @@ import { generateMetadata as generateSEOMetadata, generateStructuredData } from 
 import { COMPANY_NAME } from "@/lib/constants";
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
-  const services = getAllServices();
+  const services = getAllCMSServices();
   return services.map((service) => ({
     slug: service.slug,
   }));
@@ -23,8 +23,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props) {
   try {
-    const service = await getServiceData(params.slug);
-    const canonicalUrl = `https://www.dhimahitechnolabs.com/services/${params.slug}`;
+    const { slug } = await params;
+    const service = await getCMSServiceData(slug);
+    const canonicalUrl = `https://www.dhimahitechnolabs.com/services/${slug}`;
     
     return generateSEOMetadata({
       title: `${service.title} Services`,
@@ -51,9 +52,10 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function ServicePage({ params }: Props) {
   let service;
+  const { slug } = await params;
   
   try {
-    service = await getServiceData(params.slug);
+    service = await getCMSServiceData(slug);
   } catch {
     notFound();
   }
@@ -65,7 +67,7 @@ export default async function ServicePage({ params }: Props) {
       description: service.excerpt,
       serviceType: service.title,
       category: service.title,
-      url: `https://www.dhimahitechnolabs.com/services/${params.slug}`,
+      url: `https://www.dhimahitechnolabs.com/services/${slug}`,
       offers: service.startingPrice ? {
         price: service.startingPrice,
       } : undefined,
@@ -99,7 +101,7 @@ export default async function ServicePage({ params }: Props) {
         '@type': 'ListItem',
         position: 3,
         name: service.title,
-        item: `https://www.dhimahitechnolabs.com/services/${params.slug}`,
+        item: `https://www.dhimahitechnolabs.com/services/${slug}`,
       },
     ],
   });

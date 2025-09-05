@@ -1,0 +1,26 @@
+#!/bin/sh
+# Post-commit hook for CMS content processing
+
+echo "Processing CMS content changes..."
+
+# Check if this is a content-related commit
+CONTENT_CHANGED=$(git diff --name-only HEAD~1 HEAD | grep -E '^content/|^public/uploads/' | wc -l)
+
+if [ "$CONTENT_CHANGED" -gt 0 ]; then
+    echo "📝 Content changes detected in commit."
+    
+    # Log content changes for debugging
+    echo "Changed files:"
+    git diff --name-only HEAD~1 HEAD | grep -E '^content/|^public/uploads/' | sed 's/^/  - /'
+    
+    # Trigger build optimization if in CI environment
+    if [ "$CI" = "true" ] || [ "$NETLIFY" = "true" ]; then
+        echo "🚀 CI environment detected, build will be triggered automatically."
+    else
+        echo "💡 Local development: run 'npm run build' to see changes."
+    fi
+else
+    echo "ℹ️  No content changes detected."
+fi
+
+echo "✅ Post-commit processing completed."

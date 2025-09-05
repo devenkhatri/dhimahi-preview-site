@@ -1,9 +1,16 @@
 ---
 title: "Google My Business Optimization for Ahmedabad Businesses"
+slug: "google-my-business-optimization-ahmedabad"
 excerpt: "Complete guide to optimize your Google My Business listing and dominate local search results in Ahmedabad."
-date: "2024-02-01"
+publishDate: "2024-02-01"
 author: "Dhimahi Technolabs"
+category: "Digital Marketing"
 tags: ["Local SEO", "Google My Business", "Ahmedabad", "Local Marketing", "SME"]
+featuredImage: ""
+seo:
+  metaTitle: "Google My Business Optimization for Ahmedabad Businesses"
+  metaDescription: "Complete guide to optimize your Google My Business listing and dominate local search results in Ahmedabad."
+  keywords: "google, business, optimization, local seo, google my business, ahmedabad"
 ---
 
 

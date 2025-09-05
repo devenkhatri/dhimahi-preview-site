@@ -1,11 +1,16 @@
 ---
 title: "AI Chatbots for SME Customer Service: Implementation Guide"
+slug: "ai-chatbots-customer-service-sme"
 excerpt: "Deploy smart chatbots to handle 80% of customer queries while maintaining personal touch."
-date: "2024-02-12"
+publishDate: "2024-02-12"
 author: "Dhimahi Technolabs"
 category: "AI & Automation"
 tags: ["AI", "Chatbots", "Customer Service", "Automation", "SME"]
-relatedPosts: ["business-process-automation-sme", "sme-ai-time-savings"]
+featuredImage: ""
+seo:
+  metaTitle: "AI Chatbots for SME Customer Service: Complete Implementation Guide"
+  metaDescription: "Learn how to deploy smart chatbots for your SME to handle 80% of customer queries while maintaining personal touch. Step-by-step implementation guide."
+  keywords: "AI chatbots, SME customer service, chatbot implementation, business automation, customer support automation"
 ---
 
 Deploy smart chatbots to handle 80% of customer queries while maintaining personal touch.

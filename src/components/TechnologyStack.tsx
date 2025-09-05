@@ -1,4 +1,4 @@
-import { TechnologyStack } from '@/lib/services';
+import { TechnologyStack } from '@/lib/cms-content';
 
 interface TechnologyStackProps {
   stack: TechnologyStack[];

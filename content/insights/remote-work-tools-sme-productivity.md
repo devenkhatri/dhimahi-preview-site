@@ -1,9 +1,16 @@
 ---
 title: "Remote Work Tools for SME Productivity: Complete Setup Guide"
+slug: "remote-work-tools-sme-productivity"
 excerpt: "Essential tools and strategies to enable effective remote work and boost team productivity for small businesses."
-date: "2024-01-30"
+publishDate: "2024-01-30"
 author: "Dhimahi Technolabs"
+category: "Business Strategy"
 tags: ["Remote Work", "Productivity Tools", "Team Collaboration", "SME", "Digital Workplace"]
+featuredImage: ""
+seo:
+  metaTitle: "Remote Work Tools for SME Productivity: Complete Setup Guide"
+  metaDescription: "Essential tools and strategies to enable effective remote work and boost team productivity for small businesses."
+  keywords: "remote, work, tools, remote work, productivity tools, team collaboration"
 ---
 
 

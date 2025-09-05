@@ -4,6 +4,7 @@ icon: "📢"
 excerpt: "Comprehensive digital marketing strategies including SEO, social media, PPC, and content marketing to grow your online presence."
 order: 2
 timeline: "3-6 months for results"
+startingPrice: "Starting from ₹15,000/month"
 features:
   - "Search Engine Optimization (SEO)"
   - "Social Media Marketing (SMM)"

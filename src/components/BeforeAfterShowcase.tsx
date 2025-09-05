@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ImageAsset } from '@/lib/case-studies';
+import { ImageAsset } from '@/lib/cms-content';
 
 interface BeforeAfterShowcaseProps {
   images: ImageAsset[];

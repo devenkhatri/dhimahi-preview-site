@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { COMPANY_NAME, CITY_LINE } from "@/lib/constants";
+import type { HomepageContent } from "@/lib/cms-content";
+import ClientOnly from "./ClientOnly";
 
 interface CounterProps {
   end: number;
@@ -11,9 +13,12 @@ interface CounterProps {
 }
 
 function AnimatedCounter({ end, duration, suffix = '', prefix = '' }: CounterProps) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(end); // Start with end value to prevent hydration mismatch
 
   useEffect(() => {
+    // Reset to 0 and animate only on client
+    setCount(0);
+    
     let startTime: number;
     let animationFrame: number;
 
@@ -28,16 +33,20 @@ function AnimatedCounter({ end, duration, suffix = '', prefix = '' }: CounterPro
       }
     };
 
-    animationFrame = requestAnimationFrame(animate);
+    // Small delay to ensure smooth animation
+    const timer = setTimeout(() => {
+      animationFrame = requestAnimationFrame(animate);
+    }, 100);
     
     return () => {
+      clearTimeout(timer);
       if (animationFrame) {
         cancelAnimationFrame(animationFrame);
       }
     };
   }, [end, duration]);
-
-  return <span>{prefix}{count}{suffix}</span>;
+  
+  return <span suppressHydrationWarning>{prefix}{count}{suffix}</span>;
 }
 
 interface TrustBadgeProps {
@@ -77,7 +86,11 @@ function StatisticCard({ value, suffix, label, duration = 2000 }: StatisticProps
   );
 }
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  content: HomepageContent['hero'];
+}
+
+export default function HeroSection({ content }: HeroSectionProps) {
   return (
     <section id="hero" className="relative overflow-hidden bg-gradient-to-br from-white via-accent-soft/30 to-white">
       {/* Enhanced Background Elements */}
@@ -110,71 +123,73 @@ export default function HeroSection() {
         <div className="absolute bottom-40 right-1/3 w-5 h-5 bg-accent/15 rounded-full animate-float" style={{ animationDelay: '0.5s' }}></div>
       </div>
 
-      <div className="container mx-auto px-4 py-16 sm:py-20 md:py-28">
+      <div className="container mx-auto px-4 py-16 sm:py-20 md:py-28" suppressHydrationWarning>
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content Section */}
           <div className="max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
             {/* Trust Indicator Badge */}
             <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 px-4 py-2 text-sm font-medium text-primary mb-6">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-              Trusted by 200+ SMEs across Gujarat
+              {content.trustBadge}
             </div>
 
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-              <span className="text-gray-900">Transform Your</span>
+              <span className="text-gray-900">{content.mainHeadline.split(' ').slice(0, 2).join(' ')}</span>
               <br />
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Business with AI
+                {content.mainHeadline.split(' ').slice(2).join(' ')}
               </span>
             </h1>
 
             {/* Subheadline */}
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
-              <strong>{COMPANY_NAME}</strong> helps SMEs in {CITY_LINE} grow with 
-              <strong className="text-primary"> AI automation, digital marketing, and smart IT strategy</strong> — 
-              practical solutions that deliver real ROI.
-            </p>
+            <div className="text-lg sm:text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
+              <div dangerouslySetInnerHTML={{ 
+                __html: content.subheadline
+                  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                  .replace(/\*(.*?)\*/g, '<em>$1</em>')
+              }} />
+            </div>
 
             {/* Statistics Row */}
             <div className="grid grid-cols-3 gap-6 mb-8 p-4 bg-white/60 backdrop-blur-sm rounded-2xl border border-white/40">
-              <StatisticCard value={25} suffix="+" label="Years Experience" duration={2500} />
-              <StatisticCard value={200} suffix="+" label="SMEs Served" duration={3000} />
-              <StatisticCard value={95} suffix="%" label="Client Satisfaction" duration={2800} />
+              {content.statistics.map((stat, index) => (
+                <StatisticCard 
+                  key={index}
+                  value={stat.value} 
+                  suffix={stat.suffix} 
+                  label={stat.label} 
+                  duration={2500 + (index * 300)} 
+                />
+              ))}
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <a
-                href="#contact-form"
+                href="/consultation"
                 className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary to-primary-dark px-8 py-4 font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-center"
               >
-                <span className="relative z-10">Get Free AI Consultation</span>
+                <span className="relative z-10">{content.ctaButtons?.primary || "Get Free AI Consultation"}</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-primary-dark to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </a>
               <a
                 href="#services"
                 className="group rounded-2xl border-2 border-primary/20 bg-white/80 backdrop-blur-sm px-8 py-4 font-semibold text-primary hover:bg-primary hover:text-white transition-all duration-300 text-center"
               >
-                Explore Our Services
+                {content.ctaButtons?.secondary || "Explore Our Services"}
                 <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300 inline-block">→</span>
               </a>
             </div>
 
             {/* Trust Indicators */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-sm text-gray-600">
-              <div className="flex items-center gap-2">
-                <span className="text-green-500">✓</span>
-                <span>Free consultation</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-green-500">✓</span>
-                <span>ROI-focused approach</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-green-500">✓</span>
-                <span>Local Gujarat expertise</span>
-              </div>
+              {content.trustIndicators.map((indicator, index) => (
+                <div key={index} className="flex items-center gap-2">
+                  <span className="text-green-500">✓</span>
+                  <span>{indicator}</span>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -191,30 +206,23 @@ export default function HeroSection() {
               </div>
 
               {/* Floating Trust Badges */}
-              <FloatingTrustBadge 
-                icon="🏆" 
-                text="25+ Years Expertise" 
-                delay={0}
-                style={{ top: '10%', left: '5%' }}
-              />
-              <FloatingTrustBadge 
-                icon="🚀" 
-                text="AI-Ready Solutions" 
-                delay={500}
-                style={{ top: '15%', right: '8%' }}
-              />
-              <FloatingTrustBadge 
-                icon="📈" 
-                text="Proven ROI Results" 
-                delay={1000}
-                style={{ bottom: '20%', left: '8%' }}
-              />
-              <FloatingTrustBadge 
-                icon="🎯" 
-                text="Gujarat SME Focus" 
-                delay={1500}
-                style={{ bottom: '15%', right: '5%' }}
-              />
+              {content.floatingBadges?.map((badge, index) => {
+                const positions = [
+                  { top: '10%', left: '5%' },
+                  { top: '15%', right: '8%' },
+                  { bottom: '20%', left: '8%' },
+                  { bottom: '15%', right: '5%' }
+                ];
+                return (
+                  <FloatingTrustBadge 
+                    key={index}
+                    icon={badge.icon} 
+                    text={badge.text} 
+                    delay={index * 500}
+                    style={positions[index] || positions[0]}
+                  />
+                );
+              })}
 
               {/* Animated Elements */}
               <div className="absolute top-6 right-6 w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-full opacity-20 animate-pulse"></div>

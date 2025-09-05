@@ -1,9 +1,16 @@
 ---
 title: "Cybersecurity Essentials for Small Businesses: Protect Your Digital Assets"
+slug: "cybersecurity-essentials-small-business"
 excerpt: "Essential cybersecurity measures every SME needs to implement to protect against cyber threats and data breaches."
-date: "2024-02-03"
+publishDate: "2024-02-03"
 author: "Dhimahi Technolabs"
+category: "IT Strategy"
 tags: ["Cybersecurity", "Data Protection", "SME Security", "Risk Management", "IT Security"]
+featuredImage: ""
+seo:
+  metaTitle: "Cybersecurity Essentials for Small Businesses: Protect Yo..."
+  metaDescription: "Essential cybersecurity measures every SME needs to implement to protect against cyber threats and data breaches."
+  keywords: "cybersecurity, essentials, small, data protection, sme security"
 ---
 
 

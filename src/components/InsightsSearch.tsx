@@ -1,7 +1,19 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { PostMeta } from '@/lib/markdown';
+
+// Define PostMeta interface for compatibility with existing components
+interface PostMeta {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  author: string;
+  tags: string[];
+  category: string;
+  readTime: number;
+  relatedPosts: any[];
+}
 
 interface InsightsSearchProps {
   posts: PostMeta[];

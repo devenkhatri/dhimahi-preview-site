@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { COMPANY_NAME } from "@/lib/constants";
-import { getAllServices } from "@/lib/services";
+import { getAllCMSServices } from "@/lib/cms-content";
 
 export default function ServicesPage() {
-  const services = getAllServices();
+  const services = getAllCMSServices();
   return (
     <main className="py-12 sm:py-16">
 

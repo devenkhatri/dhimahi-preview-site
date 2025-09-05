@@ -1,0 +1,49 @@
+title: "Contact Us"
+description: "Ready to transform your business with technology? Get in touch with our team for a free consultation and discover how we can help you achieve your digital goals."
+
+contactMethods:
+  - type: "Email"
+    label: "General Inquiries"
+    value: "hello@dhimahitechnolabs.com"
+    icon: "📧"
+    primary: true
+  - type: "Phone"
+    label: "Call Us"
+    value: "+91-9876543210"
+    icon: "📞"
+    primary: true
+  - type: "WhatsApp"
+    label: "WhatsApp Business"
+    value: "+91-9876543210"
+    icon: "💬"
+    primary: false
+  - type: "Address"
+    label: "Visit Our Office"
+    value: "123 Technology Park, Science City Road, Ahmedabad, Gujarat 380060"
+    icon: "📍"
+    primary: false
+
+offices:
+  - name: "Main Office"
+    address:
+      street: "123 Technology Park, Science City Road"
+      city: "Ahmedabad"
+      state: "Gujarat"
+      postalCode: "380060"
+    phone: "+91-9876543210"
+    email: "hello@dhimahitechnolabs.com"
+    businessHours: "Mon-Fri: 9 AM - 6 PM, Sat: 10 AM - 2 PM"
+
+contactForm:
+  title: "Send Us a Message"
+  description: "Fill out the form below and we'll get back to you within 24 hours. Your first consultation is always free."
+  successMessage: "Thank you for your message! We'll get back to you within 24 hours."
+  requiredFields:
+    - "name"
+    - "email"
+    - "message"
+
+seo:
+  metaTitle: "Contact Dhīmahi Technolabs - Free IT Consultation"
+  metaDescription: "Contact Dhīmahi Technolabs for web development, digital marketing, and AI automation services. Free consultation available. Call +91-9876543210 or email us."
+  keywords: "contact dhimahi technolabs, ahmedabad it company contact, gujarat web development, free it consultation, technology services contact"

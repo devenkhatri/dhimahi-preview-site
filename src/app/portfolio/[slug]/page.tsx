@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getCaseStudyData, getAllCaseStudySlugs, getRelatedCaseStudies } from '@/lib/case-studies';
+import { getCMSCaseStudyData, getAllCMSCaseStudies, getRelatedCMSCaseStudies } from '@/lib/cms-content';
 import { COMPANY_NAME } from '@/lib/constants';
 import CaseStudyHeader from '@/components/CaseStudyHeader';
 import CaseStudyContent from '@/components/CaseStudyContent';
@@ -11,21 +11,22 @@ import RelatedCaseStudies from '@/components/RelatedCaseStudies';
 import BeforeAfterShowcase from '@/components/BeforeAfterShowcase';
 
 interface CaseStudyPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
-  const slugs = getAllCaseStudySlugs();
-  return slugs.map(({ params }) => ({
-    slug: params.slug,
+  const caseStudies = getAllCMSCaseStudies();
+  return caseStudies.map((caseStudy) => ({
+    slug: caseStudy.slug,
   }));
 }
 
 export async function generateMetadata({ params }: CaseStudyPageProps): Promise<Metadata> {
   try {
-    const caseStudy = await getCaseStudyData(params.slug);
+    const { slug } = await params;
+    const caseStudy = await getCMSCaseStudyData(slug);
     
     return {
       title: `${caseStudy.title} | ${COMPANY_NAME}`,
@@ -69,8 +70,9 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
 
 export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   try {
-    const caseStudy = await getCaseStudyData(params.slug);
-    const relatedCaseStudies = getRelatedCaseStudies(params.slug, caseStudy.category, 3);
+    const { slug } = await params;
+    const caseStudy = await getCMSCaseStudyData(slug);
+    const relatedCaseStudies = getRelatedCMSCaseStudies(slug, caseStudy.category, 3);
 
     return (
       <main className="min-h-screen bg-white">
@@ -180,7 +182,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               "dateModified": caseStudy.publishDate.toISOString(),
               "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": `https://www.dhimahitechnolabs.com/portfolio/${params.slug}`
+                "@id": `https://www.dhimahitechnolabs.com/portfolio/${slug}`
               },
               "image": caseStudy.images.length > 0 ? caseStudy.images[0].src : "",
               "articleSection": "Case Study",

@@ -1,18 +1,18 @@
-import { getAllPosts, getPostsByTag, getTagsWithCounts } from "@/lib/markdown";
+import { getAllCMSInsights, getCMSInsightsByTag } from "@/lib/cms-content";
 import { notFound } from "next/navigation";
 
 interface Props {
-  params: {
+  params: Promise<{
     tag: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
-  const posts = getAllPosts();
+  const insights = getAllCMSInsights();
   const allTags = new Set<string>();
   
-  posts.forEach(post => {
-    post.tags.forEach(tag => allTags.add(tag));
+  insights.forEach(insight => {
+    insight.tags.forEach(tag => allTags.add(tag));
   });
   
   return Array.from(allTags).map((tag) => ({
@@ -21,26 +21,52 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props) {
-  const decodedTag = decodeURIComponent(params.tag);
-  const tagPosts = getPostsByTag(decodedTag);
+  const { tag } = await params;
+  const decodedTag = decodeURIComponent(tag);
+  const tagInsights = getCMSInsightsByTag(decodedTag);
   
   return {
     title: `${decodedTag} Articles | Dhimahi Technolabs`,
-    description: `${tagPosts.length} insights and articles about ${decodedTag} for SMEs in Gujarat. Practical guides to help your business grow.`,
+    description: `${tagInsights.length} insights and articles about ${decodedTag} for SMEs in Gujarat. Practical guides to help your business grow.`,
     openGraph: {
       title: `${decodedTag} Articles`,
-      description: `${tagPosts.length} insights about ${decodedTag} for SMEs in Gujarat`,
+      description: `${tagInsights.length} insights about ${decodedTag} for SMEs in Gujarat`,
       type: 'website',
     },
   };
 }
 
-export default function TagPage({ params }: Props) {
-  const decodedTag = decodeURIComponent(params.tag);
-  const tagPosts = getPostsByTag(decodedTag);
-  const relatedTags = getTagsWithCounts().filter(({ tag }) => 
-    tag.toLowerCase() !== decodedTag.toLowerCase()
-  ).slice(0, 8);
+export default async function TagPage({ params }: Props) {
+  const { tag } = await params;
+  const decodedTag = decodeURIComponent(tag);
+  const tagInsights = getCMSInsightsByTag(decodedTag);
+  
+  // Convert insights to posts format for compatibility
+  const tagPosts = tagInsights.map(insight => ({
+    slug: insight.slug,
+    title: insight.title,
+    excerpt: insight.excerpt,
+    date: insight.publishDate.toISOString(),
+    author: insight.author,
+    tags: insight.tags,
+    category: insight.category,
+    readTime: Math.ceil(insight.excerpt.split(' ').length / 200),
+    relatedPosts: []
+  }));
+  
+  // Get all insights to calculate tag counts
+  const allInsights = getAllCMSInsights();
+  const tagCounts = new Map<string, number>();
+  allInsights.forEach(insight => {
+    insight.tags.forEach(tag => {
+      tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+    });
+  });
+  const relatedTags = Array.from(tagCounts.entries())
+    .map(([tag, count]) => ({ tag, count }))
+    .filter(({ tag }) => tag.toLowerCase() !== decodedTag.toLowerCase())
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 8);
 
   if (tagPosts.length === 0) {
     notFound();

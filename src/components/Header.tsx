@@ -13,6 +13,11 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Close mobile menu when clicking outside
   useEffect(() => {
@@ -128,13 +133,12 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
               onClick={toggleSearch}
               className="p-2 text-gray-600 hover:text-[#215b6f] transition-colors duration-200"
               aria-label="Search"
+              style={{ display: mounted ? 'block' : 'none' }}
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </button>
-
-
 
             {/* CTA Button */}
             <Link
@@ -152,6 +156,7 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
               onClick={toggleSearch}
               className="p-2 text-gray-600 hover:text-[#215b6f] transition-colors duration-200"
               aria-label="Search"
+              style={{ display: mounted ? 'block' : 'none' }}
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -165,11 +170,12 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
               className="p-2 text-gray-600 hover:text-[#215b6f] transition-colors duration-200"
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
+              style={{ display: mounted ? 'block' : 'none' }}
             >
-              <svg 
-                className={`w-6 h-6 transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-90' : ''}`} 
-                fill="none" 
-                stroke="currentColor" 
+              <svg
+                className={`w-6 h-6 transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-90' : ''}`}
+                fill="none"
+                stroke="currentColor"
                 viewBox="0 0 24 24"
               >
                 {isMobileMenuOpen ? (
@@ -183,7 +189,7 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
         </div>
 
         {/* Search Bar */}
-        {isSearchOpen && (
+        {mounted && isSearchOpen && (
           <div className="border-t border-gray-200 py-4 animate-fade-in">
             <form onSubmit={handleSearch} className="flex gap-2">
               <div className="flex-1 relative">
@@ -212,11 +218,10 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
         )}
 
         {/* Mobile Navigation Menu */}
-        <div 
+        <div
           id="mobile-menu"
-          className={`lg:hidden border-t border-gray-200 bg-white/95 backdrop-blur-md transition-all duration-300 ease-in-out ${
-            isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
-          }`}
+          className={`lg:hidden border-t border-gray-200 bg-white/95 backdrop-blur-md transition-all duration-300 ease-in-out ${mounted && isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+            }`}
         >
           <div className="py-4 space-y-1">
             {navigationItems.map((item) => (
@@ -229,7 +234,6 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
                 {item.label}
               </Link>
             ))}
-
 
             {/* Mobile CTA */}
             <div className="px-4 pt-2">

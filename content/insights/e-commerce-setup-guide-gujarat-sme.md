@@ -1,11 +1,16 @@
 ---
 title: "E-commerce Setup Guide for Gujarat SMEs: From Zero to Online Sales"
+slug: "e-commerce-setup-guide-gujarat-sme"
 excerpt: "Complete roadmap to launch your online store and start selling digitally in the Gujarat market."
-date: "2024-02-05"
+publishDate: "2024-02-05"
 author: "Dhimahi Technolabs"
 category: "Web Development"
 tags: ["E-commerce", "Online Sales", "Digital Transformation", "Gujarat", "SME"]
-relatedPosts: ["digital-payment-solutions-sme", "website-speed-optimization-seo"]
+featuredImage: ""
+seo:
+  metaTitle: "E-commerce Setup Guide for Gujarat SMEs: From Zero to Onl..."
+  metaDescription: "Complete roadmap to launch your online store and start selling digitally in the Gujarat market."
+  keywords: "e-commerce, setup, guide, online sales, digital transformation"
 ---
 
 

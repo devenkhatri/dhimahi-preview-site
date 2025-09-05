@@ -1,9 +1,16 @@
 ---
 title: "Choosing the Right Tools: CRM, ERP, and HR for SMEs"
+slug: "choose-right-tools-sme"
 excerpt: "Buy what you'll use. A simple guide to avoid overpaying for software."
-date: "2024-01-05"
+publishDate: "2024-01-05"
 author: "Dhimahi Technolabs"
+category: "Business Strategy"
 tags: ["CRM", "ERP", "HR", "SME", "Software Selection"]
+featuredImage: ""
+seo:
+  metaTitle: "Choosing the Right Tools: CRM, ERP, and HR for SMEs"
+  metaDescription: "Buy what you'll use. A simple guide to avoid overpaying for software."
+  keywords: "choosing, right, tools:, crm, erp, hr"
 ---
 
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FAQ } from '@/lib/services';
+import { FAQ } from '@/lib/cms-content';
 
 interface ServiceFAQProps {
   faqs: FAQ[];

@@ -1,6 +1,6 @@
 'use client';
 
-import { CaseStudyMeta } from '@/lib/case-studies';
+import { CaseStudyMeta } from '@/lib/cms-content';
 import CaseStudyCard from './CaseStudyCard';
 
 interface RelatedCaseStudiesProps {

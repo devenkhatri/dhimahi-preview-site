@@ -1,5 +1,5 @@
 import { COMPANY_NAME, CITY_LINE, EMAIL } from "@/lib/constants";
-import { aboutContent } from "@/content/about";
+import { getCMSAboutContent } from "@/lib/cms-content";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -86,6 +86,8 @@ function Milestone({ year, title, description }: MilestoneProps) {
 }
 
 export default function AboutPage() {
+    const aboutContent = getCMSAboutContent();
+    
     return (
         <main>
             {/* Hero Section */}
@@ -93,10 +95,10 @@ export default function AboutPage() {
                 <div className="container mx-auto px-4">
                     <div className="max-w-4xl mx-auto text-center">
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                            {aboutContent.hero.title}
+                            {aboutContent.title}
                         </h1>
                         <p className="text-xl md:text-2xl opacity-90 leading-relaxed">
-                            {aboutContent.hero.subtitle}
+                            {aboutContent.subtitle}
                         </p>
                     </div>
                 </div>

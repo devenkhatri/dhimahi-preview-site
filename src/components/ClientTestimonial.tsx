@@ -1,6 +1,6 @@
 'use client';
 
-import { Testimonial } from '@/lib/case-studies';
+import { Testimonial } from '@/lib/cms-content';
 
 interface ClientTestimonialProps {
   testimonial: Testimonial;

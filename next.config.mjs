@@ -1,11 +1,25 @@
+import { readFileSync, existsSync } from 'fs';
+import { join } from 'path';
+
+// Determine if we should use static export
+const isStaticBuild = process.env.NODE_ENV === 'production' || 
+                     process.env.NODE_ENV === 'preview' ||
+                     process.env.NEXT_EXPORT === 'true';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
     optimizePackageImports: ["lucide-react"]
   },
-  output: 'export',
-  trailingSlash: true,
+  
+  // Static export configuration
+  ...(isStaticBuild && {
+    output: 'export',
+    trailingSlash: true,
+    distDir: 'out',
+  }),
+  
   images: {
     unoptimized: true,
     formats: ['image/webp', 'image/avif'],
@@ -13,28 +27,109 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   
+  // Rewrites for CMS admin
+  async rewrites() {
+    return [
+      {
+        source: '/admin',
+        destination: '/admin/index.html',
+      },
+    ];
+  },
+  
   // Performance optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   
-  // Note: Headers are disabled for static export
-  // Security headers would be configured at the hosting level (Netlify)
+  // CMS content processing
+  env: {
+    CMS_CONTENT_PATH: './content',
+    CMS_MEDIA_PATH: './public/uploads',
+    BUILD_TIMESTAMP: new Date().toISOString(),
+  },
   
   // Webpack optimizations
   webpack: (config, { dev, isServer }) => {
-    // Optimize bundle size
-    if (!dev && !isServer) {
-      config.optimization.splitChunks = {
-        chunks: 'all',
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            chunks: 'all',
+    // CMS content processing optimizations
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@/content': join(process.cwd(), 'content'),
+      '@/cms': join(process.cwd(), 'src/lib/cms-content'),
+    };
+
+    // Development optimizations
+    if (dev) {
+      // Enhanced file watching
+      config.watchOptions = {
+        ...config.watchOptions,
+        ignored: [
+          '**/node_modules/**',
+          '**/.git/**',
+          '**/.next/**',
+        ],
+        poll: 1000,
+        aggregateTimeout: 300,
+      };
+      
+      // Disable chunk splitting in development to prevent loading issues
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: {
+          chunks: 'all',
+          cacheGroups: {
+            default: false,
+            vendors: false,
           },
         },
       };
+    } else if (!isServer) {
+      // Production chunk splitting
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: {
+          chunks: 'all',
+          minSize: 20000,
+          maxSize: 244000,
+          cacheGroups: {
+            default: {
+              minChunks: 2,
+              priority: -20,
+              reuseExistingChunk: true,
+            },
+            vendor: {
+              test: /[\\/]node_modules[\\/]/,
+              name: 'vendors',
+              priority: -10,
+              chunks: 'all',
+            },
+            cms: {
+              test: /[\\/]src[\\/]lib[\\/]cms-/,
+              name: 'cms',
+              chunks: 'all',
+              priority: 10,
+            },
+          },
+        },
+      };
+
+      // Add content validation during build
+      const contentValidationPath = join(process.cwd(), 'scripts/validate-cms-build.js');
+      if (existsSync(contentValidationPath)) {
+        config.plugins.push({
+          apply: (compiler) => {
+            compiler.hooks.beforeCompile.tapAsync('ContentValidation', (params, callback) => {
+              try {
+                const { execSync } = require('child_process');
+                execSync('node scripts/validate-cms-build.js --build', { stdio: 'inherit' });
+                callback();
+              } catch (error) {
+                callback(error);
+              }
+            });
+          },
+        });
+      }
     }
     
     return config;

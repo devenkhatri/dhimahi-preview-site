@@ -1,6 +1,6 @@
 'use client';
 
-import { CaseStudy } from '@/lib/case-studies';
+import { CaseStudy } from '@/lib/cms-content';
 
 interface CaseStudyContentProps {
   caseStudy: CaseStudy;
