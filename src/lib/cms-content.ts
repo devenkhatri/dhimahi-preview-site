@@ -616,6 +616,13 @@ export function getCMSAboutContent(): AboutContent {
         title: item?.title || 'Milestone',
         description: item?.description || 'Important achievement'
       })),
+      ceo: data?.ceo ? {
+        name: data.ceo.name || 'CEO',
+        position: data.ceo.position || 'Chief Executive Officer',
+        photo: data.ceo.photo,
+        story: data.ceo.story || 'Our founding story',
+        linkedinUrl: data.ceo.linkedinUrl
+      } : undefined,
       team: (data?.team || []).map((member: any) => ({
         name: member?.name || 'Team Member',
         role: member?.role || 'Professional',

@@ -954,6 +954,44 @@ collections:
                 required: true
                 hint: "Detailed description of what happened during this period"
                 pattern: [".{50,400}", "Must be between 50 and 400 characters"]
+          - label: "CEO Information"
+            name: "ceo"
+            widget: "object"
+            required: false
+            collapsed: false
+            summary: "{{fields.name}} - {{fields.position}}"
+            fields:
+              - label: "CEO Name"
+                name: "name"
+                widget: "string"
+                required: true
+                hint: "Full name of the CEO"
+                pattern: [".{2,50}", "Must be between 2 and 50 characters"]
+              - label: "Position/Title"
+                name: "position"
+                widget: "string"
+                required: true
+                hint: "CEO position title (e.g., 'CEO & Founder', 'Chief Executive Officer')"
+                pattern: [".{5,80}", "Must be between 5 and 80 characters"]
+              - label: "CEO Photo"
+                name: "photo"
+                widget: "image"
+                required: false
+                hint: "Professional headshot of the CEO"
+                media_folder: "/uploads/team"
+              - label: "Our Story"
+                name: "story"
+                widget: "markdown"
+                required: true
+                hint: "CEO's story about why the company was founded. Use # for main heading, ## for sub headings, ### for smaller headings, #### for smallest headings, **bold**, *italic*, and - for bullet points"
+                modes: ["rich_text"]
+                editor_components: ["bold", "italic", "heading-one", "heading-two", "heading-three", "heading-four"]
+              - label: "LinkedIn Profile"
+                name: "linkedinUrl"
+                widget: "string"
+                required: false
+                hint: "LinkedIn profile URL (optional)"
+                pattern: ["^https://linkedin\\.com/.*", "Must be a valid LinkedIn URL"]
           - label: "Team Members"
             name: "team"
             widget: "list"

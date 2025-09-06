@@ -78,6 +78,13 @@ export interface AboutContent {
     title: string;
     description: string;
   }>;
+  ceo?: {
+    name: string;
+    position: string;
+    photo?: string;
+    story: string;
+    linkedinUrl?: string;
+  };
   team: Array<{
     name: string;
     role: string;

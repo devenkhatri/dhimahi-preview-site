@@ -1,20 +1,6 @@
 title: "About Dhīmahi Technolabs"
 introduction: "Making technology accessible to SMEs across Gujarat for over 25 years. We bridge the gap between traditional business values and modern digital solutions."
 
-story:
-  title: "Our Story"
-  content: |
-    Every business today knows they "need digital," but most SMEs in Ahmedabad & Gandhinagar face the same problem:
-    - Too many confusing tools
-    - Too much jargon  
-    - Too few people they can trust
-    
-    That's why we started **Dhīmahi Technolabs**.
-    
-    The word *"Dhīmahi"* comes from the Sanskrit Gayatri Mantra — meaning **to meditate upon divine intellect and clarity**. This embodies our purpose: to bring clarity to the digital journey of local businesses, guiding them with wisdom and modern solutions.
-    
-    We've built our agency on one promise: **no flashy jargon, just practical results.**
-    Our approach is simple → listen, understand, guide, deliver.
 
 mission:
   title: "Our Mission"
@@ -60,6 +46,56 @@ timeline:
   - year: "2024"
     title: "Future-Ready Consultancy"
     description: "Evolved into a comprehensive IT consultancy, offering fractional CTO services and strategic technology guidance for growing businesses."
+
+ceo:
+  name: "Deven Goratela"
+  position: "CEO & Founder"
+  photo: "/uploads/team/DevenGoratela.png"
+  story: |    
+    ### The Problem We Saw
+    
+    Every business today knows they "need digital," but most SMEs in Ahmedabad & Gandhinagar face the same problem:
+    - Too many confusing tools
+    - Too much jargon  
+    - Too few people they can trust
+    
+    That's why we started **Dhīmahi Technolabs**.
+    
+    ### From Consulting to Guiding SMEs
+
+    Hi, I’m **Deven Goratela**, Founder of *Dhimahi Technolabs.*
+
+    With nearly two decades in IT consulting, I’ve worked at the intersection of technology and 
+    business — from consultant to senior consultant at Tata Consultancy Services, guiding global 
+    clients across cloud, AI, and enterprise systems. But my deeper calling was always clear: 
+    to bring the same level of digital excellence to small and medium businesses.
+
+    That’s why I founded **Dhimahi Technolabs**.
+
+    #### The Meaning Behind Our Name
+    Rooted in the Sanskrit word from Gayatri Mantra *“Dhimahi”* — meaning “let us focus, let us guide” — our philosophy is about applying technology thoughtfully, as a **guiding light for businesses** navigating the digital future.
+    
+    ### Our Promise
+    
+    We've built our agency on one promise: **no flashy jargon, just practical results.**
+    Our approach is simple → listen, understand, guide, deliver.
+    We want to make **websites, AI, and digital marketing** accessible, not overwhelming.
+    
+    ### Join Us on the Journey
+    
+    #### Ready to Transform Your Business?
+    Let's work together to bring clarity and growth to your digital presence.
+      
+    Today, I stand not just as a consultant, but as a partner to businesses who want to grow, modernize, 
+    and thrive in a competitive marketplace. With **web development, digital marketing, and AI automation** 
+    as our pillars, I am committed to helping entrepreneurs and professionals transform challenges into opportunities.
+
+    This is not just my company’s story. It’s my personal calling.
+    And I invite you to be a part of this journey with me.
+
+    *We're not just a technology agency; we're your partner in digital transformation.*    
+
+  linkedinUrl: "https://www.linkedin.com/in/devengoratela/"
 
 team:
   - name: "Rajesh Patel"
