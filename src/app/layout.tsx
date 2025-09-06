@@ -1,69 +1,22 @@
 import "./globals.css";
 import { COMPANY_NAME } from "@/lib/constants";
+import { generateMetadata, defaultMeta } from "@/lib/meta";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import FormProvider from "@/components/forms/FormProvider";
+import WebVitals from "@/components/WebVitals";
+import Analytics from "@/components/Analytics";
+import PerformanceMonitor from "@/components/PerformanceMonitor";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
+import ClientOnly from "@/components/ClientOnly";
 
 export const metadata = {
   metadataBase: new URL("https://www.dhimahitechnolabs.com"),
-  title: `${COMPANY_NAME} – Future-Ready IT Consulting for SMEs | AI Solutions & Digital Growth`,
-  description:
-    "Transform your SME with AI solutions, digital marketing, and smart IT strategy. 25+ years experience helping Gujarat businesses grow. Free consultation available.",
-  keywords: [
-    "IT consulting SME",
-    "AI solutions Gujarat",
-    "digital marketing Ahmedabad",
-    "business automation",
-    "CRM implementation",
-    "website development",
-    "SEO services",
-    "fractional CTO",
-    "small business IT",
-    "Gandhinagar IT services"
-  ],
-  authors: [{ name: COMPANY_NAME }],
-  creator: COMPANY_NAME,
-  publisher: COMPANY_NAME,
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
+  ...generateMetadata(defaultMeta.home),
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
-    apple: "/favicon.ico"
-  },
-  openGraph: {
-    title: `${COMPANY_NAME} – Future-Ready IT Consulting for SMEs`,
-    description: "Transform your SME with AI solutions, digital marketing, and smart IT strategy. 25+ years experience helping Gujarat businesses grow without enterprise complexity.",
-    url: "https://www.dhimahitechnolabs.com",
-    siteName: COMPANY_NAME,
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: `${COMPANY_NAME} - IT Consulting for SMEs in Gujarat`,
-        type: "image/png",
-      },
-    ],
-    locale: "en_IN",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `${COMPANY_NAME} – Future-Ready IT Consulting for SMEs`,
-    description: "Transform your SME with AI solutions, digital marketing, and smart IT strategy. 25+ years experience helping Gujarat businesses grow.",
-    images: ["/og-image.png"],
-    creator: "@dhimahitechnolabs",
-    site: "@dhimahitechnolabs",
-  },
-  alternates: {
-    canonical: "https://www.dhimahitechnolabs.com",
+    apple: "/apple-touch-icon.png"
   },
   category: "Technology",
 };
@@ -74,109 +27,211 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#3B82F6" />
+        <meta name="theme-color" content="#215b6f" />
+        
+        {/* Additional meta tags for better social sharing */}
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@dhimahitechnolabs" />
+        <meta name="twitter:creator" content="@dhimahitechnolabs" />
+        
+        {/* WhatsApp and Telegram specific */}
+        <meta property="og:site_name" content="Dhīmahi Technolabs" />
+        <meta property="og:locale" content="en_IN" />
+        <meta property="article:publisher" content="https://www.facebook.com/dhimahi.technolabs" />
+
+        {/* Preconnect to external domains for performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        
+        {/* Poppins Font */}
+        <link 
+          href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" 
+          rel="stylesheet" 
+        />
+
+        {/* DNS prefetch for better performance */}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
       </head>
-      <body className="antialiased text-gray-800">
-        {/* LocalBusiness JSON-LD */}
+      <body className="font-sans antialiased text-gray-800" suppressHydrationWarning>
+        {/* Organization JSON-LD */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "LocalBusiness",
+              "@type": "Organization",
               "name": COMPANY_NAME,
-              "image": "/favicon.ico",
+              "alternateName": "Dhimahi Technolabs",
               "url": "https://www.dhimahitechnolabs.com",
-              "telephone": " +91 99999 99999 ",
+              "logo": "https://www.dhimahitechnolabs.com/favicon.ico",
+              "image": "https://www.dhimahitechnolabs.com/og-image.png",
+              "description": "Transform your SME with AI solutions, digital marketing, and smart IT strategy. 25+ years experience helping Gujarat businesses grow.",
+              "foundingDate": "1999",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Ahmedabad",
                 "addressRegion": "Gujarat",
                 "addressCountry": "IN"
               },
-              "areaServed": ["Ahmedabad", "Gandhinagar", "Gujarat"],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+91 99999 99999",
+                "contactType": "customer service",
+                "areaServed": "IN",
+                "availableLanguage": ["English"]
+              },
+              "areaServed": [
+                {
+                  "@type": "City",
+                  "name": "Ahmedabad"
+                },
+                {
+                  "@type": "City",
+                  "name": "Gandhinagar"
+                },
+                {
+                  "@type": "State",
+                  "name": "Gujarat"
+                }
+              ],
+              "serviceArea": {
+                "@type": "State",
+                "name": "Gujarat"
+              },
+              "knowsAbout": [
+                "AI Solutions",
+                "Digital Marketing",
+                "Web Development",
+                "Business Automation",
+                "CRM Implementation",
+                "IT Consulting"
+              ],
               "sameAs": []
             })
           }}
         />
 
-        {/* Site Launch Notice Banner */}
-        <div className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white py-2 px-2 sm:px-4 text-center relative overflow-hidden z-50">
-          <div className="absolute inset-0 bg-black/10"></div>
-          <div className="relative z-10 flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-bold animate-pulse">
-            <span className="text-yellow-300 hidden sm:inline">⚡</span>
-            <span className="text-center">PREVIEW SITE • Full website launching soon!</span>
-            <span className="text-yellow-300 hidden sm:inline">⚡</span>
-          </div>
-          {/* Animated sparkles */}
-          <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-            <div className="absolute top-1 left-[10%] w-1 h-1 bg-yellow-300 rounded-full animate-ping"></div>
-            <div className="absolute top-1 right-[15%] w-1 h-1 bg-yellow-300 rounded-full animate-ping delay-300"></div>
-            <div className="absolute top-1 left-[60%] w-1 h-1 bg-yellow-300 rounded-full animate-ping delay-700"></div>
-          </div>
+        {/* WebSite JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": COMPANY_NAME,
+              "url": "https://www.dhimahitechnolabs.com",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://www.dhimahitechnolabs.com/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": COMPANY_NAME
+              }
+            })
+          }}
+        />
+
+        {/* Hidden forms for Netlify detection */}
+        <div style={{ display: 'none' }}>
+          {/* Contact form */}
+          <form name="contact" data-netlify="true">
+            <input name="name" />
+            <input name="email" />
+            <input name="phone" />
+            <input name="company" />
+            <textarea name="message" />
+          </form>
+          
+          {/* Consultation booking form */}
+          <form name="consultation-booking" data-netlify="true">
+            <input name="name" />
+            <input name="email" />
+            <input name="phone" />
+            <input name="company" />
+            <input name="businessType" />
+            <input name="companySize" />
+            <input name="location" />
+            <input name="website" />
+            <input name="consultationType" />
+            <textarea name="challenges" />
+            <input name="urgency" />
+            <input name="budget" />
+            <input name="preferredDate" />
+            <input name="preferredTime" />
+            <input name="alternativeDate" />
+            <input name="alternativeTime" />
+            <input name="meetingPreference" />
+            <textarea name="additionalNotes" />
+            <input name="formType" />
+            <input name="submittedAt" />
+          </form>
+          
+          {/* Project quote form */}
+          <form name="project-quote" data-netlify="true">
+            <input name="name" />
+            <input name="email" />
+            <input name="phone" />
+            <input name="company" />
+            <input name="projectType" />
+            <input name="budget" />
+            <input name="timeline" />
+            <textarea name="description" />
+            <input name="features" />
+            <input name="formType" />
+            <input name="submittedAt" />
+          </form>
+          
+          {/* Resource download form */}
+          <form name="resource-download" data-netlify="true">
+            <input name="name" />
+            <input name="email" />
+            <input name="company" />
+            <input name="role" />
+            <input name="resourceId" />
+            <input name="resourceTitle" />
+            <input name="formType" />
+            <input name="submittedAt" />
+          </form>
+          
+          {/* Contact form (alternative) */}
+          <form name="contact-form" data-netlify="true">
+            <input name="name" />
+            <input name="email" />
+            <input name="phone" />
+            <input name="company" />
+            <textarea name="message" />
+          </form>
         </div>
 
-        {/* Sticky Header */}
-        <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-gray-200 shadow-sm">
-          <div className="container mx-auto px-4 h-14 flex items-center justify-between">
-            <a href="/" className="font-semibold flex items-center gap-3">
-              <img
-                src="/favicon.svg"
-                alt={`${COMPANY_NAME} Logo`}
-                className="w-8 h-8 sm:w-10 sm:h-10"
-              />
-              <div className="flex items-center gap-2">
-                <span className="text-sm sm:text-base">{COMPANY_NAME}</span>
-                <span className="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded-full font-medium">PREVIEW</span>
-              </div>
-            </a>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-6 text-sm">
-              <a href="/#services" className="hover:text-primary">Services</a>
-              <a href="/#case-studies" className="hover:text-primary">Case Studies</a>
-              <a href="/insights" className="hover:text-primary">Insights</a>
-              <a href="/#contact-form" className="rounded-xl bg-primary px-4 py-2 text-white font-medium hover:bg-primary-dark">Book Free Consultation</a>
-            </nav>
-
-            {/* Mobile Menu Button */}
-            <button className="md:hidden p-2" id="mobile-menu-button">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-
-          {/* Mobile Navigation */}
-          <div className="md:hidden border-t border-gray-200 bg-white/95 backdrop-blur hidden" id="mobile-menu">
-            <div className="container mx-auto px-4 py-4 space-y-3">
-              <a href="/#services" className="block py-2 hover:text-primary">Services</a>
-              <a href="/#case-studies" className="block py-2 hover:text-primary">Case Studies</a>
-              <a href="/insights" className="block py-2 hover:text-primary">Insights</a>
-              <a href="/#contact-form" className="block rounded-xl bg-primary px-4 py-3 text-white font-medium text-center">Book Free Consultation</a>
-            </div>
-          </div>
-        </header>
-
-        {/* Mobile Menu Script */}
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            document.addEventListener('DOMContentLoaded', function() {
-              const button = document.getElementById('mobile-menu-button');
-              const menu = document.getElementById('mobile-menu');
-              if (button && menu) {
-                button.addEventListener('click', function() {
-                  menu.classList.toggle('hidden');
-                });
-              }
-            });
-          `
-        }} />
-
-        {children}
+        <FormProvider>
+          <Header />
+          {children}
+          <Footer />
+          <ClientOnly>
+            <ErrorBoundary fallback={<div style={{ display: 'none' }}>Analytics loading...</div>}>
+              <Analytics />
+            </ErrorBoundary>
+            <ErrorBoundary fallback={<div style={{ display: 'none' }}>WebVitals loading...</div>}>
+              <WebVitals />
+            </ErrorBoundary>
+            <ErrorBoundary fallback={<div style={{ display: 'none' }}>Performance monitor loading...</div>}>
+              <PerformanceMonitor />
+            </ErrorBoundary>
+          </ClientOnly>
+        </FormProvider>
       </body>
     </html>
   );

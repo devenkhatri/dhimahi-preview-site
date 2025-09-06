@@ -34,8 +34,8 @@ export default function HeroAnimation() {
         <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 300">
           <defs>
             <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#0FB5AE" stopOpacity="0.6"/>
-              <stop offset="100%" stopColor="#0A66C2" stopOpacity="0.3"/>
+              <stop offset="0%" stopColor="#7cc0ba" stopOpacity="0.6"/>
+              <stop offset="100%" stopColor="#215b6f" stopOpacity="0.3"/>
             </linearGradient>
           </defs>
           

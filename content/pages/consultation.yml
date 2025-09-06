@@ -1,0 +1,41 @@
+title: "Free IT Consultation"
+description: "Get expert guidance on your technology needs with our complimentary consultation. We'll analyze your current setup and provide actionable recommendations for growth."
+
+hero:
+  headline: "Transform Your Business with Expert IT Guidance"
+  subheadline: "Book your free 60-minute consultation and discover how technology can accelerate your business growth. No obligations, just practical insights tailored to your needs."
+
+benefits:
+  - title: "Personalized Technology Roadmap"
+    description: "Get a custom plan that aligns with your business goals and budget, not generic solutions."
+    icon: "🗺️"
+  - title: "Cost-Benefit Analysis"
+    description: "Understand the ROI of different technology investments before you commit your resources."
+    icon: "💰"
+  - title: "Risk Assessment"
+    description: "Identify potential technology risks and vulnerabilities in your current setup."
+    icon: "🛡️"
+  - title: "Priority Recommendations"
+    description: "Know exactly what to tackle first for maximum impact on your business operations."
+    icon: "🎯"
+  - title: "Vendor-Neutral Advice"
+    description: "Get honest recommendations without sales pressure or vendor bias."
+    icon: "⚖️"
+
+process:
+  - step: 1
+    title: "Initial Discovery"
+    description: "We learn about your business, current technology setup, and specific challenges you're facing."
+  - step: 2
+    title: "Needs Assessment"
+    description: "Together we identify your technology gaps and opportunities for improvement."
+  - step: 3
+    title: "Solution Design"
+    description: "We present tailored recommendations with clear next steps and implementation timelines."
+  - step: 4
+    title: "Action Plan"
+    description: "You receive a detailed roadmap with priorities, budgets, and recommended partners."
+
+seo:
+  metaTitle: "Free IT Consultation - Dhīmahi Technolabs Gujarat"
+  metaDescription: "Book your free IT consultation with Gujarat's trusted technology experts. Get personalized recommendations for web development, digital marketing, and AI automation."

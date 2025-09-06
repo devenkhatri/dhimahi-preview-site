@@ -3,33 +3,120 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "node scripts/dev-start.js",
+    "build": "npm run validate:content && npm run optimize:media && next build",
+    "build:skip-validation": "next build",
+    "build:optimized": "node scripts/build-optimization.js && npm run build:skip-validation",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build"
+    "export": "next build",
+    "cms:dev": "node scripts/dev-start.js",
+    "cms:build": "npm run clean:build && npm run build:optimized",
+    "cms:build:fast": "npm run clean:build && npm run validate:content:ci && npm run build:optimized",
+    "clean:dev": "rm -rf .next",
+    "clean:build": "rm -rf .next out node_modules/.cache",
+    "validate:content": "node scripts/validate-cms-build.js",
+    "validate:content:ci": "node scripts/validate-cms-build.js --ci",
+    "optimize:media": "node scripts/optimize-media.js",
+    "media:validate": "node scripts/optimize-media.js --validate-only",
+    "media:manifest": "node scripts/optimize-media.js --manifest-only",
+    "setup:hooks": "node scripts/setup-git-hooks.js",
+    "disable:hooks": "node scripts/disable-git-hooks.js disable",
+    "enable:hooks": "node scripts/disable-git-hooks.js enable",
+    "validate:og-image": "node scripts/validate-og-image.js",
+    "build:report": "node -e \"console.log(JSON.stringify(require('./.next/build-report.json'), null, 2))\"",
+    "build:monitor": "node scripts/build-monitor.js",
+    "build:analyze": "node scripts/build-monitor.js analyze",
+    "test:build-integration": "node scripts/test-build-integration.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "cms:invite": "node scripts/manage-cms-users.js invite",
+    "cms:users": "node scripts/manage-cms-users.js list",
+    "cms:invitations": "node scripts/manage-cms-users.js invitations",
+    "cms:stats": "node scripts/manage-cms-users.js stats",
+    "cms:roles": "node scripts/manage-cms-users.js roles"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "decap-cms-app": "^3.8.3",
     "gray-matter": "^4.0.3",
-    "next": "14.2.5",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
+    "js-yaml": "^4.1.0",
+    "next": "^15.5.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "remark": "^15.0.1",
-    "remark-html": "^16.0.1"
+    "remark-html": "^16.0.1",
+    "web-vitals": "^5.1.0",
+    "zod": "^4.1.5"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.28.3",
+    "@babel/preset-react": "^7.27.1",
+    "@babel/preset-typescript": "^7.27.1",
     "@netlify/plugin-nextjs": "^5.7.0",
+    "@types/jest": "^29.5.14",
+    "@types/js-yaml": "^4.0.9",
     "@types/node": "20.14.12",
-    "@types/react": "18.3.3",
-    "@types/react-dom": "18.3.0",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
     "autoprefixer": "10.4.19",
+    "babel-jest": "^30.1.2",
+    "chokidar": "^3.5.3",
     "eslint": "8.57.0",
     "eslint-config-next": "14.2.5",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "postcss": "8.4.39",
     "tailwindcss": "3.4.9",
     "typescript": "5.5.4"
   },
   "engines": {
-    "node": ">=18 <=22"
+    "node": ">=18"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.setup.js"
+    ],
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    },
+    "testPathIgnorePatterns": [
+      "<rootDir>/.next/",
+      "<rootDir>/node_modules/"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts",
+      "!src/**/*.stories.{js,jsx,ts,tsx}"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": [
+        "babel-jest",
+        {
+          "presets": [
+            [
+              "@babel/preset-env",
+              {
+                "targets": {
+                  "node": "current"
+                }
+              }
+            ],
+            [
+              "@babel/preset-react",
+              {
+                "runtime": "automatic"
+              }
+            ],
+            "@babel/preset-typescript"
+          ]
+        }
+      ]
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(.*\\.mjs$))"
+    ]
   }
 }

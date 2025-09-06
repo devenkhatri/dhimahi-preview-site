@@ -1,28 +1,20 @@
 import Link from "next/link";
 import { COMPANY_NAME } from "@/lib/constants";
-import { getAllServices } from "@/lib/services";
+import { getAllCMSServices } from "@/lib/cms-content";
+import { generateMetadata, defaultMeta } from "@/lib/meta";
+
+export const metadata = generateMetadata(defaultMeta.services);
 
 export default function ServicesPage() {
-  const services = getAllServices();
+  const services = getAllCMSServices();
   return (
     <main className="py-12 sm:py-16">
-      {/* Launch Notice Banner */}
-      <div className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-3 sm:py-4 mb-6 sm:mb-8">
-        <div className="container mx-auto px-4 text-center">
-          <div className="flex items-center justify-center gap-2 sm:gap-3 text-base sm:text-lg font-bold">
-            <span className="text-xl sm:text-2xl animate-bounce">🚀</span>
-            <span className="text-center">PREVIEW: Full service details & case studies launching soon!</span>
-            <span className="text-xl sm:text-2xl animate-bounce delay-300">🚀</span>
-          </div>
-        </div>
-      </div>
+
 
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-block mb-4 bg-orange-100 text-orange-600 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-bold">
-            📋 PREVIEW VERSION • Enhanced content coming soon!
-          </div>
+
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
             {COMPANY_NAME} offers comprehensive IT consulting and digital transformation services 
@@ -44,13 +36,28 @@ export default function ServicesPage() {
                 {service.title}
               </h3>
               <p className="text-sm sm:text-base text-gray-600 mb-4">{service.excerpt}</p>
+              
+              {/* Timeline */}
+              {service.timeline && (
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-medium">
+                    ⏱️ {service.timeline}
+                  </span>
+                </div>
+              )}
+              
               <ul className="space-y-2">
-                {service.features.map((feature, index) => (
+                {service.features.slice(0, 4).map((feature, index) => (
                   <li key={index} className="text-xs sm:text-sm text-gray-500 flex items-center">
                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></span>
                     {feature}
                   </li>
                 ))}
+                {service.features.length > 4 && (
+                  <li className="text-xs sm:text-sm text-gray-400 italic">
+                    +{service.features.length - 4} more features
+                  </li>
+                )}
               </ul>
               <div className="mt-4 sm:mt-6 text-primary font-medium group-hover:underline text-sm sm:text-base">
                 Learn More →

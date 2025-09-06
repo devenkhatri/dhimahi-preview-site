@@ -1,0 +1,28 @@
+#!/bin/sh
+# Pre-commit hook for CMS content validation
+
+echo "Running CMS content validation..."
+
+# Check if content validation script exists
+if [ -f "scripts/validate-cms-content.js" ]; then
+    node scripts/validate-cms-content.js --pre-commit
+    if [ $? -ne 0 ]; then
+        echo "❌ Content validation failed. Please fix the issues before committing."
+        exit 1
+    fi
+    echo "✅ Content validation passed."
+else
+    echo "⚠️  Content validation script not found, skipping validation."
+fi
+
+# Check if media optimization is needed
+if [ -f "scripts/optimize-media.js" ]; then
+    node scripts/optimize-media.js --validate-only
+    if [ $? -ne 0 ]; then
+        echo "❌ Media validation failed. Please optimize media files."
+        exit 1
+    fi
+    echo "✅ Media validation passed."
+fi
+
+echo "✅ Pre-commit checks completed successfully."

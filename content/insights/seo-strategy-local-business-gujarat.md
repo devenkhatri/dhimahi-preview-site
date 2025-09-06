@@ -1,9 +1,16 @@
 ---
 title: "SEO Strategy for Local Businesses in Gujarat: Dominate Local Search"
+slug: "seo-strategy-local-business-gujarat"
 excerpt: "Complete SEO guide to rank higher in local search results and attract more customers in Gujarat markets."
-date: "2024-01-01"
+publishDate: "2025-08-30"
 author: "Dhimahi Technolabs"
+category: "Digital Marketing"
 tags: ["SEO", "Local SEO", "Gujarat Business", "Search Marketing", "Digital Visibility"]
+featuredImage: ""
+seo:
+  metaTitle: "Local SEO Strategy for Gujarat Businesses: Complete Guide"
+  metaDescription: "Complete SEO guide to rank higher in local search results and attract more customers in Gujarat markets. Dominate local search with proven strategies."
+  keywords: "local SEO Gujarat, Ahmedabad SEO, Gandhinagar business SEO, local search optimization, Gujarat digital marketing"
 ---
 
 

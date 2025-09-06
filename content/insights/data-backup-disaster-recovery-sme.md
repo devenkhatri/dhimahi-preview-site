@@ -1,9 +1,16 @@
 ---
 title: "Data Backup and Disaster Recovery for SMEs: Protect Your Business from Data Loss"
+slug: "data-backup-disaster-recovery-sme"
 excerpt: "Essential guide to implementing robust backup and disaster recovery solutions to safeguard your business data and ensure continuity."
-date: "2023-12-22"
+publishDate: "2025-05-28"
 author: "Dhimahi Technolabs"
+category: "IT Strategy"
 tags: ["Data Backup", "Disaster Recovery", "Business Continuity", "Data Protection", "SME Security"]
+featuredImage: ""
+seo:
+  metaTitle: "Data Backup and Disaster Recovery for SMEs: Protect Your ..."
+  metaDescription: "Essential guide to implementing robust backup and disaster recovery solutions to safeguard your business data and ensure continuity."
+  keywords: "data, backup, disaster, data backup, disaster recovery, business continuity"
 ---
 
 

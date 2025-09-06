@@ -1,9 +1,16 @@
 ---
 title: "Customer Retention Strategies for SMEs: Keep Your Best Customers Coming Back"
+slug: "customer-retention-strategies-sme"
 excerpt: "Proven strategies to increase customer loyalty, reduce churn, and maximize customer lifetime value for sustainable growth."
-date: "2023-12-25"
+publishDate: "2025-05-30"
 author: "Dhimahi Technolabs"
+category: "Business Strategy"
 tags: ["Customer Retention", "Customer Loyalty", "CRM", "Customer Experience", "SME Growth"]
+featuredImage: ""
+seo:
+  metaTitle: "Customer Retention Strategies for SMEs: Keep Your Best Cu..."
+  metaDescription: "Proven strategies to increase customer loyalty, reduce churn, and maximize customer lifetime value for sustainable growth."
+  keywords: "customer, retention, strategies, customer retention, customer loyalty, crm"
 ---
 
 

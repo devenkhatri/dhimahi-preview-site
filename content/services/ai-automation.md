@@ -3,11 +3,133 @@ title: "AI & Automation Consulting"
 icon: "🤖"
 excerpt: "AI adoption strategy, business process automation, chatbots, and data insights to transform your business operations."
 order: 3
+timeline: "2-12 weeks"
+startingPrice: "Starting from ₹20,000"
 features:
   - "AI Adoption Strategy"
   - "Business Process Automation"
   - "Chatbots & Virtual Assistants"
   - "Data Insights & Analytics"
+  - "Workflow Automation"
+  - "Document Processing Automation"
+  - "Custom AI Solutions"
+
+processSteps:
+  - step: 1
+    title: "Business Process Assessment"
+    description: "Analyze your current business processes to identify automation opportunities and potential AI applications."
+    duration: "1 week"
+    deliverables:
+      - "Process mapping document"
+      - "Automation opportunity assessment"
+      - "ROI projections"
+      - "Implementation roadmap"
+  - step: 2
+    title: "Solution Design & Planning"
+    description: "Design custom automation solutions and AI implementations tailored to your specific business needs."
+    duration: "1-2 weeks"
+    deliverables:
+      - "Technical solution architecture"
+      - "Integration specifications"
+      - "User experience designs"
+      - "Implementation timeline"
+  - step: 3
+    title: "Development & Integration"
+    description: "Build and integrate automation solutions with your existing systems and workflows."
+    duration: "2-8 weeks"
+    deliverables:
+      - "Automated workflows"
+      - "AI-powered tools"
+      - "System integrations"
+      - "Testing documentation"
+  - step: 4
+    title: "Testing & Deployment"
+    description: "Comprehensive testing of all automation solutions followed by careful deployment and go-live support."
+    duration: "1 week"
+    deliverables:
+      - "Testing reports"
+      - "Deployment documentation"
+      - "User training materials"
+      - "Go-live support"
+  - step: 5
+    title: "Training & Optimization"
+    description: "Train your team on new systems and continuously optimize automation performance based on usage data."
+    duration: "Ongoing"
+    deliverables:
+      - "User training sessions"
+      - "Performance monitoring"
+      - "Optimization recommendations"
+      - "Ongoing support"
+technologyStack:
+  - category: "Automation Platforms"
+    technologies:
+      - name: "Zapier"
+        icon: "⚡"
+        description: "Connect and automate workflows between 5000+ apps"
+      - name: "Make (Integromat)"
+        icon: "🔧"
+        description: "Advanced automation platform for complex workflows"
+      - name: "Microsoft Power Automate"
+        icon: "🔄"
+        description: "Enterprise automation within Microsoft ecosystem"
+      - name: "Custom APIs"
+        icon: "🔗"
+        description: "Tailored integrations for unique business requirements"
+  - category: "AI & Machine Learning"
+    technologies:
+      - name: "OpenAI GPT"
+        icon: "🧠"
+        description: "Advanced language models for content and analysis"
+      - name: "Google AI Platform"
+        icon: "🤖"
+        description: "Machine learning and AI services from Google"
+      - name: "Microsoft Azure AI"
+        icon: "☁️"
+        description: "Comprehensive AI services and cognitive APIs"
+      - name: "TensorFlow"
+        icon: "📊"
+        description: "Open-source machine learning framework"
+  - category: "Chatbot Platforms"
+    technologies:
+      - name: "Dialogflow"
+        icon: "💬"
+        description: "Google's conversational AI platform"
+      - name: "Microsoft Bot Framework"
+        icon: "🤖"
+        description: "Enterprise-grade chatbot development platform"
+      - name: "WhatsApp Business API"
+        icon: "📱"
+        description: "Automated customer service via WhatsApp"
+      - name: "Custom Chatbots"
+        icon: "⚙️"
+        description: "Tailored conversational AI solutions"
+  - category: "Data & Analytics"
+    technologies:
+      - name: "Google Analytics"
+        icon: "📈"
+        description: "Web analytics and user behavior insights"
+      - name: "Power BI"
+        icon: "📊"
+        description: "Business intelligence and data visualization"
+      - name: "Tableau"
+        icon: "📋"
+        description: "Advanced data visualization and analytics"
+      - name: "Custom Dashboards"
+        icon: "🎛️"
+        description: "Tailored reporting and analytics solutions"
+faqs:
+  - question: "What types of business processes can be automated?"
+    answer: "Almost any repetitive task can be automated including data entry, invoice processing, customer onboarding, inventory management, email responses, social media posting, and report generation."
+  - question: "How much time and money can automation save?"
+    answer: "Most businesses save 5-10 hours per week and significantly reduce operational overhead. The exact savings depend on which processes you automate and their current complexity."
+  - question: "Do I need technical knowledge to use automated systems?"
+    answer: "No, we design all automation solutions to be user-friendly. We provide comprehensive training and documentation so your team can easily manage and use the automated systems."
+  - question: "Can automation integrate with our existing software?"
+    answer: "Yes, we specialize in integrating automation with existing business software including CRMs, accounting systems, inventory management, and other business tools you already use."
+  - question: "What if our business processes change after automation is implemented?"
+    answer: "Our automation solutions are designed to be flexible and scalable. We can easily modify workflows and add new automations as your business evolves and grows."
+  - question: "How do you ensure the security of automated processes?"
+    answer: "We implement industry-standard security measures including data encryption, secure API connections, access controls, and regular security audits to protect your business data."
 ---
 
 # AI & Automation Consulting 🤖
@@ -71,7 +193,7 @@ Transform your business with AI solutions and process automation that save time,
 ## Expected Benefits
 
 - **5-10 hours per week** saved on repetitive tasks
-- **30-50% reduction** in operational costs
+- **Significant reduction** in operational overhead
 - **25-40% increase** in productivity and efficiency
 - **90% reduction** in manual errors and mistakes
 - **24/7 availability** for customer service and support
@@ -87,7 +209,7 @@ Transform your business with AI solutions and process automation that save time,
 
 ### Retail & E-commerce
 - Product recommendation engines
-- Dynamic pricing optimization
+- Dynamic inventory optimization
 - Customer service chatbots
 - Inventory management AI
 - Sales forecasting
@@ -111,4 +233,4 @@ Transform your business with AI solutions and process automation that save time,
 
 Ready to automate your business and implement AI solutions? Contact us for a free automation assessment and discover how AI can transform your operations.
 
-**Investment Range**: ₹25,000 - ₹10,00,000 depending on complexity and scope of automation.
+Contact us for a free automation assessment and customized quote based on your business processes and automation goals.

@@ -1,1 +1,8 @@
-# Let the Next.js plugin handle SSR/ISR and routes.
+# Form submissions redirect to success page
+/success /success 200
+
+# Admin redirects
+/admin /admin/ 301
+
+# Fallback for SPA routing
+/* /index.html 200

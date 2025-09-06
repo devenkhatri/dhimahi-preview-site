@@ -1,15 +1,21 @@
-import { getServiceData, getAllServices } from "@/lib/services";
+import { getCMSServiceData, getAllCMSServices } from "@/lib/cms-content";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import ProcessSteps from "@/components/ProcessSteps";
+import TechnologyStackComponent from "@/components/TechnologyStack";
+import ServiceFAQ from "@/components/ServiceFAQ";
+import { generateMetadata as generateSEOMetadata, generateStructuredData } from "@/lib/seo";
+import { COMPANY_NAME } from "@/lib/constants";
+
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
-  const services = getAllServices();
+  const services = getAllCMSServices();
   return services.map((service) => ({
     slug: service.slug,
   }));
@@ -17,11 +23,26 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props) {
   try {
-    const service = await getServiceData(params.slug);
-    return {
-      title: `${service.title} Services | Dhimahi Technolabs`,
+    const { slug } = await params;
+    const service = await getCMSServiceData(slug);
+    const canonicalUrl = `https://www.dhimahitechnolabs.com/services/${slug}`;
+    
+    return generateSEOMetadata({
+      title: `${service.title} Services`,
       description: service.excerpt,
-    };
+      keywords: [
+        service.title.toLowerCase(),
+        `${service.title.toLowerCase()} services`,
+        `${service.title.toLowerCase()} Gujarat`,
+        `${service.title.toLowerCase()} Ahmedabad`,
+        'IT consulting',
+        'SME solutions',
+        'business automation',
+        ...service.features.slice(0, 5).map(f => f.toLowerCase()),
+      ],
+      canonicalUrl,
+      ogType: 'website',
+    });
   } catch {
     return {
       title: "Service Not Found",
@@ -31,15 +52,79 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function ServicePage({ params }: Props) {
   let service;
+  const { slug } = await params;
   
   try {
-    service = await getServiceData(params.slug);
+    service = await getCMSServiceData(slug);
   } catch {
     notFound();
   }
 
+  const serviceStructuredData = generateStructuredData({
+    type: 'Service',
+    data: {
+      name: service.title,
+      description: service.excerpt,
+      serviceType: service.title,
+      category: service.title,
+      url: `https://www.dhimahitechnolabs.com/services/${slug}`,
+      offers: service.startingPrice ? {
+        price: service.startingPrice,
+      } : undefined,
+    },
+  });
+
+  const faqStructuredData = service.faqs && service.faqs.length > 0 ? generateStructuredData({
+    type: 'FAQPage',
+    data: {
+      faqs: service.faqs,
+    },
+  }) : null;
+
+  const breadcrumbStructuredData = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://www.dhimahitechnolabs.com',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Services',
+        item: 'https://www.dhimahitechnolabs.com/services',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: service.title,
+        item: `https://www.dhimahitechnolabs.com/services/${slug}`,
+      },
+    ],
+  });
+
   return (
-    <main className="py-16">
+    <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serviceStructuredData }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: breadcrumbStructuredData }}
+      />
+      {faqStructuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: faqStructuredData }}
+        />
+      )}
+
+      <main className="py-16">
       <div className="container mx-auto px-4 max-w-4xl">
         {/* Breadcrumb */}
         <nav className="mb-8">
@@ -52,9 +137,37 @@ export default async function ServicePage({ params }: Props) {
         <div className="text-center mb-12">
           <div className="text-6xl mb-4">{service.icon}</div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{service.title}</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
             {service.excerpt}
           </p>
+          
+          {/* Quick Info */}
+          {(service.startingPrice || service.timeline) && (
+            <div className="flex flex-wrap justify-center gap-4 mb-6">
+              {service.startingPrice && (
+                <div className="bg-primary/10 text-primary px-6 py-3 rounded-full font-medium">
+                  Starting from {service.startingPrice}
+                </div>
+              )}
+              {service.timeline && (
+                <div className="bg-gray-100 text-gray-700 px-6 py-3 rounded-full font-medium">
+                  ⏱️ Typical timeline: {service.timeline}
+                </div>
+              )}
+            </div>
+          )}
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              href="/#contact-form"
+              className="rounded-2xl bg-primary px-8 py-4 font-medium text-white shadow-soft hover:bg-primary-dark text-center"
+            >
+              Get Free Consultation
+            </Link>
+            <button className="rounded-2xl border border-gray-300 px-8 py-4 font-medium hover:bg-gray-50 text-center">
+              Download Service Guide
+            </button>
+          </div>
         </div>
 
         {/* Key Features */}
@@ -91,6 +204,21 @@ export default async function ServicePage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: service.content }}
         />
 
+        {/* Process Steps */}
+        {service.processSteps && service.processSteps.length > 0 && (
+          <ProcessSteps steps={service.processSteps} serviceName={service.title} />
+        )}
+
+        {/* Technology Stack */}
+        {service.technologyStack && service.technologyStack.length > 0 && (
+          <TechnologyStackComponent stack={service.technologyStack} serviceName={service.title} />
+        )}
+
+        {/* FAQ Section */}
+        {service.faqs && service.faqs.length > 0 && (
+          <ServiceFAQ faqs={service.faqs} serviceName={service.title} />
+        )}
+
         {/* CTA Section */}
         <div className="mt-16 text-center bg-gray-50 rounded-2xl p-8">
           <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
@@ -121,5 +249,6 @@ export default async function ServicePage({ params }: Props) {
         </div>
       </div>
     </main>
+    </>
   );
 }

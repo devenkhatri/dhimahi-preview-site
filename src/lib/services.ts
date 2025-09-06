@@ -6,6 +6,30 @@ import html from 'remark-html';
 
 const servicesDirectory = path.join(process.cwd(), 'content/services');
 
+
+
+export interface ProcessStep {
+  step: number;
+  title: string;
+  description: string;
+  duration: string;
+  deliverables: string[];
+}
+
+export interface TechnologyStack {
+  category: string;
+  technologies: {
+    name: string;
+    icon?: string;
+    description: string;
+  }[];
+}
+
+export interface FAQ {
+  question: string;
+  answer: string;
+}
+
 export interface ServiceData {
   slug: string;
   title: string;
@@ -14,6 +38,12 @@ export interface ServiceData {
   order: number;
   features: string[];
   content: string;
+
+  processSteps?: ProcessStep[];
+  technologyStack?: TechnologyStack[];
+  faqs?: FAQ[];
+  timeline?: string;
+  startingPrice?: string;
 }
 
 export interface ServiceMeta {
@@ -23,6 +53,7 @@ export interface ServiceMeta {
   excerpt: string;
   order: number;
   features: string[];
+  timeline?: string;
 }
 
 export function getAllServices(): ServiceMeta[] {
@@ -42,6 +73,8 @@ export function getAllServices(): ServiceMeta[] {
         excerpt: matterResult.data.excerpt,
         order: matterResult.data.order || 999,
         features: matterResult.data.features || [],
+
+        timeline: matterResult.data.timeline,
       };
     });
 
@@ -66,6 +99,12 @@ export async function getServiceData(slug: string): Promise<ServiceData> {
     order: matterResult.data.order || 999,
     features: matterResult.data.features || [],
     content: contentHtml,
+
+    processSteps: matterResult.data.processSteps,
+    technologyStack: matterResult.data.technologyStack,
+    faqs: matterResult.data.faqs,
+    timeline: matterResult.data.timeline,
+    startingPrice: matterResult.data.startingPrice,
   };
 }
 

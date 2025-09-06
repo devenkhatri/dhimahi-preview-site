@@ -1,9 +1,16 @@
 ---
 title: "Digital Transformation Roadmap for SMEs: Step-by-Step Guide"
+slug: "digital-transformation-roadmap-sme"
 excerpt: "Complete digital transformation strategy to modernize your business operations and stay competitive."
-date: "2024-01-18"
+publishDate: "2025-07-03"
 author: "Dhimahi Technolabs"
+category: "IT Strategy"
 tags: ["Digital Transformation", "Business Strategy", "Technology Adoption", "SME", "Modernization"]
+featuredImage: ""
+seo:
+  metaTitle: "Digital Transformation Roadmap for SMEs: Step-by-Step Guide"
+  metaDescription: "Complete digital transformation strategy to modernize your business operations and stay competitive."
+  keywords: "digital, transformation, roadmap, digital transformation, business strategy, technology adoption"
 ---
 
 

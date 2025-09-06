@@ -1,9 +1,16 @@
 ---
 title: "Email Marketing Automation for SMEs: Drive Sales on Autopilot"
+slug: "email-marketing-automation-sme"
 excerpt: "Set up automated email campaigns that nurture leads and drive sales while you focus on running your business."
-date: "2024-01-28"
+publishDate: "2025-06-08"
 author: "Dhimahi Technolabs"
+category: "AI & Automation"
 tags: ["Email Marketing", "Marketing Automation", "Lead Nurturing", "SME", "Sales"]
+featuredImage: ""
+seo:
+  metaTitle: "Email Marketing Automation for SMEs: Drive Sales on Autop..."
+  metaDescription: "Set up automated email campaigns that nurture leads and drive sales while you focus on running your business."
+  keywords: "email, marketing, automation, email marketing, marketing automation, lead nurturing"
 ---
 
 
