@@ -1,6 +1,7 @@
 import "./globals.css";
 import { COMPANY_NAME } from "@/lib/constants";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import FormProvider from "@/components/forms/FormProvider";
 import WebVitals from "@/components/WebVitals";
 import Analytics from "@/components/Analytics";
@@ -254,6 +255,7 @@ export default function RootLayout({
         <FormProvider>
           <Header />
           {children}
+          <Footer />
           <ClientOnly>
             <ErrorBoundary fallback={<div style={{ display: 'none' }}>Analytics loading...</div>}>
               <Analytics />

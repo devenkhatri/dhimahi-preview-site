@@ -1,7 +1,6 @@
 import { COMPANY_NAME, PHONE, CITY_LINE } from "@/lib/constants";
 import { getAllCMSServices, getCMSHomepageContent } from "@/lib/cms-content";
 import HeroSection from "@/components/HeroSection";
-import Footer from "@/components/Footer";
 
 interface ServiceCardProps {
   icon: string;
@@ -198,8 +197,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }

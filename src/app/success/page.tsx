@@ -1,6 +1,5 @@
 import { COMPANY_NAME } from "@/lib/constants";
 import { Metadata } from "next";
-import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: `Thank You - ${COMPANY_NAME}`,
@@ -71,7 +70,6 @@ export default function SuccessPage() {
           </div>
         </div>
       </main>
-      <Footer />
     </>
   );
 }

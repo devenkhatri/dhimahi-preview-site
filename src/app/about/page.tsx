@@ -1,7 +1,6 @@
 import { COMPANY_NAME, CITY_LINE, EMAIL } from "@/lib/constants";
 import { getCMSAboutContent } from "@/lib/cms-content";
 import { Metadata } from "next";
-import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
     title: `About ${COMPANY_NAME} – 25+ Years of IT Excellence in Gujarat`,
@@ -351,7 +350,6 @@ export default function AboutPage() {
                     </div>
                 </section>
             </main>
-            <Footer />
         </>
     );
 }
