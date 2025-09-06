@@ -1,38 +1,77 @@
+import { COMPANY_NAME } from "@/lib/constants";
+import { Metadata } from "next";
+import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: `Thank You - ${COMPANY_NAME}`,
+  description: "Thank you for contacting us. We'll get back to you within 24 hours.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
+
 export default function SuccessPage() {
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-soft p-8 text-center">
-        <div className="mb-6">
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
+    <>
+      <main className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-md w-full space-y-8">
+          <div className="text-center">
+            <div className="mx-auto h-24 w-24 bg-green-100 rounded-full flex items-center justify-center">
+              <svg className="h-12 w-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h1 className="mt-6 text-3xl font-bold text-gray-900">Thank You!</h1>
+            <p className="mt-2 text-lg text-gray-600">
+              Your message has been sent successfully.
+            </p>
+            <p className="mt-4 text-gray-600">
+              We'll get back to you within 24 hours. In the meantime, feel free to explore our services and insights.
+            </p>
           </div>
-          <h1 className="text-2xl font-semibold text-gray-900 mb-2">Message Sent!</h1>
-          <p className="text-gray-600">
-            Thank you for reaching out. We'll get back to you within 1 business day.
-          </p>
-        </div>
-
-        <div className="space-y-3">
-          <a
-            href="/"
-            className="block w-full rounded-xl bg-primary px-6 py-3 text-white font-medium hover:bg-primary-dark transition-colors"
-          >
-            Back to Home
-          </a>
-
-          <p className="text-sm text-gray-500">
-            Need immediate assistance? Email us at{' '}
+          
+          <div className="mt-8 space-y-4">
             <a
-              href="mailto:hello@dhimahitechnolabs.com"
-              className="text-primary hover:underline"
+              href="/"
+              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl text-sm font-medium text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors"
             >
-              hello@dhimahitechnolabs.com
+              Back to Home
             </a>
-          </p>
+            <a
+              href="/services"
+              className="w-full flex justify-center py-3 px-4 border border-gray-300 rounded-xl text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors"
+            >
+              Explore Our Services
+            </a>
+            <a
+              href="/insights"
+              className="w-full flex justify-center py-3 px-4 border border-gray-300 rounded-xl text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors"
+            >
+              Read Our Insights
+            </a>
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-sm text-gray-500">
+              Need immediate assistance?
+            </p>
+            <div className="mt-2 space-y-1">
+              <p className="text-sm">
+                <a href="mailto:hello@dhimahitechnolabs.com" className="text-primary hover:underline">
+                  hello@dhimahitechnolabs.com
+                </a>
+              </p>
+              <p className="text-sm">
+                <a href="tel:+919033033836" className="text-primary hover:underline">
+                  +91-9033033836
+                </a>
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      </main>
+      <Footer />
+    </>
   );
 }

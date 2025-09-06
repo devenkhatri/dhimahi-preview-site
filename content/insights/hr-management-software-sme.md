@@ -2,7 +2,7 @@
 title: "HR Management Software for SMEs: Streamline People Operations"
 slug: "hr-management-software-sme"
 excerpt: "Choose the right HR software to automate payroll, manage employees, ensure compliance, and build a better workplace culture."
-publishDate: "2023-12-15"
+publishDate: "2025-06-12"
 author: "Dhimahi Technolabs"
 category: "Business Strategy"
 tags: ["HR Management", "Payroll Software", "Employee Management", "HR Automation", "SME Operations"]

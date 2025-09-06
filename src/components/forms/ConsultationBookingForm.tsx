@@ -242,18 +242,17 @@ export default function ConsultationBookingForm({
         await onSubmit(submissionData);
       } else {
         // Default submission to Netlify forms
+        const formData = new FormData();
+        formData.append('form-name', 'consultation-booking');
+        
+        // Add all form fields
+        Object.entries(submissionData).forEach(([key, value]) => {
+          formData.append(key, typeof value === 'object' ? JSON.stringify(value) : String(value));
+        });
+
         const response = await fetch('/', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams({
-            'form-name': 'consultation-booking',
-            ...Object.fromEntries(
-              Object.entries(submissionData).map(([key, value]) => [
-                key,
-                typeof value === 'object' ? JSON.stringify(value) : String(value)
-              ])
-            )
-          }).toString()
+          body: formData
         });
 
         if (!response.ok) {

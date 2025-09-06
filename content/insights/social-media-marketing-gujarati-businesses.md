@@ -2,7 +2,7 @@
 title: "Social Media Marketing for Gujarati Businesses: Cultural Strategy Guide"
 slug: "social-media-marketing-gujarati-businesses"
 excerpt: "Leverage Gujarat's social culture and festivals to build authentic brand connections on social media."
-publishDate: "2024-02-10"
+publishDate: "2025-08-10"
 author: "Dhimahi Technolabs"
 category: "Digital Marketing"
 tags: ["Social Media", "Gujarat", "Cultural Marketing", "Brand Building", "SME"]

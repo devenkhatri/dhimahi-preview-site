@@ -1,6 +1,7 @@
 import { COMPANY_NAME, PHONE, CITY_LINE } from "@/lib/constants";
 import { getAllCMSServices, getCMSHomepageContent } from "@/lib/cms-content";
 import HeroSection from "@/components/HeroSection";
+import Footer from "@/components/Footer";
 
 interface ServiceCardProps {
   icon: string;
@@ -165,28 +166,28 @@ export default function HomePage() {
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium">Name</label>
-                  <input name="name" required className="mt-1 w-full rounded-xl border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary text-sm sm:text-base" />
+                  <input name="name" required className="mt-1 w-full rounded-xl border border-gray-300 px-3 py-2 text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-primary text-sm sm:text-base" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium">Email</label>
-                  <input type="email" name="email" required className="mt-1 w-full rounded-xl border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary text-sm sm:text-base" />
+                  <input type="email" name="email" required className="mt-1 w-full rounded-xl border border-gray-300 px-3 py-2 text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-primary text-sm sm:text-base" />
                 </div>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium">Phone</label>
-                  <input name="phone" className="mt-1 w-full rounded-xl border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary text-sm sm:text-base" />
+                  <input name="phone" className="mt-1 w-full rounded-xl border border-gray-300 px-3 py-2 text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-primary text-sm sm:text-base" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium">Company (optional)</label>
-                  <input name="company" className="mt-1 w-full rounded-xl border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary text-sm sm:text-base" />
+                  <input name="company" className="mt-1 w-full rounded-xl border border-gray-300 px-3 py-2 text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-primary text-sm sm:text-base" />
                 </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium">How can we help?</label>
-                <textarea name="message" rows={5} className="mt-1 w-full rounded-xl border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary text-sm sm:text-base" />
+                <textarea name="message" rows={5} className="mt-1 w-full rounded-xl border border-gray-300 px-3 py-2 text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-primary text-sm sm:text-base" />
               </div>
 
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -198,11 +199,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer className="py-6 sm:py-8 text-center text-xs sm:text-sm text-gray-500 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <p>© {new Date().getFullYear()} {COMPANY_NAME}. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

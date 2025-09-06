@@ -2,7 +2,7 @@
 title: "Local SEO Checklist for Ahmedabad Businesses"
 slug: "local-seo-ahmedabad-checklist"
 excerpt: "Practical steps to rank in Maps and drive real footfall and leads."
-publishDate: "2024-01-10"
+publishDate: "2025-05-18"
 author: "Dhimahi Technolabs"
 category: "Digital Marketing"
 tags: ["SEO", "Local Business", "Ahmedabad", "Digital Marketing"]

@@ -30,7 +30,56 @@ if (!fs.existsSync(uploadsDir)) {
 }
 
 console.log('✅ Development environment ready!');
-console.log('🚀 Starting Next.js development server...');
+console.log('🚀 Starting Next.js development server with content watching...');
 
-// Start development server
-execSync('next dev', { stdio: 'inherit' });
+// Start development server with content watching
+const { spawn } = require('child_process');
+
+// Start Next.js dev server
+const nextProcess = spawn('next', ['dev'], { 
+  stdio: ['inherit', 'inherit', 'inherit'],
+  shell: true 
+});
+
+// Start content watcher if chokidar is available
+try {
+  const chokidar = require('chokidar');
+  
+  console.log('🔍 Starting content file watcher...');
+  
+  const contentWatcher = chokidar.watch('content/**/*.{yml,yaml,md}', {
+    ignored: /(^|[\/\\])\../,
+    persistent: true,
+    ignoreInitial: true
+  });
+
+  contentWatcher
+    .on('change', (filePath) => {
+      console.log(`\n📝 Content file changed: ${filePath}`);
+      console.log('💡 Refresh your browser to see the changes\n');
+    })
+    .on('add', (filePath) => {
+      console.log(`\n➕ Content file added: ${filePath}\n`);
+    })
+    .on('unlink', (filePath) => {
+      console.log(`\n🗑️  Content file removed: ${filePath}\n`);
+    });
+
+  // Cleanup on exit
+  process.on('SIGINT', () => {
+    console.log('\n👋 Shutting down...');
+    contentWatcher.close();
+    nextProcess.kill('SIGINT');
+    process.exit(0);
+  });
+
+} catch (error) {
+  console.log('⚠️  Content watcher not available (chokidar not installed)');
+  console.log('💡 Install chokidar for automatic content change detection: npm install --save-dev chokidar');
+}
+
+// Handle Next.js process exit
+nextProcess.on('close', (code) => {
+  console.log(`Next.js process exited with code ${code}`);
+  process.exit(code);
+});

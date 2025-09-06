@@ -2,7 +2,7 @@
 title: "WhatsApp Business Automation for Gujarat SMEs"
 slug: "whatsapp-business-automation-sme"
 excerpt: "Automate customer support and sales on WhatsApp without losing the personal touch."
-publishDate: "2024-02-20"
+publishDate: "2025-08-22"
 author: "Dhimahi Technolabs"
 category: "AI & Automation"
 tags: ["WhatsApp", "Automation", "Customer Service", "SME"]

@@ -2,7 +2,7 @@
 title: "Website Speed Optimization: Boost SEO and User Experience"
 slug: "website-speed-optimization-seo"
 excerpt: "Improve your website loading speed to rank higher on Google and reduce bounce rates by up to 50%."
-publishDate: "2024-01-23"
+publishDate: "2025-07-08"
 author: "Dhimahi Technolabs"
 category: "Digital Marketing"
 tags: ["Website Speed", "SEO", "User Experience", "Performance", "Web Development"]

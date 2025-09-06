@@ -86,15 +86,17 @@ export default function ResourceDownloadForm({
         await onSubmit(submissionData);
       } else {
         // Default submission to Netlify forms
+        const formData = new FormData();
+        formData.append('form-name', 'resource-download');
+        
+        // Add all form fields
+        Object.entries(submissionData).forEach(([key, value]) => {
+          formData.append(key, String(value));
+        });
+
         const response = await fetch('/', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams({
-            'form-name': 'resource-download',
-            ...Object.fromEntries(
-              Object.entries(submissionData).map(([key, value]) => [key, String(value)])
-            )
-          }).toString()
+          body: formData
         });
 
         if (!response.ok) {

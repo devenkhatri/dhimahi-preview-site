@@ -1,12 +1,12 @@
 hero:
   ctaButton:
-    text: Get Free AI Consultation
+    text: Book Your Free Consultation
     url: /consultation
   floatingTrustBadges:
-    - 🏆 25+ Years Expertise
-    - 🚀 AI-Ready Solutions
+    - 🏆 25+ Years Expertise    
     - 📈 Proven ROI Results
     - 🎯 Gujarat SME Focus
+    - 🚀 AI-Ready Solutions
   statistics:
     - value: 25
       suffix: + Years
@@ -18,26 +18,27 @@ hero:
       suffix: "%"
       label: Client Satisfaction
   trustBadge: Trusted by 200+ SMEs across Gujarat
-  mainHeadline: Transform Your Business with AI & Digital Growth
+  mainHeadline: From Digital Chaos to Business Clarity
   ctaButtons:
-    primary: Get Free AI Consultation
+    primary: Book Your Free Consultation
     secondary: Explore Our Services
-  subheadline: At **Dhīmahi Technolabs** helps Small and Medium businesses to grow
-    with **AI automation, digital marketing, and smart IT strategies** —
-    practical solutions that deliver measurable ROI.
+  subheadline: At **Dhīmahi , we help small and medium businesses in Ahmedabad & Gandhinagar grow
+    with **AI solutions, digital marketing, and smart IT strategy** —
+    without enterprise complexity or cost -
+    **We Turn Technology Into Your Growth Engine**
   floatingBadges:
     - icon: 🏆
       text: 25+ Years Expertise
-    - icon: 🚀
-      text: AI-Ready Solutions
     - icon: 📈
       text: Proven ROI Results
     - icon: 🎯
       text: Gujarat SME Focus
+    - icon: 🚀
+      text: AI-Ready Solutions
   trustIndicators:
-    - ✓ Free consultation
-    - ✓ Practical solutions
-    - ✓ ROI-focused approach        
+    - Local focused
+    - ROI-first approach        
+    - Practical solutions
 servicesOverview:
   title: Our Services
   description: "Helping SMEs in Ahmedabad & Gandhinagar grow with practical,
@@ -96,31 +97,54 @@ whyChooseUs:
       description: From AI to automation, we help you stay ahead of the curve and
         prepare your business for tomorrow.
 testimonials:
-  - clientName: Rajesh Patel
-    company: Manufacturing SME, Ahmedabad
-    testimonial: With Dhimahi Technolabs, we automated our sales follow-ups using AI
-      tools. Our response time improved by 70%, and our small sales team now
-      closes more deals effortlessly.
+  - clientName: Owner
+    company: Furniture Retail Store (Gandhinagar)
+    testimonial: We wanted to take our retail furniture business online. 
+      Dhīmahi designed a modern e-commerce website with integrated payments 
+      and inventory tracking. Within weeks of launch, we started getting 
+      online orders and reaching customers beyond our local store.
     rating: 5
     clientImage: ""
-  - clientName: Priyansh Shah
-    company: Service Company, Gandhinagar
+  - clientName: Director
+    company: Service Company (Gandhinagar)
     testimonial: Our website was outdated and invisible on Google. Dhimahi
       redesigned it and implemented SEO. Within 3 months, we started getting
       steady inquiries and 40% more leads.
     rating: 5
     clientImage: ""
-  - clientName: Amit Desai
-    company: Trading Firm, Ahmedabad
-    testimonial: As a growing business, we were confused about which CRM and ERP
-      tools to invest in. Dhimahi guided us like a Fractional CTO and saved us
-      lakhs in wrong purchases.
+  - clientName: Doctor
+    company: Physiotherapy & Fitness Center (Gandhinagar)
+    testimonial: Dhīmahi built a custom app to track physiotherapy sessions 
+      and manage gym member subscriptions. What once took hours on spreadsheets 
+      is now handled in minutes, giving us more time to focus on patient care 
+      and client satisfaction.
+    rating: 5
+    clientImage: ""
+  - clientName: Owner
+    company: Manufacturing SME (Ahmedabad)
+    testimonial: With Dhimahi Technolabs, we automated our sales follow-ups using AI
+      tools. Our response time improved by 70%, and our small sales team now
+      closes more deals effortlessly.
+    rating: 5
+    clientImage: ""
+  - clientName: Founder
+    company: Coaching Institute (Ahmedabad)
+    testimonial: We wanted to modernize our coaching institute’s operations. Dhīmahi 
+      created a digital portal for student registrations, fee payments, and class 
+      schedules. The process became seamless, and enrollments grew by 35%.
+    rating: 5
+    clientImage: ""
+  - clientName: Founder
+    company: Multispeciality Clinic (Ahmedabad)
+    testimonial: Our clinic struggled with missed appointments and manual 
+      reminders. Dhīmahi developed an automated booking and notification system, 
+      reducing no-shows by 60% and improving patient satisfaction.
     rating: 5
     clientImage: ""
 contactCTA:
   title: Let's Discuss Your Business Goals
   description: Your first consultation is **free**. Let's explore how AI, digital
-    growth, and smart IT strategy can help your business scale.
+    growth, and smart IT strategy can help your business grow.
   primaryButton:
     text: Book Free Consultation
     url: /consultation

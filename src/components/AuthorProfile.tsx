@@ -15,7 +15,7 @@ const defaultAuthors: Record<string, Author> = {
     avatar: '/icons/compass.svg', // Using existing icon as placeholder
     social: {
       linkedin: 'https://linkedin.com/company/dhimahi-technolabs',
-      twitter: 'https://twitter.com/dhimahitech',
+      twitter: 'https://x.com/dhimahitechno',
     }
   }
 };

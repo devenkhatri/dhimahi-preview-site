@@ -2,7 +2,7 @@
 title: "LinkedIn Marketing for B2B SMEs: Generate Quality Leads"
 slug: "linkedin-marketing-b2b-sme"
 excerpt: "Master LinkedIn marketing to connect with decision-makers and generate high-quality B2B leads for your business."
-publishDate: "2024-01-15"
+publishDate: "2025-08-18"
 author: "Dhimahi Technolabs"
 category: "Digital Marketing"
 tags: ["LinkedIn Marketing", "B2B Marketing", "Lead Generation", "Social Selling", "SME"]

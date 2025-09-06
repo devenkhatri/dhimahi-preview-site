@@ -2,7 +2,7 @@
 title: "How SMEs Can Save 5+ Hours/Week with AI"
 slug: "sme-ai-time-savings"
 excerpt: "Small automations add up: email replies, follow-ups, proposals, and reporting."
-publishDate: "2024-01-15"
+publishDate: "2025-06-15"
 author: "Dhimahi Technolabs"
 category: "AI & Automation"
 tags: ["AI", "Automation", "SME", "Productivity"]

@@ -179,6 +179,78 @@ export default function RootLayout({
           }}
         />
 
+        {/* Hidden forms for Netlify detection */}
+        <div style={{ display: 'none' }}>
+          {/* Contact form */}
+          <form name="contact" data-netlify="true">
+            <input name="name" />
+            <input name="email" />
+            <input name="phone" />
+            <input name="company" />
+            <textarea name="message" />
+          </form>
+          
+          {/* Consultation booking form */}
+          <form name="consultation-booking" data-netlify="true">
+            <input name="name" />
+            <input name="email" />
+            <input name="phone" />
+            <input name="company" />
+            <input name="businessType" />
+            <input name="companySize" />
+            <input name="location" />
+            <input name="website" />
+            <input name="consultationType" />
+            <textarea name="challenges" />
+            <input name="urgency" />
+            <input name="budget" />
+            <input name="preferredDate" />
+            <input name="preferredTime" />
+            <input name="alternativeDate" />
+            <input name="alternativeTime" />
+            <input name="meetingPreference" />
+            <textarea name="additionalNotes" />
+            <input name="formType" />
+            <input name="submittedAt" />
+          </form>
+          
+          {/* Project quote form */}
+          <form name="project-quote" data-netlify="true">
+            <input name="name" />
+            <input name="email" />
+            <input name="phone" />
+            <input name="company" />
+            <input name="projectType" />
+            <input name="budget" />
+            <input name="timeline" />
+            <textarea name="description" />
+            <input name="features" />
+            <input name="formType" />
+            <input name="submittedAt" />
+          </form>
+          
+          {/* Resource download form */}
+          <form name="resource-download" data-netlify="true">
+            <input name="name" />
+            <input name="email" />
+            <input name="company" />
+            <input name="role" />
+            <input name="resourceId" />
+            <input name="resourceTitle" />
+            <input name="formType" />
+            <input name="submittedAt" />
+          </form>
+          
+          {/* Contact form (alternative) */}
+          <form name="contact-form" data-netlify="true">
+            <input name="name" />
+            <input name="email" />
+            <input name="phone" />
+            <input name="company" />
+            <textarea name="message" />
+          </form>
+        </div>
+
         <FormProvider>
           <Header />
           {children}

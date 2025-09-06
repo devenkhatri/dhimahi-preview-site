@@ -76,6 +76,13 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Form handling and success page
+[[redirects]]
+  from = "/success"
+  to = "/success"
+  status = 200
+  force = false
+
 # Redirect rules for CMS
 [[redirects]]
   from = "/admin"

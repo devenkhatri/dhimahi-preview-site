@@ -2,7 +2,7 @@
 title: "API Integration for Business Automation: Connect Your Systems Seamlessly"
 slug: "api-integration-business-automation"
 excerpt: "Learn how to integrate different business systems using APIs to automate workflows and eliminate manual data entry."
-publishDate: "2023-12-12"
+publishDate: "2025-06-20"
 author: "Dhimahi Technolabs"
 category: "AI & Automation"
 tags: ["API Integration", "Business Automation", "System Integration", "Workflow Automation", "Digital Transformation"]

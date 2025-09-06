@@ -2,7 +2,7 @@
 title: "Voice Search Optimization for Local Businesses: Capture Voice Queries"
 slug: "voice-search-optimization-local-business"
 excerpt: "Optimize your business for voice search to capture the growing number of voice queries and local 'near me' searches."
-publishDate: "2023-12-18"
+publishDate: "2025-07-18"
 author: "Dhimahi Technolabs"
 category: "Digital Marketing"
 tags: ["Voice Search", "Local SEO", "Voice Optimization", "Mobile Search", "Digital Marketing"]

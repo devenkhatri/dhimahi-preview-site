@@ -2,7 +2,7 @@
 title: "Mobile App Development for SMEs: Build or Buy Decision Guide"
 slug: "mobile-app-development-sme"
 excerpt: "Strategic guide to mobile app development for SMEs - when to build custom, when to use no-code, and how to maximize ROI."
-publishDate: "2024-01-12"
+publishDate: "2025-09-05"
 author: "Dhimahi Technolabs"
 category: "Web Development"
 tags: ["Mobile App Development", "Digital Strategy", "SME Technology", "App Strategy", "Business Apps"]
