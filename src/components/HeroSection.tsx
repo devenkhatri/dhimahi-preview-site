@@ -1,9 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { COMPANY_NAME, CITY_LINE } from "@/lib/constants";
 import type { HomepageContent } from "@/lib/cms-content";
-import ClientOnly from "./ClientOnly";
 
 interface CounterProps {
   end: number;
@@ -18,16 +16,16 @@ function AnimatedCounter({ end, duration, suffix = '', prefix = '' }: CounterPro
   useEffect(() => {
     // Reset to 0 and animate only on client
     setCount(0);
-    
+
     let startTime: number;
     let animationFrame: number;
 
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
-      
+
       setCount(Math.floor(progress * end));
-      
+
       if (progress < 1) {
         animationFrame = requestAnimationFrame(animate);
       }
@@ -37,7 +35,7 @@ function AnimatedCounter({ end, duration, suffix = '', prefix = '' }: CounterPro
     const timer = setTimeout(() => {
       animationFrame = requestAnimationFrame(animate);
     }, 100);
-    
+
     return () => {
       clearTimeout(timer);
       if (animationFrame) {
@@ -45,7 +43,7 @@ function AnimatedCounter({ end, duration, suffix = '', prefix = '' }: CounterPro
       }
     };
   }, [end, duration]);
-  
+
   return <span suppressHydrationWarning>{prefix}{count}{suffix}</span>;
 }
 
@@ -53,17 +51,16 @@ interface TrustBadgeProps {
   icon: string;
   text: string;
   delay?: number;
-  style?: React.CSSProperties;
 }
 
-function FloatingTrustBadge({ icon, text, delay = 0, style }: TrustBadgeProps) {
+function FloatingTrustBadge({ icon, text, delay = 0 }: TrustBadgeProps) {
   return (
-    <div 
-      className={`absolute bg-white/95 backdrop-blur-sm text-primary px-3 py-2 rounded-full text-xs font-semibold shadow-lg border border-white/20 animate-float`}
-      style={{ animationDelay: `${delay}ms`, ...style }}
+    <div
+      className="bg-white backdrop-blur-sm text-primary px-4 py-2.5 rounded-full text-xs font-semibold shadow-2xl border border-primary/20 animate-float hover:scale-105 transition-transform duration-300"
+      style={{ animationDelay: `${delay}ms` }}
     >
-      <span className="mr-1">{icon}</span>
-      {text}
+      <span className="mr-1.5 text-sm">{icon}</span>
+      <span className="whitespace-nowrap">{text}</span>
     </div>
   );
 }
@@ -105,7 +102,7 @@ export default function HeroSection({ content }: HeroSectionProps) {
           </defs>
           <path fill="url(#heroGradient1)" d="M37.3,-63.4C47.4,-55.2,54.8,-47,60.9,-37.2C66.9,-27.3,71.6,-15.6,72.1,-3.6C72.6,8.4,68.7,20.7,63.2,32.1C57.7,43.4,50.6,53.8,40.4,60.8C30.2,67.7,16.9,71.3,3.1,67.2C-10.6,63.2,-21.2,51.6,-32.6,43.4C-44,35.1,-56.2,30.2,-63.7,20.9C-71.2,11.7,-74,-1.9,-70.5,-14.2C-67,-26.5,-57.1,-37.6,-45.7,-46C-34.3,-54.5,-21.4,-60.3,-8.2,-60.8C5,-61.4,10,-56.7,37.3,-63.4Z" transform="translate(100 100)" />
         </svg>
-        
+
         {/* Secondary accent blob */}
         <svg className="absolute -bottom-32 -right-32 h-[380px] w-[380px] opacity-8" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden>
           <defs>
@@ -144,7 +141,7 @@ export default function HeroSection({ content }: HeroSectionProps) {
 
             {/* Subheadline */}
             <div className="text-lg sm:text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
-              <div dangerouslySetInnerHTML={{ 
+              <div dangerouslySetInnerHTML={{
                 __html: content.subheadline
                   .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
                   .replace(/\*(.*?)\*/g, '<em>$1</em>')
@@ -154,12 +151,12 @@ export default function HeroSection({ content }: HeroSectionProps) {
             {/* Statistics Row */}
             <div className="grid grid-cols-3 gap-6 mb-8 p-4 bg-white/60 backdrop-blur-sm rounded-2xl border border-white/40">
               {content.statistics.map((stat, index) => (
-                <StatisticCard 
+                <StatisticCard
                   key={index}
-                  value={stat.value} 
-                  suffix={stat.suffix} 
-                  label={stat.label} 
-                  duration={2500 + (index * 300)} 
+                  value={stat.value}
+                  suffix={stat.suffix}
+                  label={stat.label}
+                  duration={2500 + (index * 300)}
                 />
               ))}
             </div>
@@ -196,16 +193,16 @@ export default function HeroSection({ content }: HeroSectionProps) {
           {/* Visual Section */}
           <div className="relative mt-8 lg:mt-0">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-white via-accent-soft/50 to-primary/5 p-8">
-              {/* Hero Illustration */}
-              <div className="relative z-10">
+              {/* Hero Illustration - Background Layer */}
+              <div className="relative z-0">
                 <img
                   src="/hero-illustration.svg"
                   alt="AI-powered business transformation for SMEs in Gujarat"
-                  className="w-full h-auto animate-fade-in"
+                  className="w-full h-auto animate-fade-in opacity-90"
                 />
               </div>
 
-              {/* Floating Trust Badges */}
+              {/* Floating Trust Badges - Foreground Layer */}
               {content.floatingBadges?.map((badge, index) => {
                 const positions = [
                   { top: '10%', left: '5%' },
@@ -214,22 +211,22 @@ export default function HeroSection({ content }: HeroSectionProps) {
                   { bottom: '15%', right: '5%' }
                 ];
                 return (
-                  <FloatingTrustBadge 
-                    key={index}
-                    icon={badge.icon} 
-                    text={badge.text} 
-                    delay={index * 500}
-                    style={positions[index] || positions[0]}
-                  />
+                  <div key={index} className="absolute z-30" style={positions[index] || positions[0]}>
+                    <FloatingTrustBadge
+                      icon={badge.icon}
+                      text={badge.text}
+                      delay={index * 500}
+                    />
+                  </div>
                 );
               })}
 
-              {/* Animated Elements */}
-              <div className="absolute top-6 right-6 w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-full opacity-20 animate-pulse"></div>
-              <div className="absolute bottom-8 left-6 w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-full opacity-30 animate-float"></div>
-              
-              {/* Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 rounded-3xl"></div>
+              {/* Animated Elements - Background Layer */}
+              <div className="absolute top-6 right-6 w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-full opacity-20 animate-pulse z-10"></div>
+              <div className="absolute bottom-8 left-6 w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-full opacity-30 animate-float z-10"></div>
+
+              {/* Glow Effect - Background Layer */}
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 rounded-3xl z-0"></div>
             </div>
 
             {/* Additional floating elements around the main visual */}
