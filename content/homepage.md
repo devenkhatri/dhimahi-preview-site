@@ -9,11 +9,11 @@ Transform Your Business with AI
 **Dhīmahi Technolabs** helps SMEs in Ahmedabad & Gandhinagar grow with **AI automation, digital marketing, and smart IT strategy** — practical solutions that deliver real ROI.
 
 ### Trust Badge
-Trusted by 200+ SMEs across Gujarat
+Gujarat's Preferred IT Partner
 
 ### Statistics
 - **25+ Years Experience**
-- **200+ SMEs Served** 
+- **200+ Businesses Transformed** 
 - **95% Client Satisfaction**
 
 ### Call-to-Action Buttons

@@ -14,10 +14,10 @@ export default function ConsultationPage() {
             Book Your Free Consultation
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
-            Get personalized insights and expert guidance for your business growth. 
+            Get personalized insights and expert guidance for your business growth.
             Our 30-minute consultation is completely free with no obligations.
           </p>
-          
+
           {/* Trust indicators */}
           <div className="flex flex-wrap justify-center gap-8 text-sm text-gray-600 mb-8">
             <div className="flex items-center">
@@ -26,7 +26,7 @@ export default function ConsultationPage() {
             </div>
             <div className="flex items-center">
               <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-              200+ SMEs Helped
+              25+ Years of Excellence
             </div>
             <div className="flex items-center">
               <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
@@ -91,7 +91,7 @@ export default function ConsultationPage() {
                 Is the consultation really free?
               </summary>
               <p className="mt-3 text-gray-600 text-sm">
-                Yes, absolutely! Our initial 30-minute consultation is completely free with no strings attached. 
+                Yes, absolutely! Our initial 30-minute consultation is completely free with no strings attached.
                 We believe in providing value upfront and building relationships based on trust.
               </p>
             </details>
@@ -100,7 +100,7 @@ export default function ConsultationPage() {
                 What if I'm not ready to start a project immediately?
               </summary>
               <p className="mt-3 text-gray-600 text-sm">
-                That's perfectly fine! Many of our consultations are for businesses in the planning phase. 
+                That's perfectly fine! Many of our consultations are for businesses in the planning phase.
                 We'll provide insights and recommendations that you can implement when you're ready.
               </p>
             </details>
@@ -109,7 +109,7 @@ export default function ConsultationPage() {
                 Do you work with businesses outside Gujarat?
               </summary>
               <p className="mt-3 text-gray-600 text-sm">
-                While we're based in Ahmedabad and Gandhinagar, we work with businesses across India. 
+                While we're based in Ahmedabad and Gandhinagar, we work with businesses across India.
                 Many of our consultations and projects are conducted remotely.
               </p>
             </details>
@@ -118,7 +118,7 @@ export default function ConsultationPage() {
                 What should I prepare for the consultation?
               </summary>
               <p className="mt-3 text-gray-600 text-sm">
-                Just come with your questions and challenges! If you have a website or existing systems, 
+                Just come with your questions and challenges! If you have a website or existing systems,
                 having those details handy can help, but it's not required.
               </p>
             </details>

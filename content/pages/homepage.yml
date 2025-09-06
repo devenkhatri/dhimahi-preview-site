@@ -12,12 +12,12 @@ hero:
       suffix: + Years
       label: Experience
     - value: 200
-      suffix: + SMEs
-      label: Served
+      suffix: +
+      label: Businesses Transformed
     - value: 100
       suffix: "%"
       label: Client Satisfaction
-  trustBadge: Trusted by 200+ SMEs across Gujarat
+  trustBadge: Gujarat's Preferred IT Partner
   mainHeadline: From Digital Chaos to Business Clarity
   ctaButtons:
     primary: Book Your Free Consultation

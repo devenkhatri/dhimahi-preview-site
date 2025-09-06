@@ -145,7 +145,7 @@ collections:
                 name: "trustBadge"
                 widget: "string"
                 required: true
-                hint: "Short credibility statement (e.g., 'Trusted by 200+ SMEs')"
+                hint: "Short credibility statement (e.g., 'Gujarat`s Preferred IT Partner')"
                 pattern: [".{10,50}", "Must be between 10 and 50 characters"]
               - label: "Statistics"
                 name: "statistics"

@@ -3,11 +3,11 @@
 
 ---
 
-### 🌟 Trusted by 200+ SMEs across Gujarat  
+### 🌟 Gujarat's Preferred IT Partner
 
 **Statistics at a glance**  
 - **25+ Years Experience**  
-- **200+ SMEs Served**  
+- **200+ Businesses Transformed**  
 - **95% Client Satisfaction**
 
 [Get Free AI Consultation](#contact)  

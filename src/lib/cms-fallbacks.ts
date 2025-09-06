@@ -15,10 +15,10 @@ export function getDefaultHomepageContent(): HomepageContent {
     hero: {
       mainHeadline: "Transform Your Business with AI",
       subheadline: "**Dhīmahi Technolabs** helps SMEs in Ahmedabad & Gandhinagar grow with **AI automation, digital marketing, and smart IT strategy** — practical solutions that deliver real ROI.",
-      trustBadge: "Trusted by 200+ SMEs across Gujarat",
+      trustBadge: "Gujarat's Preferred IT Partner",
       statistics: [
         { value: 25, suffix: "+", label: "Years Experience" },
-        { value: 200, suffix: "+", label: "SMEs Served" },
+        { value: 200, suffix: "+", label: "Businesses Transformed" },
         { value: 95, suffix: "%", label: "Client Satisfaction" }
       ],
       ctaButtons: {
