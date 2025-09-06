@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { COMPANY_NAME } from "@/lib/constants";
 import { getAllCMSServices } from "@/lib/cms-content";
+import { generateMetadata, defaultMeta } from "@/lib/meta";
+
+export const metadata = generateMetadata(defaultMeta.services);
 
 export default function ServicesPage() {
   const services = getAllCMSServices();

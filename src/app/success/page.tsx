@@ -1,10 +1,13 @@
 import { COMPANY_NAME } from "@/lib/constants";
 import { getGeneralSettings } from "@/lib/settings";
-import { Metadata } from "next";
+import { generateMetadata } from "@/lib/meta";
 
-export const metadata: Metadata = {
-  title: `Thank You - ${COMPANY_NAME}`,
-  description: "Thank you for contacting us. We'll get back to you within 24 hours.",
+export const metadata = {
+  ...generateMetadata({
+    title: `Thank You - ${COMPANY_NAME}`,
+    description: "Thank you for contacting us. We'll get back to you within 24 hours.",
+    path: "/success",
+  }),
   robots: {
     index: false,
     follow: false,

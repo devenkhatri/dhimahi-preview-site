@@ -1,24 +1,8 @@
 import { COMPANY_NAME, CITY_LINE, EMAIL } from "@/lib/constants";
 import { getCMSAboutContent } from "@/lib/cms-content";
-import { Metadata } from "next";
+import { generateMetadata, defaultMeta } from "@/lib/meta";
 
-export const metadata: Metadata = {
-    title: `About ${COMPANY_NAME} – 25+ Years of IT Excellence in Gujarat`,
-    description: "Learn about Dhimahi Technolabs' journey, mission, and team. 25+ years of helping SMEs in Gujarat with AI solutions, digital marketing, and IT consulting.",
-    keywords: [
-        "about Dhimahi Technolabs",
-        "IT consulting company Gujarat",
-        "AI solutions provider Ahmedabad",
-        "digital marketing agency Gandhinagar",
-        "business automation experts",
-        "SME IT consultancy"
-    ],
-    openGraph: {
-        title: `About ${COMPANY_NAME} – 25+ Years of IT Excellence`,
-        description: "Discover our mission to make technology accessible to SMEs across Gujarat. Learn about our expertise in AI, digital marketing, and business automation.",
-        type: "website",
-    },
-};
+export const metadata = generateMetadata(defaultMeta.about);
 
 interface CEOCardProps {
     name: string;

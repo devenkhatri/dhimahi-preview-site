@@ -1,17 +1,8 @@
-import { Metadata } from "next";
 import ConsultationBookingForm from "@/components/forms/ConsultationBookingForm";
 import { COMPANY_NAME } from "@/lib/constants";
+import { generateMetadata, defaultMeta } from "@/lib/meta";
 
-export const metadata: Metadata = {
-  title: `Book Free Consultation | ${COMPANY_NAME}`,
-  description: "Book a free 30-minute consultation with our IT experts. Get personalized insights for your business growth with AI, digital marketing, and smart IT solutions.",
-  keywords: ["free consultation", "IT consulting", "business consultation", "AI solutions", "digital marketing", "Ahmedabad", "Gujarat"],
-  openGraph: {
-    title: `Book Free Consultation | ${COMPANY_NAME}`,
-    description: "Get expert guidance for your business growth. Free 30-minute consultation with 25+ years of IT expertise.",
-    type: "website"
-  }
-};
+export const metadata = generateMetadata(defaultMeta.consultation);
 
 export default function ConsultationPage() {
   return (

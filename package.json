@@ -23,6 +23,7 @@
     "setup:hooks": "node scripts/setup-git-hooks.js",
     "disable:hooks": "node scripts/disable-git-hooks.js disable",
     "enable:hooks": "node scripts/disable-git-hooks.js enable",
+    "validate:og-image": "node scripts/validate-og-image.js",
     "build:report": "node -e \"console.log(JSON.stringify(require('./.next/build-report.json'), null, 2))\"",
     "build:monitor": "node scripts/build-monitor.js",
     "build:analyze": "node scripts/build-monitor.js analyze",
