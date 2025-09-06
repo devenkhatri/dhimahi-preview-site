@@ -63,6 +63,7 @@ export interface HomepageContent {
 export interface AboutContent {
   title: string;
   subtitle: string;
+  subIntroduction?: string;
   mission: {
     title: string;
     description: string;

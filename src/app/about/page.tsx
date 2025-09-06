@@ -159,9 +159,14 @@ export default function AboutPage() {
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
                                 {aboutContent.title}
                             </h1>
-                            <p className="text-xl md:text-2xl opacity-90 leading-relaxed">
+                            <p className="text-xl md:text-2xl opacity-90 leading-relaxed mb-4">
                                 {aboutContent.subtitle}
                             </p>
+                            {aboutContent.subIntroduction && (
+                                <p className="text-lg md:text-xl opacity-80 leading-relaxed max-w-3xl mx-auto">
+                                    {aboutContent.subIntroduction}
+                                </p>
+                            )}
                         </div>
                     </div>
                 </section>

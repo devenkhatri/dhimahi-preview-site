@@ -842,6 +842,13 @@ collections:
             hint: "Brief introduction or tagline for the about page"
             modes: ["rich_text"]
             editor_components: ["bold", "italic"]
+          - label: "Sub Introduction"
+            name: "subIntroduction"
+            widget: "markdown"
+            required: false
+            hint: "Additional descriptive text below the main introduction (optional)"
+            modes: ["rich_text"]
+            editor_components: ["bold", "italic"]
           - label: "Company Story"
             name: "story"
             widget: "object"

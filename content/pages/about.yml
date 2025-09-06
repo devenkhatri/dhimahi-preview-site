@@ -1,5 +1,6 @@
 title: "About Dhīmahi Technolabs"
 introduction: "Making technology accessible to SMEs across Gujarat for over 25 years. We bridge the gap between traditional business values and modern digital solutions."
+subIntroduction: "Web Development • Digital Marketing • AI & Automation"
 
 
 mission:
@@ -12,7 +13,7 @@ vision:
 
 values:
   - title: "Trust & Transparency"
-    icon: "🤝"
+    icon: "🌟"
     description: "We build lasting relationships through honest communication, clear pricing, and reliable delivery. Your success is our success."
   - title: "Innovation with Purpose"
     icon: "💡"
@@ -23,9 +24,9 @@ values:
   - title: "Continuous Learning"
     icon: "📚"
     description: "Technology evolves rapidly. We stay ahead of the curve to ensure our clients benefit from the latest innovations."
-  - title: "Sustainable Growth"
-    icon: "🌱"
-    description: "We help businesses grow sustainably, building strong foundations rather than quick fixes."
+  - title: "Collaboration"
+    icon: "🤝"
+    description: "We succeed by working hand-in-hand with our clients as true partners."
   - title: "Local Expertise"
     icon: "🏠"
     description: "Deep understanding of the Gujarat business landscape and local market dynamics."

@@ -601,6 +601,7 @@ export function getCMSAboutContent(): AboutContent {
     const aboutData: AboutContent = {
       title: data?.title || 'About Us',
       subtitle: data?.introduction || 'Learn more about our company',
+      subIntroduction: data?.subIntroduction,
       mission: {
         title: data?.mission?.title || 'Our Mission',
         description: data?.mission?.statement || 'We deliver exceptional results',
