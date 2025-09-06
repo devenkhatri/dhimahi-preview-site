@@ -9,11 +9,4 @@ export { default as FormProvider, useFormContext } from './FormProvider';
 // Types
 export type { FormStep, FormField } from './MultiStepForm';
 
-// Utility functions
-export { 
-  submitFormData, 
-  calculateLeadScore, 
-  getEmailTemplate,
-  defaultIntegrationConfig,
-  formIntegrationService 
-} from '../../lib/form-integrations';
+// Utility functions - now handled by Netlify forms

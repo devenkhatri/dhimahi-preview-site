@@ -66,16 +66,27 @@ try {
     });
 
   // Cleanup on exit
-  process.on('SIGINT', () => {
+  const cleanup = () => {
     console.log('\n👋 Shutting down...');
-    contentWatcher.close();
-    nextProcess.kill('SIGINT');
+    try {
+      contentWatcher.close();
+    } catch (e) {
+      // Ignore cleanup errors
+    }
+    try {
+      nextProcess.kill('SIGINT');
+    } catch (e) {
+      // Ignore cleanup errors
+    }
     process.exit(0);
-  });
+  };
+
+  process.on('SIGINT', cleanup);
+  process.on('SIGTERM', cleanup);
 
 } catch (error) {
-  console.log('⚠️  Content watcher not available (chokidar not installed)');
-  console.log('💡 Install chokidar for automatic content change detection: npm install --save-dev chokidar');
+  console.log('⚠️  Content watcher not available');
+  console.log('💡 Content changes will require manual browser refresh');
 }
 
 // Handle Next.js process exit

@@ -1,7 +1,12 @@
 "use client";
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import ProgressiveProfilingForm from "./ProgressiveProfilingForm";
-import { submitFormData, FormSubmission } from "@/lib/form-integrations";
+// Form submission types
+interface FormSubmission {
+  formType: string;
+  email: string;
+  [key: string]: any;
+}
 import { useFormTracking, useConversionFunnel } from "@/hooks/useConversionTracking";
 import { FunnelStage } from "@/lib/analytics";
 
@@ -77,7 +82,22 @@ export default function FormProvider({
 
   const submitForm = async (data: FormSubmission) => {
     try {
-      await submitFormData(data);
+      // Submit to Netlify forms
+      const formData = new FormData();
+      formData.append('form-name', data.formType);
+      
+      Object.entries(data).forEach(([key, value]) => {
+        formData.append(key, typeof value === 'object' ? JSON.stringify(value) : String(value));
+      });
+
+      const response = await fetch('/', {
+        method: 'POST',
+        body: formData
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
       
       // Track conversion based on form type
       const conversionGoalMap: Record<string, string> = {

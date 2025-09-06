@@ -72,13 +72,6 @@ const nextConfig = {
         poll: 1000,
         aggregateTimeout: 300,
       };
-
-      // Add content files to webpack's dependency tracking
-      config.module.rules.push({
-        test: /\.(yml|yaml|md)$/,
-        use: 'raw-loader',
-        include: [join(process.cwd(), 'content')],
-      });
       
       // Disable chunk splitting in development to prevent loading issues
       config.optimization = {

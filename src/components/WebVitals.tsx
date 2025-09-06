@@ -37,6 +37,8 @@ export default function WebVitals({ debug = false }: WebVitalsProps) {
       }
 
       // Send to custom analytics endpoint (optional)
+      // Commented out for static export compatibility
+      /*
       if (process.env.NODE_ENV === 'production') {
         fetch('/api/analytics/web-vitals', {
           method: 'POST',
@@ -59,6 +61,7 @@ export default function WebVitals({ debug = false }: WebVitalsProps) {
           }
         });
       }
+      */
     };
 
     // Measure Core Web Vitals
