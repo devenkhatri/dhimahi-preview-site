@@ -56,11 +56,11 @@ interface TrustBadgeProps {
 function FloatingTrustBadge({ icon, text, delay = 0 }: TrustBadgeProps) {
   return (
     <div
-      className="bg-white backdrop-blur-sm text-primary px-4 py-2.5 rounded-full text-xs font-semibold shadow-2xl border border-primary/20 animate-float hover:scale-105 transition-transform duration-300"
+      className="bg-white backdrop-blur-sm text-primary px-2 py-1.5 sm:px-4 sm:py-2.5 rounded-full text-xs font-semibold shadow-2xl border border-primary/20 animate-float hover:scale-105 transition-transform duration-300"
       style={{ animationDelay: `${delay}ms` }}
     >
-      <span className="mr-1.5 text-sm">{icon}</span>
-      <span className="whitespace-nowrap">{text}</span>
+      <span className="mr-1 sm:mr-1.5 text-xs sm:text-sm">{icon}</span>
+      <span className="whitespace-nowrap text-xs sm:text-xs">{text}</span>
     </div>
   );
 }
