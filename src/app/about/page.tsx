@@ -43,7 +43,7 @@ function renderMarkdownToHtml(markdown: string): string {
         // Bullet points: - item -> <li>item</li>
         .replace(/^- (.+)$/gm, '<li class="text-gray-600">$1</li>')
         // Wrap consecutive <li> elements in <ul>
-        .replace(/(<li class="text-gray-600">.*<\/li>)/gs, (match) => {
+        .replace(/(<li class="text-gray-600">[\s\S]*?<\/li>)/g, (match) => {
             const items = match.split('\n').filter(line => line.trim());
             return '<ul class="list-disc list-inside space-y-1 my-4 ml-4">' + items.join('') + '</ul>';
         })
