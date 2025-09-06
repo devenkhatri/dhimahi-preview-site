@@ -5,7 +5,7 @@ import { COMPANY_NAME } from "@/lib/constants";
 export const metadata: Metadata = {
   title: `Free Resources | ${COMPANY_NAME}`,
   description: "Download free business resources including checklists, templates, and guides for digital transformation, AI implementation, and business growth.",
-  keywords: ["free resources", "business templates", "digital transformation checklist", "AI implementation guide", "SME resources", "business growth"],
+  keywords: ["free resources", "business templates", "digital transformation checklist", "AI implementation guide", "business automation roadmap", "SME resources", "business growth"],
   openGraph: {
     title: `Free Resources | ${COMPANY_NAME}`,
     description: "Download valuable resources to help grow your business with technology and digital solutions.",
@@ -67,6 +67,15 @@ const FEATURED_RESOURCES = [
     fileSize: "1.5 MB",
     pages: 10,
     downloadUrl: "/resources/cybersecurity-checklist.pdf"
+  },
+  {
+    id: "business-automation-roadmap",
+    title: "Business Automation Roadmap Template",
+    description: "Strategic template to identify and prioritize automation opportunities in your business. Includes cost-benefit analysis and implementation timeline.",
+    type: "template" as const,
+    fileSize: "2.2 MB",
+    pages: 14,
+    downloadUrl: "/resources/business-automation-roadmap.pdf"
   }
 ];
 
@@ -80,10 +89,10 @@ export default function ResourcesPage() {
             Free Business Resources
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
-            Download valuable templates, checklists, and guides to help grow your business 
+            Download valuable templates, checklists, and guides to help grow your business
             with technology and digital solutions. All resources are free and created by our experts.
           </p>
-          
+
           {/* Trust indicators */}
           <div className="flex flex-wrap justify-center gap-8 text-sm text-gray-600 mb-8">
             <div className="flex items-center">
@@ -118,7 +127,7 @@ export default function ResourcesPage() {
               {FEATURED_RESOURCES[0].description}
             </p>
             <div className="flex justify-center">
-              <ResourceDownloadForm 
+              <ResourceDownloadForm
                 resource={FEATURED_RESOURCES[0]}
                 className="max-w-sm"
               />
@@ -132,35 +141,8 @@ export default function ResourcesPage() {
             All Resources
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {FEATURED_RESOURCES.map((resource) => (
-              <div key={resource.id} className="bg-white rounded-2xl shadow-soft p-6">
-                <div className="text-center mb-4">
-                  <div className="text-3xl mb-3">
-                    {resource.type === 'checklist' && '✅'}
-                    {resource.type === 'template' && '📋'}
-                    {resource.type === 'guide' && '📖'}
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {resource.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-4">
-                    {resource.description}
-                  </p>
-                  
-                  <div className="flex items-center justify-center gap-4 text-xs text-gray-500 mb-4">
-                    {resource.fileSize && (
-                      <span className="flex items-center">
-                        📁 {resource.fileSize}
-                      </span>
-                    )}
-                    {resource.pages && (
-                      <span className="flex items-center">
-                        📄 {resource.pages} pages
-                      </span>
-                    )}
-                  </div>
-                </div>
-
+            {FEATURED_RESOURCES.slice(1).map((resource) => (
+              <div key={resource.id} className="bg-white rounded-2xl shadow-soft">
                 <ResourceDownloadForm resource={resource} />
               </div>
             ))}
@@ -180,7 +162,7 @@ export default function ResourcesPage() {
                 Are these resources really free?
               </summary>
               <p className="mt-3 text-gray-600 text-sm">
-                Yes, all our resources are completely free. We believe in providing value upfront 
+                Yes, all our resources are completely free. We believe in providing value upfront
                 and helping SMEs grow with practical, actionable insights.
               </p>
             </details>
@@ -189,7 +171,7 @@ export default function ResourcesPage() {
                 Will I receive spam emails after downloading?
               </summary>
               <p className="mt-3 text-gray-600 text-sm">
-                No, we hate spam too! You'll only receive valuable business insights and new resource 
+                No, we hate spam too! You'll only receive valuable business insights and new resource
                 notifications. You can unsubscribe at any time with one click.
               </p>
             </details>
@@ -198,7 +180,7 @@ export default function ResourcesPage() {
                 Can I share these resources with my team?
               </summary>
               <p className="mt-3 text-gray-600 text-sm">
-                Absolutely! These resources are meant to be used and shared within your organization. 
+                Absolutely! These resources are meant to be used and shared within your organization.
                 We just ask that you don't redistribute them publicly.
               </p>
             </details>
@@ -207,7 +189,7 @@ export default function ResourcesPage() {
                 How often do you add new resources?
               </summary>
               <p className="mt-3 text-gray-600 text-sm">
-                We add new resources monthly based on the latest trends and feedback from our clients. 
+                We add new resources monthly based on the latest trends and feedback from our clients.
                 Check back regularly or follow us on social media for updates.
               </p>
             </details>
