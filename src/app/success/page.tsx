@@ -1,4 +1,5 @@
 import { COMPANY_NAME } from "@/lib/constants";
+import { getGeneralSettings } from "@/lib/settings";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,6 +12,8 @@ export const metadata: Metadata = {
 };
 
 export default function SuccessPage() {
+  const settings = getGeneralSettings();
+  
   return (
     <>
       <main className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -51,23 +54,29 @@ export default function SuccessPage() {
             </a>
           </div>
 
-          <div className="mt-8 text-center">
-            <p className="text-sm text-gray-500">
-              Need immediate assistance?
-            </p>
-            <div className="mt-2 space-y-1">
-              <p className="text-sm">
-                <a href="mailto:hello@dhimahitechnolabs.com" className="text-primary hover:underline">
-                  hello@dhimahitechnolabs.com
-                </a>
+          {(settings.contactEmail || settings.phone) && (
+            <div className="mt-8 text-center">
+              <p className="text-sm text-gray-500">
+                Need immediate assistance?
               </p>
-              <p className="text-sm">
-                <a href="tel:+919033033836" className="text-primary hover:underline">
-                  +91-9033033836
-                </a>
-              </p>
+              <div className="mt-2 space-y-1">
+                {settings.contactEmail && (
+                  <p className="text-sm">
+                    <a href={`mailto:${settings.contactEmail}`} className="text-primary hover:underline">
+                      {settings.contactEmail}
+                    </a>
+                  </p>
+                )}
+                {settings.phone && (
+                  <p className="text-sm">
+                    <a href={`tel:${settings.phone.replace(/\s+/g, '')}`} className="text-primary hover:underline">
+                      {settings.phone}
+                    </a>
+                  </p>
+                )}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </main>
     </>

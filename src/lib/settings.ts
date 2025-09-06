@@ -40,8 +40,8 @@ export function getGeneralSettings(): GeneralSettings {
       siteTitle: "Dhīmahi Technolabs",
       siteDescription: "Transform your SME with AI automation, digital marketing, and smart IT strategy.",
       contactEmail: "hello@dhimahitechnolabs.com",
-      phone: "+91-9033033836",
-      address: "Dhīmahi Technolabs\nAhmedabad, Gujarat, India",
+      phone: "",
+      address: "Dhīmahi Technolabs\nGandhinagar, Gujarat, India",
       socialMedia: {
         linkedin: "https://linkedin.com/company/dhimahi-technolabs",
         twitter: "https://twitter.com/dhimahitech",

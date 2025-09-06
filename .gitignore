@@ -164,3 +164,18 @@ storybook-static
 # Temporary files
 *.tmp
 *.temp
+
+# Build artifacts that change frequently
+.next/cache/
+.next/build-report.json
+.next/trace
+.next/server/
+.next/static/chunks/
+public/sw.js
+public/workbox-*.js
+public/sw.js.map
+public/workbox-*.js.map
+
+# CMS build artifacts
+scripts/build-*.log
+scripts/optimization-*.log

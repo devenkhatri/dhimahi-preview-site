@@ -80,10 +80,11 @@ class BuildOptimizer {
         }
       }
 
-      // Write new hash
+      // Write new hash with deterministic data
       fs.writeFileSync(cacheFile, JSON.stringify({
         hash: contentHash,
-        timestamp: new Date().toISOString(),
+        // Use git commit instead of timestamp for deterministic builds
+        commit: process.env.COMMIT_REF || process.env.VERCEL_GIT_COMMIT_SHA || 'local',
         buildId: process.env.BUILD_ID || 'local'
       }));
 
@@ -169,7 +170,8 @@ class BuildOptimizer {
     const buildTime = Date.now() - this.startTime;
     const report = {
       buildTime: buildTime,
-      timestamp: new Date().toISOString(),
+      // Use git commit for deterministic builds instead of timestamp
+      commit: process.env.COMMIT_REF || process.env.VERCEL_GIT_COMMIT_SHA || 'local',
       environment: {
         ci: this.isCI,
         nodeVersion: process.version,
