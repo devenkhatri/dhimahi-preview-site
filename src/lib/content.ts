@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 
 const contentDirectory = path.join(process.cwd(), 'content');
+const resourcesDirectory = path.join(contentDirectory, 'resources');
 
 export interface HomepageContent {
   hero: {
@@ -92,6 +93,21 @@ export interface AboutContent {
     bio: string;
     expertise: string[];
   }>;
+}
+
+export interface Resource {
+  id: string;
+  title: string;
+  description: string;
+  type: 'checklist' | 'guide' | 'template' | 'calculator';
+  fileSize: string;
+  pages: number;
+  downloadUrl: string;
+  featured: boolean;
+  order: number;
+  publishDate: string;
+  tags?: string[];
+  slug: string;
 }
 
 export function getHomepageContent(): HomepageContent {
@@ -283,4 +299,245 @@ export function getAboutContent(): AboutContent {
       }
     ]
   };
+}
+
+/**
+ * Get all resources from the content/resources directory
+ * Returns resources sorted by order (ascending) and then by publishDate (descending)
+ */
+export function getAllResources(): Resource[] {
+  try {
+    // Check if resources directory exists
+    if (!fs.existsSync(resourcesDirectory)) {
+      console.warn('Resources directory does not exist:', resourcesDirectory);
+      return [];
+    }
+
+    const fileNames = fs.readdirSync(resourcesDirectory);
+    const resources: Resource[] = [];
+
+    for (const fileName of fileNames) {
+      // Skip non-markdown files and hidden files
+      if (!fileName.endsWith('.md') || fileName.startsWith('.')) {
+        continue;
+      }
+
+      try {
+        const fullPath = path.join(resourcesDirectory, fileName);
+        const fileContents = fs.readFileSync(fullPath, 'utf8');
+        const { data } = matter(fileContents);
+
+        // Validate required fields
+        if (!data.title || !data.description || !data.type || !data.downloadUrl) {
+          console.warn(`Resource ${fileName} is missing required fields, skipping`);
+          continue;
+        }
+
+        // Create resource object with defaults for optional fields
+        const resource: Resource = {
+          id: data.id || path.basename(fileName, '.md'),
+          title: data.title,
+          description: data.description,
+          type: data.type,
+          fileSize: data.fileSize || 'Unknown',
+          pages: data.pages || 0,
+          downloadUrl: data.downloadUrl,
+          featured: data.featured || false,
+          order: data.order || 999,
+          publishDate: data.publishDate || new Date().toISOString(),
+          tags: data.tags || [],
+          slug: data.slug || path.basename(fileName, '.md')
+        };
+
+        resources.push(resource);
+      } catch (error) {
+        console.error(`Error processing resource file ${fileName}:`, error);
+        continue;
+      }
+    }
+
+    // Sort resources by order (ascending), then by publishDate (descending) for duplicate orders
+    return sortResources(resources, 'order', 'asc');
+  } catch (error) {
+    console.error('Error reading resources directory:', error);
+    return [];
+  }
+}
+
+/**
+ * Get the featured resource with fallback logic
+ * Returns the first resource marked as featured, or the first resource in the list if none are featured
+ */
+export function getFeaturedResource(): Resource | null {
+  try {
+    const allResources = getAllResources();
+    
+    if (allResources.length === 0) {
+      return null;
+    }
+
+    // Find the first resource marked as featured
+    const featuredResource = allResources.find(resource => resource.featured);
+    
+    // If no featured resource found, return the first resource in the sorted list
+    return featuredResource || allResources[0];
+  } catch (error) {
+    console.error('Error getting featured resource:', error);
+    return null;
+  }
+}
+
+/**
+ * Get resources filtered by type
+ * @param type - The resource type to filter by
+ * @returns Array of resources matching the specified type, sorted by order and publishDate
+ */
+export function getResourcesByType(type: Resource['type']): Resource[] {
+  try {
+    const allResources = getAllResources();
+    return allResources.filter(resource => resource.type === type);
+  } catch (error) {
+    console.error(`Error getting resources by type ${type}:`, error);
+    return [];
+  }
+}
+
+/**
+ * Get resources filtered by multiple types
+ * @param types - Array of resource types to filter by
+ * @returns Array of resources matching any of the specified types, sorted by order and publishDate
+ */
+export function getResourcesByTypes(types: Resource['type'][]): Resource[] {
+  try {
+    const allResources = getAllResources();
+    return allResources.filter(resource => types.includes(resource.type));
+  } catch (error) {
+    console.error(`Error getting resources by types ${types.join(', ')}:`, error);
+    return [];
+  }
+}
+
+/**
+ * Get all unique resource types available
+ * @returns Array of unique resource types
+ */
+export function getResourceTypes(): Resource['type'][] {
+  try {
+    const allResources = getAllResources();
+    const types = allResources.map(resource => resource.type);
+    return Array.from(new Set(types));
+  } catch (error) {
+    console.error('Error getting resource types:', error);
+    return [];
+  }
+}
+
+/**
+ * Sort resources with enhanced logic
+ * @param resources - Array of resources to sort
+ * @param sortBy - Sort criteria: 'order' (default), 'date', 'title', 'type'
+ * @param sortOrder - Sort direction: 'asc' or 'desc'
+ * @returns Sorted array of resources
+ */
+export function sortResources(
+  resources: Resource[], 
+  sortBy: 'order' | 'date' | 'title' | 'type' = 'order',
+  sortOrder: 'asc' | 'desc' = 'asc'
+): Resource[] {
+  try {
+    return [...resources].sort((a, b) => {
+      let comparison = 0;
+      
+      switch (sortBy) {
+        case 'order':
+          // Primary sort by order, secondary by publishDate (newest first)
+          if (a.order !== b.order) {
+            comparison = a.order - b.order;
+          } else {
+            comparison = new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime();
+          }
+          break;
+          
+        case 'date':
+          comparison = new Date(a.publishDate).getTime() - new Date(b.publishDate).getTime();
+          break;
+          
+        case 'title':
+          comparison = a.title.localeCompare(b.title);
+          break;
+          
+        case 'type':
+          // Sort by type, then by order within each type
+          if (a.type !== b.type) {
+            comparison = a.type.localeCompare(b.type);
+          } else {
+            comparison = a.order - b.order;
+          }
+          break;
+          
+        default:
+          comparison = a.order - b.order;
+      }
+      
+      return sortOrder === 'desc' ? -comparison : comparison;
+    });
+  } catch (error) {
+    console.error('Error sorting resources:', error);
+    return resources;
+  }
+}
+
+/**
+ * Filter and sort resources with multiple criteria
+ * @param options - Filtering and sorting options
+ * @returns Filtered and sorted array of resources
+ */
+export function getFilteredResources(options: {
+  types?: Resource['type'][];
+  featured?: boolean;
+  sortBy?: 'order' | 'date' | 'title' | 'type';
+  sortOrder?: 'asc' | 'desc';
+  limit?: number;
+}): Resource[] {
+  try {
+    let resources = getAllResources();
+    
+    // Filter by types if specified
+    if (options.types && options.types.length > 0) {
+      resources = resources.filter(resource => options.types!.includes(resource.type));
+    }
+    
+    // Filter by featured status if specified
+    if (options.featured !== undefined) {
+      resources = resources.filter(resource => resource.featured === options.featured);
+    }
+    
+    // Sort resources
+    resources = sortResources(resources, options.sortBy, options.sortOrder);
+    
+    // Limit results if specified
+    if (options.limit && options.limit > 0) {
+      resources = resources.slice(0, options.limit);
+    }
+    
+    return resources;
+  } catch (error) {
+    console.error('Error filtering resources:', error);
+    return [];
+  }
+}
+
+/**
+ * Get a single resource by its slug
+ * @param slug - The resource slug to find
+ * @returns The resource if found, null otherwise
+ */
+export function getResourceBySlug(slug: string): Resource | null {
+  try {
+    const allResources = getAllResources();
+    return allResources.find(resource => resource.slug === slug) || null;
+  } catch (error) {
+    console.error(`Error getting resource by slug ${slug}:`, error);
+    return null;
+  }
 }

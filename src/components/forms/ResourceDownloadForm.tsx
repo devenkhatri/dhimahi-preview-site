@@ -1,19 +1,24 @@
 "use client";
 import { useState } from "react";
 import { DocumentArrowDownIcon, CheckCircleIcon } from "@heroicons/react/24/outline";
+import { Resource } from "../../../types/cms";
 
-interface Resource {
+// Backward compatibility interface for existing hardcoded resources
+interface LegacyResource {
   id: string;
   title: string;
   description: string;
-  type: 'pdf' | 'checklist' | 'template' | 'guide' | 'whitepaper';
-  downloadUrl?: string;
-  fileSize?: string;
-  pages?: number;
+  type: 'checklist' | 'guide' | 'template' | 'calculator';
+  fileSize: string;
+  pages: number;
+  downloadUrl: string;
 }
 
+// Union type to support both CMS resources and legacy hardcoded resources
+type ResourceDownloadFormResource = Resource | LegacyResource;
+
 interface ResourceDownloadFormProps {
-  resource: Resource;
+  resource: ResourceDownloadFormResource;
   onSubmit?: (data: { email: string; name: string; company?: string; interest?: string }) => Promise<void>;
   className?: string;
 }
@@ -33,6 +38,11 @@ const COMPANY_SIZES = [
   { value: "51-200", label: "51-200 employees" },
   { value: "200+", label: "200+ employees" }
 ];
+
+// Type guard to check if resource is from CMS (has all required CMS fields)
+function isCMSResource(resource: ResourceDownloadFormResource): resource is Resource {
+  return 'featured' in resource && 'order' in resource && 'publishDate' in resource && 'slug' in resource;
+}
 
 export default function ResourceDownloadForm({
   resource,
@@ -123,16 +133,14 @@ export default function ResourceDownloadForm({
 
   const getResourceIcon = () => {
     switch (resource.type) {
-      case 'pdf':
-        return '📄';
       case 'checklist':
         return '✅';
       case 'template':
         return '📋';
       case 'guide':
         return '📖';
-      case 'whitepaper':
-        return '📊';
+      case 'calculator':
+        return '🧮';
       default:
         return '📄';
     }
@@ -152,16 +160,14 @@ export default function ResourceDownloadForm({
             Check your email for the download link. Thank you for your interest in our resources!
           </p>
           
-          {resource.downloadUrl && (
-            <a
-              href={resource.downloadUrl}
-              download
-              className="inline-flex items-center px-6 py-3 bg-primary text-white font-medium rounded-xl hover:bg-primary-dark transition-colors mb-4"
-            >
-              <DocumentArrowDownIcon className="w-5 h-5 mr-2" />
-              Download Now
-            </a>
-          )}
+          <a
+            href={resource.downloadUrl}
+            download
+            className="inline-flex items-center px-6 py-3 bg-primary text-white font-medium rounded-xl hover:bg-primary-dark transition-colors mb-4"
+          >
+            <DocumentArrowDownIcon className="w-5 h-5 mr-2" />
+            Download Now
+          </a>
 
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
             <p className="text-sm text-blue-800">
@@ -203,12 +209,10 @@ export default function ResourceDownloadForm({
           </p>
           
           <div className="flex items-center justify-center gap-4 text-xs text-gray-500">
-            {resource.fileSize && (
-              <span className="flex items-center">
-                📁 {resource.fileSize}
-              </span>
-            )}
-            {resource.pages && (
+            <span className="flex items-center">
+              📁 {resource.fileSize}
+            </span>
+            {resource.pages && resource.pages > 0 && (
               <span className="flex items-center">
                 📄 {resource.pages} pages
               </span>

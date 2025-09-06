@@ -1748,6 +1748,124 @@ collections:
         required: false
         hint: "Internal notes about the article (not displayed publicly, for editorial use)"
 
+  # Resources Collection
+  - name: "resources"
+    label: "Resources"
+    folder: "content/resources"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} - {{type}} ({{featured}})"
+    sortable_fields: ["order", "title", "type", "featured", "publishDate"]
+    view_filters:
+      - label: "Featured Resources"
+        field: "featured"
+        pattern: true
+      - label: "Checklists"
+        field: "type"
+        pattern: "checklist"
+      - label: "Guides"
+        field: "type"
+        pattern: "guide"
+      - label: "Templates"
+        field: "type"
+        pattern: "template"
+      - label: "Calculators"
+        field: "type"
+        pattern: "calculator"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        required: true
+        hint: "Resource title that will appear as the main heading"
+        pattern: [".{10,100}", "Must be between 10 and 100 characters for optimal display"]
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        required: true
+        hint: "URL-friendly version of the title (lowercase, hyphens instead of spaces)"
+        pattern: ["^[a-z0-9-]+$", "Must contain only lowercase letters, numbers, and hyphens"]
+      - label: "Description"
+        name: "description"
+        widget: "text"
+        required: true
+        hint: "Brief description of what this resource provides and its benefits"
+        pattern: [".{50,300}", "Must be between 50 and 300 characters for optimal display"]
+      - label: "Resource Type"
+        name: "type"
+        widget: "select"
+        required: true
+        options:
+          - label: "Checklist"
+            value: "checklist"
+          - label: "Guide"
+            value: "guide"
+          - label: "Template"
+            value: "template"
+          - label: "Calculator"
+            value: "calculator"
+        hint: "Type of resource being offered"
+      - label: "File Size"
+        name: "fileSize"
+        widget: "string"
+        required: true
+        hint: "Size of the downloadable file (e.g., '2.1 MB', '850 KB')"
+        pattern: [".{3,20}", "Must be between 3 and 20 characters (e.g., '2.1 MB')"]
+      - label: "Page Count"
+        name: "pages"
+        widget: "number"
+        required: true
+        min: 1
+        max: 200
+        value_type: "int"
+        hint: "Number of pages in the resource document"
+      - label: "Download URL"
+        name: "downloadUrl"
+        widget: "string"
+        required: true
+        hint: "URL path to the downloadable file (e.g., '/resources/checklist.pdf')"
+        pattern: ["^/.*\\.(pdf|docx|xlsx|zip)$", "Must be a valid file path ending with .pdf, .docx, .xlsx, or .zip"]
+      - label: "Featured Resource"
+        name: "featured"
+        widget: "boolean"
+        default: false
+        hint: "Mark as featured to highlight on homepage and resources page"
+      - label: "Display Order"
+        name: "order"
+        widget: "number"
+        required: true
+        min: 1
+        max: 100
+        value_type: "int"
+        hint: "Display order on resources page (1 = first, 2 = second, etc.)"
+      - label: "Publish Date"
+        name: "publishDate"
+        widget: "datetime"
+        required: true
+        default: "{{now}}"
+        hint: "Date when the resource was published or last updated"
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        min: 0
+        max: 8
+        hint: "Optional tags for categorization and filtering (0-8 tags recommended)"
+        summary: "{{fields.tag}}"
+        field:
+          label: "Tag"
+          name: "tag"
+          widget: "string"
+          hint: "Tag for categorization (e.g., 'digital-transformation', 'sme', 'automation')"
+          pattern: [".{2,30}", "Must be between 2 and 30 characters"]
+      - label: "Resource Content"
+        name: "body"
+        widget: "markdown"
+        required: false
+        hint: "Optional additional content or description about the resource (supports markdown)"
+        modes: ["rich_text"]
+        editor_components: ["bold", "italic", "link", "heading-two", "heading-three", "bulleted-list", "numbered-list"]
+
 
 
 # Editor configuration for rich text and markdown
@@ -1774,6 +1892,9 @@ media_folders:
   - name: "team"
     label: "Team Photos"
     folder: "public/uploads/team"
+  - name: "resources"
+    label: "Resource Files"
+    folder: "public/uploads/resources"
 
 # Preview settings
 show_preview_links: true

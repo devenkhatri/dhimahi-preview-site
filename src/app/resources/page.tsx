@@ -1,6 +1,7 @@
 import { Metadata } from "next";
-import ResourceDownloadForm from "@/components/forms/ResourceDownloadForm";
 import { COMPANY_NAME } from "@/lib/constants";
+import { getAllResources, getFeaturedResource, getResourceTypes } from "@/lib/content";
+import ResourcesPageClient from "@/components/ResourcesPageClient";
 
 export const metadata: Metadata = {
   title: `Free Resources | ${COMPANY_NAME}`,
@@ -13,73 +14,17 @@ export const metadata: Metadata = {
   }
 };
 
-const FEATURED_RESOURCES = [
-  {
-    id: "digital-transformation-checklist",
-    title: "Digital Transformation Checklist for SMEs",
-    description: "A comprehensive 25-point checklist to modernize your business with AI, automation, and smart IT solutions. Includes implementation timeline and budget guidelines.",
-    type: "checklist" as const,
-    fileSize: "2.1 MB",
-    pages: 12,
-    downloadUrl: "/resources/digital-transformation-checklist.pdf"
-  },
-  {
-    id: "ai-implementation-guide",
-    title: "AI Implementation Guide for Small Businesses",
-    description: "Step-by-step guide to implementing AI solutions in your business. Covers use cases, tool selection, and ROI measurement for SMEs.",
-    type: "guide" as const,
-    fileSize: "3.5 MB",
-    pages: 24,
-    downloadUrl: "/resources/ai-implementation-guide.pdf"
-  },
-  {
-    id: "website-redesign-template",
-    title: "Website Redesign Planning Template",
-    description: "Complete template for planning your website redesign project. Includes content audit, competitor analysis, and project timeline templates.",
-    type: "template" as const,
-    fileSize: "1.8 MB",
-    pages: 16,
-    downloadUrl: "/resources/website-redesign-template.pdf"
-  },
-  {
-    id: "digital-marketing-roi-calculator",
-    title: "Digital Marketing ROI Calculator",
-    description: "Excel template to calculate and track ROI for your digital marketing campaigns. Includes templates for Google Ads, social media, and email marketing.",
-    type: "template" as const,
-    fileSize: "850 KB",
-    pages: 8,
-    downloadUrl: "/resources/digital-marketing-roi-calculator.xlsx"
-  },
-  {
-    id: "crm-selection-guide",
-    title: "CRM Selection Guide for SMEs",
-    description: "Comprehensive guide to choosing the right CRM system for your business. Includes comparison matrix and implementation checklist.",
-    type: "guide" as const,
-    fileSize: "2.7 MB",
-    pages: 20,
-    downloadUrl: "/resources/crm-selection-guide.pdf"
-  },
-  {
-    id: "cybersecurity-checklist",
-    title: "Cybersecurity Essentials Checklist",
-    description: "Essential cybersecurity measures every small business should implement. Includes free tools recommendations and security audit template.",
-    type: "checklist" as const,
-    fileSize: "1.5 MB",
-    pages: 10,
-    downloadUrl: "/resources/cybersecurity-checklist.pdf"
-  },
-  {
-    id: "business-automation-roadmap",
-    title: "Business Automation Roadmap Template",
-    description: "Strategic template to identify and prioritize automation opportunities in your business. Includes cost-benefit analysis and implementation timeline.",
-    type: "template" as const,
-    fileSize: "2.2 MB",
-    pages: 14,
-    downloadUrl: "/resources/business-automation-roadmap.pdf"
-  }
-];
-
 export default function ResourcesPage() {
+  // Load resources dynamically from CMS
+  const allResources = getAllResources();
+  const featuredResource = getFeaturedResource();
+  const resourceTypes = getResourceTypes();
+  
+  // Get non-featured resources for the grid (exclude the featured resource)
+  const otherResources = allResources.filter(resource => 
+    !featuredResource || resource.id !== featuredResource.id
+  );
+
   return (
     <main className="min-h-screen bg-gray-50 py-12">
       <div className="container mx-auto px-4">
@@ -114,40 +59,12 @@ export default function ResourcesPage() {
           </div>
         </div>
 
-        {/* Featured Resource */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <div className="bg-gradient-to-r from-primary to-primary-dark rounded-2xl p-8 text-white text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              🎯 Most Popular Resource
-            </h2>
-            <h3 className="text-xl font-semibold mb-3">
-              {FEATURED_RESOURCES[0].title}
-            </h3>
-            <p className="text-primary-light mb-6 max-w-2xl mx-auto">
-              {FEATURED_RESOURCES[0].description}
-            </p>
-            <div className="flex justify-center">
-              <ResourceDownloadForm
-                resource={FEATURED_RESOURCES[0]}
-                className="max-w-sm"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* All Resources Grid */}
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-            All Resources
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {FEATURED_RESOURCES.slice(1).map((resource) => (
-              <div key={resource.id} className="bg-white rounded-2xl shadow-soft">
-                <ResourceDownloadForm resource={resource} />
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* Client-side Resources Component */}
+        <ResourcesPageClient
+          allResources={allResources}
+          featuredResource={featuredResource}
+          resourceTypes={resourceTypes}
+        />
 
 
 

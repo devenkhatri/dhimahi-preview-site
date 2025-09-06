@@ -79,6 +79,53 @@ export interface SiteSettings {
   };
 }
 
+export interface Resource {
+  id: string;
+  title: string;
+  description: string;
+  type: 'checklist' | 'guide' | 'template' | 'calculator';
+  fileSize: string;
+  pages: number;
+  downloadUrl: string;
+  featured: boolean;
+  order: number;
+  publishDate: string;
+  tags?: string[];
+  slug: string;
+}
+
+// Resource-related type definitions
+export type ResourceType = 'checklist' | 'guide' | 'template' | 'calculator';
+
+export interface ResourceFrontmatter {
+  title: string;
+  description: string;
+  type: ResourceType;
+  fileSize: string;
+  pages: number;
+  downloadUrl: string;
+  featured: boolean;
+  order: number;
+  publishDate: string;
+  tags?: string[];
+  slug: string;
+}
+
+export interface ResourceWithContent extends Resource {
+  content?: string;
+}
+
+export interface ResourceFilterOptions {
+  type?: ResourceType;
+  featured?: boolean;
+  tags?: string[];
+}
+
+export interface ResourceSortOptions {
+  sortBy: 'order' | 'publishDate' | 'title';
+  sortOrder: 'asc' | 'desc';
+}
+
 // CMS Event Types
 export interface CMSEvent {
   type: 'preSave' | 'postSave' | 'prePublish' | 'postPublish' | 'preUnpublish' | 'postUnpublish';
