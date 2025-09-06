@@ -69,7 +69,6 @@ export default function Footer() {
               <li><a href="/services/ai-automation" className="hover:text-white transition-colors">AI & Automation</a></li>
               <li><a href="/services/digital-marketing" className="hover:text-white transition-colors">Digital Marketing</a></li>
               <li><a href="/services/web-development" className="hover:text-white transition-colors">Web Development</a></li>
-              <li><a href="/services/fractional-cto" className="hover:text-white transition-colors">Fractional CTO</a></li>
             </ul>
           </div>
         </div>
