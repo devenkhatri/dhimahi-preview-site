@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { DocumentArrowDownIcon, CheckCircleIcon } from "@heroicons/react/24/outline";
 import { Resource } from "../../../types/cms";
+import { submitResourceDownload } from "@/lib/netlify-forms";
 
 // Backward compatibility interface for existing hardcoded resources
 interface LegacyResource {
@@ -85,33 +86,20 @@ export default function ResourceDownloadForm({
     setIsSubmitting(true);
     try {
       const submissionData = {
-        ...formData,
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        companySize: formData.companySize,
+        interest: formData.interest,
         resourceId: resource.id,
         resourceTitle: resource.title,
-        formType: 'resource-download',
-        submittedAt: new Date().toISOString()
       };
 
       if (onSubmit) {
         await onSubmit(submissionData);
       } else {
-        // Default submission to Netlify forms
-        const formData = new FormData();
-        formData.append('form-name', 'resource-download');
-        
-        // Add all form fields
-        Object.entries(submissionData).forEach(([key, value]) => {
-          formData.append(key, String(value));
-        });
-
-        const response = await fetch('/', {
-          method: 'POST',
-          body: formData
-        });
-
-        if (!response.ok) {
-          throw new Error('Failed to submit form');
-        }
+        // Submit to Netlify forms
+        await submitResourceDownload(submissionData);
       }
 
       setIsSubmitted(true);
@@ -185,7 +173,8 @@ export default function ResourceDownloadForm({
   return (
     <div className={`max-w-md mx-auto ${className}`}>
       {/* Hidden form for Netlify */}
-      <form name="resource-download" data-netlify="true" hidden>
+      <form name="resource-download" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+        <input name="bot-field" />
         <input name="name" />
         <input name="email" />
         <input name="company" />

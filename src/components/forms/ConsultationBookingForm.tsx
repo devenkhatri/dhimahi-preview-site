@@ -3,6 +3,7 @@ import { useState } from "react";
 import MultiStepForm, { FormStep } from "./MultiStepForm";
 import { CalendarDaysIcon, ClockIcon } from "@heroicons/react/24/outline";
 import { useFormTracking } from "@/hooks/useConversionTracking";
+import { submitConsultationBooking } from "@/lib/netlify-forms";
 
 interface ConsultationBookingFormProps {
   onSubmit?: (data: Record<string, any>) => Promise<void>;
@@ -231,33 +232,32 @@ export default function ConsultationBookingForm({
 
   const handleSubmit = async (data: Record<string, any>) => {
     try {
-      // Add form type identifier
       const submissionData = {
-        ...data,
-        formType: 'consultation-booking',
-        submittedAt: new Date().toISOString()
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        company: data.company,
+        businessType: data.businessType,
+        companySize: data.companySize,
+        location: data.location,
+        website: data.website,
+        consultationType: data.consultationType,
+        challenges: data.challenges,
+        urgency: data.urgency,
+        budget: data.budget,
+        preferredDate: data.preferredDate,
+        preferredTime: data.preferredTime,
+        alternativeDate: data.alternativeDate,
+        alternativeTime: data.alternativeTime,
+        meetingPreference: data.meetingPreference,
+        additionalNotes: data.additionalNotes,
       };
 
       if (onSubmit) {
         await onSubmit(submissionData);
       } else {
-        // Default submission to Netlify forms
-        const formData = new FormData();
-        formData.append('form-name', 'consultation-booking');
-        
-        // Add all form fields
-        Object.entries(submissionData).forEach(([key, value]) => {
-          formData.append(key, typeof value === 'object' ? JSON.stringify(value) : String(value));
-        });
-
-        const response = await fetch('/', {
-          method: 'POST',
-          body: formData
-        });
-
-        if (!response.ok) {
-          throw new Error('Failed to submit form');
-        }
+        // Submit to Netlify forms
+        await submitConsultationBooking(submissionData);
       }
 
       setIsSubmitted(true);
@@ -308,7 +308,8 @@ export default function ConsultationBookingForm({
   return (
     <div className={className}>
       {/* Hidden form for Netlify */}
-      <form name="consultation-booking" data-netlify="true" hidden>
+      <form name="consultation-booking" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+        <input name="bot-field" />
         <input name="name" />
         <input name="email" />
         <input name="phone" />
