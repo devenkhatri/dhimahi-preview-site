@@ -1,3 +1,4 @@
+import CalendlyEmbed from "@/components/CalendlyEmbed";
 import ConsultationBookingForm from "@/components/forms/ConsultationBookingForm";
 import { COMPANY_NAME } from "@/lib/constants";
 import { generateMetadata, defaultMeta } from "@/lib/meta";
@@ -78,7 +79,20 @@ export default function ConsultationPage() {
         </div>
 
         {/* Consultation Form */}
-        <ConsultationBookingForm />
+        <CalendlyEmbed
+            url="https://calendly.com/dhimahitechnolabs/30min"
+            fullHeight
+            pageSettings={{
+              backgroundColor: "#ffffff",
+              textColor: "#000000",
+              primaryColor: "#215b6f", // Dhīmahi Tech Blue
+              hideEventTypeDetails: false
+            }}
+            utm={{
+              utmSource: "website",
+              utmMedium: "consultation_page"
+            }}
+          />
 
         {/* FAQ */}
         <div className="max-w-3xl mx-auto mt-12">
