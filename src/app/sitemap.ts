@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllCMSInsights, getAllCMSServices, getAllCMSCaseStudies } from "@/lib/cms-content";
+import { getAllPersonas } from "@/lib/content";
 
 export const dynamic = 'force-static';
 
@@ -57,6 +58,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.7,
     },
+    {
+      url: `${base}/personas`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
   ];
 
   // Service pages
@@ -86,6 +93,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  // Persona pages
+  const personas = getAllPersonas();
+  const personaPages: MetadataRoute.Sitemap = personas.map((persona) => ({
+    url: `${base}/personas/${persona.slug}`,
+    lastModified: new Date(persona.publishDate),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
   // Tag pages - extract tags from insights
   const allTags = new Set<string>();
   insights.forEach(insight => {
@@ -103,6 +119,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...servicePages,
     ...caseStudyPages,
     ...postPages,
+    ...personaPages,
     ...tagPages,
   ];
 }

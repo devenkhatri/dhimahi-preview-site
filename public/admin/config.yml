@@ -1866,7 +1866,169 @@ collections:
         modes: ["rich_text"]
         editor_components: ["bold", "italic", "link", "heading-two", "heading-three", "bulleted-list", "numbered-list"]
 
-
+  # Persona Playbooks Collection
+  - name: "personas"
+    label: "Persona Playbooks"
+    folder: "content/personas"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} - {{fields.storytelling.everydayStruggle | truncate(50)}}"
+    sortable_fields: ["order", "title", "publishDate", "featured"]
+    view_filters:
+      - label: "Featured"
+        field: "featured"
+        pattern: true
+      - label: "Small Business"
+        field: "tags"
+        pattern: "small-business"
+      - label: "Manufacturing"
+        field: "tags"
+        pattern: "manufacturing"
+      - label: "Healthcare"
+        field: "tags"
+        pattern: "healthcare"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        required: true
+        hint: "Persona name or title (e.g., 'Small Business Owner', 'Manufacturing Manager')"
+        pattern: [".{5,50}", "Must be between 5 and 50 characters"]
+      - label: "Icon"
+        name: "icon"
+        widget: "image"
+        required: true
+        hint: "Flat, minimal icon representing this persona (preferably SVG in brand colors)"
+        media_folder: "/uploads/personas"
+      - label: "Excerpt"
+        name: "excerpt"
+        widget: "text"
+        required: true
+        hint: "Brief description of this persona for cards and previews"
+        pattern: [".{50,200}", "Must be between 50 and 200 characters for optimal display"]
+      - label: "Display Order"
+        name: "order"
+        widget: "number"
+        required: true
+        min: 1
+        max: 100
+        value_type: "int"
+        hint: "Display order on personas page (1 = first, 2 = second, etc.)"
+      - label: "Featured"
+        name: "featured"
+        widget: "boolean"
+        default: false
+        hint: "Mark as featured to highlight on homepage and personas page"
+      - label: "Publish Date"
+        name: "publishDate"
+        widget: "datetime"
+        required: true
+        default: "{{now}}"
+        hint: "Date when the persona was created or last updated"
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        min: 0
+        max: 8
+        hint: "Optional tags for categorization (e.g., 'small-business', 'manufacturing', 'healthcare')"
+        summary: "{{fields.tag}}"
+        field:
+          label: "Tag"
+          name: "tag"
+          widget: "string"
+          hint: "Tag for categorization (use lowercase with hyphens)"
+          pattern: ["^[a-z0-9-]+$", "Must be lowercase letters, numbers, and hyphens only"]
+      - label: "Storytelling Script"
+        name: "storytelling"
+        widget: "object"
+        required: true
+        collapsed: false
+        summary: "{{fields.everydayStruggle | truncate(50)}}"
+        fields:
+          - label: "Everyday Struggle"
+            name: "everydayStruggle"
+            widget: "markdown"
+            required: true
+            hint: "Opening section describing the persona's daily challenges and pain points"
+            modes: ["rich_text"]
+            editor_components: ["bold", "italic", "bulleted-list", "numbered-list"]
+          - label: "Why This Matters"
+            name: "whyThisMatters"
+            widget: "markdown"
+            required: true
+            hint: "Section explaining the importance and impact of addressing these challenges"
+            modes: ["rich_text"]
+            editor_components: ["bold", "italic", "bulleted-list", "numbered-list"]
+          - label: "How Dhimahi Helps"
+            name: "howDhimahiHelps"
+            widget: "markdown"
+            required: true
+            hint: "Section describing how Dhimahi's services solve the persona's problems"
+            modes: ["rich_text"]
+            editor_components: ["bold", "italic", "bulleted-list", "numbered-list"]
+          - label: "The Journey"
+            name: "theJourney"
+            widget: "markdown"
+            required: true
+            hint: "Section outlining the typical process and transformation journey"
+            modes: ["rich_text"]
+            editor_components: ["bold", "italic", "bulleted-list", "numbered-list"]
+          - label: "Call to Action"
+            name: "callToAction"
+            widget: "object"
+            required: true
+            collapsed: false
+            summary: "{{fields.title}}"
+            fields:
+              - label: "CTA Title"
+                name: "title"
+                widget: "string"
+                required: true
+                hint: "Compelling headline for the call-to-action section"
+                pattern: [".{10,80}", "Must be between 10 and 80 characters"]
+              - label: "CTA Description"
+                name: "description"
+                widget: "text"
+                required: true
+                hint: "Supporting text that encourages action"
+                pattern: [".{20,200}", "Must be between 20 and 200 characters"]
+              - label: "Primary Button"
+                name: "primaryButton"
+                widget: "object"
+                required: true
+                collapsed: false
+                fields:
+                  - label: "Button Text"
+                    name: "text"
+                    widget: "string"
+                    required: true
+                    hint: "Text for the primary action button"
+                    pattern: [".{5,30}", "Must be between 5 and 30 characters"]
+                  - label: "Button URL"
+                    name: "url"
+                    widget: "string"
+                    required: true
+                    hint: "Destination URL for the primary button (use relative paths like '/consultation')"
+                    pattern: ["^(/|https?://).*", "Must be a valid URL or relative path"]
+              - label: "Secondary Button"
+                name: "secondaryButton"
+                widget: "object"
+                required: false
+                collapsed: true
+                fields:
+                  - label: "Button Text"
+                    name: "text"
+                    widget: "string"
+                    required: true
+                    hint: "Text for the secondary action button"
+                    pattern: [".{5,30}", "Must be between 5 and 30 characters"]
+                  - label: "Button URL"
+                    name: "url"
+                    widget: "string"
+                    required: true
+                    hint: "Destination URL for the secondary button"
+                    pattern: ["^(/|https?://).*", "Must be a valid URL or relative path"]
 
 # Editor configuration for rich text and markdown
 editor:
@@ -1895,6 +2057,9 @@ media_folders:
   - name: "resources"
     label: "Resource Files"
     folder: "public/uploads/resources"
+  - name: "personas"
+    label: "Persona Icons"
+    folder: "public/uploads/personas"
 
 # Preview settings
 show_preview_links: true

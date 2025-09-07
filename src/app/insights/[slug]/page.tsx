@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import SocialShare from "@/components/SocialShare";
 import AuthorProfile from "@/components/AuthorProfile";
 import RelatedArticles from "@/components/RelatedArticles";
+import RelatedPersonasInsight from "@/components/RelatedPersonasInsight";
 import { generateMetadata as generateSEOMetadata, generateStructuredData } from "@/lib/seo";
 
 interface Props {
@@ -219,6 +220,9 @@ export default async function PostPage({ params }: Props) {
             className="prose prose-lg max-w-none mb-12"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
+
+          {/* Related Personas */}
+          <RelatedPersonasInsight tags={post.tags} category={post.category} />
 
           {/* Article Footer */}
           <footer className="border-t border-gray-200 pt-8">

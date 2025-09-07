@@ -541,3 +541,505 @@ export function getResourceBySlug(slug: string): Resource | null {
     return null;
   }
 }
+
+// Persona-specific interfaces and utilities
+export interface Persona {
+  id: string;
+  title: string;
+  slug: string;
+  icon: string;
+  excerpt: string;
+  publishDate: string;
+  featured: boolean;
+  order: number;
+  storytelling: {
+    everydayStruggle: string;
+    whyThisMatters: string;
+    howDhimahiHelps: string;
+    theJourney: string;
+    callToAction: {
+      title: string;
+      description: string;
+      primaryButton: {
+        text: string;
+        url: string;
+      };
+      secondaryButton?: {
+        text: string;
+        url: string;
+      };
+    };
+  };
+  tags?: string[];
+}
+
+const personasDirectory = path.join(contentDirectory, 'personas');
+
+/**
+ * Validate persona data structure with enhanced error handling and fallbacks
+ * @param data - Raw persona data from frontmatter
+ * @param fileName - File name for error reporting
+ * @returns object with validation result and sanitized data
+ */
+function validatePersonaData(data: any, fileName: string): { isValid: boolean; data?: any; errors: string[] } {
+  const errors: string[] = [];
+  const sanitizedData = { ...data };
+
+  // Essential fields that must exist
+  const essentialFields = ['title', 'slug'];
+  
+  // Check essential fields
+  for (const field of essentialFields) {
+    if (!data[field] || typeof data[field] !== 'string' || data[field].trim() === '') {
+      errors.push(`Missing or invalid essential field: ${field}`);
+      return { isValid: false, errors };
+    }
+  }
+
+  // Provide fallbacks for optional fields
+  if (!sanitizedData.excerpt || typeof sanitizedData.excerpt !== 'string') {
+    sanitizedData.excerpt = `Discover how ${sanitizedData.title} overcomes business challenges with our solutions.`;
+    console.warn(`Persona ${fileName}: Using fallback excerpt`);
+  }
+
+  if (!sanitizedData.icon || typeof sanitizedData.icon !== 'string') {
+    sanitizedData.icon = '/uploads/personas/default-persona-icon.svg';
+    console.warn(`Persona ${fileName}: Using fallback icon`);
+  }
+
+  // Validate and sanitize storytelling structure
+  if (!sanitizedData.storytelling || typeof sanitizedData.storytelling !== 'object') {
+    errors.push('Missing or invalid storytelling object');
+    return { isValid: false, errors };
+  }
+
+  const storytelling = sanitizedData.storytelling;
+  const storyFields = ['everydayStruggle', 'whyThisMatters', 'howDhimahiHelps', 'theJourney'];
+  
+  // Check storytelling fields with fallbacks
+  for (const field of storyFields) {
+    if (!storytelling[field] || typeof storytelling[field] !== 'string' || storytelling[field].trim() === '') {
+      storytelling[field] = `This section for ${sanitizedData.title} is currently being developed. Please check back soon for detailed content.`;
+      console.warn(`Persona ${fileName}: Using fallback for storytelling.${field}`);
+    }
+  }
+
+  // Validate and sanitize call to action
+  if (!storytelling.callToAction || typeof storytelling.callToAction !== 'object') {
+    storytelling.callToAction = {
+      title: 'Ready to Transform Your Business?',
+      description: `Let's discuss how we can help ${sanitizedData.title} overcome challenges and achieve growth.`,
+      primaryButton: {
+        text: 'Get Free Consultation',
+        url: '/consultation'
+      }
+    };
+    console.warn(`Persona ${fileName}: Using fallback call to action`);
+  } else {
+    const cta = storytelling.callToAction;
+    
+    // Sanitize CTA fields
+    if (!cta.title || typeof cta.title !== 'string') {
+      cta.title = 'Ready to Transform Your Business?';
+    }
+    
+    if (!cta.description || typeof cta.description !== 'string') {
+      cta.description = `Let's discuss how we can help ${sanitizedData.title} overcome challenges and achieve growth.`;
+    }
+
+    // Validate primary button
+    if (!cta.primaryButton || typeof cta.primaryButton !== 'object') {
+      cta.primaryButton = {
+        text: 'Get Free Consultation',
+        url: '/consultation'
+      };
+      console.warn(`Persona ${fileName}: Using fallback primary button`);
+    } else {
+      if (!cta.primaryButton.text || typeof cta.primaryButton.text !== 'string') {
+        cta.primaryButton.text = 'Get Free Consultation';
+      }
+      if (!cta.primaryButton.url || typeof cta.primaryButton.url !== 'string') {
+        cta.primaryButton.url = '/consultation';
+      }
+    }
+
+    // Validate secondary button if it exists
+    if (cta.secondaryButton && typeof cta.secondaryButton === 'object') {
+      if (!cta.secondaryButton.text || typeof cta.secondaryButton.text !== 'string') {
+        cta.secondaryButton.text = 'Learn More';
+      }
+      if (!cta.secondaryButton.url || typeof cta.secondaryButton.url !== 'string') {
+        cta.secondaryButton.url = '/services';
+      }
+    }
+  }
+
+  // Sanitize other optional fields
+  if (!Array.isArray(sanitizedData.tags)) {
+    sanitizedData.tags = [];
+  }
+
+  if (typeof sanitizedData.featured !== 'boolean') {
+    sanitizedData.featured = false;
+  }
+
+  if (typeof sanitizedData.order !== 'number' || sanitizedData.order < 0) {
+    sanitizedData.order = 999;
+  }
+
+  if (!sanitizedData.publishDate || typeof sanitizedData.publishDate !== 'string') {
+    sanitizedData.publishDate = new Date().toISOString();
+  }
+
+  // Handle modifiedDate - optional field
+  if (sanitizedData.modifiedDate && typeof sanitizedData.modifiedDate !== 'string') {
+    sanitizedData.modifiedDate = undefined;
+  }
+
+  return { isValid: true, data: sanitizedData, errors };
+}
+
+/**
+ * Get all personas from the content/personas directory
+ * Returns personas sorted by order (ascending) and then by publishDate (descending)
+ */
+export function getAllPersonas(): Persona[] {
+  try {
+    // Check if personas directory exists
+    if (!fs.existsSync(personasDirectory)) {
+      console.warn('Personas directory does not exist:', personasDirectory);
+      return [];
+    }
+
+    const fileNames = fs.readdirSync(personasDirectory);
+    const personas: Persona[] = [];
+
+    for (const fileName of fileNames) {
+      // Skip non-markdown files and hidden files
+      if (!fileName.endsWith('.md') || fileName.startsWith('.')) {
+        continue;
+      }
+
+      try {
+        const fullPath = path.join(personasDirectory, fileName);
+        const fileContents = fs.readFileSync(fullPath, 'utf8');
+        const { data } = matter(fileContents);
+
+        // Validate and sanitize persona data structure
+        const validation = validatePersonaData(data, fileName);
+        if (!validation.isValid) {
+          console.error(`Skipping invalid persona ${fileName}:`, validation.errors);
+          continue;
+        }
+        
+        // Use sanitized data
+        const sanitizedData = validation.data;
+
+        // Create persona object with sanitized data
+        const persona: Persona = {
+          id: sanitizedData.id || path.basename(fileName, '.md'),
+          title: sanitizedData.title,
+          slug: sanitizedData.slug,
+          icon: sanitizedData.icon,
+          excerpt: sanitizedData.excerpt,
+          publishDate: sanitizedData.publishDate,
+          ...(sanitizedData.modifiedDate && { modifiedDate: sanitizedData.modifiedDate }),
+          featured: sanitizedData.featured,
+          order: sanitizedData.order,
+          storytelling: {
+            everydayStruggle: sanitizedData.storytelling.everydayStruggle,
+            whyThisMatters: sanitizedData.storytelling.whyThisMatters,
+            howDhimahiHelps: sanitizedData.storytelling.howDhimahiHelps,
+            theJourney: sanitizedData.storytelling.theJourney,
+            callToAction: {
+              title: sanitizedData.storytelling.callToAction.title,
+              description: sanitizedData.storytelling.callToAction.description,
+              primaryButton: {
+                text: sanitizedData.storytelling.callToAction.primaryButton.text,
+                url: sanitizedData.storytelling.callToAction.primaryButton.url,
+              },
+              secondaryButton: sanitizedData.storytelling.callToAction.secondaryButton ? {
+                text: sanitizedData.storytelling.callToAction.secondaryButton.text,
+                url: sanitizedData.storytelling.callToAction.secondaryButton.url,
+              } : undefined,
+            },
+          },
+          tags: sanitizedData.tags,
+        };
+
+        personas.push(persona);
+      } catch (error) {
+        console.error(`Error processing persona file ${fileName}:`, error);
+        continue;
+      }
+    }
+
+    // Sort personas by order (ascending), then by publishDate (descending) for duplicate orders
+    return sortPersonas(personas, 'order', 'asc');
+  } catch (error) {
+    console.error('Error reading personas directory:', error);
+    return [];
+  }
+}
+
+/**
+ * Get a single persona by its slug
+ * @param slug - The persona slug to find
+ * @returns The persona if found, null otherwise
+ */
+export function getPersonaBySlug(slug: string): Persona | null {
+  try {
+    const allPersonas = getAllPersonas();
+    return allPersonas.find(persona => persona.slug === slug) || null;
+  } catch (error) {
+    console.error(`Error getting persona by slug ${slug}:`, error);
+    return null;
+  }
+}
+
+/**
+ * Get featured personas
+ * Returns personas marked as featured, sorted by order and publishDate
+ */
+export function getFeaturedPersonas(): Persona[] {
+  try {
+    const allPersonas = getAllPersonas();
+    return allPersonas.filter(persona => persona.featured);
+  } catch (error) {
+    console.error('Error getting featured personas:', error);
+    return [];
+  }
+}
+
+/**
+ * Sort personas with enhanced logic
+ * @param personas - Array of personas to sort
+ * @param sortBy - Sort criteria: 'order' (default), 'date', 'title'
+ * @param sortOrder - Sort direction: 'asc' or 'desc'
+ * @returns Sorted array of personas
+ */
+export function sortPersonas(
+  personas: Persona[], 
+  sortBy: 'order' | 'date' | 'title' = 'order',
+  sortOrder: 'asc' | 'desc' = 'asc'
+): Persona[] {
+  try {
+    return [...personas].sort((a, b) => {
+      let comparison = 0;
+      
+      switch (sortBy) {
+        case 'order':
+          // Primary sort by order, secondary by publishDate (newest first)
+          if (a.order !== b.order) {
+            comparison = a.order - b.order;
+          } else {
+            comparison = new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime();
+          }
+          break;
+          
+        case 'date':
+          comparison = new Date(a.publishDate).getTime() - new Date(b.publishDate).getTime();
+          break;
+          
+        case 'title':
+          comparison = a.title.localeCompare(b.title);
+          break;
+          
+        default:
+          comparison = a.order - b.order;
+      }
+      
+      return sortOrder === 'desc' ? -comparison : comparison;
+    });
+  } catch (error) {
+    console.error('Error sorting personas:', error);
+    return personas;
+  }
+}
+
+/**
+ * Filter and sort personas with multiple criteria
+ * @param options - Filtering and sorting options
+ * @returns Filtered and sorted array of personas
+ */
+export function getFilteredPersonas(options: {
+  featured?: boolean;
+  tags?: string[];
+  sortBy?: 'order' | 'date' | 'title';
+  sortOrder?: 'asc' | 'desc';
+  limit?: number;
+}): Persona[] {
+  try {
+    let personas = getAllPersonas();
+    
+    // Filter by featured status if specified
+    if (options.featured !== undefined) {
+      personas = personas.filter(persona => persona.featured === options.featured);
+    }
+    
+    // Filter by tags if specified
+    if (options.tags && options.tags.length > 0) {
+      personas = personas.filter(persona => 
+        persona.tags && persona.tags.some(tag => options.tags!.includes(tag))
+      );
+    }
+    
+    // Sort personas
+    personas = sortPersonas(personas, options.sortBy, options.sortOrder);
+    
+    // Limit results if specified
+    if (options.limit && options.limit > 0) {
+      personas = personas.slice(0, options.limit);
+    }
+    
+    return personas;
+  } catch (error) {
+    console.error('Error filtering personas:', error);
+    return [];
+  }
+}
+
+/**
+ * Get insights relevant to a specific persona
+ * @param personaSlug - The persona slug to find insights for
+ * @param personaTags - The persona's tags for additional matching
+ * @param limit - Maximum number of insights to return
+ * @returns Array of relevant insights
+ */
+export function getPersonaSpecificInsights(personaSlug: string, personaTags: string[] = [], limit: number = 4) {
+  try {
+    // Import here to avoid circular dependency
+    const { getAllCMSInsights } = require('./cms-content');
+    const allInsights = getAllCMSInsights();
+    
+    // Mapping of persona slugs to relevant insight tags and categories
+    const personaInsightMapping: Record<string, { tags: string[]; categories: string[] }> = {
+      'small-business-owner': {
+        tags: ['SME', 'Digital Marketing', 'Business Strategy', 'Growth', 'Automation', 'CRM', 'Lead Generation'],
+        categories: ['Digital Marketing', 'Business Strategy', 'AI & Automation']
+      },
+      'doctors': {
+        tags: ['Healthcare', 'Medical', 'Patient Management', 'Appointment Booking', 'Customer Service', 'Automation'],
+        categories: ['AI & Automation', 'Business Strategy', 'Digital Marketing']
+      },
+      'builders': {
+        tags: ['Real Estate', 'Construction', 'Digital Marketing', 'Lead Generation', 'Project Management', 'SME'],
+        categories: ['Digital Marketing', 'Business Strategy', 'Web Development']
+      },
+      'retail-entrepreneur': {
+        tags: ['E-commerce', 'Retail', 'Inventory Management', 'Customer Retention', 'Digital Marketing', 'SME'],
+        categories: ['Digital Marketing', 'Business Strategy', 'Web Development']
+      },
+      'chartered-accountants': {
+        tags: ['Financial Management', 'Accounting Software', 'GST', 'Compliance', 'Automation', 'SME'],
+        categories: ['AI & Automation', 'Business Strategy', 'IT Strategy']
+      },
+      'physiotherapists': {
+        tags: ['Healthcare', 'Medical', 'Patient Management', 'Appointment Booking', 'Customer Service', 'SME'],
+        categories: ['AI & Automation', 'Business Strategy', 'Digital Marketing']
+      },
+      'it-colleagues': {
+        tags: ['IT Strategy', 'Technology Adoption', 'Digital Transformation', 'Cybersecurity', 'Cloud Migration'],
+        categories: ['IT Strategy', 'AI & Automation', 'Business Strategy']
+      },
+      'digital-media-house': {
+        tags: ['Digital Marketing', 'Content Marketing', 'Social Media', 'Brand Building', 'Creative Services'],
+        categories: ['Digital Marketing', 'Web Development', 'Business Strategy']
+      },
+      'friends-family-members': {
+        tags: ['SME', 'Business Strategy', 'Digital Transformation', 'Technology Adoption', 'Growth'],
+        categories: ['Business Strategy', 'Digital Marketing', 'IT Strategy']
+      },
+      'jewelry-store-owner': {
+        tags: ['E-commerce', 'Retail', 'Digital Marketing', 'Customer Retention', 'Local SEO', 'SME'],
+        categories: ['Digital Marketing', 'Web Development', 'Business Strategy']
+      },
+      'restaurant-owner': {
+        tags: ['Local SEO', 'Customer Service', 'Digital Marketing', 'Online Ordering', 'Social Media', 'SME'],
+        categories: ['Digital Marketing', 'AI & Automation', 'Business Strategy']
+      },
+      'textile-manufacturer': {
+        tags: ['Manufacturing', 'Supply Chain', 'Inventory Management', 'Quality Control', 'ERP', 'SME'],
+        categories: ['AI & Automation', 'Business Strategy', 'IT Strategy']
+      },
+      'ecommerce-business-owners': {
+        tags: ['E-commerce', 'Online Sales', 'Digital Marketing', 'Customer Analytics', 'Automation', 'SME'],
+        categories: ['Digital Marketing', 'Web Development', 'AI & Automation']
+      }
+    };
+    
+    // Get relevant tags and categories for this persona
+    const personaMapping = personaInsightMapping[personaSlug] || { tags: [], categories: [] };
+    const allTags = [...personaTags, ...personaMapping.tags];
+    const relevantTags = Array.from(new Set(allTags));
+    const relevantCategories = personaMapping.categories;
+    
+    // Score insights based on relevance
+    const scoredInsights = allInsights.map((insight: any) => {
+      let score = 0;
+      
+      // Score based on tag matches
+      const tagMatches = insight.tags.filter((tag: string) => 
+        relevantTags.some(relevantTag => 
+          tag.toLowerCase().includes(relevantTag.toLowerCase()) ||
+          relevantTag.toLowerCase().includes(tag.toLowerCase())
+        )
+      ).length;
+      score += tagMatches * 3;
+      
+      // Score based on category matches
+      if (relevantCategories.includes(insight.category)) {
+        score += 2;
+      }
+      
+      // Boost score for SME-related content
+      if (insight.tags.some((tag: string) => tag.toLowerCase().includes('sme'))) {
+        score += 1;
+      }
+      
+      return { insight, score };
+    });
+    
+    // Filter and sort by score, then take the top results
+    return scoredInsights
+      .filter(item => item.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, limit)
+      .map(item => item.insight);
+  } catch (error) {
+    console.error(`Error getting persona-specific insights for ${personaSlug}:`, error);
+    return [];
+  }
+}
+
+/**
+ * Get personas by tags
+ * @param tags - Array of tags to filter by
+ * @returns Array of personas that have any of the specified tags
+ */
+export function getPersonasByTags(tags: string[]): Persona[] {
+  try {
+    const allPersonas = getAllPersonas();
+    return allPersonas.filter(persona => 
+      persona.tags && persona.tags.some(tag => tags.includes(tag))
+    );
+  } catch (error) {
+    console.error(`Error getting personas by tags ${tags.join(', ')}:`, error);
+    return [];
+  }
+}
+
+/**
+ * Get all unique persona tags
+ * @returns Array of unique tags from all personas
+ */
+export function getPersonaTags(): string[] {
+  try {
+    const allPersonas = getAllPersonas();
+    const tags = allPersonas.flatMap(persona => persona.tags || []);
+    return Array.from(new Set(tags)).sort();
+  } catch (error) {
+    console.error('Error getting persona tags:', error);
+    return [];
+  }
+}

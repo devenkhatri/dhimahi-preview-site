@@ -1,6 +1,7 @@
 import "./globals.css";
 import { COMPANY_NAME } from "@/lib/constants";
 import { generateMetadata, defaultMeta } from "@/lib/meta";
+import { getAllPersonas } from "@/lib/content";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FormProvider from "@/components/forms/FormProvider";
@@ -26,6 +27,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // Load personas for navigation
+  const personas = getAllPersonas();
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -217,7 +220,7 @@ export default function RootLayout({
         </div>
 
         <FormProvider>
-          <Header />
+          <Header personas={personas} />
           {children}
           <Footer />
           <ClientOnly>

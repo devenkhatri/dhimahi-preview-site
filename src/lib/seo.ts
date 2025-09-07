@@ -261,3 +261,303 @@ export const defaultKeywords = [
   'data analytics',
   'mobile app development',
 ];
+
+// Persona-specific SEO utilities
+export interface PersonaSEOData {
+  title: string;
+  slug: string;
+  excerpt: string;
+  icon?: string;
+  publishDate?: string;
+  modifiedDate?: string;
+  tags?: string[];
+}
+
+export function generatePersonaMetadata(persona: PersonaSEOData): Metadata {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dhimahitechnolabs.com';
+  const canonicalUrl = `${baseUrl}/personas/${persona.slug}`;
+  const ogImageUrl = persona.icon ? `${baseUrl}${persona.icon}` : `${baseUrl}/og-image.png`;
+  
+  // Generate SEO-optimized title and description
+  const seoTitle = `${persona.title} Business Solutions | Customer Success Story | ${COMPANY_NAME}`;
+  const seoDescription = persona.excerpt || 
+    `Discover how ${persona.title} overcomes business challenges with ${COMPANY_NAME}'s proven solutions. Real success stories, practical strategies, and measurable results for businesses like yours.`;
+
+  // Extract keywords from persona content
+  const keywords = [
+    persona.title.toLowerCase(),
+    'customer persona',
+    'business solutions',
+    'digital transformation',
+    'success story',
+    'SME solutions',
+    'business automation',
+    'IT consulting',
+    'Gujarat business',
+    'Ahmedabad technology',
+    ...defaultKeywords,
+    ...(persona.tags || [])
+  ];
+
+  return {
+    title: seoTitle,
+    description: seoDescription,
+    keywords: keywords.join(', '),
+    authors: [{ name: COMPANY_NAME }],
+    creator: COMPANY_NAME,
+    publisher: COMPANY_NAME,
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    openGraph: {
+      title: `${persona.title} - Customer Success Story`,
+      description: seoDescription,
+      url: canonicalUrl,
+      siteName: COMPANY_NAME,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${persona.title} - Customer Persona Icon`,
+          type: 'image/png',
+        },
+      ],
+      locale: 'en_IN',
+      type: 'article',
+      publishedTime: persona.publishDate || new Date().toISOString(),
+      modifiedTime: persona.modifiedDate || persona.publishDate || new Date().toISOString(),
+      authors: [COMPANY_NAME],
+      section: 'Customer Personas',
+      tags: keywords,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${persona.title} - Customer Success Story`,
+      description: seoDescription,
+      images: [ogImageUrl],
+      creator: '@dhimahitechnolabs',
+      site: '@dhimahitechnolabs',
+    },
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    other: {
+      'article:author': COMPANY_NAME,
+      'article:section': 'Customer Personas',
+      'article:published_time': persona.publishDate || new Date().toISOString(),
+      'article:modified_time': persona.modifiedDate || persona.publishDate || new Date().toISOString(),
+      'article:tag': keywords.slice(0, 10).join(','), // Limit to first 10 keywords
+      'og:image:width': '1200',
+      'og:image:height': '630',
+      'og:image:alt': `${persona.title} - Customer Persona Icon`,
+      'og:see_also': `${baseUrl}/personas`,
+      'twitter:label1': 'Business Type',
+      'twitter:data1': persona.title,
+      'twitter:label2': 'Solutions',
+      'twitter:data2': 'Digital Transformation',
+      // LinkedIn specific meta tags
+      'linkedin:owner': 'dhimahi-technolabs',
+      // WhatsApp sharing optimization
+      'og:image:secure_url': ogImageUrl,
+      // Pinterest specific
+      'pinterest:description': seoDescription,
+      'pinterest:media': ogImageUrl,
+    },
+  };
+}
+
+export function generatePersonaStructuredData(persona: PersonaSEOData): any[] {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dhimahitechnolabs.com';
+  
+  const articleData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: `${persona.title} - Customer Success Story`,
+    description: persona.excerpt || `Discover how ${persona.title} overcomes business challenges with proven solutions.`,
+    author: {
+      '@type': 'Organization',
+      name: COMPANY_NAME,
+      url: baseUrl,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${baseUrl}/favicon.ico`,
+        width: 32,
+        height: 32,
+      },
+      sameAs: [
+        'https://www.linkedin.com/company/dhimahi-technolabs',
+        'https://www.facebook.com/dhimahi.technolabs',
+        'https://twitter.com/dhimahitechnolabs'
+      ],
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: COMPANY_NAME,
+      url: baseUrl,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${baseUrl}/favicon.ico`,
+        width: 32,
+        height: 32,
+      },
+    },
+    datePublished: persona.publishDate || new Date().toISOString(),
+    dateModified: persona.modifiedDate || persona.publishDate || new Date().toISOString(),
+    image: {
+      '@type': 'ImageObject',
+      url: persona.icon ? `${baseUrl}${persona.icon}` : `${baseUrl}/og-image.png`,
+      width: 1200,
+      height: 630,
+      alt: `${persona.title} - Customer Persona Icon`,
+    },
+    url: `${baseUrl}/personas/${persona.slug}`,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${baseUrl}/personas/${persona.slug}`,
+      name: `${persona.title} - Customer Success Story`,
+      description: persona.excerpt,
+      url: `${baseUrl}/personas/${persona.slug}`,
+      inLanguage: 'en-IN',
+      isPartOf: {
+        '@type': 'WebSite',
+        name: COMPANY_NAME,
+        url: baseUrl,
+      },
+    },
+    articleSection: 'Customer Personas',
+    keywords: [
+      persona.title,
+      'customer persona',
+      'business solutions',
+      'success story',
+      'digital transformation',
+      ...(persona.tags || [])
+    ].join(', '),
+    about: {
+      '@type': 'Thing',
+      name: persona.title,
+      description: persona.excerpt,
+      sameAs: `${baseUrl}/personas/${persona.slug}`,
+    },
+    mentions: [
+      {
+        '@type': 'Service',
+        name: 'Digital Transformation',
+        description: 'Comprehensive digital transformation services for businesses',
+        provider: {
+          '@type': 'Organization',
+          name: COMPANY_NAME,
+          url: baseUrl,
+        },
+        areaServed: ['Ahmedabad', 'Gandhinagar', 'Gujarat', 'India'],
+        serviceType: 'Technology Consulting',
+      },
+      {
+        '@type': 'Service',
+        name: 'Business Automation',
+        description: 'Process automation and workflow optimization solutions',
+        provider: {
+          '@type': 'Organization',
+          name: COMPANY_NAME,
+          url: baseUrl,
+        },
+        areaServed: ['Ahmedabad', 'Gandhinagar', 'Gujarat', 'India'],
+        serviceType: 'Business Process Automation',
+      },
+      {
+        '@type': 'Service',
+        name: 'IT Consulting',
+        description: 'Strategic IT consulting and technology advisory services',
+        provider: {
+          '@type': 'Organization',
+          name: COMPANY_NAME,
+          url: baseUrl,
+        },
+        areaServed: ['Ahmedabad', 'Gandhinagar', 'Gujarat', 'India'],
+        serviceType: 'IT Consulting',
+      },
+    ],
+    isAccessibleForFree: true,
+    genre: ['Business', 'Technology', 'Case Study'],
+    audience: {
+      '@type': 'BusinessAudience',
+      audienceType: 'Small and Medium Enterprises',
+      geographicArea: {
+        '@type': 'Place',
+        name: 'Gujarat, India',
+      },
+    },
+    potentialAction: {
+      '@type': 'ReadAction',
+      target: `${baseUrl}/personas/${persona.slug}`,
+    },
+  };
+
+  const breadcrumbData = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: baseUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Customer Personas',
+        item: `${baseUrl}/personas`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: persona.title,
+        item: `${baseUrl}/personas/${persona.slug}`,
+      },
+    ],
+  };
+
+  // Add FAQ structured data for common persona questions
+  const faqData = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: `How can ${COMPANY_NAME} help ${persona.title}?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `We help ${persona.title} overcome business challenges through digital transformation, process automation, and strategic technology implementation. Our solutions are tailored to address specific pain points and drive measurable results.`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: `What makes this persona story relevant to my business?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `This persona represents real patterns we've observed across hundreds of client interactions. If you identify with the challenges described, our proven solutions can help you achieve similar transformation results.`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: `How do I get started with a similar transformation?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `Start with a free consultation where we'll assess your specific situation and create a customized roadmap. We'll use insights from this persona as a foundation while addressing your unique business needs.`,
+        },
+      },
+    ],
+  };
+
+  return [articleData, breadcrumbData, faqData];
+}

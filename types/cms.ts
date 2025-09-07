@@ -126,6 +126,82 @@ export interface ResourceSortOptions {
   sortOrder: 'asc' | 'desc';
 }
 
+// Persona Types
+export interface Persona {
+  id: string;
+  title: string;
+  slug: string;
+  icon: string;
+  excerpt: string;
+  publishDate: string;
+  modifiedDate?: string;
+  featured: boolean;
+  order: number;
+  storytelling: {
+    everydayStruggle: string;
+    whyThisMatters: string;
+    howDhimahiHelps: string;
+    theJourney: string;
+    callToAction: {
+      title: string;
+      description: string;
+      primaryButton: {
+        text: string;
+        url: string;
+      };
+      secondaryButton?: {
+        text: string;
+        url: string;
+      };
+    };
+  };
+  tags?: string[];
+}
+
+export interface PersonaFrontmatter {
+  title: string;
+  slug: string;
+  icon: string;
+  excerpt: string;
+  publishDate: string;
+  modifiedDate?: string;
+  featured: boolean;
+  order: number;
+  tags?: string[];
+  storytelling: {
+    everydayStruggle: string;
+    whyThisMatters: string;
+    howDhimahiHelps: string;
+    theJourney: string;
+    callToAction: {
+      title: string;
+      description: string;
+      primaryButton: {
+        text: string;
+        url: string;
+      };
+      secondaryButton?: {
+        text: string;
+        url: string;
+      };
+    };
+  };
+}
+
+export interface PersonaWithContent extends Persona {
+  content?: string;
+}
+
+export interface PersonaFilterOptions {
+  featured?: boolean;
+  tags?: string[];
+}
+
+export interface PersonaSortOptions {
+  sortBy: 'order' | 'publishDate' | 'title';
+  sortOrder: 'asc' | 'desc';
+}
+
 // CMS Event Types
 export interface CMSEvent {
   type: 'preSave' | 'postSave' | 'prePublish' | 'postPublish' | 'preUnpublish' | 'postUnpublish';

@@ -2,42 +2,51 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { COMPANY_NAME } from '@/lib/constants';
+import { type Persona } from '@/lib/content';
 
 interface HeaderProps {
   transparent?: boolean;
   sticky?: boolean;
+  personas?: Persona[];
 }
 
-export default function Header({ transparent = false, sticky = true }: HeaderProps) {
+export default function Header({ transparent = false, sticky = true, personas = [] }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [mounted, setMounted] = useState(false);
+  const [isPersonasDropdownOpen, setIsPersonasDropdownOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Close mobile menu when clicking outside
+  // Close mobile menu and dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Element;
       if (isMobileMenuOpen && !target.closest('#mobile-menu') && !target.closest('#mobile-menu-button')) {
         setIsMobileMenuOpen(false);
       }
+      if (isPersonasDropdownOpen && !target.closest('#personas-dropdown') && !target.closest('#personas-menu-item')) {
+        setIsPersonasDropdownOpen(false);
+      }
     };
 
     document.addEventListener('click', handleClickOutside);
     return () => document.removeEventListener('click', handleClickOutside);
-  }, [isMobileMenuOpen]);
+  }, [isMobileMenuOpen, isPersonasDropdownOpen]);
 
-  // Close mobile menu on escape key
+  // Close mobile menu and dropdowns on escape key
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setIsMobileMenuOpen(false);
         setIsSearchOpen(false);
+        setIsPersonasDropdownOpen(false);
       }
     };
 
@@ -77,6 +86,12 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
     { href: '/resources', label: 'Resources' },
     { href: '/about', label: 'About' },
   ];
+
+  const isPersonasActive = pathname?.startsWith('/personas');
+
+  const togglePersonasDropdown = () => {
+    setIsPersonasDropdownOpen(!isPersonasDropdownOpen);
+  };
 
   const headerClasses = `
     ${sticky ? 'sticky top-0' : ''} 
@@ -124,6 +139,78 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#215b6f] transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
+            
+            {/* Personas Dropdown */}
+            <div className="relative" id="personas-menu-item">
+              <button
+                onClick={togglePersonasDropdown}
+                className={`flex items-center gap-1 font-medium transition-colors duration-200 relative group ${
+                  isPersonasActive ? 'text-[#215b6f]' : 'text-gray-700 hover:text-[#215b6f]'
+                }`}
+                aria-expanded={isPersonasDropdownOpen}
+                aria-haspopup="true"
+              >
+                Personas
+                <svg
+                  className={`w-4 h-4 transition-transform duration-200 ${
+                    isPersonasDropdownOpen ? 'rotate-180' : ''
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-[#215b6f] transition-all duration-300 ${
+                  isPersonasActive ? 'w-full' : 'w-0 group-hover:w-full'
+                }`}></span>
+              </button>
+
+              {/* Dropdown Menu */}
+              {mounted && isPersonasDropdownOpen && (
+                <div
+                  id="personas-dropdown"
+                  className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50 animate-fade-in"
+                >
+                  {/* Main Personas Link */}
+                  <Link
+                    href="/personas"
+                    className="block px-4 py-3 text-gray-700 hover:text-[#215b6f] hover:bg-gray-50 font-medium border-b border-gray-100"
+                    onClick={() => setIsPersonasDropdownOpen(false)}
+                  >
+                    All Personas
+                  </Link>
+                  
+                  {/* Individual Personas */}
+                  {personas.length > 0 ? (
+                    personas.map((persona) => (
+                      <Link
+                        key={persona.slug}
+                        href={`/personas/${persona.slug}`}
+                        className="flex items-center gap-3 px-4 py-3 text-gray-600 hover:text-[#215b6f] hover:bg-gray-50 transition-colors duration-200"
+                        onClick={() => setIsPersonasDropdownOpen(false)}
+                      >
+                        {persona.icon && (
+                          <img
+                            src={persona.icon}
+                            alt={`${persona.title} icon`}
+                            className="w-5 h-5 flex-shrink-0"
+                          />
+                        )}
+                        <div className="flex-1 min-w-0">
+                          <div className="font-medium text-sm">{persona.title}</div>
+                          <div className="text-xs text-gray-500 truncate">{persona.excerpt}</div>
+                        </div>
+                      </Link>
+                    ))
+                  ) : (
+                    <div className="px-4 py-3 text-gray-500 text-sm">
+                      No personas available
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
           </nav>
 
           {/* Desktop Actions */}
@@ -220,7 +307,7 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
         {/* Mobile Navigation Menu */}
         <div
           id="mobile-menu"
-          className={`lg:hidden border-t border-gray-200 bg-white/95 backdrop-blur-md transition-all duration-300 ease-in-out ${mounted && isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+          className={`lg:hidden border-t border-gray-200 bg-white/95 backdrop-blur-md transition-all duration-300 ease-in-out ${mounted && isMobileMenuOpen ? 'max-h-[32rem] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
             }`}
         >
           <div className="py-4 space-y-1">
@@ -234,6 +321,46 @@ export default function Header({ transparent = false, sticky = true }: HeaderPro
                 {item.label}
               </Link>
             ))}
+
+            {/* Mobile Personas Section */}
+            <div className="border-t border-gray-100 pt-2 mt-2">
+              <Link
+                href="/personas"
+                className={`block px-4 py-3 rounded-lg transition-all duration-200 font-medium ${
+                  isPersonasActive 
+                    ? 'text-[#215b6f] bg-[#215b6f]/5' 
+                    : 'text-gray-700 hover:text-[#215b6f] hover:bg-gray-50'
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Personas
+              </Link>
+              
+              {/* Mobile Personas Submenu */}
+              {personas.length > 0 && (
+                <div className="ml-4 mt-1 space-y-1">
+                  {personas.map((persona) => (
+                    <Link
+                      key={persona.slug}
+                      href={`/personas/${persona.slug}`}
+                      className="flex items-center gap-3 px-4 py-2 text-gray-600 hover:text-[#215b6f] hover:bg-gray-50 rounded-lg transition-all duration-200"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {persona.icon && (
+                        <img
+                          src={persona.icon}
+                          alt={`${persona.title} icon`}
+                          className="w-4 h-4 flex-shrink-0"
+                        />
+                      )}
+                      <div className="flex-1 min-w-0">
+                        <div className="font-medium text-sm">{persona.title}</div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
 
             {/* Mobile CTA */}
             <div className="px-4 pt-2">

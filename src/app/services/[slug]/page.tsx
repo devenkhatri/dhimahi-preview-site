@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import ProcessSteps from "@/components/ProcessSteps";
 import TechnologyStackComponent from "@/components/TechnologyStack";
 import ServiceFAQ from "@/components/ServiceFAQ";
+import RelatedPersonas from "@/components/RelatedPersonas";
 import { generateMetadata as generateSEOMetadata, generateStructuredData } from "@/lib/seo";
 import { COMPANY_NAME } from "@/lib/constants";
 
@@ -218,6 +219,9 @@ export default async function ServicePage({ params }: Props) {
         {service.faqs && service.faqs.length > 0 && (
           <ServiceFAQ faqs={service.faqs} serviceName={service.title} />
         )}
+
+        {/* Related Personas */}
+        <RelatedPersonas serviceName={service.title} />
 
         {/* CTA Section */}
         <div className="mt-16 text-center bg-gray-50 rounded-2xl p-8">
