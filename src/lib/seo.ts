@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { COMPANY_NAME } from './constants';
+import { getGeneralSettings } from './settings';
 
 export interface SEOData {
   title: string;
@@ -79,8 +80,24 @@ export function generateMetadata(seoData: SEOData): Metadata {
       title: fullTitle,
       description,
       images: [ogImage],
-      creator: '@dhimahitechnolabs',
-      site: '@dhimahitechnolabs',
+      creator: (() => {
+        const settings = getGeneralSettings();
+        const twitterUrl = settings.socialMedia.twitter;
+        if (twitterUrl) {
+          const match = twitterUrl.match(/(?:twitter\.com|x\.com)\/([^\/]+)/);
+          return match ? `@${match[1]}` : '@dhimahitechnolabs';
+        }
+        return '@dhimahitechnolabs';
+      })(),
+      site: (() => {
+        const settings = getGeneralSettings();
+        const twitterUrl = settings.socialMedia.twitter;
+        if (twitterUrl) {
+          const match = twitterUrl.match(/(?:twitter\.com|x\.com)\/([^\/]+)/);
+          return match ? `@${match[1]}` : '@dhimahitechnolabs';
+        }
+        return '@dhimahitechnolabs';
+      })(),
     },
     alternates: {
       canonical: fullCanonicalUrl,
@@ -344,8 +361,24 @@ export function generatePersonaMetadata(persona: PersonaSEOData): Metadata {
       title: `${persona.title} - Customer Success Story`,
       description: seoDescription,
       images: [ogImageUrl],
-      creator: '@dhimahitechnolabs',
-      site: '@dhimahitechnolabs',
+      creator: (() => {
+        const settings = getGeneralSettings();
+        const twitterUrl = settings.socialMedia.twitter;
+        if (twitterUrl) {
+          const match = twitterUrl.match(/(?:twitter\.com|x\.com)\/([^\/]+)/);
+          return match ? `@${match[1]}` : '@dhimahitechnolabs';
+        }
+        return '@dhimahitechnolabs';
+      })(),
+      site: (() => {
+        const settings = getGeneralSettings();
+        const twitterUrl = settings.socialMedia.twitter;
+        if (twitterUrl) {
+          const match = twitterUrl.match(/(?:twitter\.com|x\.com)\/([^\/]+)/);
+          return match ? `@${match[1]}` : '@dhimahitechnolabs';
+        }
+        return '@dhimahitechnolabs';
+      })(),
     },
     alternates: {
       canonical: canonicalUrl,
@@ -365,7 +398,15 @@ export function generatePersonaMetadata(persona: PersonaSEOData): Metadata {
       'twitter:label2': 'Solutions',
       'twitter:data2': 'Digital Transformation',
       // LinkedIn specific meta tags
-      'linkedin:owner': 'dhimahi-technolabs',
+      'linkedin:owner': (() => {
+        const settings = getGeneralSettings();
+        const linkedinUrl = settings.socialMedia.linkedin;
+        if (linkedinUrl) {
+          const match = linkedinUrl.match(/linkedin\.com\/company\/([^\/]+)/);
+          return match ? match[1] : 'dhimahi-technolabs';
+        }
+        return 'dhimahi-technolabs';
+      })(),
       // WhatsApp sharing optimization
       'og:image:secure_url': ogImageUrl,
       // Pinterest specific
@@ -393,11 +434,16 @@ export function generatePersonaStructuredData(persona: PersonaSEOData): any[] {
         width: 32,
         height: 32,
       },
-      sameAs: [
-        'https://www.linkedin.com/company/dhimahi-technolabs',
-        'https://www.facebook.com/dhimahi.technolabs',
-        'https://twitter.com/dhimahitechnolabs'
-      ],
+      sameAs: (() => {
+        const settings = getGeneralSettings();
+        const socialLinks = [];
+        if (settings.socialMedia.linkedin) socialLinks.push(settings.socialMedia.linkedin);
+        if (settings.socialMedia.facebook) socialLinks.push(settings.socialMedia.facebook);
+        if (settings.socialMedia.twitter) socialLinks.push(settings.socialMedia.twitter);
+        if (settings.socialMedia.instagram) socialLinks.push(settings.socialMedia.instagram);
+        if (settings.socialMedia.youtube) socialLinks.push(settings.socialMedia.youtube);
+        return socialLinks;
+      })(),
     },
     publisher: {
       '@type': 'Organization',

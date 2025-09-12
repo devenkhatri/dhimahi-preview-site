@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { COMPANY_NAME } from "./constants";
+import { getGeneralSettings } from "./settings";
 
 interface MetaConfig {
   title: string;
@@ -92,7 +93,10 @@ export function generateMetadata({
       "og:image:height": "630",
       // Additional social media optimization
       "fb:app_id": "", // Add Facebook App ID if you have one
-      "article:publisher": "https://www.facebook.com/dhimahi.technolabs",
+      "article:publisher": (() => {
+        const settings = getGeneralSettings();
+        return settings.socialMedia.facebook || "";
+      })(),
     },
   };
 }

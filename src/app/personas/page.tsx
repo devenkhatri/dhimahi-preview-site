@@ -5,6 +5,7 @@ import PersonaCard from "@/components/PersonaCard";
 import { PersonaErrorBoundary } from "@/components/PersonaErrorBoundary";
 import { Suspense } from "react";
 import { PersonasGridSkeleton } from "@/components/PersonaLoadingStates";
+import { getGeneralSettings } from "@/lib/settings";
 
 export const metadata: Metadata = {
   title: `Customer Success Stories & Business Personas | ${COMPANY_NAME}`,
@@ -74,6 +75,7 @@ export const metadata: Metadata = {
 // Generate enhanced structured data for SEO
 function generateStructuredData() {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dhimahitechnolabs.com';
+  const settings = getGeneralSettings();
   
   try {
     const personas = getAllPersonas();
@@ -160,11 +162,15 @@ function generateStructuredData() {
         "areaServed": "IN",
         "availableLanguage": ["English", "Hindi", "Gujarati"]
       },
-      "sameAs": [
-        "https://www.linkedin.com/company/dhimahi-technolabs",
-        "https://www.facebook.com/dhimahi.technolabs",
-        "https://twitter.com/dhimahitechnolabs"
-      ]
+      "sameAs": (() => {
+        const socialLinks = [];
+        if (settings.socialMedia.linkedin) socialLinks.push(settings.socialMedia.linkedin);
+        if (settings.socialMedia.facebook) socialLinks.push(settings.socialMedia.facebook);
+        if (settings.socialMedia.twitter) socialLinks.push(settings.socialMedia.twitter);
+        if (settings.socialMedia.instagram) socialLinks.push(settings.socialMedia.instagram);
+        if (settings.socialMedia.youtube) socialLinks.push(settings.socialMedia.youtube);
+        return socialLinks;
+      })()
     };
 
     const faqData = {

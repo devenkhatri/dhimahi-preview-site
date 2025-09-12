@@ -10,6 +10,7 @@ import Analytics from "@/components/Analytics";
 import PerformanceMonitor from "@/components/PerformanceMonitor";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import ClientOnly from "@/components/ClientOnly";
+import { getGeneralSettings } from "@/lib/settings";
 
 export const metadata = {
   metadataBase: new URL("https://www.dhimahitechnolabs.com"),
@@ -29,6 +30,7 @@ export default function RootLayout({
 }) {
   // Load personas for navigation
   const personas = getAllPersonas();
+  const settings = getGeneralSettings();
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -40,13 +42,27 @@ export default function RootLayout({
         <meta property="og:image:height" content="630" />
         <meta property="og:image:type" content="image/png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@dhimahitechnolabs" />
-        <meta name="twitter:creator" content="@dhimahitechnolabs" />
+        <meta name="twitter:site" content={(() => {
+          const twitterUrl = settings.socialMedia.twitter;
+          if (twitterUrl) {
+            const match = twitterUrl.match(/(?:twitter\.com|x\.com)\/([^\/]+)/);
+            return match ? `@${match[1]}` : '@dhimahitechnolabs';
+          }
+          return '@dhimahitechnolabs';
+        })()} />
+        <meta name="twitter:creator" content={(() => {
+          const twitterUrl = settings.socialMedia.twitter;
+          if (twitterUrl) {
+            const match = twitterUrl.match(/(?:twitter\.com|x\.com)\/([^\/]+)/);
+            return match ? `@${match[1]}` : '@dhimahitechnolabs';
+          }
+          return '@dhimahitechnolabs';
+        })()} />
         
         {/* WhatsApp and Telegram specific */}
         <meta property="og:site_name" content="Dhīmahi Technolabs" />
         <meta property="og:locale" content="en_IN" />
-        <meta property="article:publisher" content="https://www.facebook.com/dhimahi.technolabs" />
+        <meta property="article:publisher" content={settings.socialMedia.facebook || ""} />
 
         {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
