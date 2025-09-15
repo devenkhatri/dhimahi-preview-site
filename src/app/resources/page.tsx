@@ -1,14 +1,16 @@
 import { Metadata } from "next";
-import { COMPANY_NAME } from "@/lib/constants";
 import { getAllResources, getFeaturedResource, getResourceTypes } from "@/lib/content";
 import ResourcesPageClient from "@/components/ResourcesPageClient";
+import { getGeneralSettings } from "@/lib/settings";
+
+const settings = getGeneralSettings();
 
 export const metadata: Metadata = {
-  title: `Free Resources | ${COMPANY_NAME}`,
+  title: `Free Resources | ${settings.brand.companyName}`,
   description: "Download free business resources including checklists, templates, and guides for digital transformation, AI implementation, and business growth.",
   keywords: ["free resources", "business templates", "digital transformation checklist", "AI implementation guide", "business automation roadmap", "SME resources", "business growth"],
   openGraph: {
-    title: `Free Resources | ${COMPANY_NAME}`,
+    title: `Free Resources | ${settings.brand.companyName}`,
     description: "Download valuable resources to help grow your business with technology and digital solutions.",
     type: "website"
   }

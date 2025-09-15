@@ -1,13 +1,15 @@
 import { Metadata } from "next";
 import ProjectQuoteForm from "@/components/forms/ProjectQuoteForm";
-import { COMPANY_NAME } from "@/lib/constants";
+import { getGeneralSettings } from "@/lib/settings";
+
+const settings = getGeneralSettings();
 
 export const metadata: Metadata = {
-  title: `Get Project Quote | ${COMPANY_NAME}`,
+  title: `Get Project Quote | ${settings.brand.companyName}`,
   description: "Get a detailed project quote for your web development, digital marketing, or AI automation project. Free consultation and transparent pricing.",
   keywords: ["project quote", "web development cost", "digital marketing pricing", "AI automation quote", "IT project cost", "Ahmedabad", "Gujarat"],
   openGraph: {
-    title: `Get Project Quote | ${COMPANY_NAME}`,
+    title: `Get Project Quote | ${settings.brand.companyName}`,
     description: "Get transparent pricing for your IT project. Detailed quotes with timeline and deliverables included.",
     type: "website"
   }

@@ -3,16 +3,17 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { COMPANY_NAME } from '@/lib/constants';
 import { type Persona } from '@/lib/content';
+import { type GeneralSettings } from '@/lib/settings';
 
 interface HeaderProps {
   transparent?: boolean;
   sticky?: boolean;
   personas?: Persona[];
+  settings?: GeneralSettings;
 }
 
-export default function Header({ transparent = false, sticky = true, personas = [] }: HeaderProps) {
+export default function Header({ transparent = false, sticky = true, personas = [], settings }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -20,6 +21,10 @@ export default function Header({ transparent = false, sticky = true, personas = 
   const [isPersonasDropdownOpen, setIsPersonasDropdownOpen] = useState(false);
   const [isMobilePersonasOpen, setIsMobilePersonasOpen] = useState(false);
   const pathname = usePathname();
+  
+  // Use provided settings or fallback to default values
+  const companyName = settings?.brand?.companyName || 'Dhīmahi Technolabs';
+  const tagline = settings?.brand?.tagline || 'Future-Ready IT Solutions';
 
   useEffect(() => {
     setMounted(true);
@@ -117,17 +122,17 @@ export default function Header({ transparent = false, sticky = true, personas = 
             <div className="relative">
               <img
                 src="/favicon.svg"
-                alt={`${COMPANY_NAME} Logo`}
+                alt={`${companyName} Logo`}
                 className="w-10 h-10 lg:w-12 lg:h-12 transition-transform duration-300 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-[#215b6f] to-[#7cc0ba] opacity-0 group-hover:opacity-20 rounded-full transition-opacity duration-300"></div>
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-lg lg:text-xl text-gray-900 leading-tight">
-                {COMPANY_NAME}
+                {companyName}
               </span>
               <span className="text-xs text-gray-600 leading-tight hidden sm:block">
-                Future-Ready IT Solutions
+                {tagline}
               </span>
             </div>
           </Link>

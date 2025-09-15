@@ -7,7 +7,6 @@ import TechnologyStackComponent from "@/components/TechnologyStack";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import RelatedPersonas from "@/components/RelatedPersonas";
 import { generateMetadata as generateSEOMetadata, generateStructuredData } from "@/lib/seo";
-import { COMPANY_NAME } from "@/lib/constants";
 
 interface Props {
   params: Promise<{

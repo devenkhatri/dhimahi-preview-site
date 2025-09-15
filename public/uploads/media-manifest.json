@@ -1,60 +1,445 @@
 {
-  "generated": "2025-09-12T03:30:20.513Z",
-  "totalFiles": 8,
+  "generated": "2025-09-14T15:02:25.071Z",
+  "totalFiles": 63,
   "categories": {
     "team": {
-      "count": 8,
-      "totalSize": 4249536
+      "count": 63,
+      "totalSize": 5266518
     }
   },
   "files": [
     {
+      "path": "team/DevenGoratela-1024w-640w.webp",
+      "category": "team",
+      "size": 15418,
+      "lastModified": "2025-09-14T15:01:49.602Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1024w-768w-640w.webp",
+      "category": "team",
+      "size": 14000,
+      "lastModified": "2025-09-14T15:01:49.009Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1024w-768w.webp",
+      "category": "team",
+      "size": 18610,
+      "lastModified": "2025-09-14T15:01:49.699Z",
+      "extension": ".webp"
+    },
+    {
       "path": "team/DevenGoratela-1024w.webp",
       "category": "team",
       "size": 28532,
-      "lastModified": "2025-09-12T03:30:19.414Z",
+      "lastModified": "2025-09-14T15:02:24.021Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1280w-1024w-640w.webp",
+      "category": "team",
+      "size": 14794,
+      "lastModified": "2025-09-14T15:01:51.827Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1280w-1024w-768w-640w.webp",
+      "category": "team",
+      "size": 13696,
+      "lastModified": "2025-09-14T15:01:51.270Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1280w-1024w-768w.webp",
+      "category": "team",
+      "size": 17898,
+      "lastModified": "2025-09-14T15:01:51.923Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1280w-1024w.webp",
+      "category": "team",
+      "size": 25542,
+      "lastModified": "2025-09-14T15:01:54.055Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1280w-640w.webp",
+      "category": "team",
+      "size": 16274,
+      "lastModified": "2025-09-14T15:01:53.810Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1280w-768w-640w.webp",
+      "category": "team",
+      "size": 14288,
+      "lastModified": "2025-09-14T15:01:53.280Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1280w-768w.webp",
+      "category": "team",
+      "size": 19260,
+      "lastModified": "2025-09-14T15:01:53.903Z",
       "extension": ".webp"
     },
     {
       "path": "team/DevenGoratela-1280w.webp",
       "category": "team",
       "size": 37974,
-      "lastModified": "2025-09-12T03:30:19.690Z",
+      "lastModified": "2025-09-14T15:02:24.277Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1536w-1024w-640w.webp",
+      "category": "team",
+      "size": 15058,
+      "lastModified": "2025-09-14T15:01:56.121Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1536w-1024w-768w-640w.webp",
+      "category": "team",
+      "size": 13846,
+      "lastModified": "2025-09-14T15:01:55.600Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1536w-1024w-768w.webp",
+      "category": "team",
+      "size": 18006,
+      "lastModified": "2025-09-14T15:01:56.217Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1536w-1024w.webp",
+      "category": "team",
+      "size": 27118,
+      "lastModified": "2025-09-14T15:02:02.381Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1536w-1280w-1024w-640w.webp",
+      "category": "team",
+      "size": 14384,
+      "lastModified": "2025-09-14T15:01:57.986Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1536w-1280w-1024w-768w-640w.webp",
+      "category": "team",
+      "size": 13234,
+      "lastModified": "2025-09-14T15:01:57.488Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1536w-1280w-1024w-768w.webp",
+      "category": "team",
+      "size": 17418,
+      "lastModified": "2025-09-14T15:01:58.078Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1536w-1280w-1024w.webp",
+      "category": "team",
+      "size": 24034,
+      "lastModified": "2025-09-14T15:02:00.080Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1536w-1280w-640w.webp",
+      "category": "team",
+      "size": 15488,
+      "lastModified": "2025-09-14T15:01:59.838Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1536w-1280w-768w-640w.webp",
+      "category": "team",
+      "size": 13840,
+      "lastModified": "2025-09-14T15:01:59.325Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1536w-1280w-768w.webp",
+      "category": "team",
+      "size": 18280,
+      "lastModified": "2025-09-14T15:01:59.930Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1536w-1280w.webp",
+      "category": "team",
+      "size": 33838,
+      "lastModified": "2025-09-14T15:02:02.614Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1536w-640w.webp",
+      "category": "team",
+      "size": 15536,
+      "lastModified": "2025-09-14T15:02:02.128Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1536w-768w-640w.webp",
+      "category": "team",
+      "size": 14576,
+      "lastModified": "2025-09-14T15:02:01.592Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1536w-768w.webp",
+      "category": "team",
+      "size": 20022,
+      "lastModified": "2025-09-14T15:02:02.228Z",
       "extension": ".webp"
     },
     {
       "path": "team/DevenGoratela-1536w.webp",
       "category": "team",
       "size": 47926,
-      "lastModified": "2025-09-12T03:30:20.029Z",
+      "lastModified": "2025-09-14T15:02:24.614Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1024w-640w.webp",
+      "category": "team",
+      "size": 14844,
+      "lastModified": "2025-09-14T15:02:05.042Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1024w-768w-640w.webp",
+      "category": "team",
+      "size": 13838,
+      "lastModified": "2025-09-14T15:02:04.535Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1024w-768w.webp",
+      "category": "team",
+      "size": 18260,
+      "lastModified": "2025-09-14T15:02:05.136Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1024w.webp",
+      "category": "team",
+      "size": 26800,
+      "lastModified": "2025-09-14T15:02:20.352Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1280w-1024w-640w.webp",
+      "category": "team",
+      "size": 14448,
+      "lastModified": "2025-09-14T15:02:06.969Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1280w-1024w-768w-640w.webp",
+      "category": "team",
+      "size": 13436,
+      "lastModified": "2025-09-14T15:02:06.480Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1280w-1024w-768w.webp",
+      "category": "team",
+      "size": 17584,
+      "lastModified": "2025-09-14T15:02:07.065Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1280w-1024w.webp",
+      "category": "team",
+      "size": 24652,
+      "lastModified": "2025-09-14T15:02:09.142Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1280w-640w.webp",
+      "category": "team",
+      "size": 15920,
+      "lastModified": "2025-09-14T15:02:08.897Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1280w-768w-640w.webp",
+      "category": "team",
+      "size": 14076,
+      "lastModified": "2025-09-14T15:02:08.381Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1280w-768w.webp",
+      "category": "team",
+      "size": 18700,
+      "lastModified": "2025-09-14T15:02:08.991Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1280w.webp",
+      "category": "team",
+      "size": 35490,
+      "lastModified": "2025-09-14T15:02:20.582Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1536w-1024w-640w.webp",
+      "category": "team",
+      "size": 14684,
+      "lastModified": "2025-09-14T15:02:11.192Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1536w-1024w-768w-640w.webp",
+      "category": "team",
+      "size": 13484,
+      "lastModified": "2025-09-14T15:02:10.674Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1536w-1024w-768w.webp",
+      "category": "team",
+      "size": 17392,
+      "lastModified": "2025-09-14T15:02:11.288Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1536w-1024w.webp",
+      "category": "team",
+      "size": 25530,
+      "lastModified": "2025-09-14T15:02:17.513Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1536w-1280w-1024w-640w.webp",
+      "category": "team",
+      "size": 14076,
+      "lastModified": "2025-09-14T15:02:12.822Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1536w-1280w-1024w-768w.webp",
+      "category": "team",
+      "size": 16856,
+      "lastModified": "2025-09-14T15:02:12.912Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1536w-1280w-1024w.webp",
+      "category": "team",
+      "size": 23644,
+      "lastModified": "2025-09-14T15:02:15.020Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1536w-1280w-640w.webp",
+      "category": "team",
+      "size": 15200,
+      "lastModified": "2025-09-14T15:02:14.734Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1536w-1280w-768w-640w.webp",
+      "category": "team",
+      "size": 13728,
+      "lastModified": "2025-09-14T15:02:14.216Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1536w-1280w-768w.webp",
+      "category": "team",
+      "size": 17890,
+      "lastModified": "2025-09-14T15:02:14.828Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1536w-1280w.webp",
+      "category": "team",
+      "size": 31876,
+      "lastModified": "2025-09-14T15:02:17.741Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1536w-640w.webp",
+      "category": "team",
+      "size": 15062,
+      "lastModified": "2025-09-14T15:02:17.258Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1536w-768w-640w.webp",
+      "category": "team",
+      "size": 14120,
+      "lastModified": "2025-09-14T15:02:16.752Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1536w-768w.webp",
+      "category": "team",
+      "size": 19222,
+      "lastModified": "2025-09-14T15:02:17.358Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-1536w.webp",
+      "category": "team",
+      "size": 42224,
+      "lastModified": "2025-09-14T15:02:20.901Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-640w.webp",
+      "category": "team",
+      "size": 15776,
+      "lastModified": "2025-09-14T15:02:20.090Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-768w-640w.webp",
+      "category": "team",
+      "size": 14330,
+      "lastModified": "2025-09-14T15:02:19.554Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "team/DevenGoratela-1920w-768w.webp",
+      "category": "team",
+      "size": 19382,
+      "lastModified": "2025-09-14T15:02:20.195Z",
       "extension": ".webp"
     },
     {
       "path": "team/DevenGoratela-1920w.webp",
       "category": "team",
       "size": 63640,
-      "lastModified": "2025-09-12T03:30:20.512Z",
+      "lastModified": "2025-09-14T15:02:25.070Z",
       "extension": ".webp"
     },
     {
       "path": "team/DevenGoratela-640w.webp",
       "category": "team",
       "size": 16316,
-      "lastModified": "2025-09-12T03:30:19.031Z",
+      "lastModified": "2025-09-14T15:02:23.669Z",
       "extension": ".webp"
     },
     {
       "path": "team/DevenGoratela-768w-640w.webp",
       "category": "team",
       "size": 14830,
-      "lastModified": "2025-09-12T03:30:18.423Z",
+      "lastModified": "2025-09-14T15:02:23.075Z",
       "extension": ".webp"
     },
     {
       "path": "team/DevenGoratela-768w.webp",
       "category": "team",
       "size": 20298,
-      "lastModified": "2025-09-12T03:30:19.195Z",
+      "lastModified": "2025-09-14T15:02:23.824Z",
       "extension": ".webp"
     },
     {

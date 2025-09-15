@@ -1,9 +1,8 @@
-import { COMPANY_NAME, CITY_LINE, EMAIL } from "@/lib/constants";
 import { getCMSAboutContent } from "@/lib/cms-content";
-import { generateMetadata, defaultMeta } from "@/lib/meta";
+import { generateMetadata, getDefaultMeta } from "@/lib/meta";
 import { getGeneralSettings } from "@/lib/settings";
 
-export const metadata = generateMetadata(defaultMeta.about);
+export const metadata = generateMetadata(getDefaultMeta().about);
 
 interface CEOCardProps {
     name: string;
@@ -177,9 +176,7 @@ export default function AboutPage() {
                                         </p>
                                     </div>
                                     <p className="text-gray-600 leading-relaxed">
-                                        We believe that every business, regardless of size, deserves access to
-                                        cutting-edge technology. Our role is to make AI, automation, and digital
-                                        marketing accessible without the enterprise complexity.
+                                        {settings.brand.description}
                                     </p>
                                 </div>
 
@@ -218,7 +215,7 @@ export default function AboutPage() {
                                     Our Founding Story
                                 </h2>
                                 <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-                                    Discover why we started Dhīmahi Technolabs and our mission to bridge the technology gap for SMEs across Gujarat.
+                                    Discover why we started {settings.brand.companyName} and our mission to bridge the technology gap for SMEs across {settings.location.primaryLocation}.
                                 </p>
                                 <CEOCard
                                     name={aboutContent.ceo.name}
@@ -289,7 +286,7 @@ export default function AboutPage() {
                                         📍 Local Market Knowledge
                                     </h3>
                                     <p className="text-gray-600">
-                                        Deep understanding of the Gujarat business landscape helps us
+                                        Deep understanding of the {settings.location.primaryLocation} business landscape helps us
                                         create solutions that resonate with your local audience.
                                     </p>
                                 </div>
@@ -406,7 +403,7 @@ export default function AboutPage() {
                                     Book Free Consultation
                                 </a>
                                 <a
-                                    href={`mailto:${EMAIL}`}
+                                    href={`mailto:${settings.contact.primaryEmail}`}
                                     className="inline-block border-2 border-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-[#215b6f] transition-colors duration-200"
                                 >
                                     Email Us

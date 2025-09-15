@@ -1,9 +1,12 @@
 import Link from "next/link";
-import { COMPANY_NAME } from "@/lib/constants";
-import { getAllCMSServices } from "@/lib/cms-content";
-import { generateMetadata, defaultMeta } from "@/lib/meta";
 
-export const metadata = generateMetadata(defaultMeta.services);
+import { getAllCMSServices } from "@/lib/cms-content";
+import { generateMetadata, getDefaultMeta } from "@/lib/meta";
+import { getGeneralSettings } from "@/lib/settings";
+
+const settings = getGeneralSettings();
+
+export const metadata = generateMetadata(getDefaultMeta().services);
 
 export default function ServicesPage() {
   const services = getAllCMSServices();
@@ -17,7 +20,7 @@ export default function ServicesPage() {
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            {COMPANY_NAME} offers comprehensive IT consulting and digital transformation services 
+            {settings.brand.companyName} offers comprehensive IT consulting and digital transformation services 
             designed specifically for SMEs in Gujarat. We help businesses leverage technology 
             to drive growth, improve efficiency, and stay competitive.
           </p>
@@ -68,7 +71,7 @@ export default function ServicesPage() {
 
         {/* Why Choose Us */}
         <div className="bg-gray-50 rounded-2xl p-6 sm:p-8 md:p-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">Why Choose {COMPANY_NAME}?</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">Why Choose {settings.brand.companyName}?</h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <div className="text-center">
               <div className="text-2xl sm:text-3xl mb-4">🏆</div>

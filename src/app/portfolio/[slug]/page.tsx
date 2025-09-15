@@ -1,7 +1,10 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getCMSCaseStudyData, getAllCMSCaseStudies, getRelatedCMSCaseStudies } from '@/lib/cms-content';
-import { COMPANY_NAME } from '@/lib/constants';
+import { getGeneralSettings } from '@/lib/settings';
+
+const settings = getGeneralSettings();
+
 import CaseStudyHeader from '@/components/CaseStudyHeader';
 import CaseStudyContent from '@/components/CaseStudyContent';
 import ResultMetrics from '@/components/ResultMetrics';
@@ -29,7 +32,7 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
     const caseStudy = await getCMSCaseStudyData(slug);
     
     return {
-      title: `${caseStudy.title} | ${COMPANY_NAME}`,
+      title: `${caseStudy.title} | ${settings.brand.companyName}`,
       description: caseStudy.excerpt,
       keywords: [
         caseStudy.client.industry,
@@ -45,7 +48,7 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
         description: caseStudy.excerpt,
         type: 'article',
         publishedTime: caseStudy.publishDate.toISOString(),
-        authors: [COMPANY_NAME],
+        authors: [settings.brand.companyName],
         images: caseStudy.images.length > 0 ? [
           {
             url: caseStudy.images[0].src,
@@ -62,7 +65,7 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
     };
   } catch (error) {
     return {
-      title: `Case Study Not Found | ${COMPANY_NAME}`,
+      title: `Case Study Not Found | ${settings.brand.companyName}`,
       description: 'The requested case study could not be found.',
     };
   }
@@ -172,11 +175,11 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               "description": caseStudy.excerpt,
               "author": {
                 "@type": "Organization",
-                "name": COMPANY_NAME
+                "name": settings.brand.companyName
               },
               "publisher": {
                 "@type": "Organization",
-                "name": COMPANY_NAME
+                "name": settings.brand.companyName
               },
               "datePublished": caseStudy.publishDate.toISOString(),
               "dateModified": caseStudy.publishDate.toISOString(),

@@ -1,4 +1,4 @@
-import { COMPANY_NAME, PHONE, CITY_LINE } from "@/lib/constants";
+
 import { getAllCMSServices, getCMSHomepageContent } from "@/lib/cms-content";
 import HeroSection from "@/components/HeroSection";
 

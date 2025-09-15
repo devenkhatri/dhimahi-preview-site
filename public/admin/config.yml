@@ -7,6 +7,9 @@ backend:
   # Squash merge commits for cleaner history
   squash_merges: true
 
+# Enable local backend for development
+local_backend: true
+
 # Simple publish mode - direct to main branch
 publish_mode: simple
 site_url: "https://dhimahi-preview-site.netlify.app"
@@ -74,45 +77,292 @@ collections:
             required: true
             hint: "Brief description of your website (used for SEO meta description)"
             pattern: [".{50,160}", "Must be between 50 and 160 characters for optimal SEO"]
-          - label: "Contact Email"
+          
+          # Brand Information Section
+          - label: "Brand Information"
+            name: "brand"
+            widget: "object"
+            collapsed: false
+            summary: "{{fields.companyName}} - {{fields.tagline}}"
+            hint: "Core brand identity and messaging"
+            fields:
+              - label: "Company Name"
+                name: "companyName"
+                widget: "string"
+                required: true
+                hint: "Official company name as it appears in legal documents and branding"
+                pattern: [".{2,100}", "Must be between 2 and 100 characters"]
+              - label: "Tagline"
+                name: "tagline"
+                widget: "string"
+                required: true
+                hint: "Company tagline or slogan that appears with the brand"
+                pattern: [".{5,100}", "Must be between 5 and 100 characters"]
+              - label: "Company Description"
+                name: "description"
+                widget: "text"
+                required: true
+                hint: "Brief description of your company and what you do"
+                pattern: [".{50,500}", "Must be between 50 and 500 characters"]
+              - label: "Short Description"
+                name: "shortDescription"
+                widget: "text"
+                required: false
+                hint: "Shorter version of company description for use in limited space"
+                pattern: [".{20,200}", "Must be between 20 and 200 characters if provided"]
+              - label: "Mission Statement"
+                name: "mission"
+                widget: "text"
+                required: false
+                hint: "Company mission statement"
+                pattern: [".{50,500}", "Must be between 50 and 500 characters if provided"]
+              - label: "Vision Statement"
+                name: "vision"
+                widget: "text"
+                required: false
+                hint: "Company vision statement"
+                pattern: [".{50,500}", "Must be between 50 and 500 characters if provided"]
+              - label: "Trust Badge"
+                name: "trustBadge"
+                widget: "string"
+                required: false
+                hint: "Trust badge or credibility statement (e.g., 'Gujarat's Preferred IT Partner')"
+                pattern: [".{10,100}", "Must be between 10 and 100 characters if provided"]
+              - label: "Years of Experience"
+                name: "yearsOfExperience"
+                widget: "number"
+                required: false
+                min: 1
+                max: 100
+                hint: "Number of years in business"
+          
+          # Location Information Section
+          - label: "Location Information"
+            name: "location"
+            widget: "object"
+            collapsed: false
+            summary: "{{fields.primaryLocation}}"
+            hint: "Geographic presence and service areas"
+            fields:
+              - label: "Primary Location"
+                name: "primaryLocation"
+                widget: "string"
+                required: true
+                hint: "Main city or region where your business operates (e.g., 'Ahmedabad & Gandhinagar')"
+                pattern: [".{3,100}", "Must be between 3 and 100 characters"]
+              - label: "Service Areas"
+                name: "serviceAreas"
+                widget: "list"
+                required: true
+                min: 1
+                max: 10
+                hint: "Cities or regions where you provide services (1-10 areas recommended)"
+                summary: "{{fields.area}}"
+                field:
+                  label: "Service Area"
+                  name: "area"
+                  widget: "string"
+                  hint: "City, region, or state name"
+                  pattern: [".{2,50}", "Must be between 2 and 50 characters"]
+              - label: "Full Business Address"
+                name: "fullAddress"
+                widget: "text"
+                required: true
+                hint: "Complete business address for contact and local SEO"
+                pattern: [".{10,300}", "Must be between 10 and 300 characters"]
+          
+          # Contact Information Section
+          - label: "Contact Information"
+            name: "contact"
+            widget: "object"
+            collapsed: false
+            summary: "{{fields.primaryEmail}} | {{fields.phone}}"
+            hint: "Business contact details and communication preferences"
+            fields:
+              - label: "Primary Email"
+                name: "primaryEmail"
+                widget: "string"
+                required: true
+                pattern: ["^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", "Must be a valid email address"]
+                hint: "Main business email for general inquiries"
+              - label: "Support Email"
+                name: "supportEmail"
+                widget: "string"
+                required: false
+                pattern: ["^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", "Must be a valid email address"]
+                hint: "Optional dedicated support email address"
+              - label: "Phone Number"
+                name: "phone"
+                widget: "string"
+                required: false
+                pattern: ["^[+]?[0-9\\s\\-\\(\\)]{7,20}$", "Must be a valid phone number format"]
+                hint: "Primary contact phone number (include country code if international)"
+              - label: "Business Hours"
+                name: "businessHours"
+                widget: "string"
+                required: false
+                hint: "Operating hours (e.g., 'Mon-Fri 9:00 AM - 6:00 PM IST')"
+                pattern: [".{5,100}", "Must be between 5 and 100 characters if provided"]
+              - label: "WhatsApp Number"
+                name: "whatsapp"
+                widget: "string"
+                required: false
+                pattern: ["^[+]?[0-9\\s\\-\\(\\)]{7,20}$", "Must be a valid phone number format"]
+                hint: "WhatsApp contact number (can be same as phone number)"
+              - label: "Timezone"
+                name: "timezone"
+                widget: "string"
+                required: false
+                hint: "Business timezone (e.g., 'Asia/Kolkata')"
+                pattern: [".{5,50}", "Must be between 5 and 50 characters if provided"]
+          
+          # Legacy fields for backward compatibility
+          - label: "Contact Email (Legacy)"
             name: "contactEmail"
             widget: "string"
-            required: true
+            required: false
             pattern: ["^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", "Must be a valid email address"]
-            hint: "Primary contact email for your business"
-          - label: "Phone Number"
+            hint: "Legacy field - use Contact Information section above instead"
+            collapsed: true
+          - label: "Phone Number (Legacy)"
             name: "phone"
             widget: "string"
-            required: true
-            hint: "Primary contact phone number (include country code)"
-          - label: "Address"
+            required: false
+            hint: "Legacy field - use Contact Information section above instead"
+            collapsed: true
+          - label: "Address (Legacy)"
             name: "address"
             widget: "text"
-            required: true
-            hint: "Complete business address for contact and local SEO"
+            required: false
+            hint: "Legacy field - use Location Information section above instead"
+            collapsed: true
+          # Social Media Section
           - label: "Social Media"
             name: "socialMedia"
             widget: "object"
             collapsed: false
+            summary: "LinkedIn, Twitter, Facebook + {{fields.instagram ? 'Instagram' : ''}} {{fields.youtube ? 'YouTube' : ''}}"
+            hint: "Social media presence and links"
             fields:
               - label: "LinkedIn"
                 name: "linkedin"
                 widget: "string"
                 required: false
-                pattern: ["^https://linkedin\\.com/.*", "Must be a valid LinkedIn URL"]
-                hint: "Full LinkedIn company page URL"
-              - label: "Twitter"
+                pattern: ["^https://(www\\.)?linkedin\\.com/(company|in)/[a-zA-Z0-9\\-]+/?$", "Must be a valid LinkedIn company or profile URL"]
+                hint: "Full LinkedIn company page or profile URL"
+              - label: "Twitter/X"
                 name: "twitter"
                 widget: "string"
                 required: false
-                pattern: ["^https://twitter\\.com/.*", "Must be a valid Twitter URL"]
-                hint: "Full Twitter profile URL"
+                pattern: ["^https://(www\\.)?(twitter\\.com|x\\.com)/[a-zA-Z0-9_]+/?$", "Must be a valid Twitter/X profile URL"]
+                hint: "Full Twitter or X profile URL"
               - label: "Facebook"
                 name: "facebook"
                 widget: "string"
                 required: false
-                pattern: ["^https://facebook\\.com/.*", "Must be a valid Facebook URL"]
-                hint: "Full Facebook page URL"
+                pattern: ["^https://(www\\.)?facebook\\.com/[a-zA-Z0-9\\.]+/?$", "Must be a valid Facebook page URL"]
+                hint: "Full Facebook business page URL"
+              - label: "Instagram"
+                name: "instagram"
+                widget: "string"
+                required: false
+                pattern: ["^https://(www\\.)?instagram\\.com/[a-zA-Z0-9\\._]+/?$", "Must be a valid Instagram profile URL"]
+                hint: "Full Instagram business profile URL"
+              - label: "YouTube"
+                name: "youtube"
+                widget: "string"
+                required: false
+                pattern: ["^https://(www\\.)?youtube\\.com/(channel/|@)[a-zA-Z0-9\\-_]+/?$", "Must be a valid YouTube channel URL"]
+                hint: "Full YouTube channel URL"
+          
+          # Business Information Section
+          - label: "Business Information"
+            name: "business"
+            widget: "object"
+            collapsed: true
+            summary: "{{fields.type}} | Founded {{fields.foundedYear}}"
+            hint: "Additional business details for structured data and SEO"
+            fields:
+              - label: "Business Type"
+                name: "type"
+                widget: "string"
+                required: false
+                hint: "Type of business (e.g., 'IT Consulting & Services')"
+                pattern: [".{5,100}", "Must be between 5 and 100 characters if provided"]
+              - label: "Founded Year"
+                name: "foundedYear"
+                widget: "number"
+                required: false
+                min: 1900
+                max: 2030
+                hint: "Year the business was founded"
+              - label: "Employee Count"
+                name: "employeeCount"
+                widget: "string"
+                required: false
+                hint: "Employee count range (e.g., '10-50', '50-100')"
+                pattern: [".{3,20}", "Must be between 3 and 20 characters if provided"]
+              - label: "Registration Number"
+                name: "registrationNumber"
+                widget: "string"
+                required: false
+                hint: "Business registration number (optional)"
+                pattern: [".{5,50}", "Must be between 5 and 50 characters if provided"]
+              - label: "GST Number"
+                name: "gstNumber"
+                widget: "string"
+                required: false
+                hint: "GST registration number (optional)"
+                pattern: [".{10,20}", "Must be between 10 and 20 characters if provided"]
+              - label: "Website URL"
+                name: "website"
+                widget: "string"
+                required: false
+                pattern: ["^https?://[a-zA-Z0-9\\-\\.]+\\.[a-zA-Z]{2,}/?.*$", "Must be a valid website URL"]
+                hint: "Official website URL"
+          
+          # SEO & Marketing Section
+          - label: "SEO & Marketing"
+            name: "seo"
+            widget: "object"
+            collapsed: true
+            summary: "Target: {{fields.targetAudience}}"
+            hint: "SEO and marketing configuration"
+            fields:
+              - label: "Keywords"
+                name: "keywords"
+                widget: "list"
+                required: false
+                min: 0
+                max: 20
+                hint: "Primary keywords for SEO (up to 20 recommended)"
+                summary: "{{fields.keyword}}"
+                field:
+                  label: "Keyword"
+                  name: "keyword"
+                  widget: "string"
+                  hint: "SEO keyword or phrase"
+                  pattern: [".{2,50}", "Must be between 2 and 50 characters"]
+              - label: "Target Audience"
+                name: "targetAudience"
+                widget: "string"
+                required: false
+                hint: "Primary target audience (e.g., 'Small and Medium Enterprises (SMEs)')"
+                pattern: [".{10,200}", "Must be between 10 and 200 characters if provided"]
+              - label: "Primary Markets"
+                name: "primaryMarkets"
+                widget: "list"
+                required: false
+                min: 0
+                max: 10
+                hint: "Geographic markets you serve (up to 10)"
+                summary: "{{fields.market}}"
+                field:
+                  label: "Market"
+                  name: "market"
+                  widget: "string"
+                  hint: "Geographic market or region"
+                  pattern: [".{2,50}", "Must be between 2 and 50 characters"]
 
   # Homepage Content
   - name: "homepage"

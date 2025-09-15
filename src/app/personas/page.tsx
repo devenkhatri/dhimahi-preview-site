@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { COMPANY_NAME } from "@/lib/constants";
 import { getAllPersonas, getFeaturedPersonas } from "@/lib/content";
 import PersonaCard from "@/components/PersonaCard";
 import { PersonaErrorBoundary } from "@/components/PersonaErrorBoundary";
@@ -7,8 +6,10 @@ import { Suspense } from "react";
 import { PersonasGridSkeleton } from "@/components/PersonaLoadingStates";
 import { getGeneralSettings } from "@/lib/settings";
 
+const settings = getGeneralSettings();
+
 export const metadata: Metadata = {
-  title: `Customer Success Stories & Business Personas | ${COMPANY_NAME}`,
+  title: `Customer Success Stories & Business Personas | ${settings.brand.companyName}`,
   description: "Discover real customer success stories and business personas. See how Dhīmahi Technolabs helps SMEs, startups, and enterprises overcome challenges through AI solutions, digital marketing, and business automation.",
   keywords: [
     "customer personas",
@@ -24,9 +25,9 @@ export const metadata: Metadata = {
     "business case studies",
     "technology transformation stories"
   ],
-  authors: [{ name: COMPANY_NAME }],
-  creator: COMPANY_NAME,
-  publisher: COMPANY_NAME,
+  authors: [{ name: settings.brand.companyName }],
+  creator: settings.brand.companyName,
+  publisher: settings.brand.companyName,
   robots: {
     index: true,
     follow: true,
@@ -39,11 +40,11 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: `Customer Success Stories & Business Personas | ${COMPANY_NAME}`,
+    title: `Customer Success Stories & Business Personas | ${settings.brand.companyName}`,
     description: "Explore real customer success stories and discover how we help businesses like yours succeed with proven technology solutions.",
     type: "website",
     url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://dhimahitechnolabs.com'}/personas`,
-    siteName: COMPANY_NAME,
+    siteName: settings.brand.companyName,
     images: [
       {
         url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://dhimahitechnolabs.com'}/og-image.png`,
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `Customer Success Stories & Business Personas | ${COMPANY_NAME}`,
+    title: `Customer Success Stories & Business Personas | ${settings.brand.companyName}`,
     description: "Explore real customer success stories and discover how we help businesses like yours succeed.",
     images: [`${process.env.NEXT_PUBLIC_SITE_URL || 'https://dhimahitechnolabs.com'}/og-image.png`],
     creator: '@dhimahitechnolabs',

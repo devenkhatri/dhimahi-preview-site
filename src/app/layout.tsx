@@ -1,6 +1,6 @@
 import "./globals.css";
-import { COMPANY_NAME } from "@/lib/constants";
-import { generateMetadata, defaultMeta } from "@/lib/meta";
+
+import { generateMetadata, getDefaultMeta } from "@/lib/meta";
 import { getAllPersonas } from "@/lib/content";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -14,7 +14,7 @@ import { getGeneralSettings } from "@/lib/settings";
 
 export const metadata = {
   metadataBase: new URL("https://www.dhimahitechnolabs.com"),
-  ...generateMetadata(defaultMeta.home),
+  ...generateMetadata(getDefaultMeta().home),
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
@@ -36,44 +36,44 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#215b6f" />
-        
+
         {/* Additional meta tags for better social sharing */}
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:type" content="image/png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content={(() => {
-          const twitterUrl = settings.socialMedia.twitter;
+          const twitterUrl = settings.socialMedia?.twitter;
           if (twitterUrl) {
             const match = twitterUrl.match(/(?:twitter\.com|x\.com)\/([^\/]+)/);
-            return match ? `@${match[1]}` : '@dhimahitechnolabs';
+            return match ? `@${match[1]}` : `@${settings.brand.companyName.toLowerCase().replace(/\s+/g, '')}`;
           }
-          return '@dhimahitechnolabs';
+          return `@${settings.brand.companyName.toLowerCase().replace(/\s+/g, '')}`;
         })()} />
         <meta name="twitter:creator" content={(() => {
-          const twitterUrl = settings.socialMedia.twitter;
+          const twitterUrl = settings.socialMedia?.twitter;
           if (twitterUrl) {
             const match = twitterUrl.match(/(?:twitter\.com|x\.com)\/([^\/]+)/);
-            return match ? `@${match[1]}` : '@dhimahitechnolabs';
+            return match ? `@${match[1]}` : `@${settings.brand.companyName.toLowerCase().replace(/\s+/g, '')}`;
           }
-          return '@dhimahitechnolabs';
+          return `@${settings.brand.companyName.toLowerCase().replace(/\s+/g, '')}`;
         })()} />
-        
+
         {/* WhatsApp and Telegram specific */}
-        <meta property="og:site_name" content="Dhīmahi Technolabs" />
+        <meta property="og:site_name" content={settings.brand.companyName} />
         <meta property="og:locale" content="en_IN" />
-        <meta property="article:publisher" content={settings.socialMedia.facebook || ""} />
+        <meta property="article:publisher" content={settings.socialMedia?.facebook || ""} />
 
         {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
-        
+
         {/* Poppins Font */}
-        <link 
-          href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" 
-          rel="stylesheet" 
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet"
         />
 
         {/* DNS prefetch for better performance */}
@@ -90,45 +90,42 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": COMPANY_NAME,
-              "alternateName": "Dhimahi Technolabs",
-              "url": "https://www.dhimahitechnolabs.com",
-              "logo": "https://www.dhimahitechnolabs.com/favicon.ico",
-              "image": "https://www.dhimahitechnolabs.com/og-image.png",
-              "description": "Transform your SME with AI solutions, digital marketing, and smart IT strategy. 25+ years experience helping Gujarat businesses grow.",
-              "foundingDate": "1999",
+              "name": settings.brand.companyName,
+              "alternateName": settings.brand.companyName,
+              "url": settings.business?.website || "https://www.dhimahitechnolabs.com",
+              "logo": `${settings.business?.website || "https://www.dhimahitechnolabs.com"}/favicon.ico`,
+              "image": `${settings.business?.website || "https://www.dhimahitechnolabs.com"}/og-image.png`,
+              "description": settings.brand.description,
+              "foundingDate": settings.business?.foundedYear?.toString() || "1999",
               "address": {
                 "@type": "PostalAddress",
-                "addressLocality": "Ahmedabad",
-                "addressRegion": "Gujarat",
+                "streetAddress": settings.location.fullAddress,
+                "addressLocality": settings.location.serviceAreas?.[0] || "Ahmedabad",
+                "addressRegion": settings.location.serviceAreas?.find(area => area.toLowerCase().includes('gujarat')) || "Gujarat",
                 "addressCountry": "IN"
               },
               "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+91 99999 99999",
+                "telephone": settings.contact.phone || settings.phone,
+                "email": settings.contact.primaryEmail || settings.contactEmail,
                 "contactType": "customer service",
                 "areaServed": "IN",
-                "availableLanguage": ["English"]
+                "availableLanguage": ["English"],
+                ...(settings.contact.businessHours && { "hoursAvailable": settings.contact.businessHours })
               },
-              "areaServed": [
-                {
-                  "@type": "City",
-                  "name": "Ahmedabad"
-                },
-                {
-                  "@type": "City",
-                  "name": "Gandhinagar"
-                },
-                {
-                  "@type": "State",
-                  "name": "Gujarat"
-                }
-              ],
+              "areaServed": settings.location.serviceAreas?.map(area => ({
+                "@type": area.toLowerCase().includes('gujarat') ? "State" : "City",
+                "name": area
+              })) || [
+                  { "@type": "City", "name": "Ahmedabad" },
+                  { "@type": "City", "name": "Gandhinagar" },
+                  { "@type": "State", "name": "Gujarat" }
+                ],
               "serviceArea": {
                 "@type": "State",
-                "name": "Gujarat"
+                "name": settings.location.serviceAreas?.find(area => area.toLowerCase().includes('gujarat')) || "Gujarat"
               },
-              "knowsAbout": [
+              "knowsAbout": settings.seo?.keywords || [
                 "AI Solutions",
                 "Digital Marketing",
                 "Web Development",
@@ -136,7 +133,16 @@ export default function RootLayout({
                 "CRM Implementation",
                 "IT Consulting"
               ],
-              "sameAs": []
+              "sameAs": [
+                settings.socialMedia.linkedin,
+                settings.socialMedia.twitter,
+                settings.socialMedia.facebook,
+                settings.socialMedia.instagram,
+                settings.socialMedia.youtube
+              ].filter(Boolean),
+              ...(settings.business?.employeeCount && { "numberOfEmployees": settings.business.employeeCount }),
+              ...(settings.business?.type && { "industry": settings.business.type }),
+              ...(settings.brand.yearsOfExperience && { "foundingDate": (new Date().getFullYear() - settings.brand.yearsOfExperience).toString() })
             })
           }}
         />
@@ -148,16 +154,25 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "name": COMPANY_NAME,
-              "url": "https://www.dhimahitechnolabs.com",
+              "name": settings.brand.companyName,
+              "alternateName": settings.brand.tagline,
+              "url": settings.business?.website || "https://www.dhimahitechnolabs.com",
+              "description": settings.siteDescription,
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://www.dhimahitechnolabs.com/search?q={search_term_string}",
+                "target": `${settings.business?.website || "https://www.dhimahitechnolabs.com"}/search?q={search_term_string}`,
                 "query-input": "required name=search_term_string"
               },
               "publisher": {
                 "@type": "Organization",
-                "name": COMPANY_NAME
+                "name": settings.brand.companyName,
+                "url": settings.business?.website || "https://www.dhimahitechnolabs.com"
+              },
+              "inLanguage": "en-IN",
+              "copyrightYear": new Date().getFullYear(),
+              "copyrightHolder": {
+                "@type": "Organization",
+                "name": settings.brand.companyName
               }
             })
           }}
@@ -173,7 +188,7 @@ export default function RootLayout({
             <input name="company" />
             <textarea name="message" />
           </form>
-          
+
           {/* Consultation booking form */}
           <form name="consultation-booking" data-netlify="true">
             <input name="name" />
@@ -197,7 +212,7 @@ export default function RootLayout({
             <input name="formType" />
             <input name="submittedAt" />
           </form>
-          
+
           {/* Project quote form */}
           <form name="project-quote" data-netlify="true">
             <input name="name" />
@@ -212,7 +227,7 @@ export default function RootLayout({
             <input name="formType" />
             <input name="submittedAt" />
           </form>
-          
+
           {/* Resource download form */}
           <form name="resource-download" data-netlify="true">
             <input name="name" />
@@ -224,7 +239,7 @@ export default function RootLayout({
             <input name="formType" />
             <input name="submittedAt" />
           </form>
-          
+
           {/* Contact form (alternative) */}
           <form name="contact-form" data-netlify="true">
             <input name="name" />
@@ -236,7 +251,7 @@ export default function RootLayout({
         </div>
 
         <FormProvider>
-          <Header personas={personas} />
+          <Header personas={personas} settings={settings} />
           {children}
           <Footer />
           <ClientOnly>

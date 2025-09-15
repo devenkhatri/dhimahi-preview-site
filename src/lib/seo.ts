@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import { COMPANY_NAME } from './constants';
 import { getGeneralSettings } from './settings';
 
 export interface SEOData {
@@ -31,7 +30,9 @@ export function generateMetadata(seoData: SEOData): Metadata {
     tags = [],
   } = seoData;
 
-  const fullTitle = title.includes(COMPANY_NAME) ? title : `${title} | ${COMPANY_NAME}`;
+  const settings = getGeneralSettings();
+  const companyName = settings.brand.companyName;
+  const fullTitle = title.includes(companyName) ? title : `${title} | ${companyName}`;
   const baseUrl = 'https://www.dhimahitechnolabs.com';
   const fullCanonicalUrl = canonicalUrl || baseUrl;
 
@@ -39,9 +40,9 @@ export function generateMetadata(seoData: SEOData): Metadata {
     title: fullTitle,
     description,
     keywords: keywords.length > 0 ? keywords : undefined,
-    authors: author ? [{ name: author }] : [{ name: COMPANY_NAME }],
-    creator: COMPANY_NAME,
-    publisher: COMPANY_NAME,
+    authors: author ? [{ name: author }] : [{ name: companyName }],
+    creator: companyName,
+    publisher: companyName,
     robots: {
       index: true,
       follow: true,
@@ -57,7 +58,7 @@ export function generateMetadata(seoData: SEOData): Metadata {
       title: fullTitle,
       description,
       url: fullCanonicalUrl,
-      siteName: COMPANY_NAME,
+      siteName: companyName,
       images: [
         {
           url: ogImage,
@@ -111,6 +112,9 @@ export interface StructuredDataProps {
 }
 
 export function generateStructuredData({ type, data }: StructuredDataProps): string {
+  const settings = getGeneralSettings();
+  const companyName = settings.brand.companyName;
+  
   const baseData = {
     '@context': 'https://schema.org',
     '@type': type,
@@ -126,11 +130,11 @@ export function generateStructuredData({ type, data }: StructuredDataProps): str
         description: data.description,
         author: {
           '@type': 'Person',
-          name: data.author || COMPANY_NAME,
+          name: data.author || companyName,
         },
         publisher: {
           '@type': 'Organization',
-          name: COMPANY_NAME,
+          name: companyName,
           logo: {
             '@type': 'ImageObject',
             url: 'https://www.dhimahitechnolabs.com/favicon.ico',
@@ -154,7 +158,7 @@ export function generateStructuredData({ type, data }: StructuredDataProps): str
         description: data.description,
         provider: {
           '@type': 'Organization',
-          name: COMPANY_NAME,
+          name: companyName,
           url: 'https://www.dhimahitechnolabs.com',
         },
         areaServed: ['Ahmedabad', 'Gandhinagar', 'Gujarat', 'India'],
@@ -173,7 +177,7 @@ export function generateStructuredData({ type, data }: StructuredDataProps): str
     case 'LocalBusiness':
       structuredData = {
         ...baseData,
-        name: COMPANY_NAME,
+        name: companyName,
         image: 'https://www.dhimahitechnolabs.com/favicon.ico',
         url: 'https://www.dhimahitechnolabs.com',
         telephone: '+91 99999 99999',
@@ -194,7 +198,7 @@ export function generateStructuredData({ type, data }: StructuredDataProps): str
     case 'Organization':
       structuredData = {
         ...baseData,
-        name: COMPANY_NAME,
+        name: companyName,
         url: 'https://www.dhimahitechnolabs.com',
         logo: 'https://www.dhimahitechnolabs.com/favicon.ico',
         description: data.description,
@@ -219,7 +223,7 @@ export function generateStructuredData({ type, data }: StructuredDataProps): str
         url: data.url,
         isPartOf: {
           '@type': 'WebSite',
-          name: COMPANY_NAME,
+          name: companyName,
           url: 'https://www.dhimahitechnolabs.com',
         },
         about: data.about,
@@ -291,14 +295,17 @@ export interface PersonaSEOData {
 }
 
 export function generatePersonaMetadata(persona: PersonaSEOData): Metadata {
+  const settings = getGeneralSettings();
+  const companyName = settings.brand.companyName;
+  
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dhimahitechnolabs.com';
   const canonicalUrl = `${baseUrl}/personas/${persona.slug}`;
   const ogImageUrl = persona.icon ? `${baseUrl}${persona.icon}` : `${baseUrl}/og-image.png`;
   
   // Generate SEO-optimized title and description
-  const seoTitle = `${persona.title} Business Solutions | Customer Success Story | ${COMPANY_NAME}`;
+  const seoTitle = `${persona.title} Business Solutions | Customer Success Story | ${companyName}`;
   const seoDescription = persona.excerpt || 
-    `Discover how ${persona.title} overcomes business challenges with ${COMPANY_NAME}'s proven solutions. Real success stories, practical strategies, and measurable results for businesses like yours.`;
+    `Discover how ${persona.title} overcomes business challenges with ${companyName}'s proven solutions. Real success stories, practical strategies, and measurable results for businesses like yours.`;
 
   // Extract keywords from persona content
   const keywords = [
@@ -320,9 +327,9 @@ export function generatePersonaMetadata(persona: PersonaSEOData): Metadata {
     title: seoTitle,
     description: seoDescription,
     keywords: keywords.join(', '),
-    authors: [{ name: COMPANY_NAME }],
-    creator: COMPANY_NAME,
-    publisher: COMPANY_NAME,
+    authors: [{ name: companyName }],
+    creator: companyName,
+    publisher: companyName,
     robots: {
       index: true,
       follow: true,
@@ -338,7 +345,7 @@ export function generatePersonaMetadata(persona: PersonaSEOData): Metadata {
       title: `${persona.title} - Customer Success Story`,
       description: seoDescription,
       url: canonicalUrl,
-      siteName: COMPANY_NAME,
+      siteName: companyName,
       images: [
         {
           url: ogImageUrl,
@@ -352,7 +359,7 @@ export function generatePersonaMetadata(persona: PersonaSEOData): Metadata {
       type: 'article',
       publishedTime: persona.publishDate || new Date().toISOString(),
       modifiedTime: persona.modifiedDate || persona.publishDate || new Date().toISOString(),
-      authors: [COMPANY_NAME],
+      authors: [companyName],
       section: 'Customer Personas',
       tags: keywords,
     },
@@ -384,7 +391,7 @@ export function generatePersonaMetadata(persona: PersonaSEOData): Metadata {
       canonical: canonicalUrl,
     },
     other: {
-      'article:author': COMPANY_NAME,
+      'article:author': companyName,
       'article:section': 'Customer Personas',
       'article:published_time': persona.publishDate || new Date().toISOString(),
       'article:modified_time': persona.modifiedDate || persona.publishDate || new Date().toISOString(),
@@ -417,6 +424,9 @@ export function generatePersonaMetadata(persona: PersonaSEOData): Metadata {
 }
 
 export function generatePersonaStructuredData(persona: PersonaSEOData): any[] {
+  const settings = getGeneralSettings();
+  const companyName = settings.brand.companyName;
+  
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dhimahitechnolabs.com';
   
   const articleData = {
@@ -426,7 +436,7 @@ export function generatePersonaStructuredData(persona: PersonaSEOData): any[] {
     description: persona.excerpt || `Discover how ${persona.title} overcomes business challenges with proven solutions.`,
     author: {
       '@type': 'Organization',
-      name: COMPANY_NAME,
+      name: companyName,
       url: baseUrl,
       logo: {
         '@type': 'ImageObject',
@@ -447,7 +457,7 @@ export function generatePersonaStructuredData(persona: PersonaSEOData): any[] {
     },
     publisher: {
       '@type': 'Organization',
-      name: COMPANY_NAME,
+      name: companyName,
       url: baseUrl,
       logo: {
         '@type': 'ImageObject',
@@ -475,7 +485,7 @@ export function generatePersonaStructuredData(persona: PersonaSEOData): any[] {
       inLanguage: 'en-IN',
       isPartOf: {
         '@type': 'WebSite',
-        name: COMPANY_NAME,
+        name: companyName,
         url: baseUrl,
       },
     },
@@ -501,7 +511,7 @@ export function generatePersonaStructuredData(persona: PersonaSEOData): any[] {
         description: 'Comprehensive digital transformation services for businesses',
         provider: {
           '@type': 'Organization',
-          name: COMPANY_NAME,
+          name: companyName,
           url: baseUrl,
         },
         areaServed: ['Ahmedabad', 'Gandhinagar', 'Gujarat', 'India'],
@@ -513,7 +523,7 @@ export function generatePersonaStructuredData(persona: PersonaSEOData): any[] {
         description: 'Process automation and workflow optimization solutions',
         provider: {
           '@type': 'Organization',
-          name: COMPANY_NAME,
+          name: companyName,
           url: baseUrl,
         },
         areaServed: ['Ahmedabad', 'Gandhinagar', 'Gujarat', 'India'],
@@ -525,7 +535,7 @@ export function generatePersonaStructuredData(persona: PersonaSEOData): any[] {
         description: 'Strategic IT consulting and technology advisory services',
         provider: {
           '@type': 'Organization',
-          name: COMPANY_NAME,
+          name: companyName,
           url: baseUrl,
         },
         areaServed: ['Ahmedabad', 'Gandhinagar', 'Gujarat', 'India'],
@@ -580,7 +590,7 @@ export function generatePersonaStructuredData(persona: PersonaSEOData): any[] {
     mainEntity: [
       {
         '@type': 'Question',
-        name: `How can ${COMPANY_NAME} help ${persona.title}?`,
+        name: `How can ${companyName} help ${persona.title}?`,
         acceptedAnswer: {
           '@type': 'Answer',
           text: `We help ${persona.title} overcome business challenges through digital transformation, process automation, and strategic technology implementation. Our solutions are tailored to address specific pain points and drive measurable results.`,

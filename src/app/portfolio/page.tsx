@@ -1,11 +1,14 @@
 import { Metadata } from 'next';
 import { getAllCMSCaseStudies, CaseStudyMeta } from '@/lib/cms-content';
-import { COMPANY_NAME } from '@/lib/constants';
+import { getGeneralSettings } from '@/lib/settings';
+
+const settings = getGeneralSettings();
+
 import CaseStudyCard from '@/components/CaseStudyCard';
 import PortfolioFilters from '@/components/PortfolioFilters';
 
 export const metadata: Metadata = {
-  title: `Portfolio & Case Studies | ${COMPANY_NAME}`,
+  title: `Portfolio & Case Studies | ${settings.brand.companyName}`,
   description: 'Explore our successful IT consulting projects, digital marketing campaigns, and AI automation implementations for SMEs across Gujarat. Real results, real clients.',
   keywords: [
     'IT consulting portfolio',
@@ -18,7 +21,7 @@ export const metadata: Metadata = {
     'client testimonials'
   ],
   openGraph: {
-    title: `Portfolio & Case Studies | ${COMPANY_NAME}`,
+    title: `Portfolio & Case Studies | ${settings.brand.companyName}`,
     description: 'Discover how we\'ve helped SMEs across Gujarat transform their businesses through strategic IT consulting, digital marketing, and AI automation.',
     type: 'website',
   },

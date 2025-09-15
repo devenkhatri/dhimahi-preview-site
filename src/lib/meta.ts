@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { COMPANY_NAME } from "./constants";
 import { getGeneralSettings } from "./settings";
 
 interface MetaConfig {
@@ -23,6 +22,9 @@ export function generateMetadata({
   publishedTime,
   modifiedTime,
 }: MetaConfig): Metadata {
+  const settings = getGeneralSettings();
+  const companyName = settings.brand.companyName;
+  
   const baseUrl = "https://www.dhimahitechnolabs.com";
   const fullUrl = `${baseUrl}${path}`;
   const fullImageUrl = image.startsWith("http") ? image : `${baseUrl}${image}`;
@@ -43,9 +45,9 @@ export function generateMetadata({
     title,
     description,
     keywords: allKeywords,
-    authors: [{ name: COMPANY_NAME }],
-    creator: COMPANY_NAME,
-    publisher: COMPANY_NAME,
+    authors: [{ name: companyName }],
+    creator: companyName,
+    publisher: companyName,
     robots: {
       index: true,
       follow: true,
@@ -61,13 +63,13 @@ export function generateMetadata({
       title,
       description,
       url: fullUrl,
-      siteName: COMPANY_NAME,
+      siteName: companyName,
       images: [
         {
           url: fullImageUrl,
           width: 1200,
           height: 630,
-          alt: `${title} - ${COMPANY_NAME}`,
+          alt: `${title} - ${companyName}`,
           type: "image/png",
         },
       ],
@@ -102,9 +104,13 @@ export function generateMetadata({
 }
 
 // Pre-configured meta for common pages
-export const defaultMeta = {
-  home: {
-    title: `${COMPANY_NAME} – Future-Ready IT Consulting for SMEs | AI Solutions & Digital Growth`,
+export function getDefaultMeta() {
+  const settings = getGeneralSettings();
+  const companyName = settings.brand.companyName;
+  
+  return {
+    home: {
+      title: `${companyName} – Future-Ready IT Consulting for SMEs | AI Solutions & Digital Growth`,
     description: "Transform your SME with AI solutions, digital marketing, and smart IT strategy. 25+ years experience helping Gujarat businesses grow. Free consultation available.",
     keywords: [
       "IT consulting SME",
@@ -119,8 +125,8 @@ export const defaultMeta = {
       "Gandhinagar IT services"
     ],
   },
-  about: {
-    title: `About ${COMPANY_NAME} – 25+ Years of IT Excellence in Gujarat`,
+    about: {
+      title: `About ${companyName} – 25+ Years of IT Excellence in Gujarat`,
     description: "Learn about Dhimahi Technolabs' journey, mission, and team. 25+ years of helping SMEs in Gujarat with AI solutions, digital marketing, and IT consulting.",
     path: "/about",
     keywords: [
@@ -132,8 +138,8 @@ export const defaultMeta = {
       "SME IT consultancy"
     ],
   },
-  services: {
-    title: `Services - ${COMPANY_NAME} | AI, Digital Marketing & Web Development`,
+    services: {
+      title: `Services - ${companyName} | AI, Digital Marketing & Web Development`,
     description: "Professional IT services for SMEs: AI automation, digital marketing, web development, and business consulting. Serving Ahmedabad, Gandhinagar, and Gujarat.",
     path: "/services",
     keywords: [
@@ -145,16 +151,17 @@ export const defaultMeta = {
       "CRM implementation"
     ],
   },
-  consultation: {
-    title: `Free IT Consultation - ${COMPANY_NAME} | Book Your Strategy Session`,
-    description: "Get a free IT consultation for your SME. Discuss AI solutions, digital marketing strategy, and technology roadmap with our experts. Book your session today.",
-    path: "/consultation",
-    keywords: [
-      "free IT consultation",
-      "business technology consultation",
-      "AI strategy session",
-      "digital transformation consultation",
-      "SME IT advice"
-    ],
-  },
-};
+    consultation: {
+      title: `Free IT Consultation - ${companyName} | Book Your Strategy Session`,
+      description: "Get a free IT consultation for your SME. Discuss AI solutions, digital marketing strategy, and technology roadmap with our experts. Book your session today.",
+      path: "/consultation",
+      keywords: [
+        "free IT consultation",
+        "business technology consultation",
+        "AI strategy session",
+        "digital transformation consultation",
+        "SME IT advice"
+      ],
+    },
+  };
+}

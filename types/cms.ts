@@ -79,6 +79,47 @@ export interface SiteSettings {
   };
 }
 
+// Enhanced brand-related settings interfaces
+export interface BrandSettings {
+  companyName: string;
+  tagline: string;
+  description: string;
+}
+
+export interface LocationSettings {
+  primaryLocation: string;
+  serviceAreas: string[];
+  fullAddress: string;
+}
+
+export interface ContactSettings {
+  primaryEmail: string;
+  supportEmail?: string;
+  phone?: string;
+  businessHours?: string;
+}
+
+export interface SocialMediaLinks {
+  linkedin?: string;
+  twitter?: string;
+  facebook?: string;
+  instagram?: string;
+  youtube?: string;
+}
+
+export interface GeneralSettings {
+  siteTitle: string;
+  siteDescription: string;
+  brand: BrandSettings;
+  location: LocationSettings;
+  contact: ContactSettings;
+  socialMedia: SocialMediaLinks;
+  // Legacy fields for backward compatibility
+  contactEmail?: string;
+  phone?: string;
+  address?: string;
+}
+
 export interface Resource {
   id: string;
   title: string;

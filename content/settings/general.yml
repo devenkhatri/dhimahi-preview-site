@@ -1,13 +1,64 @@
 siteTitle: "Dhīmahi Technolabs - AI Automation & Digital Marketing for SMEs"
 siteDescription: "From Digital Chaos to Business Clarity. We Turn Technology Into Your Growth Engine. Serving Ahmedabad & Gandhinagar businesses with 25+ years of expertise."
-contactEmail: "hello@dhimahitechnolabs.com"
-phone: "" 
-address: |
-  Dhīmahi Technolabs
-  Gandhinagar, Gujarat, India
+
+# Brand Information
+brand:
+  companyName: "Dhīmahi Technolabs"
+  tagline: "Future-Ready IT Solutions"
+  description: "Transform your SME with AI automation, digital marketing, and smart IT strategy. From Digital Chaos to Business Clarity. We Turn Technology Into Your Growth Engine."
+  shortDescription: "Transform your SME with AI automation, digital marketing, and smart IT strategy."
+  mission: "To empower small and medium businesses in Ahmedabad & Gandhinagar and beyond with practical, affordable, and future-ready technology solutions that drive real business growth."
+  vision: "To be Gujarat's most trusted IT consultancy, known for transforming SMEs into digitally empowered, future-ready businesses that compete confidently in the modern marketplace."
+  trustBadge: "Gujarat's Preferred IT Partner"
+  yearsOfExperience: 25
+
+# Location Information
+location:
+  primaryLocation: "Ahmedabad & Gandhinagar"
+  serviceAreas:
+    - "Ahmedabad"
+    - "Gandhinagar"
+    - "Gujarat"
+    - "India"
+  fullAddress: |
+    Dhīmahi Technolabs
+    Gandhinagar, Gujarat, India
+
+# Contact Information
+contact:
+  primaryEmail: "hello@dhimahitechnolabs.com"
+  supportEmail: "support@dhimahitechnolabs.com"
+  phone: ""
+  businessHours: "Mon-Fri 9:00 AM - 6:00 PM IST"
+  whatsapp: ""
+  timezone: "Asia/Kolkata"
+
+# Social Media
 socialMedia:
   linkedin: "https://linkedin.com/company/dhimahi-technolabs"
   twitter: "https://x.com/dhimahitechno"
   facebook: "https://www.facebook.com/dhimahi.technolabs"
   instagram: "https://www.instagram.com/dhimahi.technolabs/"
   youtube: "https://youtube.com/@dhimahitechnolabs"
+
+# Business Information
+business:
+  type: "IT Consulting & Services"
+  foundedYear: 1999
+  employeeCount: "10-50"
+  registrationNumber: "TBD"
+  gstNumber: "TBD"
+  website: "https://www.dhimahitechnolabs.com"
+  
+# SEO & Marketing
+seo:
+  keywords: ["IT consulting", "AI automation", "digital marketing", "web development", "SME solutions", "Gujarat", "Ahmedabad", "Gandhinagar"]
+  targetAudience: "Small and Medium Enterprises (SMEs)"
+  primaryMarkets: ["Gujarat", "India"]
+
+# Legacy fields for backward compatibility
+contactEmail: "hello@dhimahitechnolabs.com"
+phone: ""
+address: |
+  Dhīmahi Technolabs
+  Gandhinagar, Gujarat, India

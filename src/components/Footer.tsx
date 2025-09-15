@@ -1,4 +1,3 @@
-import { COMPANY_NAME } from "@/lib/constants";
 import { getGeneralSettings } from "@/lib/settings";
 
 export default function Footer() {
@@ -38,30 +37,30 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
-            <h3 className="text-xl font-bold mb-4">{COMPANY_NAME}</h3>
+            <h3 className="text-xl font-bold mb-4">{settings.brand.companyName}</h3>
             <p className="text-gray-300 mb-4">
-              {settings?.siteDescription || "Transform your SME with AI automation, digital marketing, and smart IT strategy."}
+              {settings.brand.description}
             </p>
             <div className="space-y-2 text-gray-300">
               <div>
                 <a
-                  href={`mailto:${settings?.contactEmail || "hello@dhimahitechnolabs.com"}`}
+                  href={`mailto:${settings.contact.primaryEmail}`}
                   className="text-gray-300 hover:text-white transition-colors duration-200 inline-flex items-center gap-2"
                 >
                   <span>📧</span>
-                  <span className="hover:underline">{settings?.contactEmail || "hello@dhimahitechnolabs.com"}</span>
+                  <span className="hover:underline">{settings.contact.primaryEmail}</span>
                 </a>
               </div>
-              {settings?.phone && (
+              {settings.contact.phone && (
                 <div className="flex items-center gap-2">
                   <span>📞</span>
-                  <span>{settings?.phone}</span>
+                  <span>{settings.contact.phone}</span>
                 </div>
               )}
               <div className="flex items-start gap-2">
                 <span>📍</span>
                 <div className="whitespace-pre-line">
-                  {settings?.address || "Dhīmahi Technolabs\nAhmedabad, Gujarat, India"}
+                  {settings.location.fullAddress}
                 </div>
               </div>
             </div>
@@ -92,7 +91,7 @@ export default function Footer() {
         {/* Social Media & Copyright */}
         <div className="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="flex space-x-4 mb-4 md:mb-0">
-            {settings?.socialMedia && Object.entries(settings.socialMedia).map(([platform, url]) => {
+            {settings.socialMedia && Object.entries(settings.socialMedia).map(([platform, url]) => {
               if (!url) return null;
               const Icon = socialIcons[platform as keyof typeof socialIcons];
               if (!Icon) return null;
@@ -113,7 +112,7 @@ export default function Footer() {
           </div>
 
           <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} {COMPANY_NAME}. All rights reserved.
+            © {new Date().getFullYear()} {settings.brand.companyName}. All rights reserved.
           </p>
         </div>
       </div>

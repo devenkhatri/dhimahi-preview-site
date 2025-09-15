@@ -1,8 +1,8 @@
-import { COMPANY_NAME } from "@/lib/constants";
-import { generateMetadata, defaultMeta } from "@/lib/meta";
+
+import { generateMetadata, getDefaultMeta } from "@/lib/meta";
 import CalendlyWithFallback from "@/components/CalendlyWithFallback";
 
-export const metadata = generateMetadata(defaultMeta.consultation);
+export const metadata = generateMetadata(getDefaultMeta().consultation);
 
 export default function ConsultationPage() {
   return (
