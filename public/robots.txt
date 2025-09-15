@@ -1,0 +1,31 @@
+# Robots.txt for dhimahitechnolabs.com
+# Generated: 2025-09-15T10:07:31.263Z
+
+User-agent: *
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /scripts/
+Disallow: /node_modules/
+
+# Allow search engines
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://www.dhimahitechnolabs.com/sitemap.xml
+
+# Host
+Host: https://www.dhimahitechnolabs.com
