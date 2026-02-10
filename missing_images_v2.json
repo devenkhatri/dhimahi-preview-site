@@ -1,0 +1,146 @@
+[
+  {
+    "file": "ayurvedic-brand-digital-launch.md",
+    "src": "/case-studies/ayurvedic-brand-before.png",
+    "alt": "Initial brand concept sketches and mood board",
+    "caption": "From formulations to brand concept",
+    "type": "before",
+    "title": "Brand Launch & Digital Strategy for Ayurvedic Wellness Brand",
+    "slug": "ayurvedic-brand-digital-launch"
+  },
+  {
+    "file": "ayurvedic-brand-digital-launch.md",
+    "src": "/case-studies/ayurvedic-brand-after.png",
+    "alt": "Final brand identity with product packaging and website",
+    "caption": "Complete brand identity and e-commerce presence",
+    "type": "after",
+    "title": "Brand Launch & Digital Strategy for Ayurvedic Wellness Brand",
+    "slug": "ayurvedic-brand-digital-launch"
+  },
+  {
+    "file": "education-group-digital-transformation.md",
+    "src": "/case-studies/education-group-before.png",
+    "alt": "Diagram showing 18 different apps across 5 campuses",
+    "caption": "18 apps across 5 campuses with no standardisation",
+    "type": "before",
+    "title": "Digital Transformation Roadmap for Education Group",
+    "slug": "education-group-digital-transformation"
+  },
+  {
+    "file": "farming-cooperative-smart-agriculture.md",
+    "src": "/case-studies/farming-cooperative-before.png",
+    "alt": "Traditional flood irrigation in agricultural field",
+    "caption": "Traditional irrigation wasting 40% of water",
+    "type": "before",
+    "title": "Smart Agriculture Monitoring System for Farming Cooperative",
+    "slug": "farming-cooperative-smart-agriculture"
+  },
+  {
+    "file": "farming-cooperative-smart-agriculture.md",
+    "src": "/case-studies/farming-cooperative-after.png",
+    "alt": "IoT soil sensors deployed across farming fields",
+    "caption": "IoT sensors monitoring soil conditions in real-time",
+    "type": "after",
+    "title": "Smart Agriculture Monitoring System for Farming Cooperative",
+    "slug": "farming-cooperative-smart-agriculture"
+  },
+  {
+    "file": "farming-cooperative-smart-agriculture.md",
+    "src": "/case-studies/farming-cooperative-result.png",
+    "alt": "Farmer using mobile app with crop health dashboard",
+    "caption": null,
+    "type": "result",
+    "title": "Smart Agriculture Monitoring System for Farming Cooperative",
+    "slug": "farming-cooperative-smart-agriculture"
+  },
+  {
+    "file": "healthcare-clinic-website-development.md",
+    "src": "/case-studies/healthcare-clinic-result.png",
+    "alt": "Online appointment booking interface",
+    "caption": null,
+    "type": "process",
+    "title": "Modern Healthcare Website with Patient Portal for Multi-Specialty Clinic",
+    "slug": "healthcare-clinic-website-development"
+  },
+  {
+    "file": "hotel-chatbot-booking-automation.md",
+    "src": "/case-studies/hotel-chatbot-before.png",
+    "alt": "Cluttered WhatsApp inbox with hundreds of unread messages",
+    "caption": "Overwhelmed WhatsApp inbox with delayed responses",
+    "type": "before",
+    "title": "WhatsApp Chatbot & Booking Automation for Hotel Chain",
+    "slug": "hotel-chatbot-booking-automation"
+  },
+  {
+    "file": "hotel-chatbot-booking-automation.md",
+    "src": "/case-studies/hotel-chatbot-after.png",
+    "alt": "AI chatbot conversation showing booking flow",
+    "caption": "Seamless AI-powered booking conversation",
+    "type": "after",
+    "title": "WhatsApp Chatbot & Booking Automation for Hotel Chain",
+    "slug": "hotel-chatbot-booking-automation"
+  },
+  {
+    "file": "hotel-chatbot-booking-automation.md",
+    "src": "/case-studies/hotel-chatbot-result.png",
+    "alt": "Chatbot analytics dashboard showing performance metrics",
+    "caption": null,
+    "type": "result",
+    "title": "WhatsApp Chatbot & Booking Automation for Hotel Chain",
+    "slug": "hotel-chatbot-booking-automation"
+  },
+  {
+    "file": "it-company-hr-automation.md",
+    "src": "/case-studies/it-company-hr-before.png",
+    "alt": "HR team managing employee requests through spreadsheets and emails",
+    "caption": "Spreadsheet-based HR management",
+    "type": "before",
+    "title": "HR Automation & Employee Self-Service for IT Services Company",
+    "slug": "it-company-hr-automation"
+  },
+  {
+    "file": "it-company-hr-automation.md",
+    "src": "/case-studies/it-company-hr-after.png",
+    "alt": "Modern employee self-service dashboard",
+    "caption": "Employee self-service portal with AI chatbot",
+    "type": "after",
+    "title": "HR Automation & Employee Self-Service for IT Services Company",
+    "slug": "it-company-hr-automation"
+  },
+  {
+    "file": "pharma-distributor-portfolio-rationalisation.md",
+    "src": "/case-studies/app-rationalisation-before.png",
+    "alt": "Complex application landscape diagram showing 14 disconnected systems",
+    "caption": "14 disconnected applications creating data silos",
+    "type": "before",
+    "title": "Application Portfolio Rationalisation for Regional Pharmaceutical Distributor",
+    "slug": "pharma-distributor-portfolio-rationalisation"
+  },
+  {
+    "file": "pharma-distributor-portfolio-rationalisation.md",
+    "src": "/case-studies/app-rationalisation-after.png",
+    "alt": "Streamlined application landscape with 6 integrated platforms",
+    "caption": "Consolidated landscape with 6 integrated platforms",
+    "type": "after",
+    "title": "Application Portfolio Rationalisation for Regional Pharmaceutical Distributor",
+    "slug": "pharma-distributor-portfolio-rationalisation"
+  },
+  {
+    "file": "pharma-distributor-portfolio-rationalisation.md",
+    "src": "/case-studies/app-rationalisation-result.png",
+    "alt": "AI opportunity mapping dashboard",
+    "caption": null,
+    "type": "result",
+    "title": "Application Portfolio Rationalisation for Regional Pharmaceutical Distributor",
+    "slug": "pharma-distributor-portfolio-rationalisation"
+  },
+  {
+    "file": "textile-manufacturer-erp-integration.md",
+    "src": "/case-studies/textile-manufacturer-result.png",
+    "alt": "Automated workflow diagram",
+    "caption": null,
+    "type": "process",
+    "title": "ERP Integration & Process Automation for Leading Textile Manufacturer",
+    "slug": "textile-manufacturer-erp-integration"
+  }
+]
