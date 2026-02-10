@@ -1,91 +1,113 @@
 ---
-title: "AI-Powered Quality Control for Diamond Processing Unit"
-excerpt: "Implemented computer vision-based diamond grading system that reduced inspection time by 70% and improved grading consistency to 98.5% for a diamond processing company."
+title: AI-Powered Quality Control for Diamond Processing Unit
+excerpt: >-
+  Implemented computer vision-based diamond grading system that reduced
+  inspection time by 70% and improved grading consistency to 98.5% for a diamond
+  processing company.
 client:
-  name: "Ratna Diamond Industries"
-  industry: "Diamond Processing"
-  size: "100-200 employees"
-  location: "Surat, Gujarat"
-projectType: "AI/ML Implementation & Process Automation"
-duration: "10 weeks"
+  name: Ratna Diamond Industries
+  industry: Diamond Processing
+  size: 100-200 employees
+  location: 'Surat, Gujarat'
+projectType: AI/ML Implementation & Process Automation
+duration: 10 weeks
 teamSize: 5
-category: "ai-automation"
-services: ["ai-automation"]
-publishDate: "2025-05-20"
+category: ai-automation
+services:
+  - ai-automation
+publishDate: '2025-05-20'
 featured: true
-challenge: |
-  A diamond processing company relied entirely on manual visual inspection for grading polished diamonds, leading to inconsistent quality assessments, bottlenecks in processing throughput, and disputes with international buyers.
+challenge: >
+  A diamond processing company relied entirely on manual visual inspection for
+  grading polished diamonds, leading to inconsistent quality assessments,
+  bottlenecks in processing throughput, and disputes with international buyers.
+
 
   **Quality Control Issues:**
+
   - Manual grading by 12 inspectors with varying experience levels
+
   - 15-20% variance in grading between inspectors for same stone
+
   - International buyers rejecting shipments due to grading inconsistencies
+
   - Each inspector could grade only 80-100 stones per day
 
-  **Business Impact:**
-  - ₹25 lakhs annual losses from grading disputes and re-inspections
-  - Training new inspectors taking 2+ years to reach competency
-  - Peak season bottlenecks causing delivery delays
-  - Premium stones sometimes undergraded, resulting in revenue loss
 
+  **Business Impact:**
+
+  - ₹25 lakhs annual losses from grading disputes and re-inspections
+
+  - Training new inspectors taking 2+ years to reach competency
+
+  - Peak season bottlenecks causing delivery delays
+
+  - Premium stones sometimes undergraded, resulting in revenue loss
 solution:
-  - "Developed custom computer vision model trained on 50,000+ graded diamond images"
-  - "Built AI grading station with high-resolution cameras and controlled lighting"
-  - "Created grading API integrating with existing inventory management system"
-  - "Implemented human-in-the-loop validation for high-value stones"
-  - "Developed dashboard for grading analytics and inspector performance tracking"
+  - >-
+    Developed custom computer vision model trained on 50,000+ graded diamond
+    images
+  - >-
+    Built AI grading station with high-resolution cameras and controlled
+    lighting
+  - Created grading API integrating with existing inventory management system
+  - Implemented human-in-the-loop validation for high-value stones
+  - Developed dashboard for grading analytics and inspector performance tracking
 results:
-  - label: "Inspection Speed"
-    value: "70%"
-    improvement: "faster"
-    timeframe: "per stone"
-    icon: "⚡"
-  - label: "Grading Consistency"
-    value: "98.5%"
-    improvement: "accuracy"
-    timeframe: "across all inspectors"
-    icon: "🎯"
-  - label: "Buyer Disputes"
-    value: "85%"
-    improvement: "reduced"
-    timeframe: "within 4 months"
-    icon: "📉"
-  - label: "Throughput"
-    value: "3x"
-    improvement: "increased"
-    timeframe: "per shift"
-    icon: "💎"
+  - label: Inspection Speed
+    value: 70%
+    improvement: faster
+    timeframe: per stone
+    icon: ⚡
+  - label: Grading Consistency
+    value: 98.5%
+    improvement: accuracy
+    timeframe: across all inspectors
+    icon: "\U0001F3AF"
+  - label: Buyer Disputes
+    value: 85%
+    improvement: reduced
+    timeframe: within 4 months
+    icon: "\U0001F4C9"
+  - label: Throughput
+    value: 3x
+    improvement: increased
+    timeframe: per shift
+    icon: "\U0001F48E"
 testimonial:
-  quote: "In the diamond business, grading accuracy is everything. The AI system has brought consistency that no amount of human training could achieve. Our international buyers now trust our grades implicitly."
-  author: "Jayesh Sanghvi"
-  position: "Director"
-  company: "Ratna Diamond Industries"
+  quote: >-
+    In the diamond business, grading accuracy is everything. The AI system has
+    brought consistency that no amount of human training could achieve. Our
+    international buyers now trust our grades implicitly.
+  author: Jayesh Sanghvi
+  position: Director
+  company: Ratna Diamond Industries
 technologies:
-  - name: "TensorFlow"
-    category: "ML Framework"
-  - name: "OpenCV"
-    category: "Computer Vision"
-  - name: "Python"
-    category: "Backend"
-  - name: "NVIDIA GPUs"
-    category: "Hardware"
-  - name: "React"
-    category: "Frontend"
-  - name: "PostgreSQL"
-    category: "Database"
+  - name: TensorFlow
+    category: ML Framework
+  - name: OpenCV
+    category: Computer Vision
+  - name: Python
+    category: Backend
+  - name: NVIDIA GPUs
+    category: Hardware
+  - name: React
+    category: Frontend
+  - name: PostgreSQL
+    category: Database
 images:
-  - src: "/case-studies/diamond-ai-before.png"
-    alt: "Manual diamond inspection under traditional loupe"
-    type: "before"
-    caption: "Manual grading with inconsistent results"
-  - src: "/case-studies/diamond-ai-after.png"
-    alt: "AI-powered diamond grading station with camera system"
-    type: "after"
-    caption: "AI grading station with controlled imaging"
-  - src: "/case-studies/diamond-ai-result.png"
-    alt: "Diamond grading analytics dashboard"
-    type: "result"
-    caption: "Real-time grading analytics and consistency tracking"
+  - src: /case-studies/diamond-ai-quality-control-before.png
+    alt: Manual diamond inspection under traditional loupe
+    type: before
+    caption: Manual grading with inconsistent results
+  - src: /case-studies/diamond-ai-quality-control-after.png
+    alt: AI-powered diamond grading station with camera system
+    type: after
+    caption: AI grading station with controlled imaging
+  - src: /case-studies/diamond-ai-quality-control-result.png
+    alt: Diamond grading analytics dashboard
+    type: result
+    caption: Real-time grading analytics and consistency tracking
 ---
 
 ## Project Overview

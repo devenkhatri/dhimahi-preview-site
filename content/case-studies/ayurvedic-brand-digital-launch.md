@@ -1,91 +1,119 @@
 ---
-title: "Brand Launch & Digital Strategy for Ayurvedic Wellness Brand"
-excerpt: "Launched a new Ayurvedic wellness brand from zero to ₹40 lakhs monthly revenue in 7 months through integrated branding, e-commerce, and content marketing strategy."
+title: Brand Launch & Digital Strategy for Ayurvedic Wellness Brand
+excerpt: >-
+  Launched a new Ayurvedic wellness brand from zero to ₹40 lakhs monthly revenue
+  in 7 months through integrated branding, e-commerce, and content marketing
+  strategy.
 client:
-  name: "VedaVita Wellness"
-  industry: "Health & Wellness"
-  size: "5-10 employees"
-  location: "Ahmedabad, Gujarat"
-projectType: "Brand Launch & Digital-First Go-to-Market"
-duration: "7 months"
+  name: VedaVita Wellness
+  industry: Health & Wellness
+  size: 5-10 employees
+  location: 'Ahmedabad, Gujarat'
+projectType: Brand Launch & Digital-First Go-to-Market
+duration: 7 months
 teamSize: 4
-category: "digital-marketing"
-services: ["digital-marketing", "application-portfolio-rationalisation"]
-publishDate: "2025-09-10"
+category: digital-marketing
+services:
+  - digital-marketing
+  - application-portfolio-rationalisation
+publishDate: '2025-09-10'
 featured: false
-challenge: |
-  A first-time entrepreneur with authentic Ayurvedic formulations needed a complete digital brand launch — from brand identity to e-commerce to customer acquisition — in a market crowded with established and new D2C wellness brands.
+challenge: >
+  A first-time entrepreneur with authentic Ayurvedic formulations needed a
+  complete digital brand launch — from brand identity to e-commerce to customer
+  acquisition — in a market crowded with established and new D2C wellness
+  brands.
+
 
   **Starting from Zero:**
+
   - No brand identity, name finalisation, or visual assets
+
   - No website or e-commerce presence
+
   - No social media accounts or audience
+
   - No marketing budget experience or digital advertising knowledge
 
-  **Market Complexity:**
-  - Crowded Ayurvedic wellness market with 500+ D2C brands
-  - Customer skepticism about online Ayurvedic product purchases
-  - Regulatory considerations for health-related product claims
-  - Price sensitivity in natural wellness segment
 
+  **Market Complexity:**
+
+  - Crowded Ayurvedic wellness market with 500+ D2C brands
+
+  - Customer skepticism about online Ayurvedic product purchases
+
+  - Regulatory considerations for health-related product claims
+
+  - Price sensitivity in natural wellness segment
 solution:
-  - "Developed complete brand identity including name, logo, packaging design, and brand story"
-  - "Built Shopify e-commerce store with trust signals and regulatory-compliant product descriptions"
-  - "Created content marketing strategy centred on Ayurvedic education and ingredient transparency"
-  - "Launched multi-channel acquisition strategy across Google, Instagram, and YouTube"
-  - "Built email marketing automation for customer retention and repeat purchases"
+  - >-
+    Developed complete brand identity including name, logo, packaging design,
+    and brand story
+  - >-
+    Built Shopify e-commerce store with trust signals and regulatory-compliant
+    product descriptions
+  - >-
+    Created content marketing strategy centred on Ayurvedic education and
+    ingredient transparency
+  - >-
+    Launched multi-channel acquisition strategy across Google, Instagram, and
+    YouTube
+  - Built email marketing automation for customer retention and repeat purchases
 results:
-  - label: "Monthly Revenue"
-    value: "₹40L"
-    improvement: "from zero"
-    timeframe: "by month 7"
-    icon: "💰"
-  - label: "Customer Base"
-    value: "5,000+"
-    improvement: "acquired"
-    timeframe: "7 months"
-    icon: "👥"
-  - label: "Repeat Purchase"
-    value: "35%"
-    improvement: "rate"
-    timeframe: "3-month window"
-    icon: "🔄"
-  - label: "Instagram Community"
-    value: "30,000+"
-    improvement: "followers"
-    timeframe: "from scratch"
-    icon: "📱"
+  - label: Monthly Revenue
+    value: ₹40L
+    improvement: from zero
+    timeframe: by month 7
+    icon: "\U0001F4B0"
+  - label: Customer Base
+    value: '5,000+'
+    improvement: acquired
+    timeframe: 7 months
+    icon: "\U0001F465"
+  - label: Repeat Purchase
+    value: 35%
+    improvement: rate
+    timeframe: 3-month window
+    icon: "\U0001F504"
+  - label: Instagram Community
+    value: '30,000+'
+    improvement: followers
+    timeframe: from scratch
+    icon: "\U0001F4F1"
 testimonial:
-  quote: "I had the formulations but no idea how to build a brand. Dhīmahi created everything — the name, the look, the website, the strategy. Going from nothing to ₹40 lakhs a month in 7 months exceeded my wildest expectations."
-  author: "Dr. Anita Joshi"
-  position: "Founder"
-  company: "VedaVita Wellness"
+  quote: >-
+    I had the formulations but no idea how to build a brand. Dhīmahi created
+    everything — the name, the look, the website, the strategy. Going from
+    nothing to ₹40 lakhs a month in 7 months exceeded my wildest expectations.
+  author: Dr. Anita Joshi
+  position: Founder
+  company: VedaVita Wellness
 technologies:
-  - name: "Shopify"
-    category: "E-Commerce"
-  - name: "Meta Ads"
-    category: "Social Advertising"
-  - name: "Google Ads"
-    category: "Search Advertising"
-  - name: "Klaviyo"
-    category: "Email Marketing"
-  - name: "Google Analytics"
-    category: "Analytics"
-  - name: "Adobe Creative Suite"
-    category: "Brand Design"
+  - name: Shopify
+    category: E-Commerce
+  - name: Meta Ads
+    category: Social Advertising
+  - name: Google Ads
+    category: Search Advertising
+  - name: Klaviyo
+    category: Email Marketing
+  - name: Google Analytics
+    category: Analytics
+  - name: Adobe Creative Suite
+    category: Brand Design
 images:
-  - src: "/case-studies/ayurvedic-brand-before.png"
-    alt: "Initial brand concept sketches and mood board"
-    type: "before"
-    caption: "From formulations to brand concept"
-  - src: "/case-studies/ayurvedic-brand-after.png"
-    alt: "Final brand identity with product packaging and website"
-    type: "after"
-    caption: "Complete brand identity and e-commerce presence"
-  - src: "/case-studies/ayurvedic-brand-result.png"
-    alt: "Revenue growth chart showing trajectory to ₹40L monthly"
-    type: "result"
-    caption: "Zero to ₹40 lakhs monthly in 7 months"
+  - src: /case-studies/ayurvedic-brand-before.png
+    alt: Initial brand concept sketches and mood board
+    type: before
+    caption: From formulations to brand concept
+  - src: /case-studies/ayurvedic-brand-after.png
+    alt: Final brand identity with product packaging and website
+    type: after
+    caption: Complete brand identity and e-commerce presence
+  - src: /case-studies/ayurvedic-brand-digital-launch-result.png
+    alt: Revenue growth chart showing trajectory to ₹40L monthly
+    type: result
+    caption: Zero to ₹40 lakhs monthly in 7 months
 ---
 
 ## Project Overview

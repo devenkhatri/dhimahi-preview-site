@@ -1,91 +1,110 @@
 ---
-title: "Technology Consolidation for Growing Real Estate Developer"
-excerpt: "Rationalised 11 applications to 5 core platforms for a real estate developer, saving ₹18 lakhs annually and enabling AI-powered lead scoring that increased conversions by 45%."
+title: Technology Consolidation for Growing Real Estate Developer
+excerpt: >-
+  Rationalised 11 applications to 5 core platforms for a real estate developer,
+  saving ₹18 lakhs annually and enabling AI-powered lead scoring that increased
+  conversions by 45%.
 client:
-  name: "Shilp Infrastructure"
-  industry: "Real Estate & Construction"
-  size: "50-100 employees"
-  location: "Gandhinagar, Gujarat"
-projectType: "Application Portfolio Rationalisation & AI Integration"
-duration: "4 weeks"
+  name: Shilp Infrastructure
+  industry: Real Estate & Construction
+  size: 50-100 employees
+  location: 'Gandhinagar, Gujarat'
+projectType: Application Portfolio Rationalisation & AI Integration
+duration: 4 weeks
 teamSize: 3
-category: "application-portfolio-rationalisation"
-services: ["application-portfolio-rationalisation", "ai-automation"]
-publishDate: "2025-06-20"
+category: application-portfolio-rationalisation
+services:
+  - application-portfolio-rationalisation
+  - ai-automation
+publishDate: '2025-06-20'
 featured: false
-challenge: |
-  A real estate developer managing 4 active residential projects was using 11 different tools for CRM, project management, accounting, and marketing with no integration, leading to lost leads and poor customer experience.
+challenge: >
+  A real estate developer managing 4 active residential projects was using 11
+  different tools for CRM, project management, accounting, and marketing with no
+  integration, leading to lost leads and poor customer experience.
+
 
   **Technology Fragmentation:**
+
   - 3 different CRM tools used by different sales teams
+
   - Separate project management tools for construction and sales
+
   - No integration between marketing spend and lead conversion data
+
   - Manual tracking of customer journeys across multiple touchpoints
 
-  **Business Impact:**
-  - 30% of leads falling through cracks between disconnected systems
-  - No visibility into marketing ROI by project or channel
-  - Customer complaints about redundant communication from different teams
-  - Management unable to get consolidated project performance views
 
+  **Business Impact:**
+
+  - 30% of leads falling through cracks between disconnected systems
+
+  - No visibility into marketing ROI by project or channel
+
+  - Customer complaints about redundant communication from different teams
+
+  - Management unable to get consolidated project performance views
 solution:
-  - "Mapped complete application landscape with cross-departmental usage analysis"
-  - "Designed unified CRM-centric architecture eliminating 3 redundant tools"
-  - "Identified AI opportunity for lead scoring using historical conversion data"
-  - "Created migration strategy preserving 5 years of customer relationship data"
-  - "Delivered vendor selection framework for replacement platforms"
+  - Mapped complete application landscape with cross-departmental usage analysis
+  - Designed unified CRM-centric architecture eliminating 3 redundant tools
+  - Identified AI opportunity for lead scoring using historical conversion data
+  - Created migration strategy preserving 5 years of customer relationship data
+  - Delivered vendor selection framework for replacement platforms
 results:
-  - label: "Annual IT Savings"
-    value: "₹18L"
-    improvement: "cost reduction"
-    timeframe: "first year"
-    icon: "💰"
-  - label: "Lead Conversion"
-    value: "45%"
-    improvement: "increased"
-    timeframe: "within 3 months"
-    icon: "📈"
-  - label: "Applications Reduced"
-    value: "11 → 5"
-    improvement: "consolidated"
-    timeframe: "over 3 months"
-    icon: "🔄"
-  - label: "Response Time"
-    value: "2 hours"
-    improvement: "reduced from 48 hours"
-    timeframe: "lead follow-up"
-    icon: "⏱️"
+  - label: Annual IT Savings
+    value: ₹18L
+    improvement: cost reduction
+    timeframe: first year
+    icon: "\U0001F4B0"
+  - label: Lead Conversion
+    value: 45%
+    improvement: increased
+    timeframe: within 3 months
+    icon: "\U0001F4C8"
+  - label: Applications Reduced
+    value: 11 → 5
+    improvement: consolidated
+    timeframe: over 3 months
+    icon: "\U0001F504"
+  - label: Response Time
+    value: 2 hours
+    improvement: reduced from 48 hours
+    timeframe: lead follow-up
+    icon: ⏱️
 testimonial:
-  quote: "We were losing lakhs in leads simply because our systems didn't talk to each other. Dhīmahi's rationalisation strategy unified everything, and the AI lead scoring has been a game-changer for our sales team."
-  author: "Amit Thakkar"
-  position: "Director of Sales"
-  company: "Shilp Infrastructure"
+  quote: >-
+    We were losing lakhs in leads simply because our systems didn't talk to each
+    other. Dhīmahi's rationalisation strategy unified everything, and the AI
+    lead scoring has been a game-changer for our sales team.
+  author: Amit Thakkar
+  position: Director of Sales
+  company: Shilp Infrastructure
 technologies:
-  - name: "Application Mapping"
-    category: "Assessment"
-  - name: "HubSpot CRM"
-    category: "Target CRM"
-  - name: "Capability Mapping"
-    category: "Analysis"
-  - name: "Python ML"
-    category: "AI/ML"
-  - name: "Power BI"
-    category: "Analytics"
-  - name: "Zapier"
-    category: "Integration"
+  - name: Application Mapping
+    category: Assessment
+  - name: HubSpot CRM
+    category: Target CRM
+  - name: Capability Mapping
+    category: Analysis
+  - name: Python ML
+    category: AI/ML
+  - name: Power BI
+    category: Analytics
+  - name: Zapier
+    category: Integration
 images:
-  - src: "/case-studies/real-estate-before.png"
-    alt: "Diagram showing 11 disconnected applications"
-    type: "before"
-    caption: "11 disconnected tools with no data integration"
-  - src: "/case-studies/real-estate-after.png"
-    alt: "Unified platform architecture with 5 core systems"
-    type: "after"
-    caption: "5 integrated platforms with unified customer view"
-  - src: "/case-studies/real-estate-result.png"
-    alt: "AI lead scoring dashboard"
-    type: "result"
-    caption: "AI-powered lead scoring improving sales conversions"
+  - src: /case-studies/real-estate-app-consolidation-before.png
+    alt: Diagram showing 11 disconnected applications
+    type: before
+    caption: 11 disconnected tools with no data integration
+  - src: /case-studies/real-estate-app-consolidation-after.png
+    alt: Unified platform architecture with 5 core systems
+    type: after
+    caption: 5 integrated platforms with unified customer view
+  - src: /case-studies/real-estate-app-consolidation-result.png
+    alt: AI lead scoring dashboard
+    type: result
+    caption: AI-powered lead scoring improving sales conversions
 ---
 
 ## Project Overview

@@ -1,91 +1,120 @@
 ---
-title: "Application Portfolio Rationalisation for Regional Pharmaceutical Distributor"
-excerpt: "Consolidated 14 overlapping applications into 6 integrated platforms, reducing annual IT spend by 35% and identifying 5 high-impact AI opportunities for a pharma distribution company."
+title: Application Portfolio Rationalisation for Regional Pharmaceutical Distributor
+excerpt: >-
+  Consolidated 14 overlapping applications into 6 integrated platforms, reducing
+  annual IT spend by 35% and identifying 5 high-impact AI opportunities for a
+  pharma distribution company.
 client:
-  name: "MedSupply Gujarat Pvt Ltd"
-  industry: "Pharmaceutical Distribution"
-  size: "100-200 employees"
-  location: "Ahmedabad, Gujarat"
-projectType: "Application Portfolio Rationalisation & AI Opportunity Mapping"
-duration: "5 weeks"
+  name: MedSupply Gujarat Pvt Ltd
+  industry: Pharmaceutical Distribution
+  size: 100-200 employees
+  location: 'Ahmedabad, Gujarat'
+projectType: Application Portfolio Rationalisation & AI Opportunity Mapping
+duration: 5 weeks
 teamSize: 4
-category: "application-portfolio-rationalisation"
-services: ["application-portfolio-rationalisation", "ai-automation"]
-publishDate: "2025-08-15"
+category: application-portfolio-rationalisation
+services:
+  - application-portfolio-rationalisation
+  - ai-automation
+publishDate: '2025-08-15'
 featured: true
-challenge: |
-  A mid-sized pharmaceutical distributor was spending over ₹42 lakhs annually on software licenses across 14 different applications, many with overlapping functionality. Staff spent excessive time on manual data re-entry between disconnected systems.
+challenge: >
+  A mid-sized pharmaceutical distributor was spending over ₹42 lakhs annually on
+  software licenses across 14 different applications, many with overlapping
+  functionality. Staff spent excessive time on manual data re-entry between
+  disconnected systems.
+
 
   **Technology Landscape Issues:**
-  - 14 separate applications across procurement, sales, warehousing, and accounting
+
+  - 14 separate applications across procurement, sales, warehousing, and
+  accounting
+
   - 4 different tools performing similar inventory tracking functions
+
   - No single source of truth for stock levels or order status
+
   - Legacy DOS-based system still handling critical drug batch tracking
 
-  **Cost & Efficiency Problems:**
-  - ₹42 lakhs annual software spend with poor utilisation rates
-  - 3 full-time staff dedicated to manual data synchronisation
-  - Compliance reporting requiring 2 days of manual data compilation
-  - Frequent stockouts due to disconnected demand forecasting
 
+  **Cost & Efficiency Problems:**
+
+  - ₹42 lakhs annual software spend with poor utilisation rates
+
+  - 3 full-time staff dedicated to manual data synchronisation
+
+  - Compliance reporting requiring 2 days of manual data compilation
+
+  - Frequent stockouts due to disconnected demand forecasting
 solution:
-  - "Conducted comprehensive inventory of all 14 applications with usage analytics and cost mapping"
-  - "Identified 4 redundant systems and mapped consolidation paths"
-  - "Designed integration architecture around a core ERP with best-of-breed add-ons"
-  - "Mapped 5 AI opportunities including demand forecasting and automated compliance reporting"
-  - "Created phased migration roadmap with risk mitigation for regulatory-critical systems"
+  - >-
+    Conducted comprehensive inventory of all 14 applications with usage
+    analytics and cost mapping
+  - Identified 4 redundant systems and mapped consolidation paths
+  - >-
+    Designed integration architecture around a core ERP with best-of-breed
+    add-ons
+  - >-
+    Mapped 5 AI opportunities including demand forecasting and automated
+    compliance reporting
+  - >-
+    Created phased migration roadmap with risk mitigation for
+    regulatory-critical systems
 results:
-  - label: "IT Cost Reduction"
-    value: "35%"
-    improvement: "annual savings"
-    timeframe: "within 6 months"
-    icon: "💰"
-  - label: "Applications Consolidated"
-    value: "14 → 6"
-    improvement: "streamlined"
-    timeframe: "phased over 4 months"
-    icon: "🔄"
-  - label: "Manual Data Entry"
-    value: "80%"
-    improvement: "reduced"
-    timeframe: "after migration"
-    icon: "⚡"
-  - label: "Compliance Reporting"
-    value: "2 hours"
-    improvement: "reduced from 2 days"
-    timeframe: "monthly cycle"
-    icon: "📋"
+  - label: IT Cost Reduction
+    value: 35%
+    improvement: annual savings
+    timeframe: within 6 months
+    icon: "\U0001F4B0"
+  - label: Applications Consolidated
+    value: 14 → 6
+    improvement: streamlined
+    timeframe: phased over 4 months
+    icon: "\U0001F504"
+  - label: Manual Data Entry
+    value: 80%
+    improvement: reduced
+    timeframe: after migration
+    icon: ⚡
+  - label: Compliance Reporting
+    value: 2 hours
+    improvement: reduced from 2 days
+    timeframe: monthly cycle
+    icon: "\U0001F4CB"
 testimonial:
-  quote: "We had no idea how much we were spending on overlapping tools until Dhīmahi mapped everything out. The savings alone paid for the entire engagement, and the AI roadmap is already showing results in our demand forecasting."
-  author: "Nikhil Desai"
-  position: "Managing Director"
-  company: "MedSupply Gujarat Pvt Ltd"
+  quote: >-
+    We had no idea how much we were spending on overlapping tools until Dhīmahi
+    mapped everything out. The savings alone paid for the entire engagement, and
+    the AI roadmap is already showing results in our demand forecasting.
+  author: Nikhil Desai
+  position: Managing Director
+  company: MedSupply Gujarat Pvt Ltd
 technologies:
-  - name: "Portfolio Analysis"
-    category: "Assessment"
-  - name: "Cost Modeling"
-    category: "Financial Analysis"
-  - name: "SAP Business One"
-    category: "Target ERP"
-  - name: "Power BI"
-    category: "Analytics"
-  - name: "Azure AI"
-    category: "AI Platform"
-  - name: "Python"
-    category: "Data Analysis"
+  - name: Portfolio Analysis
+    category: Assessment
+  - name: Cost Modeling
+    category: Financial Analysis
+  - name: SAP Business One
+    category: Target ERP
+  - name: Power BI
+    category: Analytics
+  - name: Azure AI
+    category: AI Platform
+  - name: Python
+    category: Data Analysis
 images:
-  - src: "/case-studies/pharma-distributor-before.png"
-    alt: "Complex application landscape diagram showing 14 disconnected systems"
-    type: "before"
-    caption: "14 disconnected applications creating data silos"
-  - src: "/case-studies/pharma-distributor-after.png"
-    alt: "Streamlined application landscape with 6 integrated platforms"
-    type: "after"
-    caption: "Consolidated landscape with 6 integrated platforms"
-  - src: "/case-studies/pharma-distributor-result.png"
-    alt: "AI opportunity mapping dashboard"
-    type: "result"
-    caption: "AI opportunity roadmap with prioritised use cases"
+  - src: /case-studies/app-rationalisation-before.png
+    alt: Complex application landscape diagram showing 14 disconnected systems
+    type: before
+    caption: 14 disconnected applications creating data silos
+  - src: /case-studies/app-rationalisation-after.png
+    alt: Streamlined application landscape with 6 integrated platforms
+    type: after
+    caption: Consolidated landscape with 6 integrated platforms
+  - src: /case-studies/app-rationalisation-result.png
+    alt: AI opportunity mapping dashboard
+    type: result
+    caption: AI opportunity roadmap with prioritised use cases
 ---
 
 ## Project Overview

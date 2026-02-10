@@ -1,93 +1,122 @@
 ---
-title: "ERP Integration & Process Automation for Leading Textile Manufacturer"
-excerpt: "Streamlined operations and reduced manual work by 75% through custom ERP integration and automated workflows for a 500+ employee textile manufacturing company."
+title: ERP Integration & Process Automation for Leading Textile Manufacturer
+excerpt: >-
+  Streamlined operations and reduced manual work by 75% through custom ERP
+  integration and automated workflows for a 500+ employee textile manufacturing
+  company.
 client:
-  name: "Gujarat Textiles Ltd"
-  industry: "Textile Manufacturing"
-  size: "500+ employees"
-  location: "Ahmedabad, Gujarat"
-projectType: "ERP Integration & Business Process Automation"
-duration: "8 months"
+  name: Gujarat Textiles Ltd
+  industry: Textile Manufacturing
+  size: 500+ employees
+  location: 'Ahmedabad, Gujarat'
+projectType: ERP Integration & Business Process Automation
+duration: 8 months
 teamSize: 6
-category: "ai-automation"
-services: ["ai-automation", "application-portfolio-rationalisation"]
-publishDate: "2024-01-15"
+category: ai-automation
+services:
+  - ai-automation
+  - application-portfolio-rationalisation
+publishDate: '2024-01-15'
 featured: true
-challenge: |
-  The client was struggling with disconnected systems, manual data entry across multiple departments, inventory discrepancies, and delayed reporting that impacted decision-making and operational efficiency.
+challenge: >
+  The client was struggling with disconnected systems, manual data entry across
+  multiple departments, inventory discrepancies, and delayed reporting that
+  impacted decision-making and operational efficiency.
+
 
   **System Integration Issues:**
+
   - Multiple disconnected software systems across departments
+
   - Manual data entry leading to errors and inconsistencies
+
   - No real-time visibility into production and inventory status
+
   - Delayed reporting affecting critical business decisions
 
-  **Operational Inefficiencies:**
-  - Order processing taking 3-5 days due to manual workflows
-  - Inventory discrepancies causing production delays
-  - Quality control processes not integrated with production systems
-  - Financial reporting requiring manual data compilation from multiple sources
 
+  **Operational Inefficiencies:**
+
+  - Order processing taking 3-5 days due to manual workflows
+
+  - Inventory discrepancies causing production delays
+
+  - Quality control processes not integrated with production systems
+
+  - Financial reporting requiring manual data compilation from multiple sources
 solution:
-  - "Implemented comprehensive ERP system integration connecting production, inventory, sales, and accounting"
-  - "Developed custom APIs to sync data between legacy systems and new ERP platform"
-  - "Created automated workflows for order processing, inventory management, and quality control"
-  - "Built real-time dashboards for production monitoring and business intelligence"
-  - "Integrated quality control systems with production workflows for automated compliance tracking"
-  - "Built real-time dashboard for management reporting and KPI tracking"
-  - "Implemented barcode scanning system for inventory and production tracking"
+  - >-
+    Implemented comprehensive ERP system integration connecting production,
+    inventory, sales, and accounting
+  - >-
+    Developed custom APIs to sync data between legacy systems and new ERP
+    platform
+  - >-
+    Created automated workflows for order processing, inventory management, and
+    quality control
+  - >-
+    Built real-time dashboards for production monitoring and business
+    intelligence
+  - >-
+    Integrated quality control systems with production workflows for automated
+    compliance tracking
+  - Built real-time dashboard for management reporting and KPI tracking
+  - Implemented barcode scanning system for inventory and production tracking
 results:
-  - label: "Manual Work Reduction"
-    value: "75%"
-    improvement: "decreased"
-    timeframe: "within 6 months"
-    icon: "⚡"
-  - label: "Inventory Accuracy"
-    value: "99.2%"
-    improvement: "improved from 78%"
-    timeframe: "ongoing"
-    icon: "📊"
-  - label: "Report Generation Time"
-    value: "15 minutes"
-    improvement: "reduced from 4 hours"
-    timeframe: "daily"
-    icon: "⏱️"
-  - label: "Order Processing Speed"
-    value: "3x faster"
-    improvement: "increased"
-    timeframe: "average"
-    icon: "🚀"
+  - label: Manual Work Reduction
+    value: 75%
+    improvement: decreased
+    timeframe: within 6 months
+    icon: ⚡
+  - label: Inventory Accuracy
+    value: 99.2%
+    improvement: improved from 78%
+    timeframe: ongoing
+    icon: "\U0001F4CA"
+  - label: Report Generation Time
+    value: 15 minutes
+    improvement: reduced from 4 hours
+    timeframe: daily
+    icon: ⏱️
+  - label: Order Processing Speed
+    value: 3x faster
+    improvement: increased
+    timeframe: average
+    icon: "\U0001F680"
 testimonial:
-  quote: "Dhīmahi Technolabs transformed our entire operation. What used to take hours now happens automatically. Our team can focus on growth instead of paperwork."
-  author: "Rajesh Patel"
-  position: "Operations Director"
-  company: "Gujarat Textiles Ltd"
+  quote: >-
+    Dhīmahi Technolabs transformed our entire operation. What used to take hours
+    now happens automatically. Our team can focus on growth instead of
+    paperwork.
+  author: Rajesh Patel
+  position: Operations Director
+  company: Gujarat Textiles Ltd
 technologies:
-  - name: "SAP Business One"
-    category: "ERP System"
-  - name: "Node.js"
-    category: "Backend"
-  - name: "React"
-    category: "Frontend"
-  - name: "PostgreSQL"
-    category: "Database"
-  - name: "REST APIs"
-    category: "Integration"
-  - name: "Power BI"
-    category: "Analytics"
+  - name: SAP Business One
+    category: ERP System
+  - name: Node.js
+    category: Backend
+  - name: React
+    category: Frontend
+  - name: PostgreSQL
+    category: Database
+  - name: REST APIs
+    category: Integration
+  - name: Power BI
+    category: Analytics
 images:
-  - src: "/case-studies/textile-manufacturer-before.png"
-    alt: "Manual inventory tracking system before automation"
-    type: "before"
-    caption: "Manual inventory tracking with paper-based processes"
-  - src: "/case-studies/textile-manufacturer-after.png"
-    alt: "Automated ERP dashboard showing real-time metrics"
-    type: "after"
-    caption: "Real-time ERP dashboard with automated workflows"
-  - src: "/case-studies/textile-manufacturer-result.png"
-    alt: "Automated workflow diagram"
-    type: "process"
-    caption: "Streamlined process flow from order to delivery"
+  - src: /case-studies/textile-manufacturer-erp-integration-before.png
+    alt: Manual inventory tracking system before automation
+    type: before
+    caption: Manual inventory tracking with paper-based processes
+  - src: /case-studies/textile-manufacturer-erp-integration-after.png
+    alt: Automated ERP dashboard showing real-time metrics
+    type: after
+    caption: Real-time ERP dashboard with automated workflows
+  - src: /case-studies/textile-manufacturer-result.png
+    alt: Automated workflow diagram
+    type: process
+    caption: Streamlined process flow from order to delivery
 ---
 
 ## Project Overview

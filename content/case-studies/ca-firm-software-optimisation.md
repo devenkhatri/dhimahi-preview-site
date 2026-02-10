@@ -1,83 +1,102 @@
 ---
-title: "Software Optimisation for Chartered Accountancy Firm"
-excerpt: "Streamlined technology stack from 9 tools to 4 integrated platforms for a CA firm, reducing IT costs by 40% and automating GST compliance workflows."
+title: Software Optimisation for Chartered Accountancy Firm
+excerpt: >-
+  Streamlined technology stack from 9 tools to 4 integrated platforms for a CA
+  firm, reducing IT costs by 40% and automating GST compliance workflows.
 client:
-  name: "Sharma & Associates"
-  industry: "Professional Services"
-  size: "15-25 employees"
-  location: "Ahmedabad, Gujarat"
-projectType: "Application Portfolio Rationalisation"
-duration: "3 weeks"
+  name: Sharma & Associates
+  industry: Professional Services
+  size: 15-25 employees
+  location: 'Ahmedabad, Gujarat'
+projectType: Application Portfolio Rationalisation
+duration: 3 weeks
 teamSize: 2
-category: "application-portfolio-rationalisation"
-services: ["application-portfolio-rationalisation"]
-publishDate: "2025-09-05"
+category: application-portfolio-rationalisation
+services:
+  - application-portfolio-rationalisation
+publishDate: '2025-09-05'
 featured: false
-challenge: |
-  A growing CA firm handling 500+ clients was drowning in disconnected tools for accounting, tax filing, client management, and document storage. Staff spent more time switching between tools than serving clients.
+challenge: >
+  A growing CA firm handling 500+ clients was drowning in disconnected tools for
+  accounting, tax filing, client management, and document storage. Staff spent
+  more time switching between tools than serving clients.
+
 
   **Tool Overload:**
+
   - 9 separate applications for daily operations
+
   - No integration between Tally, client CRM, and tax filing tools
+
   - Document storage split across Google Drive, local servers, and email
+
   - Client communication tracked in WhatsApp, email, and spreadsheets separately
 
-  **Productivity Impact:**
-  - 2 hours daily per staff member lost to context switching and data re-entry
-  - GST filing deadlines missed due to manual data compilation
-  - Client queries taking 30+ minutes to resolve due to scattered information
-  - Partner unable to track team workload or billing efficiency
 
+  **Productivity Impact:**
+
+  - 2 hours daily per staff member lost to context switching and data re-entry
+
+  - GST filing deadlines missed due to manual data compilation
+
+  - Client queries taking 30+ minutes to resolve due to scattered information
+
+  - Partner unable to track team workload or billing efficiency
 solution:
-  - "Audited all 9 applications with detailed usage and cost analysis"
-  - "Designed consolidated stack around Tally Prime with integrated CRM and document management"
-  - "Identified automation opportunities for GST compliance and client reporting"
-  - "Created migration plan with emphasis on tax season continuity"
-  - "Delivered training roadmap for smooth team adoption"
+  - Audited all 9 applications with detailed usage and cost analysis
+  - >-
+    Designed consolidated stack around Tally Prime with integrated CRM and
+    document management
+  - Identified automation opportunities for GST compliance and client reporting
+  - Created migration plan with emphasis on tax season continuity
+  - Delivered training roadmap for smooth team adoption
 results:
-  - label: "IT Cost Savings"
-    value: "40%"
-    improvement: "annual reduction"
-    timeframe: "immediate"
-    icon: "💰"
-  - label: "Staff Productivity"
-    value: "2 hours/day"
-    improvement: "saved per person"
-    timeframe: "after migration"
-    icon: "⏰"
-  - label: "Client Response"
-    value: "5 minutes"
-    improvement: "reduced from 30+ minutes"
-    timeframe: "average"
-    icon: "⚡"
-  - label: "GST Compliance"
-    value: "100%"
-    improvement: "on-time filing"
-    timeframe: "since implementation"
-    icon: "✅"
+  - label: IT Cost Savings
+    value: 40%
+    improvement: annual reduction
+    timeframe: immediate
+    icon: "\U0001F4B0"
+  - label: Staff Productivity
+    value: 2 hours/day
+    improvement: saved per person
+    timeframe: after migration
+    icon: ⏰
+  - label: Client Response
+    value: 5 minutes
+    improvement: reduced from 30+ minutes
+    timeframe: average
+    icon: ⚡
+  - label: GST Compliance
+    value: 100%
+    improvement: on-time filing
+    timeframe: since implementation
+    icon: ✅
 testimonial:
-  quote: "As CAs, we advise clients on efficiency, but our own systems were a mess. Dhīmahi helped us practise what we preach. Our team is happier, clients get faster responses, and we haven't missed a filing deadline since."
-  author: "CA Vikram Sharma"
-  position: "Managing Partner"
-  company: "Sharma & Associates"
+  quote: >-
+    As CAs, we advise clients on efficiency, but our own systems were a mess.
+    Dhīmahi helped us practise what we preach. Our team is happier, clients get
+    faster responses, and we haven't missed a filing deadline since.
+  author: CA Vikram Sharma
+  position: Managing Partner
+  company: Sharma & Associates
 technologies:
-  - name: "Tally Prime"
-    category: "Accounting"
-  - name: "Zoho CRM"
-    category: "Client Management"
-  - name: "Google Workspace"
-    category: "Collaboration"
-  - name: "ClearTax"
-    category: "Tax Compliance"
+  - name: Tally Prime
+    category: Accounting
+  - name: Zoho CRM
+    category: Client Management
+  - name: Google Workspace
+    category: Collaboration
+  - name: ClearTax
+    category: Tax Compliance
 images:
-  - src: "/case-studies/ca-firm-before.png"
-    alt: "Cluttered desktop with 9 different application windows"
-    type: "before"
-    caption: "9 disconnected tools causing daily frustration"
-  - src: "/case-studies/ca-firm-after.png"
-    alt: "Clean integrated workspace with 4 connected platforms"
-    type: "after"
-    caption: "4 integrated platforms with unified workflow"
+  - src: /case-studies/ca-firm-software-optimisation-before.png
+    alt: Cluttered desktop with 9 different application windows
+    type: before
+    caption: 9 disconnected tools causing daily frustration
+  - src: /case-studies/ca-firm-software-optimisation-after.png
+    alt: Clean integrated workspace with 4 connected platforms
+    type: after
+    caption: 4 integrated platforms with unified workflow
 ---
 
 ## Project Overview

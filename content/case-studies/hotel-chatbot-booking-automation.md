@@ -1,91 +1,113 @@
 ---
-title: "WhatsApp Chatbot & Booking Automation for Hotel Chain"
-excerpt: "Built AI-powered WhatsApp chatbot handling 80% of guest queries automatically, integrated with PMS for real-time booking, reducing front desk call volume by 65% for a 4-hotel chain."
+title: WhatsApp Chatbot & Booking Automation for Hotel Chain
+excerpt: >-
+  Built AI-powered WhatsApp chatbot handling 80% of guest queries automatically,
+  integrated with PMS for real-time booking, reducing front desk call volume by
+  65% for a 4-hotel chain.
 client:
-  name: "Atithi Hotel Group"
-  industry: "Hospitality"
-  size: "150-200 employees"
-  location: "Gujarat (Multiple Locations)"
-projectType: "AI Chatbot & Business Process Automation"
-duration: "8 weeks"
+  name: Atithi Hotel Group
+  industry: Hospitality
+  size: 150-200 employees
+  location: Gujarat (Multiple Locations)
+projectType: AI Chatbot & Business Process Automation
+duration: 8 weeks
 teamSize: 4
-category: "ai-automation"
-services: ["ai-automation", "digital-marketing"]
-publishDate: "2025-04-15"
+category: ai-automation
+services:
+  - ai-automation
+  - digital-marketing
+publishDate: '2025-04-15'
 featured: false
-challenge: |
-  A hotel chain with 4 properties received 500+ daily WhatsApp messages and phone calls for room availability, pricing, and booking inquiries. The front desk staff was overwhelmed, response times were suffering, and potential bookings were lost.
+challenge: >
+  A hotel chain with 4 properties received 500+ daily WhatsApp messages and
+  phone calls for room availability, pricing, and booking inquiries. The front
+  desk staff was overwhelmed, response times were suffering, and potential
+  bookings were lost.
+
 
   **Communication Overload:**
+
   - 500+ daily inquiries across WhatsApp, phone, and email
+
   - Average response time of 4+ hours on WhatsApp during peak season
+
   - Front desk staff spending 60% of time on repetitive inquiries
+
   - No after-hours coverage leading to lost international bookings
 
-  **Booking Friction:**
-  - No real-time availability visible to potential guests
-  - Manual quote generation taking 15-30 minutes per inquiry
-  - No automated confirmation or follow-up system
-  - Group booking inquiries requiring 2-3 days for response
 
+  **Booking Friction:**
+
+  - No real-time availability visible to potential guests
+
+  - Manual quote generation taking 15-30 minutes per inquiry
+
+  - No automated confirmation or follow-up system
+
+  - Group booking inquiries requiring 2-3 days for response
 solution:
-  - "Developed AI-powered WhatsApp chatbot with natural language understanding"
-  - "Integrated chatbot with Property Management System for real-time availability and pricing"
-  - "Built automated booking workflow with payment gateway integration"
-  - "Created multi-language support for English, Hindi, and Gujarati"
-  - "Implemented smart escalation to human agents for complex queries"
+  - Developed AI-powered WhatsApp chatbot with natural language understanding
+  - >-
+    Integrated chatbot with Property Management System for real-time
+    availability and pricing
+  - Built automated booking workflow with payment gateway integration
+  - 'Created multi-language support for English, Hindi, and Gujarati'
+  - Implemented smart escalation to human agents for complex queries
 results:
-  - label: "Query Automation"
-    value: "80%"
-    improvement: "handled by AI"
-    timeframe: "without human intervention"
-    icon: "🤖"
-  - label: "Front Desk Calls"
-    value: "65%"
-    improvement: "reduced"
-    timeframe: "within 2 months"
-    icon: "📞"
-  - label: "Response Time"
-    value: "< 30 seconds"
-    improvement: "reduced from 4+ hours"
-    timeframe: "24/7 availability"
-    icon: "⚡"
-  - label: "Direct Bookings"
-    value: "40%"
-    improvement: "increased"
-    timeframe: "within 3 months"
-    icon: "📈"
+  - label: Query Automation
+    value: 80%
+    improvement: handled by AI
+    timeframe: without human intervention
+    icon: "\U0001F916"
+  - label: Front Desk Calls
+    value: 65%
+    improvement: reduced
+    timeframe: within 2 months
+    icon: "\U0001F4DE"
+  - label: Response Time
+    value: < 30 seconds
+    improvement: reduced from 4+ hours
+    timeframe: 24/7 availability
+    icon: ⚡
+  - label: Direct Bookings
+    value: 40%
+    improvement: increased
+    timeframe: within 3 months
+    icon: "\U0001F4C8"
 testimonial:
-  quote: "The chatbot handles everything from room queries to confirmations in seconds. Our front desk team can finally focus on in-house guests. And the 24/7 availability has captured bookings we were losing to OTAs."
-  author: "Rajan Bhatt"
-  position: "Operations Head"
-  company: "Atithi Hotel Group"
+  quote: >-
+    The chatbot handles everything from room queries to confirmations in
+    seconds. Our front desk team can finally focus on in-house guests. And the
+    24/7 availability has captured bookings we were losing to OTAs.
+  author: Rajan Bhatt
+  position: Operations Head
+  company: Atithi Hotel Group
 technologies:
-  - name: "WhatsApp Business API"
-    category: "Messaging"
-  - name: "OpenAI GPT"
-    category: "AI/NLP"
-  - name: "Node.js"
-    category: "Backend"
-  - name: "MongoDB"
-    category: "Database"
-  - name: "Razorpay"
-    category: "Payments"
-  - name: "PMS Integration"
-    category: "Hotel Systems"
+  - name: WhatsApp Business API
+    category: Messaging
+  - name: OpenAI GPT
+    category: AI/NLP
+  - name: Node.js
+    category: Backend
+  - name: MongoDB
+    category: Database
+  - name: Razorpay
+    category: Payments
+  - name: PMS Integration
+    category: Hotel Systems
 images:
-  - src: "/case-studies/hotel-chatbot-before.png"
-    alt: "Cluttered WhatsApp inbox with hundreds of unread messages"
-    type: "before"
-    caption: "Overwhelmed WhatsApp inbox with delayed responses"
-  - src: "/case-studies/hotel-chatbot-after.png"
-    alt: "AI chatbot conversation showing booking flow"
-    type: "after"
-    caption: "Seamless AI-powered booking conversation"
-  - src: "/case-studies/hotel-chatbot-result.png"
-    alt: "Chatbot analytics dashboard showing performance metrics"
-    type: "result"
-    caption: "Real-time chatbot performance analytics"
+  - src: /case-studies/hotel-chatbot-before.png
+    alt: Cluttered WhatsApp inbox with hundreds of unread messages
+    type: before
+    caption: Overwhelmed WhatsApp inbox with delayed responses
+  - src: /case-studies/hotel-chatbot-after.png
+    alt: AI chatbot conversation showing booking flow
+    type: after
+    caption: Seamless AI-powered booking conversation
+  - src: /case-studies/hotel-chatbot-result.png
+    alt: Chatbot analytics dashboard showing performance metrics
+    type: result
+    caption: Real-time chatbot performance analytics
 ---
 
 ## Project Overview

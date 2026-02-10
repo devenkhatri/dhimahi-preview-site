@@ -1,91 +1,114 @@
 ---
-title: "Digital Transformation Roadmap for Education Group"
-excerpt: "Assessed and rationalised technology across 5 school campuses, creating a unified EdTech strategy that reduced costs by 30% and identified AI-powered personalised learning opportunities."
+title: Digital Transformation Roadmap for Education Group
+excerpt: >-
+  Assessed and rationalised technology across 5 school campuses, creating a
+  unified EdTech strategy that reduced costs by 30% and identified AI-powered
+  personalised learning opportunities.
 client:
-  name: "Vidya Education Group"
-  industry: "Education"
-  size: "300-500 employees"
-  location: "Ahmedabad & Gandhinagar, Gujarat"
-projectType: "Application Portfolio Rationalisation & EdTech Strategy"
-duration: "5 weeks"
+  name: Vidya Education Group
+  industry: Education
+  size: 300-500 employees
+  location: 'Ahmedabad & Gandhinagar, Gujarat'
+projectType: Application Portfolio Rationalisation & EdTech Strategy
+duration: 5 weeks
 teamSize: 3
-category: "application-portfolio-rationalisation"
-services: ["application-portfolio-rationalisation"]
-publishDate: "2025-10-01"
+category: application-portfolio-rationalisation
+services:
+  - application-portfolio-rationalisation
+publishDate: '2025-10-01'
 featured: false
-challenge: |
-  An education group running 5 school campuses had each campus independently adopting technology, resulting in 18 different applications across campuses with no standardisation, data sharing, or central oversight.
+challenge: >
+  An education group running 5 school campuses had each campus independently
+  adopting technology, resulting in 18 different applications across campuses
+  with no standardisation, data sharing, or central oversight.
+
 
   **Technology Chaos:**
+
   - 18 different applications across 5 campuses with no standardisation
-  - 3 different student information systems making group-level reporting impossible
+
+  - 3 different student information systems making group-level reporting
+  impossible
+
   - Each campus paying separately for similar tools, missing volume discounts
+
   - No integration between academic, administrative, and communication systems
 
-  **Strategic Concerns:**
-  - ₹28 lakhs annual combined IT spend with no centralised procurement
-  - Parents receiving different digital experiences depending on campus
-  - Teacher training fragmented across multiple platforms
-  - No data-driven insights into student performance across the group
 
+  **Strategic Concerns:**
+
+  - ₹28 lakhs annual combined IT spend with no centralised procurement
+
+  - Parents receiving different digital experiences depending on campus
+
+  - Teacher training fragmented across multiple platforms
+
+  - No data-driven insights into student performance across the group
 solution:
-  - "Conducted campus-by-campus technology audit across all 5 locations"
-  - "Identified standardisation opportunities and group-level volume discounts"
-  - "Designed unified EdTech architecture with campus-specific flexibility"
-  - "Mapped AI opportunities for personalised learning and administrative automation"
-  - "Created 18-month digital transformation roadmap aligned with academic calendar"
+  - Conducted campus-by-campus technology audit across all 5 locations
+  - Identified standardisation opportunities and group-level volume discounts
+  - Designed unified EdTech architecture with campus-specific flexibility
+  - >-
+    Mapped AI opportunities for personalised learning and administrative
+    automation
+  - >-
+    Created 18-month digital transformation roadmap aligned with academic
+    calendar
 results:
-  - label: "IT Cost Reduction"
-    value: "30%"
-    improvement: "group-wide savings"
-    timeframe: "first year"
-    icon: "💰"
-  - label: "Applications Standardised"
-    value: "18 → 7"
-    improvement: "consolidated"
-    timeframe: "over 12 months"
-    icon: "🔄"
-  - label: "Parent Satisfaction"
-    value: "92%"
-    improvement: "improved from 68%"
-    timeframe: "with unified platform"
-    icon: "😊"
-  - label: "Admin Time Saved"
-    value: "15 hours/week"
-    improvement: "per campus"
-    timeframe: "after implementation"
-    icon: "⏰"
+  - label: IT Cost Reduction
+    value: 30%
+    improvement: group-wide savings
+    timeframe: first year
+    icon: "\U0001F4B0"
+  - label: Applications Standardised
+    value: 18 → 7
+    improvement: consolidated
+    timeframe: over 12 months
+    icon: "\U0001F504"
+  - label: Parent Satisfaction
+    value: 92%
+    improvement: improved from 68%
+    timeframe: with unified platform
+    icon: "\U0001F60A"
+  - label: Admin Time Saved
+    value: 15 hours/week
+    improvement: per campus
+    timeframe: after implementation
+    icon: ⏰
 testimonial:
-  quote: "Each campus was doing its own thing with technology. Dhīmahi helped us see the bigger picture and create a unified strategy that saves money, improves parent experience, and positions us for AI-powered personalised learning."
-  author: "Dr. Meena Patel"
-  position: "Chairperson"
-  company: "Vidya Education Group"
+  quote: >-
+    Each campus was doing its own thing with technology. Dhīmahi helped us see
+    the bigger picture and create a unified strategy that saves money, improves
+    parent experience, and positions us for AI-powered personalised learning.
+  author: Dr. Meena Patel
+  position: Chairperson
+  company: Vidya Education Group
 technologies:
-  - name: "Campus Audit Framework"
-    category: "Assessment"
-  - name: "Google Workspace for Education"
-    category: "Collaboration"
-  - name: "Unified SIS"
-    category: "Student Management"
-  - name: "LMS Platform"
-    category: "Learning Management"
-  - name: "Parent Communication App"
-    category: "Engagement"
-  - name: "Power BI"
-    category: "Analytics"
+  - name: Campus Audit Framework
+    category: Assessment
+  - name: Google Workspace for Education
+    category: Collaboration
+  - name: Unified SIS
+    category: Student Management
+  - name: LMS Platform
+    category: Learning Management
+  - name: Parent Communication App
+    category: Engagement
+  - name: Power BI
+    category: Analytics
 images:
-  - src: "/case-studies/education-group-before.png"
-    alt: "Diagram showing 18 different apps across 5 campuses"
-    type: "before"
-    caption: "18 apps across 5 campuses with no standardisation"
-  - src: "/case-studies/education-group-after.png"
-    alt: "Unified EdTech architecture diagram"
-    type: "after"
-    caption: "7 standardised platforms with campus flexibility"
-  - src: "/case-studies/education-group-result.png"
-    alt: "Unified parent communication app interface"
-    type: "result"
-    caption: "Consistent parent experience across all campuses"
+  - src: /case-studies/education-group-before.png
+    alt: Diagram showing 18 different apps across 5 campuses
+    type: before
+    caption: 18 apps across 5 campuses with no standardisation
+  - src: /case-studies/education-group-digital-transformation-after.png
+    alt: Unified EdTech architecture diagram
+    type: after
+    caption: 7 standardised platforms with campus flexibility
+  - src: /case-studies/education-group-digital-transformation-result.png
+    alt: Unified parent communication app interface
+    type: result
+    caption: Consistent parent experience across all campuses
 ---
 
 ## Project Overview

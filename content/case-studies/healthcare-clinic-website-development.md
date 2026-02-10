@@ -1,93 +1,114 @@
 ---
-title: "Modern Healthcare Website with Patient Portal for Multi-Specialty Clinic"
-excerpt: "Developed comprehensive healthcare website with patient portal, online appointment booking, and telemedicine integration, improving patient experience and operational efficiency."
+title: Modern Healthcare Website with Patient Portal for Multi-Specialty Clinic
+excerpt: >-
+  Developed comprehensive healthcare website with patient portal, online
+  appointment booking, and telemedicine integration, improving patient
+  experience and operational efficiency.
 client:
-  name: "Arogya Multi-Specialty Clinic"
-  industry: "Healthcare"
-  size: "25-50 employees"
-  location: "Gandhinagar, Gujarat"
-projectType: "Healthcare Website Development & Patient Portal"
-duration: "6 months"
+  name: Arogya Multi-Specialty Clinic
+  industry: Healthcare
+  size: 25-50 employees
+  location: 'Gandhinagar, Gujarat'
+projectType: Healthcare Website Development & Patient Portal
+duration: 6 months
 teamSize: 5
-category: "application-portfolio-rationalisation"
-services: ["application-portfolio-rationalisation", "ai-automation"]
-publishDate: "2024-03-10"
+category: application-portfolio-rationalisation
+services:
+  - application-portfolio-rationalisation
+  - ai-automation
+publishDate: '2024-03-10'
 featured: false
-challenge: |
-  Growing multi-specialty clinic needed modern digital presence with patient portal, online booking system, and telemedicine capabilities to improve patient experience and streamline operations.
+challenge: >
+  Growing multi-specialty clinic needed modern digital presence with patient
+  portal, online booking system, and telemedicine capabilities to improve
+  patient experience and streamline operations.
+
 
   **Patient Experience Issues:**
+
   - Manual appointment booking causing long wait times on phone
+
   - No online access to medical records or test results
+
   - Limited communication between visits
+
   - Inconvenient payment processes requiring in-person visits
+
   - No telemedicine options during COVID-19 restrictions
 
-  **Operational Inefficiencies:**
-  - Paper-based record keeping leading to storage and retrieval issues
-  - Manual appointment scheduling consuming significant staff time
-  - Missed appointments due to lack of automated reminders
-  - Difficulty in doctor schedule management across multiple specialties
-  - Limited patient data insights for better care delivery
 
+  **Operational Inefficiencies:**
+
+  - Paper-based record keeping leading to storage and retrieval issues
+
+  - Manual appointment scheduling consuming significant staff time
+
+  - Missed appointments due to lack of automated reminders
+
+  - Difficulty in doctor schedule management across multiple specialties
+
+  - Limited patient data insights for better care delivery
 solution:
-  - "Developed responsive healthcare website with patient-focused design"
-  - "Built secure patient portal with medical records access"
-  - "Implemented online appointment booking with doctor availability"
-  - "Integrated telemedicine platform for virtual consultations"
-  - "Created automated appointment reminders and follow-up system"
+  - Developed responsive healthcare website with patient-focused design
+  - Built secure patient portal with medical records access
+  - Implemented online appointment booking with doctor availability
+  - Integrated telemedicine platform for virtual consultations
+  - Created automated appointment reminders and follow-up system
 results:
-  - label: "Online Appointments"
-    value: "85%"
-    improvement: "of total bookings"
-    timeframe: "within 4 months"
-    icon: "📅"
-  - label: "Patient Satisfaction"
-    value: "4.9/5"
-    improvement: "rating"
-    timeframe: "ongoing"
-    icon: "😊"
-  - label: "Administrative Time"
-    value: "60%"
-    improvement: "reduced"
-    timeframe: "daily operations"
-    icon: "⏰"
-  - label: "Patient Retention"
-    value: "40%"
-    improvement: "increased"
-    timeframe: "6 months"
-    icon: "🔄"
+  - label: Online Appointments
+    value: 85%
+    improvement: of total bookings
+    timeframe: within 4 months
+    icon: "\U0001F4C5"
+  - label: Patient Satisfaction
+    value: 4.9/5
+    improvement: rating
+    timeframe: ongoing
+    icon: "\U0001F60A"
+  - label: Administrative Time
+    value: 60%
+    improvement: reduced
+    timeframe: daily operations
+    icon: ⏰
+  - label: Patient Retention
+    value: 40%
+    improvement: increased
+    timeframe: 6 months
+    icon: "\U0001F504"
 testimonial:
-  quote: "The new website and patient portal have revolutionized how we serve our patients. Online bookings, telemedicine, and digital records have made us more efficient and our patients love the convenience."
-  author: "Dr. Priya Mehta"
-  position: "Medical Director"
-  company: "Arogya Multi-Specialty Clinic"
+  quote: >-
+    The new website and patient portal have revolutionized how we serve our
+    patients. Online bookings, telemedicine, and digital records have made us
+    more efficient and our patients love the convenience.
+  author: Dr. Priya Mehta
+  position: Medical Director
+  company: Arogya Multi-Specialty Clinic
 technologies:
-  - name: "Next.js"
-    category: "Frontend Framework"
-  - name: "Node.js"
-    category: "Backend"
-  - name: "MongoDB"
-    category: "Database"
-  - name: "Stripe"
-    category: "Payment Processing"
-  - name: "Twilio"
-    category: "Communication"
-  - name: "AWS"
-    category: "Cloud Hosting"
+  - name: Next.js
+    category: Frontend Framework
+  - name: Node.js
+    category: Backend
+  - name: MongoDB
+    category: Database
+  - name: Stripe
+    category: Payment Processing
+  - name: Twilio
+    category: Communication
+  - name: AWS
+    category: Cloud Hosting
 images:
-  - src: "/case-studies/healthcare-clinic-before.png"
-    alt: "Modern healthcare website homepage"
-    type: "after"
-    caption: "Clean, professional homepage with easy navigation"
-  - src: "/case-studies/healthcare-clinic-after.png"
-    alt: "Secure patient portal dashboard"
-    type: "after"
-    caption: "Comprehensive patient portal with medical records access"
-  - src: "/case-studies/healthcare-clinic-result.png"
-    alt: "Online appointment booking interface"
-    type: "process"
-    caption: "Intuitive appointment booking with real-time availability"
+  - src: /case-studies/healthcare-clinic-website-development-after.png
+    alt: Modern healthcare website homepage
+    type: after
+    caption: 'Clean, professional homepage with easy navigation'
+  - src: /case-studies/healthcare-clinic-website-development-after.png
+    alt: Secure patient portal dashboard
+    type: after
+    caption: Comprehensive patient portal with medical records access
+  - src: /case-studies/healthcare-clinic-result.png
+    alt: Online appointment booking interface
+    type: process
+    caption: Intuitive appointment booking with real-time availability
 ---
 
 ## Project Overview

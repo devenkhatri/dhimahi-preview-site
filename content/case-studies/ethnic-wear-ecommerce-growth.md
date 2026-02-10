@@ -1,91 +1,115 @@
 ---
-title: "E-Commerce Growth Strategy for Ethnic Wear Brand"
-excerpt: "Grew online revenue by 450% and built a 50,000+ Instagram following for an ethnic wear brand through integrated SEO, social media marketing, and influencer partnerships."
+title: E-Commerce Growth Strategy for Ethnic Wear Brand
+excerpt: >-
+  Grew online revenue by 450% and built a 50,000+ Instagram following for an
+  ethnic wear brand through integrated SEO, social media marketing, and
+  influencer partnerships.
 client:
-  name: "Vasstra by Priya"
-  industry: "Fashion & E-Commerce"
-  size: "10-20 employees"
-  location: "Ahmedabad, Gujarat"
-projectType: "Digital Marketing & E-Commerce Growth"
-duration: "9 months"
+  name: Vasstra by Priya
+  industry: Fashion & E-Commerce
+  size: 10-20 employees
+  location: 'Ahmedabad, Gujarat'
+projectType: Digital Marketing & E-Commerce Growth
+duration: 9 months
 teamSize: 4
-category: "digital-marketing"
-services: ["digital-marketing"]
-publishDate: "2025-06-01"
+category: digital-marketing
+services:
+  - digital-marketing
+publishDate: '2025-06-01'
 featured: true
-challenge: |
-  A home-grown ethnic wear brand with a loyal local customer base wanted to scale nationally through e-commerce but had negligible online presence and zero digital marketing experience.
+challenge: >
+  A home-grown ethnic wear brand with a loyal local customer base wanted to
+  scale nationally through e-commerce but had negligible online presence and
+  zero digital marketing experience.
+
 
   **Digital Presence Gaps:**
+
   - Website receiving only 200 visitors per month with no SEO optimisation
+
   - Instagram account with 800 followers and sporadic posting
+
   - No Google Ads or social media advertising experience
+
   - Product photography not suited for online selling
 
-  **E-Commerce Challenges:**
-  - Only 5-10 online orders per month despite quality products
-  - No customer segmentation or email marketing
-  - High cart abandonment rate (82%) with no recovery strategy
-  - Competing against large marketplace brands with massive budgets
 
+  **E-Commerce Challenges:**
+
+  - Only 5-10 online orders per month despite quality products
+
+  - No customer segmentation or email marketing
+
+  - High cart abandonment rate (82%) with no recovery strategy
+
+  - Competing against large marketplace brands with massive budgets
 solution:
-  - "Redesigned e-commerce website with SEO-optimised product pages and blog content"
-  - "Built comprehensive Instagram and Facebook strategy with daily content calendar"
-  - "Launched targeted Google Ads and Meta Ads campaigns with ROAS tracking"
-  - "Partnered with 25+ micro-influencers for authentic brand promotion"
-  - "Implemented email marketing automation with cart recovery and post-purchase flows"
+  - >-
+    Redesigned e-commerce website with SEO-optimised product pages and blog
+    content
+  - >-
+    Built comprehensive Instagram and Facebook strategy with daily content
+    calendar
+  - Launched targeted Google Ads and Meta Ads campaigns with ROAS tracking
+  - Partnered with 25+ micro-influencers for authentic brand promotion
+  - >-
+    Implemented email marketing automation with cart recovery and post-purchase
+    flows
 results:
-  - label: "Online Revenue"
-    value: "450%"
-    improvement: "increased"
-    timeframe: "within 9 months"
-    icon: "💰"
-  - label: "Instagram Following"
-    value: "50,000+"
-    improvement: "grew from 800"
-    timeframe: "9 months"
-    icon: "📱"
-  - label: "Organic Traffic"
-    value: "800%"
-    improvement: "increased"
-    timeframe: "6 months"
-    icon: "📈"
-  - label: "Cart Abandonment"
-    value: "45%"
-    improvement: "reduced from 82%"
-    timeframe: "with email recovery"
-    icon: "🛒"
+  - label: Online Revenue
+    value: 450%
+    improvement: increased
+    timeframe: within 9 months
+    icon: "\U0001F4B0"
+  - label: Instagram Following
+    value: '50,000+'
+    improvement: grew from 800
+    timeframe: 9 months
+    icon: "\U0001F4F1"
+  - label: Organic Traffic
+    value: 800%
+    improvement: increased
+    timeframe: 6 months
+    icon: "\U0001F4C8"
+  - label: Cart Abandonment
+    value: 45%
+    improvement: reduced from 82%
+    timeframe: with email recovery
+    icon: "\U0001F6D2"
 testimonial:
-  quote: "I started stitching clothes from home. Dhīmahi turned my local brand into a national name. Our Instagram now drives more sales than our physical store. The influencer strategy was brilliant."
-  author: "Priya Vaghela"
-  position: "Founder"
-  company: "Vasstra by Priya"
+  quote: >-
+    I started stitching clothes from home. Dhīmahi turned my local brand into a
+    national name. Our Instagram now drives more sales than our physical store.
+    The influencer strategy was brilliant.
+  author: Priya Vaghela
+  position: Founder
+  company: Vasstra by Priya
 technologies:
-  - name: "Shopify"
-    category: "E-Commerce"
-  - name: "Google Ads"
-    category: "Advertising"
-  - name: "Meta Ads"
-    category: "Social Advertising"
-  - name: "Klaviyo"
-    category: "Email Marketing"
-  - name: "Google Analytics"
-    category: "Analytics"
-  - name: "Canva Pro"
-    category: "Content Creation"
+  - name: Shopify
+    category: E-Commerce
+  - name: Google Ads
+    category: Advertising
+  - name: Meta Ads
+    category: Social Advertising
+  - name: Klaviyo
+    category: Email Marketing
+  - name: Google Analytics
+    category: Analytics
+  - name: Canva Pro
+    category: Content Creation
 images:
-  - src: "/case-studies/ethnic-wear-before.png"
-    alt: "Basic product listing on old website"
-    type: "before"
-    caption: "200 monthly visitors with no engagement"
-  - src: "/case-studies/ethnic-wear-after.png"
-    alt: "Vibrant Instagram feed with high engagement posts"
-    type: "after"
-    caption: "Curated Instagram feed driving national brand awareness"
-  - src: "/case-studies/ethnic-wear-result.png"
-    alt: "E-commerce analytics showing revenue growth"
-    type: "result"
-    caption: "450% revenue growth in 9 months"
+  - src: /case-studies/ethnic-wear-ecommerce-growth-before.png
+    alt: Basic product listing on old website
+    type: before
+    caption: 200 monthly visitors with no engagement
+  - src: /case-studies/ethnic-wear-ecommerce-growth-after.png
+    alt: Vibrant Instagram feed with high engagement posts
+    type: after
+    caption: Curated Instagram feed driving national brand awareness
+  - src: /case-studies/ethnic-wear-ecommerce-growth-result.png
+    alt: E-commerce analytics showing revenue growth
+    type: result
+    caption: 450% revenue growth in 9 months
 ---
 
 ## Project Overview

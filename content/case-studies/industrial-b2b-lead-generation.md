@@ -1,91 +1,115 @@
 ---
-title: "Lead Generation System for B2B Industrial Supplier"
-excerpt: "Built a digital lead generation engine that generated 150+ qualified leads monthly, reducing cost per lead by 60% and growing B2B pipeline by ₹2.5 crore for an industrial equipment supplier."
+title: Lead Generation System for B2B Industrial Supplier
+excerpt: >-
+  Built a digital lead generation engine that generated 150+ qualified leads
+  monthly, reducing cost per lead by 60% and growing B2B pipeline by ₹2.5 crore
+  for an industrial equipment supplier.
 client:
-  name: "Gujarat Industrial Equipments"
-  industry: "Industrial Equipment"
-  size: "30-50 employees"
-  location: "Rajkot, Gujarat"
-projectType: "B2B Digital Marketing & Lead Generation"
-duration: "8 months"
+  name: Gujarat Industrial Equipments
+  industry: Industrial Equipment
+  size: 30-50 employees
+  location: 'Rajkot, Gujarat'
+projectType: B2B Digital Marketing & Lead Generation
+duration: 8 months
 teamSize: 3
-category: "digital-marketing"
-services: ["digital-marketing"]
-publishDate: "2025-04-01"
+category: digital-marketing
+services:
+  - digital-marketing
+publishDate: '2025-04-01'
 featured: false
-challenge: |
-  An industrial equipment supplier relied entirely on trade shows, cold calling, and referrals for new business. With declining trade show ROI and salesmen struggling to reach decision-makers, they needed a digital lead generation strategy.
+challenge: >
+  An industrial equipment supplier relied entirely on trade shows, cold calling,
+  and referrals for new business. With declining trade show ROI and salesmen
+  struggling to reach decision-makers, they needed a digital lead generation
+  strategy.
+
 
   **Marketing Challenges:**
-  - 90% of leads coming from trade shows (4 events/year) creating feast-or-famine pipeline
+
+  - 90% of leads coming from trade shows (4 events/year) creating
+  feast-or-famine pipeline
+
   - Cold calling yielding only 2% conversion rate
+
   - No website presence for products — buyers couldn't find them online
+
   - Competitors investing heavily in Google Ads capturing search demand
 
-  **Sales Process Gaps:**
-  - No lead nurturing — prospects either bought immediately or were forgotten
-  - No CRM — customer data scattered across individual salesperson notebooks
-  - Technical product specifications not accessible online
-  - No content demonstrating expertise to build buyer confidence
 
+  **Sales Process Gaps:**
+
+  - No lead nurturing — prospects either bought immediately or were forgotten
+
+  - No CRM — customer data scattered across individual salesperson notebooks
+
+  - Technical product specifications not accessible online
+
+  - No content demonstrating expertise to build buyer confidence
 solution:
-  - "Built product-focused website with detailed specifications and enquiry forms"
-  - "Launched Google Ads targeting high-intent industrial equipment searches"
-  - "Created technical content marketing strategy with case studies and whitepapers"
-  - "Implemented HubSpot CRM with automated lead scoring and nurturing"
-  - "Developed LinkedIn presence targeting procurement managers and plant engineers"
+  - Built product-focused website with detailed specifications and enquiry forms
+  - Launched Google Ads targeting high-intent industrial equipment searches
+  - >-
+    Created technical content marketing strategy with case studies and
+    whitepapers
+  - Implemented HubSpot CRM with automated lead scoring and nurturing
+  - >-
+    Developed LinkedIn presence targeting procurement managers and plant
+    engineers
 results:
-  - label: "Monthly Leads"
-    value: "150+"
-    improvement: "qualified leads"
-    timeframe: "by month 6"
-    icon: "📈"
-  - label: "Cost Per Lead"
-    value: "60%"
-    improvement: "reduced"
-    timeframe: "vs trade shows"
-    icon: "💰"
-  - label: "Sales Pipeline"
-    value: "₹2.5 Cr"
-    improvement: "built"
-    timeframe: "within 8 months"
-    icon: "🏭"
-  - label: "Website Traffic"
-    value: "1,200%"
-    improvement: "increased"
-    timeframe: "organic + paid"
-    icon: "🌐"
+  - label: Monthly Leads
+    value: 150+
+    improvement: qualified leads
+    timeframe: by month 6
+    icon: "\U0001F4C8"
+  - label: Cost Per Lead
+    value: 60%
+    improvement: reduced
+    timeframe: vs trade shows
+    icon: "\U0001F4B0"
+  - label: Sales Pipeline
+    value: ₹2.5 Cr
+    improvement: built
+    timeframe: within 8 months
+    icon: "\U0001F3ED"
+  - label: Website Traffic
+    value: '1,200%'
+    improvement: increased
+    timeframe: organic + paid
+    icon: "\U0001F310"
 testimonial:
-  quote: "We used to depend entirely on trade shows for leads. Now our website and Google Ads generate more qualified prospects in a month than we used to get in a quarter. The CRM has transformed how our sales team operates."
-  author: "Kamlesh Jadeja"
-  position: "Sales Director"
-  company: "Gujarat Industrial Equipments"
+  quote: >-
+    We used to depend entirely on trade shows for leads. Now our website and
+    Google Ads generate more qualified prospects in a month than we used to get
+    in a quarter. The CRM has transformed how our sales team operates.
+  author: Kamlesh Jadeja
+  position: Sales Director
+  company: Gujarat Industrial Equipments
 technologies:
-  - name: "WordPress"
-    category: "Website"
-  - name: "Google Ads"
-    category: "PPC"
-  - name: "HubSpot"
-    category: "CRM & Marketing"
-  - name: "LinkedIn Ads"
-    category: "B2B Advertising"
-  - name: "Google Analytics"
-    category: "Analytics"
-  - name: "Semrush"
-    category: "SEO Tools"
+  - name: WordPress
+    category: Website
+  - name: Google Ads
+    category: PPC
+  - name: HubSpot
+    category: CRM & Marketing
+  - name: LinkedIn Ads
+    category: B2B Advertising
+  - name: Google Analytics
+    category: Analytics
+  - name: Semrush
+    category: SEO Tools
 images:
-  - src: "/case-studies/industrial-b2b-before.png"
-    alt: "Traditional printed product brochure"
-    type: "before"
-    caption: "Traditional marketing with printed brochures"
-  - src: "/case-studies/industrial-b2b-after.png"
-    alt: "Modern product catalogue website with enquiry forms"
-    type: "after"
-    caption: "Digital product catalogue generating qualified leads"
-  - src: "/case-studies/industrial-b2b-result.png"
-    alt: "HubSpot CRM pipeline showing lead stages"
-    type: "result"
-    caption: "₹2.5 crore pipeline tracked in HubSpot CRM"
+  - src: /case-studies/industrial-b2b-lead-generation-before.png
+    alt: Traditional printed product brochure
+    type: before
+    caption: Traditional marketing with printed brochures
+  - src: /case-studies/industrial-b2b-lead-generation-after.png
+    alt: Modern product catalogue website with enquiry forms
+    type: after
+    caption: Digital product catalogue generating qualified leads
+  - src: /case-studies/industrial-b2b-lead-generation-result.png
+    alt: HubSpot CRM pipeline showing lead stages
+    type: result
+    caption: ₹2.5 crore pipeline tracked in HubSpot CRM
 ---
 
 ## Project Overview

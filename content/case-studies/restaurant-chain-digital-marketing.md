@@ -1,91 +1,112 @@
 ---
-title: "Digital Marketing Transformation for Multi-Location Restaurant Chain"
-excerpt: "Increased online orders by 300% and customer engagement by 250% through comprehensive digital marketing strategy for a popular Gujarati restaurant chain."
+title: Digital Marketing Transformation for Multi-Location Restaurant Chain
+excerpt: >-
+  Increased online orders by 300% and customer engagement by 250% through
+  comprehensive digital marketing strategy for a popular Gujarati restaurant
+  chain.
 client:
-  name: "Swad Restaurant Group"
-  industry: "Food & Hospitality"
-  size: "50-100 employees"
-  location: "Ahmedabad & Gandhinagar"
-projectType: "Digital Marketing & Brand Development"
-duration: "12 months"
+  name: Swad Restaurant Group
+  industry: Food & Hospitality
+  size: 50-100 employees
+  location: Ahmedabad & Gandhinagar
+projectType: Digital Marketing & Brand Development
+duration: 12 months
 teamSize: 4
-category: "digital-marketing"
-services: ["digital-marketing", "application-portfolio-rationalisation"]
-publishDate: "2024-02-20"
+category: digital-marketing
+services:
+  - digital-marketing
+  - application-portfolio-rationalisation
+publishDate: '2024-02-20'
 featured: true
-challenge: |
-  Traditional restaurant chain with 5 locations struggling with low online visibility, declining foot traffic post-COVID, and inability to compete with food delivery platforms and modern restaurants.
+challenge: >
+  Traditional restaurant chain with 5 locations struggling with low online
+  visibility, declining foot traffic post-COVID, and inability to compete with
+  food delivery platforms and modern restaurants.
+
 
   **Online Presence Issues:**
+
   - Minimal social media presence with inconsistent posting
+
   - Poor Google My Business optimization affecting local search visibility
+
   - Outdated website that wasn't mobile-friendly or conversion-optimized
+
   - No online ordering system losing customers to delivery platforms
 
-  **Marketing Challenges:**
-  - Traditional marketing approach not reaching younger demographics
-  - Inconsistent brand messaging across locations
-  - Limited customer data for targeted marketing
-  - High dependency on walk-in traffic which declined significantly
 
+  **Marketing Challenges:**
+
+  - Traditional marketing approach not reaching younger demographics
+
+  - Inconsistent brand messaging across locations
+
+  - Limited customer data for targeted marketing
+
+  - High dependency on walk-in traffic which declined significantly
 solution:
-  - "Developed comprehensive digital marketing strategy with local SEO focus"
-  - "Created engaging social media presence across Instagram, Facebook, and Google My Business"
-  - "Implemented online ordering system with delivery integration"
-  - "Launched targeted advertising campaigns for each location"
-  - "Built customer loyalty program with mobile app integration"
+  - Developed comprehensive digital marketing strategy with local SEO focus
+  - >-
+    Created engaging social media presence across Instagram, Facebook, and
+    Google My Business
+  - Implemented online ordering system with delivery integration
+  - Launched targeted advertising campaigns for each location
+  - Built customer loyalty program with mobile app integration
 results:
-  - label: "Online Orders"
-    value: "300%"
-    improvement: "increased"
-    timeframe: "within 8 months"
-    icon: "📱"
-  - label: "Social Media Engagement"
-    value: "250%"
-    improvement: "increased"
-    timeframe: "6 months"
-    icon: "❤️"
-  - label: "Google Reviews"
-    value: "4.8/5"
-    improvement: "improved from 3.2/5"
-    timeframe: "ongoing"
-    icon: "⭐"
-  - label: "Monthly Revenue"
-    value: "180%"
-    improvement: "increased"
-    timeframe: "12 months"
-    icon: "💰"
+  - label: Online Orders
+    value: 300%
+    improvement: increased
+    timeframe: within 8 months
+    icon: "\U0001F4F1"
+  - label: Social Media Engagement
+    value: 250%
+    improvement: increased
+    timeframe: 6 months
+    icon: ❤️
+  - label: Google Reviews
+    value: 4.8/5
+    improvement: improved from 3.2/5
+    timeframe: ongoing
+    icon: ⭐
+  - label: Monthly Revenue
+    value: 180%
+    improvement: increased
+    timeframe: 12 months
+    icon: "\U0001F4B0"
 testimonial:
-  quote: "Our restaurants were struggling after COVID, but Dhīmahi's digital strategy brought us back stronger than ever. We're now the top-rated Gujarati restaurant chain in Ahmedabad!"
-  author: "Meera Shah"
-  position: "Owner & Managing Director"
-  company: "Swad Restaurant Group"
+  quote: >-
+    Our restaurants were struggling after COVID, but Dhīmahi's digital strategy
+    brought us back stronger than ever. We're now the top-rated Gujarati
+    restaurant chain in Ahmedabad!
+  author: Meera Shah
+  position: Owner & Managing Director
+  company: Swad Restaurant Group
 technologies:
-  - name: "WordPress"
-    category: "Website Platform"
-  - name: "WooCommerce"
-    category: "E-commerce"
-  - name: "Google Ads"
-    category: "Advertising"
-  - name: "Facebook Ads"
-    category: "Social Media"
-  - name: "Google Analytics"
-    category: "Analytics"
-  - name: "Zomato/Swiggy APIs"
-    category: "Integration"
+  - name: WordPress
+    category: Website Platform
+  - name: WooCommerce
+    category: E-commerce
+  - name: Google Ads
+    category: Advertising
+  - name: Facebook Ads
+    category: Social Media
+  - name: Google Analytics
+    category: Analytics
+  - name: Zomato/Swiggy APIs
+    category: Integration
 images:
-  - src: "/case-studies/restaurant-chain-before.png"
-    alt: "Basic social media presence before digital transformation"
-    type: "before"
-    caption: "Limited social media presence with low engagement"
-  - src: "/case-studies/restaurant-chain-after.png"
-    alt: "Vibrant social media presence with high engagement"
-    type: "after"
-    caption: "Engaging social media content driving customer interaction"
-  - src: "/case-studies/restaurant-chain-result.png"
-    alt: "Digital marketing analytics dashboard"
-    type: "result"
-    caption: "Comprehensive analytics showing growth across all channels"
+  - src: /case-studies/restaurant-chain-digital-marketing-before.png
+    alt: Basic social media presence before digital transformation
+    type: before
+    caption: Limited social media presence with low engagement
+  - src: /case-studies/restaurant-chain-digital-marketing-after.png
+    alt: Vibrant social media presence with high engagement
+    type: after
+    caption: Engaging social media content driving customer interaction
+  - src: /case-studies/restaurant-chain-digital-marketing-result.png
+    alt: Digital marketing analytics dashboard
+    type: result
+    caption: Comprehensive analytics showing growth across all channels
 ---
 
 ## Project Overview

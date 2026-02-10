@@ -1,91 +1,109 @@
 ---
-title: "Automated Invoice Processing for Trading Company"
-excerpt: "Implemented AI-powered invoice processing that reduced manual data entry by 90% and processing time from 3 days to 4 hours for a commodity trading company handling 2,000+ invoices monthly."
+title: Automated Invoice Processing for Trading Company
+excerpt: >-
+  Implemented AI-powered invoice processing that reduced manual data entry by
+  90% and processing time from 3 days to 4 hours for a commodity trading company
+  handling 2,000+ invoices monthly.
 client:
-  name: "Gujarat Commodity Traders Pvt Ltd"
-  industry: "Commodity Trading"
-  size: "50-80 employees"
-  location: "Rajkot, Gujarat"
-projectType: "AI Document Processing & Workflow Automation"
-duration: "6 weeks"
+  name: Gujarat Commodity Traders Pvt Ltd
+  industry: Commodity Trading
+  size: 50-80 employees
+  location: 'Rajkot, Gujarat'
+projectType: AI Document Processing & Workflow Automation
+duration: 6 weeks
 teamSize: 3
-category: "ai-automation"
-services: ["ai-automation"]
-publishDate: "2025-03-10"
+category: ai-automation
+services:
+  - ai-automation
+publishDate: '2025-03-10'
 featured: true
-challenge: |
-  A commodity trading company processing 2,000+ purchase and sales invoices monthly was entirely dependent on manual data entry, causing delays, errors, and reconciliation nightmares.
+challenge: >
+  A commodity trading company processing 2,000+ purchase and sales invoices
+  monthly was entirely dependent on manual data entry, causing delays, errors,
+  and reconciliation nightmares.
+
 
   **Manual Processing Pain:**
+
   - 2,000+ invoices monthly from 300+ suppliers in varying formats
+
   - 5 data entry operators manually keying invoice details into Tally
+
   - 8-12% error rate requiring extensive reconciliation
+
   - 3-day average processing time per invoice batch
 
-  **Financial Impact:**
-  - ₹4 lakhs monthly in corrections and reconciliation effort
-  - Frequent payment delays straining supplier relationships
-  - GST input credit claims delayed due to manual matching
-  - Month-end closing extended by 5+ days due to pending invoices
 
+  **Financial Impact:**
+
+  - ₹4 lakhs monthly in corrections and reconciliation effort
+
+  - Frequent payment delays straining supplier relationships
+
+  - GST input credit claims delayed due to manual matching
+
+  - Month-end closing extended by 5+ days due to pending invoices
 solution:
-  - "Developed AI-powered OCR system trained on 50+ invoice formats"
-  - "Built intelligent data extraction pipeline with validation rules"
-  - "Created automated Tally integration for seamless posting"
-  - "Implemented exception handling workflow for ambiguous entries"
-  - "Built reconciliation dashboard for real-time processing status"
+  - Developed AI-powered OCR system trained on 50+ invoice formats
+  - Built intelligent data extraction pipeline with validation rules
+  - Created automated Tally integration for seamless posting
+  - Implemented exception handling workflow for ambiguous entries
+  - Built reconciliation dashboard for real-time processing status
 results:
-  - label: "Manual Entry Reduction"
-    value: "90%"
-    improvement: "eliminated"
-    timeframe: "immediate"
-    icon: "⚡"
-  - label: "Processing Time"
-    value: "4 hours"
-    improvement: "reduced from 3 days"
-    timeframe: "per batch"
-    icon: "⏱️"
-  - label: "Error Rate"
-    value: "0.5%"
-    improvement: "reduced from 8-12%"
-    timeframe: "ongoing"
-    icon: "🎯"
-  - label: "Monthly Savings"
-    value: "₹3.5L"
-    improvement: "operational cost"
-    timeframe: "recurring"
-    icon: "💰"
+  - label: Manual Entry Reduction
+    value: 90%
+    improvement: eliminated
+    timeframe: immediate
+    icon: ⚡
+  - label: Processing Time
+    value: 4 hours
+    improvement: reduced from 3 days
+    timeframe: per batch
+    icon: ⏱️
+  - label: Error Rate
+    value: 0.5%
+    improvement: reduced from 8-12%
+    timeframe: ongoing
+    icon: "\U0001F3AF"
+  - label: Monthly Savings
+    value: ₹3.5L
+    improvement: operational cost
+    timeframe: recurring
+    icon: "\U0001F4B0"
 testimonial:
-  quote: "We used to dread invoice processing day. Now the AI handles 90% of it automatically. What took 3 days happens in 4 hours, and our error rate dropped from 12% to nearly zero."
-  author: "Suresh Gajera"
-  position: "Finance Manager"
-  company: "Gujarat Commodity Traders Pvt Ltd"
+  quote: >-
+    We used to dread invoice processing day. Now the AI handles 90% of it
+    automatically. What took 3 days happens in 4 hours, and our error rate
+    dropped from 12% to nearly zero.
+  author: Suresh Gajera
+  position: Finance Manager
+  company: Gujarat Commodity Traders Pvt Ltd
 technologies:
-  - name: "Google Cloud Vision"
-    category: "OCR"
-  - name: "Python"
-    category: "Backend"
-  - name: "TensorFlow"
-    category: "ML Framework"
-  - name: "Tally Prime API"
-    category: "Accounting Integration"
-  - name: "React"
-    category: "Frontend"
-  - name: "PostgreSQL"
-    category: "Database"
+  - name: Google Cloud Vision
+    category: OCR
+  - name: Python
+    category: Backend
+  - name: TensorFlow
+    category: ML Framework
+  - name: Tally Prime API
+    category: Accounting Integration
+  - name: React
+    category: Frontend
+  - name: PostgreSQL
+    category: Database
 images:
-  - src: "/case-studies/trading-company-before.png"
-    alt: "Stack of paper invoices awaiting manual processing"
-    type: "before"
-    caption: "2,000+ invoices processed manually each month"
-  - src: "/case-studies/trading-company-after.png"
-    alt: "AI extracting data from invoice with highlighted fields"
-    type: "after"
-    caption: "AI automatically extracting invoice data"
-  - src: "/case-studies/trading-company-result.png"
-    alt: "Real-time invoice processing dashboard"
-    type: "result"
-    caption: "Real-time processing status and reconciliation"
+  - src: /case-studies/trading-company-invoice-automation-before.png
+    alt: Stack of paper invoices awaiting manual processing
+    type: before
+    caption: '2,000+ invoices processed manually each month'
+  - src: /case-studies/trading-company-invoice-automation-after.png
+    alt: AI extracting data from invoice with highlighted fields
+    type: after
+    caption: AI automatically extracting invoice data
+  - src: /case-studies/trading-company-invoice-automation-result.png
+    alt: Real-time invoice processing dashboard
+    type: result
+    caption: Real-time processing status and reconciliation
 ---
 
 ## Project Overview

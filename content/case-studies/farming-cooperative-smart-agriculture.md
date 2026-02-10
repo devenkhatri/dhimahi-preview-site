@@ -1,91 +1,117 @@
 ---
-title: "Smart Agriculture Monitoring System for Farming Cooperative"
-excerpt: "Deployed IoT sensors and AI-powered crop health monitoring across 500 acres, reducing water usage by 30% and increasing yield by 22% for a farming cooperative."
+title: Smart Agriculture Monitoring System for Farming Cooperative
+excerpt: >-
+  Deployed IoT sensors and AI-powered crop health monitoring across 500 acres,
+  reducing water usage by 30% and increasing yield by 22% for a farming
+  cooperative.
 client:
-  name: "Kisan Sahkari Mandli"
-  industry: "Agriculture"
-  size: "200+ member farmers"
-  location: "Anand, Gujarat"
-projectType: "IoT & AI-Powered Smart Agriculture"
-duration: "12 weeks"
+  name: Kisan Sahkari Mandli
+  industry: Agriculture
+  size: 200+ member farmers
+  location: 'Anand, Gujarat'
+projectType: IoT & AI-Powered Smart Agriculture
+duration: 12 weeks
 teamSize: 5
-category: "ai-automation"
-services: ["ai-automation"]
-publishDate: "2025-01-25"
+category: ai-automation
+services:
+  - ai-automation
+publishDate: '2025-01-25'
 featured: true
-challenge: |
-  A farming cooperative with 200+ members cultivating 500+ acres faced unpredictable crop yields, excessive water consumption, and inability to detect crop diseases early, leading to significant losses each season.
+challenge: >
+  A farming cooperative with 200+ members cultivating 500+ acres faced
+  unpredictable crop yields, excessive water consumption, and inability to
+  detect crop diseases early, leading to significant losses each season.
+
 
   **Agricultural Challenges:**
+
   - Traditional irrigation causing 40% water wastage through over-watering
+
   - Crop diseases detected only after visible damage, losing 15-25% of yield
+
   - No soil health data for informed fertiliser decisions
+
   - Weather unpredictability without localised forecasting
 
-  **Economic Impact:**
-  - Average 20% yield loss due to diseases and poor water management
-  - ₹15 lakhs annual fertiliser over-spend due to blanket application
-  - Individual farmers unable to afford precision agriculture technology
-  - No data-driven decision support for crop selection or timing
 
+  **Economic Impact:**
+
+  - Average 20% yield loss due to diseases and poor water management
+
+  - ₹15 lakhs annual fertiliser over-spend due to blanket application
+
+  - Individual farmers unable to afford precision agriculture technology
+
+  - No data-driven decision support for crop selection or timing
 solution:
-  - "Deployed 150 IoT soil sensors across 500 acres monitoring moisture, pH, and nutrients"
-  - "Built AI model for crop disease detection using drone imagery and satellite data"
-  - "Created automated irrigation scheduling optimising water usage by field conditions"
-  - "Developed mobile app with Gujarati interface for farmer-friendly alerts and recommendations"
-  - "Implemented weather prediction integration for localised farming advisories"
+  - >-
+    Deployed 150 IoT soil sensors across 500 acres monitoring moisture, pH, and
+    nutrients
+  - >-
+    Built AI model for crop disease detection using drone imagery and satellite
+    data
+  - >-
+    Created automated irrigation scheduling optimising water usage by field
+    conditions
+  - >-
+    Developed mobile app with Gujarati interface for farmer-friendly alerts and
+    recommendations
+  - Implemented weather prediction integration for localised farming advisories
 results:
-  - label: "Water Savings"
-    value: "30%"
-    improvement: "reduced usage"
-    timeframe: "first growing season"
-    icon: "💧"
-  - label: "Crop Yield"
-    value: "22%"
-    improvement: "increased"
-    timeframe: "first harvest cycle"
-    icon: "🌾"
-  - label: "Disease Detection"
-    value: "5-7 days"
-    improvement: "early warning"
-    timeframe: "before visible symptoms"
-    icon: "🔍"
-  - label: "Fertiliser Savings"
-    value: "₹8L"
-    improvement: "annual reduction"
-    timeframe: "across cooperative"
-    icon: "💰"
+  - label: Water Savings
+    value: 30%
+    improvement: reduced usage
+    timeframe: first growing season
+    icon: "\U0001F4A7"
+  - label: Crop Yield
+    value: 22%
+    improvement: increased
+    timeframe: first harvest cycle
+    icon: "\U0001F33E"
+  - label: Disease Detection
+    value: 5-7 days
+    improvement: early warning
+    timeframe: before visible symptoms
+    icon: "\U0001F50D"
+  - label: Fertiliser Savings
+    value: ₹8L
+    improvement: annual reduction
+    timeframe: across cooperative
+    icon: "\U0001F4B0"
 testimonial:
-  quote: "Technology has changed how we farm. The sensors tell us exactly when and how much to water. The disease alerts have saved entire crop sections. Our farmers are earning more while using less resources."
-  author: "Mukeshbhai Patel"
-  position: "Chairman"
-  company: "Kisan Sahkari Mandli"
+  quote: >-
+    Technology has changed how we farm. The sensors tell us exactly when and how
+    much to water. The disease alerts have saved entire crop sections. Our
+    farmers are earning more while using less resources.
+  author: Mukeshbhai Patel
+  position: Chairman
+  company: Kisan Sahkari Mandli
 technologies:
-  - name: "IoT Sensors"
-    category: "Hardware"
-  - name: "LoRaWAN"
-    category: "Connectivity"
-  - name: "TensorFlow"
-    category: "ML Framework"
-  - name: "Satellite Imagery"
-    category: "Remote Sensing"
-  - name: "React Native"
-    category: "Mobile App"
-  - name: "AWS IoT"
-    category: "Cloud Platform"
+  - name: IoT Sensors
+    category: Hardware
+  - name: LoRaWAN
+    category: Connectivity
+  - name: TensorFlow
+    category: ML Framework
+  - name: Satellite Imagery
+    category: Remote Sensing
+  - name: React Native
+    category: Mobile App
+  - name: AWS IoT
+    category: Cloud Platform
 images:
-  - src: "/case-studies/farming-coop-before.png"
-    alt: "Traditional flood irrigation in agricultural field"
-    type: "before"
-    caption: "Traditional irrigation wasting 40% of water"
-  - src: "/case-studies/farming-coop-after.png"
-    alt: "IoT soil sensors deployed across farming fields"
-    type: "after"
-    caption: "IoT sensors monitoring soil conditions in real-time"
-  - src: "/case-studies/farming-coop-result.png"
-    alt: "Farmer using mobile app with crop health dashboard"
-    type: "result"
-    caption: "Mobile app providing actionable farming insights in Gujarati"
+  - src: /case-studies/farming-cooperative-before.png
+    alt: Traditional flood irrigation in agricultural field
+    type: before
+    caption: Traditional irrigation wasting 40% of water
+  - src: /case-studies/farming-cooperative-after.png
+    alt: IoT soil sensors deployed across farming fields
+    type: after
+    caption: IoT sensors monitoring soil conditions in real-time
+  - src: /case-studies/farming-cooperative-result.png
+    alt: Farmer using mobile app with crop health dashboard
+    type: result
+    caption: Mobile app providing actionable farming insights in Gujarati
 ---
 
 ## Project Overview
