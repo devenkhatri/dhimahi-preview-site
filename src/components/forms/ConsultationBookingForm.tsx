@@ -41,7 +41,7 @@ const CONSULTATION_TYPES = [
   { value: "general", label: "General IT Consultation" },
   { value: "ai-automation", label: "AI & Automation" },
   { value: "digital-marketing", label: "Digital Marketing" },
-  { value: "web-development", label: "Web Development" },
+  { value: "application-portfolio-rationalisation", label: "Application Portfolio Rationalisation" },
   { value: "fractional-cto", label: "Fractional CTO Services" },
 ];
 
@@ -52,9 +52,9 @@ const URGENCY_LEVELS = [
   { value: "exploring", label: "Just exploring options" },
 ];
 
-export default function ConsultationBookingForm({ 
+export default function ConsultationBookingForm({
   onSubmit,
-  className = "" 
+  className = ""
 }: ConsultationBookingFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { startTracking, trackFieldInteraction, trackCompletion, trackAbandonment } = useFormTracking(
@@ -278,8 +278,8 @@ export default function ConsultationBookingForm({
             Consultation Booked!
           </h2>
           <p className="text-gray-600 mb-6">
-            Thank you for booking a consultation with us. We'll review your information and 
-            confirm your appointment within 2 hours. You'll receive a calendar invite with 
+            Thank you for booking a consultation with us. We'll review your information and
+            confirm your appointment within 2 hours. You'll receive a calendar invite with
             meeting details.
           </p>
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">

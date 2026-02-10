@@ -66,15 +66,15 @@ servicesOverview:
         Content Marketing
       icon: growth
       link: /services/digital-marketing
-    - title: Web Development
+    - title: Application Portfolio Rationalisation
       description: |-
-        Custom Website Design & Development
+        Technology Landscape Assessment
 
-        E-Commerce Solutions
+        Cost Optimization & Consolidation
 
-        CMS Implementation (WordPress, Shopify, WooCommerce)
+        AI Integration Opportunity Mapping
       icon: compass
-      link: /services/web-development
+      link: /services/application-portfolio-rationalisation
 whyChooseUs:
   title: Why Choose Dhīmahi Technolabs?
   subtitle: With 25+ years of IT expertise, we help SMEs take smarter digital

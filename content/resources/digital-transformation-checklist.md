@@ -5,7 +5,7 @@ type: "checklist"
 fileSize: "4.1 MB"
 pages: 13
 downloadUrl: "/uploads/resources/Dhimahi - Digital Transformation Checklist for SMEs.pdf"
-featured: true
+featured: false
 order: 1
 publishDate: "2024-01-15"
 tags: ["digital-transformation", "sme", "checklist", "ai", "automation"]

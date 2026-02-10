@@ -1,10 +1,10 @@
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import * as yaml from 'js-yaml';
-import { 
-  validateEmail, 
-  validatePhone, 
-  validateUrl, 
+import {
+  validateEmail,
+  validatePhone,
+  validateUrl,
   validateSocialMediaUrl,
   validateBusinessHours,
   validateTimezone,
@@ -110,37 +110,36 @@ function extractCompanyName(siteTitle: string): string {
 
 function validateAndEnhanceSettings(rawSettings: any): GeneralSettings {
   let validationIssues = 0;
-  
+
   // Validate and build brand settings with comprehensive validation
-  const companyName = rawSettings.brand?.companyName || 
-                     extractCompanyName(rawSettings.siteTitle || '') || 
-                     (() => {
-                       settingsLogger.fallbackUsed('brand.companyName', rawSettings.brand?.companyName, 'Dhīmahi Technolabs', 'Missing company name');
-                       validationIssues++;
-                       return 'Dhīmahi Technolabs';
-                     })();
+  const companyName = rawSettings.brand?.companyName ||
+    extractCompanyName(rawSettings.siteTitle || '') ||
+    (() => {
+      settingsLogger.fallbackUsed('brand.companyName', rawSettings.brand?.companyName, 'Dhīmahi Technolabs', 'Missing company name');
+      validationIssues++;
+      return 'Dhīmahi Technolabs';
+    })();
 
-  const tagline = rawSettings.brand?.tagline || 
-                 (() => {
-                   settingsLogger.fallbackUsed('brand.tagline', rawSettings.brand?.tagline, 'Future-Ready IT Solutions', 'Missing tagline');
-                   validationIssues++;
-                   return 'Future-Ready IT Solutions';
-                 })();
+  const tagline = rawSettings.brand?.tagline ||
+    (() => {
+      settingsLogger.fallbackUsed('brand.tagline', rawSettings.brand?.tagline, 'Future-Ready IT Solutions', 'Missing tagline');
+      validationIssues++;
+      return 'Future-Ready IT Solutions';
+    })();
 
-  const description = rawSettings.brand?.description || 
-                     rawSettings.siteDescription || 
-                     (() => {
-                       settingsLogger.fallbackUsed('brand.description', rawSettings.brand?.description, 'Default description', 'Missing description');
-                       validationIssues++;
-                       return 'Transform your SME with AI automation, digital marketing, and smart IT strategy.';
-                     })();
+  const description = rawSettings.brand?.description ||
+    rawSettings.siteDescription ||
+    (() => {
+      settingsLogger.fallbackUsed('brand.description', rawSettings.brand?.description, 'Default description', 'Missing description');
+      validationIssues++;
+      return 'Transform your SME with AI automation, digital marketing, and smart IT strategy.';
+    })();
 
-  // Validate years of experience if provided
+  // Validate years of experience if provided (this is a count, not a calendar year)
   let yearsOfExperience = rawSettings.brand?.yearsOfExperience;
   if (yearsOfExperience !== undefined) {
-    const yearValidation = validateYear(yearsOfExperience);
-    if (!yearValidation.isValid) {
-      settingsLogger.validationFailure('brand.yearsOfExperience', yearsOfExperience, yearValidation.error || 'Invalid year');
+    if (typeof yearsOfExperience !== 'number' || yearsOfExperience < 0 || yearsOfExperience > 200) {
+      settingsLogger.validationFailure('brand.yearsOfExperience', yearsOfExperience, 'Years of experience must be a number between 0 and 200');
       yearsOfExperience = undefined;
       validationIssues++;
     }
@@ -158,12 +157,12 @@ function validateAndEnhanceSettings(rawSettings: any): GeneralSettings {
   };
 
   // Validate and build location settings with comprehensive validation
-  const primaryLocation = rawSettings.location?.primaryLocation || 
-                         (() => {
-                           settingsLogger.fallbackUsed('location.primaryLocation', rawSettings.location?.primaryLocation, 'Ahmedabad & Gandhinagar', 'Missing primary location');
-                           validationIssues++;
-                           return 'Ahmedabad & Gandhinagar';
-                         })();
+  const primaryLocation = rawSettings.location?.primaryLocation ||
+    (() => {
+      settingsLogger.fallbackUsed('location.primaryLocation', rawSettings.location?.primaryLocation, 'Ahmedabad & Gandhinagar', 'Missing primary location');
+      validationIssues++;
+      return 'Ahmedabad & Gandhinagar';
+    })();
 
   let serviceAreas = rawSettings.location?.serviceAreas;
   if (serviceAreas !== undefined) {
@@ -181,13 +180,13 @@ function validateAndEnhanceSettings(rawSettings: any): GeneralSettings {
     validationIssues++;
   }
 
-  const fullAddress = rawSettings.location?.fullAddress || 
-                     rawSettings.address || 
-                     (() => {
-                       settingsLogger.fallbackUsed('location.fullAddress', rawSettings.location?.fullAddress, 'Default address', 'Missing full address');
-                       validationIssues++;
-                       return 'Dhīmahi Technolabs\nGandhinagar, Gujarat, India';
-                     })();
+  const fullAddress = rawSettings.location?.fullAddress ||
+    rawSettings.address ||
+    (() => {
+      settingsLogger.fallbackUsed('location.fullAddress', rawSettings.location?.fullAddress, 'Default address', 'Missing full address');
+      validationIssues++;
+      return 'Dhīmahi Technolabs\nGandhinagar, Gujarat, India';
+    })();
 
   const locationSettings: LocationSettings = {
     primaryLocation,
@@ -294,7 +293,7 @@ function validateAndEnhanceSettings(rawSettings: any): GeneralSettings {
   let business = rawSettings.business;
   if (business && typeof business === 'object') {
     const validatedBusiness: BusinessSettings = { ...business };
-    
+
     if (business.foundedYear !== undefined) {
       const yearValidation = validateYear(business.foundedYear);
       if (!yearValidation.isValid) {
@@ -331,7 +330,7 @@ function validateAndEnhanceSettings(rawSettings: any): GeneralSettings {
   let seo = rawSettings.seo;
   if (seo && typeof seo === 'object') {
     const validatedSeo: SEOSettings = { ...seo };
-    
+
     if (seo.keywords !== undefined) {
       const keywordsValidation = validateStringArray(seo.keywords, 'seo.keywords', 0, 100);
       if (!keywordsValidation.isValid) {
@@ -369,7 +368,7 @@ function validateAndEnhanceSettings(rawSettings: any): GeneralSettings {
     socialMedia,
     business,
     seo,
-    
+
     // Legacy fields for backward compatibility
     contactEmail: contactSettings.primaryEmail,
     phone: contactSettings.phone,
@@ -419,7 +418,7 @@ function getFallbackSettings(): GeneralSettings {
       website: 'https://www.dhimahitechnolabs.com'
     },
     seo: {
-      keywords: ['IT consulting', 'AI automation', 'digital marketing', 'web development', 'SME solutions', 'Gujarat', 'Ahmedabad', 'Gandhinagar'],
+      keywords: ['IT consulting', 'AI automation', 'digital marketing', 'application portfolio rationalisation', 'SME solutions', 'Gujarat', 'Ahmedabad', 'Gandhinagar'],
       targetAudience: 'Small and Medium Enterprises (SMEs)',
       primaryMarkets: ['Gujarat', 'India']
     },
@@ -437,7 +436,7 @@ export function getGeneralSettings(): GeneralSettings {
 
   try {
     const settingsPath = join(process.cwd(), 'content/settings/general.yml');
-    
+
     // Check if file exists and read contents
     let fileContents: string;
     try {
@@ -471,7 +470,7 @@ export function getGeneralSettings(): GeneralSettings {
       cachedSettings = fallbackSettings;
       return fallbackSettings;
     }
-    
+
     // Validate and enhance settings with comprehensive error handling
     try {
       const enhancedSettings = validateAndEnhanceSettings(rawSettings);
@@ -539,10 +538,10 @@ export function getSettingsHealth(): {
   lastUpdated: string;
 } {
   const summary = settingsLogger.getErrorSummary(new Date(Date.now() - 24 * 60 * 60 * 1000)); // Last 24 hours
-  const isUsingFallback = cachedSettings === null || settingsLogger.getLogs('WARN').some(log => 
+  const isUsingFallback = cachedSettings === null || settingsLogger.getLogs('WARN').some(log =>
     log.message.includes('complete fallback settings')
   );
-  
+
   let status: 'healthy' | 'degraded' | 'unhealthy' = 'healthy';
   if (summary.totalErrors > 0) {
     status = 'unhealthy';

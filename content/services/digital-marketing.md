@@ -5,6 +5,7 @@ excerpt: "Comprehensive digital marketing strategies including SEO, social media
 order: 2
 timeline: "3-6 months for results"
 startingPrice: "Starting from ₹15,000/month"
+serviceGuide: "/uploads/resources/Dhimahi - Digital Transformation Checklist for SMEs.pdf"
 features:
   - "Search Engine Optimization (SEO)"
   - "Social Media Marketing (SMM)"

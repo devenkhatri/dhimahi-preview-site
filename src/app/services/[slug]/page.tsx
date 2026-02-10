@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props) {
     const { slug } = await params;
     const service = await getCMSServiceData(slug);
     const canonicalUrl = `https://www.dhimahitechnolabs.com/services/${slug}`;
-    
+
     return generateSEOMetadata({
       title: `${service.title} Services`,
       description: service.excerpt,
@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: Props) {
 export default async function ServicePage({ params }: Props) {
   let service;
   const { slug } = await params;
-  
+
   try {
     service = await getCMSServiceData(slug);
   } catch {
@@ -125,67 +125,73 @@ export default async function ServicePage({ params }: Props) {
       )}
 
       <main className="py-16">
-      <div className="container mx-auto px-4 max-w-4xl">
-        {/* Breadcrumb */}
-        <nav className="mb-8">
-          <Link href="/services" className="text-primary hover:underline">Services</Link>
-          <span className="mx-2 text-gray-400">/</span>
-          <span className="text-gray-600">{service.title}</span>
-        </nav>
+        <div className="container mx-auto px-4 max-w-4xl">
+          {/* Breadcrumb */}
+          <nav className="mb-8">
+            <Link href="/services" className="text-primary hover:underline">Services</Link>
+            <span className="mx-2 text-gray-400">/</span>
+            <span className="text-gray-600">{service.title}</span>
+          </nav>
 
-        {/* Header */}
-        <div className="text-center mb-12">
-          <div className="text-6xl mb-4">{service.icon}</div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">{service.title}</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
-            {service.excerpt}
-          </p>
-          
-          {/* Quick Info */}
-          {(service.startingPrice || service.timeline) && (
-            <div className="flex flex-wrap justify-center gap-4 mb-6">
-              {service.startingPrice && (
-                <div className="bg-primary/10 text-primary px-6 py-3 rounded-full font-medium">
-                  Starting from {service.startingPrice}
-                </div>
-              )}
-              {service.timeline && (
-                <div className="bg-gray-100 text-gray-700 px-6 py-3 rounded-full font-medium">
-                  ⏱️ Typical timeline: {service.timeline}
-                </div>
+          {/* Header */}
+          <div className="text-center mb-12">
+            <div className="text-6xl mb-4">{service.icon}</div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">{service.title}</h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
+              {service.excerpt}
+            </p>
+
+            {/* Quick Info */}
+            {(service.startingPrice || service.timeline) && (
+              <div className="flex flex-wrap justify-center gap-4 mb-6">
+                {service.startingPrice && (
+                  <div className="bg-primary/10 text-primary px-6 py-3 rounded-full font-medium">
+                    Starting from {service.startingPrice}
+                  </div>
+                )}
+                {service.timeline && (
+                  <div className="bg-gray-100 text-gray-700 px-6 py-3 rounded-full font-medium">
+                    ⏱️ Typical timeline: {service.timeline}
+                  </div>
+                )}
+              </div>
+            )}
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/#contact-form"
+                className="rounded-2xl bg-primary px-8 py-4 font-medium text-white shadow-soft hover:bg-primary-dark text-center"
+              >
+                Get Free Consultation
+              </Link>
+              {service.serviceGuide && (
+                <a
+                  href={service.serviceGuide}
+                  download
+                  className="rounded-2xl border border-gray-300 px-8 py-4 font-medium hover:bg-gray-50 text-center inline-block"
+                >
+                  Download Service Guide
+                </a>
               )}
             </div>
-          )}
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/#contact-form"
-              className="rounded-2xl bg-primary px-8 py-4 font-medium text-white shadow-soft hover:bg-primary-dark text-center"
-            >
-              Get Free Consultation
-            </Link>
-            <button className="rounded-2xl border border-gray-300 px-8 py-4 font-medium hover:bg-gray-50 text-center">
-              Download Service Guide
-            </button>
           </div>
-        </div>
 
-        {/* Key Features */}
-        <div className="bg-gray-50 rounded-2xl p-8 mb-12">
-          <h2 className="text-2xl font-bold text-center mb-6">What We Offer</h2>
-          <div className="grid gap-4 md:grid-cols-2">
-            {service.features.map((feature, index) => (
-              <div key={index} className="flex items-center">
-                <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
-                <span className="font-medium">{feature}</span>
-              </div>
-            ))}
+          {/* Key Features */}
+          <div className="bg-gray-50 rounded-2xl p-8 mb-12">
+            <h2 className="text-2xl font-bold text-center mb-6">What We Offer</h2>
+            <div className="grid gap-4 md:grid-cols-2">
+              {service.features.map((feature, index) => (
+                <div key={index} className="flex items-center">
+                  <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
+                  <span className="font-medium">{feature}</span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Content */}
-        <article 
-          className="service-content prose prose-slate max-w-none 
+          {/* Content */}
+          <article
+            className="service-content prose prose-slate max-w-none 
             prose-headings:font-semibold prose-headings:text-gray-900
             prose-h1:text-3xl prose-h1:mb-6 prose-h1:mt-0 prose-h1:first:mt-0
             prose-h2:text-2xl prose-h2:mb-6 prose-h2:mt-10 prose-h2:border-b prose-h2:border-gray-200 prose-h2:pb-2
@@ -201,57 +207,57 @@ export default async function ServicePage({ params }: Props) {
             prose-hr:border-0 prose-hr:border-t prose-hr:border-gray-200 prose-hr:my-8
             prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
             prose-pre:bg-gray-900 prose-pre:text-white prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto"
-          dangerouslySetInnerHTML={{ __html: service.content }}
-        />
+            dangerouslySetInnerHTML={{ __html: service.content }}
+          />
 
-        {/* Process Steps */}
-        {service.processSteps && service.processSteps.length > 0 && (
-          <ProcessSteps steps={service.processSteps} serviceName={service.title} />
-        )}
+          {/* Process Steps */}
+          {service.processSteps && service.processSteps.length > 0 && (
+            <ProcessSteps steps={service.processSteps} serviceName={service.title} />
+          )}
 
-        {/* Technology Stack */}
-        {service.technologyStack && service.technologyStack.length > 0 && (
-          <TechnologyStackComponent stack={service.technologyStack} serviceName={service.title} />
-        )}
+          {/* Technology Stack */}
+          {service.technologyStack && service.technologyStack.length > 0 && (
+            <TechnologyStackComponent stack={service.technologyStack} serviceName={service.title} />
+          )}
 
-        {/* FAQ Section */}
-        {service.faqs && service.faqs.length > 0 && (
-          <ServiceFAQ faqs={service.faqs} serviceName={service.title} />
-        )}
+          {/* FAQ Section */}
+          {service.faqs && service.faqs.length > 0 && (
+            <ServiceFAQ faqs={service.faqs} serviceName={service.title} />
+          )}
 
-        {/* Related Personas */}
-        <RelatedPersonas serviceName={service.title} />
+          {/* Related Personas */}
+          <RelatedPersonas serviceName={service.title} />
 
-        {/* CTA Section */}
-        <div className="mt-16 text-center bg-gray-50 rounded-2xl p-8">
-          <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
-          <p className="text-xl text-gray-600 mb-8">
-            Let's discuss how our {service.title.toLowerCase()} services can help your business grow.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/#contact-form"
-              className="rounded-2xl bg-primary px-8 py-4 font-medium text-white shadow-soft hover:bg-primary-dark text-center"
-            >
-              Get Free Consultation
-            </Link>
-            <Link 
-              href="/services"
-              className="rounded-2xl border border-gray-300 px-8 py-4 font-medium hover:bg-gray-50 text-center"
-            >
-              View All Services
+          {/* CTA Section */}
+          <div className="mt-16 text-center bg-gray-50 rounded-2xl p-8">
+            <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <p className="text-xl text-gray-600 mb-8">
+              Let's discuss how our {service.title.toLowerCase()} services can help your business grow.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/#contact-form"
+                className="rounded-2xl bg-primary px-8 py-4 font-medium text-white shadow-soft hover:bg-primary-dark text-center"
+              >
+                Get Free Consultation
+              </Link>
+              <Link
+                href="/services"
+                className="rounded-2xl border border-gray-300 px-8 py-4 font-medium hover:bg-gray-50 text-center"
+              >
+                View All Services
+              </Link>
+            </div>
+          </div>
+
+          {/* Back to Services */}
+          <div className="mt-12 text-center">
+            <Link href="/services" className="inline-flex items-center text-primary hover:underline">
+              ← Back to all services
             </Link>
           </div>
         </div>
-
-        {/* Back to Services */}
-        <div className="mt-12 text-center">
-          <Link href="/services" className="inline-flex items-center text-primary hover:underline">
-            ← Back to all services
-          </Link>
-        </div>
-      </div>
-    </main>
+      </main>
     </>
   );
 }

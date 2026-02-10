@@ -6,7 +6,7 @@ import { remark } from 'remark';
 import html from 'remark-html';
 
 // Import validation and fallback functions
-import { 
+import {
   validateHomepageContent,
   validateServiceData,
   validateCaseStudy,
@@ -15,7 +15,7 @@ import {
   logValidationErrors,
   type ValidationResult
 } from './cms-validation';
-import { 
+import {
   getDefaultHomepageContent,
   getDefaultAboutContent,
   getDefaultServiceMeta,
@@ -31,39 +31,39 @@ import {
 
 // Import existing interfaces
 import type { HomepageContent, AboutContent } from './content';
-import type { 
-  ServiceData, 
-  ServiceMeta, 
-  ProcessStep, 
-  TechnologyStack, 
-  FAQ 
+import type {
+  ServiceData,
+  ServiceMeta,
+  ProcessStep,
+  TechnologyStack,
+  FAQ
 } from './services';
-import type { 
-  CaseStudy, 
-  CaseStudyMeta, 
-  ClientInfo, 
-  ResultMetric, 
-  Testimonial, 
-  ImageAsset, 
-  Technology 
+import type {
+  CaseStudy,
+  CaseStudyMeta,
+  ClientInfo,
+  ResultMetric,
+  Testimonial,
+  ImageAsset,
+  Technology
 } from './case-studies';
 
 // Re-export interfaces for external use
-export type { 
-  HomepageContent, 
-  AboutContent, 
-  ServiceData, 
-  ServiceMeta, 
-  CaseStudy, 
-  CaseStudyMeta, 
-  ProcessStep, 
-  TechnologyStack, 
-  FAQ, 
-  ClientInfo, 
-  ResultMetric, 
-  Testimonial, 
-  ImageAsset, 
-  Technology 
+export type {
+  HomepageContent,
+  AboutContent,
+  ServiceData,
+  ServiceMeta,
+  CaseStudy,
+  CaseStudyMeta,
+  ProcessStep,
+  TechnologyStack,
+  FAQ,
+  ClientInfo,
+  ResultMetric,
+  Testimonial,
+  ImageAsset,
+  Technology
 };
 
 // CMS content directories
@@ -107,7 +107,7 @@ export interface Insight {
 export function getCMSHomepageContent(): HomepageContent {
   try {
     const fullPath = path.join(cmsPagesDirectory, 'homepage.yml');
-    
+
     // Check if file exists
     if (!fs.existsSync(fullPath)) {
       logContentWarning(ERROR_MESSAGES.FILE_READ_ERROR(fullPath, 'File does not exist'));
@@ -115,7 +115,7 @@ export function getCMSHomepageContent(): HomepageContent {
     }
 
     const fileContents = fs.readFileSync(fullPath, 'utf8');
-    
+
     // Parse YAML with error handling
     let data: any;
     try {
@@ -249,7 +249,7 @@ export function getAllCMSServices(): ServiceMeta[] {
 export async function getCMSServiceData(slug: string): Promise<ServiceData> {
   try {
     const fullPath = path.join(cmsServicesDirectory, `${slug}.md`);
-    
+
     if (!fs.existsSync(fullPath)) {
       logContentWarning(ERROR_MESSAGES.CONTENT_NOT_FOUND('Service', slug));
       return getDefaultServiceData(slug);
@@ -282,6 +282,7 @@ export async function getCMSServiceData(slug: string): Promise<ServiceData> {
       faqs: matterResult.data.faqs || [],
       timeline: matterResult.data.timeline || 'Contact for timeline',
       startingPrice: matterResult.data.startingPrice,
+      serviceGuide: matterResult.data.serviceGuide,
     };
 
     // Validate the service data
@@ -357,7 +358,7 @@ export function getAllCMSCaseStudies(): CaseStudyMeta[] {
 export async function getCMSCaseStudyData(slug: string): Promise<CaseStudy> {
   try {
     const fullPath = path.join(cmsCaseStudiesDirectory, `${slug}.md`);
-    
+
     if (!fs.existsSync(fullPath)) {
       logContentWarning(ERROR_MESSAGES.CONTENT_NOT_FOUND('Case Study', slug));
       return getDefaultCaseStudyData(slug);
@@ -472,7 +473,7 @@ export function getAllCMSInsights(): InsightMeta[] {
 export async function getCMSInsightData(slug: string): Promise<Insight> {
   try {
     const fullPath = path.join(cmsInsightsDirectory, `${slug}.md`);
-    
+
     if (!fs.existsSync(fullPath)) {
       logContentWarning(ERROR_MESSAGES.CONTENT_NOT_FOUND('Insight', slug));
       return getDefaultInsightData(slug);
@@ -537,7 +538,7 @@ export function getCMSCaseStudiesByCategory(category: string): CaseStudyMeta[] {
 
 export function getCMSCaseStudiesByService(serviceSlug: string): CaseStudyMeta[] {
   const allCaseStudies = getAllCMSCaseStudies();
-  return allCaseStudies.filter(caseStudy => 
+  return allCaseStudies.filter(caseStudy =>
     caseStudy.services.includes(serviceSlug)
   );
 }
@@ -545,8 +546,8 @@ export function getCMSCaseStudiesByService(serviceSlug: string): CaseStudyMeta[]
 export function getRelatedCMSCaseStudies(currentSlug: string, category: string, limit: number = 3): CaseStudyMeta[] {
   const allCaseStudies = getAllCMSCaseStudies();
   return allCaseStudies
-    .filter(caseStudy => 
-      caseStudy.slug !== currentSlug && 
+    .filter(caseStudy =>
+      caseStudy.slug !== currentSlug &&
       caseStudy.category === category
     )
     .slice(0, limit);
@@ -571,8 +572,8 @@ export function getCMSInsightsByTag(tag: string): InsightMeta[] {
 export function getRelatedCMSInsights(currentSlug: string, tags: string[], limit: number = 3): InsightMeta[] {
   const allInsights = getAllCMSInsights();
   return allInsights
-    .filter(insight => 
-      insight.slug !== currentSlug && 
+    .filter(insight =>
+      insight.slug !== currentSlug &&
       insight.tags.some(tag => tags.includes(tag))
     )
     .slice(0, limit);
@@ -582,14 +583,14 @@ export function getRelatedCMSInsights(currentSlug: string, tags: string[], limit
 export function getCMSAboutContent(): AboutContent {
   try {
     const fullPath = path.join(cmsPagesDirectory, 'about.yml');
-    
+
     if (!fs.existsSync(fullPath)) {
       logContentWarning(ERROR_MESSAGES.FILE_READ_ERROR(fullPath, 'File does not exist'));
       return getDefaultAboutContent();
     }
 
     const fileContents = fs.readFileSync(fullPath, 'utf8');
-    
+
     let data: any;
     try {
       data = yaml.load(fileContents);

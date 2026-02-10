@@ -21,11 +21,11 @@ const personaInsightMapping: Record<string, { tags: string[]; categories: string
   },
   'builders': {
     tags: ['Real Estate', 'Construction', 'Digital Marketing', 'Lead Generation', 'Project Management', 'SME'],
-    categories: ['Digital Marketing', 'Business Strategy', 'Web Development']
+    categories: ['Digital Marketing', 'Business Strategy', 'Application Portfolio Rationalisation']
   },
   'retail-entrepreneur': {
     tags: ['E-commerce', 'Retail', 'Inventory Management', 'Customer Retention', 'Digital Marketing', 'SME'],
-    categories: ['Digital Marketing', 'Business Strategy', 'Web Development']
+    categories: ['Digital Marketing', 'Business Strategy', 'Application Portfolio Rationalisation']
   },
   'chartered-accountants': {
     tags: ['Financial Management', 'Accounting Software', 'GST', 'Compliance', 'Automation', 'SME'],
@@ -41,7 +41,7 @@ const personaInsightMapping: Record<string, { tags: string[]; categories: string
   },
   'digital-media-house': {
     tags: ['Digital Marketing', 'Content Marketing', 'Social Media', 'Brand Building', 'Creative Services'],
-    categories: ['Digital Marketing', 'Web Development', 'Business Strategy']
+    categories: ['Digital Marketing', 'Application Portfolio Rationalisation', 'Business Strategy']
   },
   'friends-family-members': {
     tags: ['SME', 'Business Strategy', 'Digital Transformation', 'Technology Adoption', 'Growth'],
@@ -49,7 +49,7 @@ const personaInsightMapping: Record<string, { tags: string[]; categories: string
   },
   'jewelry-store-owner': {
     tags: ['E-commerce', 'Retail', 'Digital Marketing', 'Customer Retention', 'Local SEO', 'SME'],
-    categories: ['Digital Marketing', 'Web Development', 'Business Strategy']
+    categories: ['Digital Marketing', 'Application Portfolio Rationalisation', 'Business Strategy']
   },
   'restaurant-owner': {
     tags: ['Local SEO', 'Customer Service', 'Digital Marketing', 'Online Ordering', 'Social Media', 'SME'],
@@ -61,50 +61,50 @@ const personaInsightMapping: Record<string, { tags: string[]; categories: string
   },
   'ecommerce-business-owners': {
     tags: ['E-commerce', 'Online Sales', 'Digital Marketing', 'Customer Analytics', 'Automation', 'SME'],
-    categories: ['Digital Marketing', 'Web Development', 'AI & Automation']
+    categories: ['Digital Marketing', 'Application Portfolio Rationalisation', 'AI & Automation']
   }
 };
 
-export default function RelatedInsightsPersona({ 
-  personaSlug, 
-  personaTags, 
-  className = '', 
-  limit = 4 
+export default function RelatedInsightsPersona({
+  personaSlug,
+  personaTags,
+  className = '',
+  limit = 4
 }: RelatedInsightsPersonaProps) {
   const allInsights = getAllCMSInsights();
-  
+
   // Get relevant tags and categories for this persona
   const personaMapping = personaInsightMapping[personaSlug] || { tags: [], categories: [] };
   const allTags = [...personaTags, ...personaMapping.tags];
   const relevantTags = Array.from(new Set(allTags));
   const relevantCategories = personaMapping.categories;
-  
+
   // Score insights based on relevance
   const scoredInsights = allInsights.map(insight => {
     let score = 0;
-    
+
     // Score based on tag matches
-    const tagMatches = insight.tags.filter(tag => 
-      relevantTags.some(relevantTag => 
+    const tagMatches = insight.tags.filter(tag =>
+      relevantTags.some(relevantTag =>
         tag.toLowerCase().includes(relevantTag.toLowerCase()) ||
         relevantTag.toLowerCase().includes(tag.toLowerCase())
       )
     ).length;
     score += tagMatches * 3;
-    
+
     // Score based on category matches
     if (relevantCategories.includes(insight.category)) {
       score += 2;
     }
-    
+
     // Boost score for SME-related content
     if (insight.tags.some(tag => tag.toLowerCase().includes('sme'))) {
       score += 1;
     }
-    
+
     return { insight, score };
   });
-  
+
   // Filter and sort by score, then take the top results
   const relatedInsights = scoredInsights
     .filter(item => item.score > 0)
@@ -155,14 +155,14 @@ export default function RelatedInsightsPersona({
               {/* Meta Info */}
               <div className="flex items-center justify-between text-xs text-gray-500">
                 <div className="flex items-center gap-3">
-                  <span>{insight.publishDate.toLocaleDateString('en-IN', { 
-                    month: 'short', 
-                    day: 'numeric' 
+                  <span>{insight.publishDate.toLocaleDateString('en-IN', {
+                    month: 'short',
+                    day: 'numeric'
                   })}</span>
                   <span>•</span>
                   <span>{Math.ceil(insight.excerpt.split(' ').length / 50)} min read</span>
                 </div>
-                
+
                 <div className="flex items-center gap-1 text-primary group-hover:translate-x-1 transition-transform">
                   <span className="font-medium">Read more</span>
                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">

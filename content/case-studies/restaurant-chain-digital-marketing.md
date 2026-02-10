@@ -10,7 +10,7 @@ projectType: "Digital Marketing & Brand Development"
 duration: "12 months"
 teamSize: 4
 category: "digital-marketing"
-services: ["digital-marketing", "web-development"]
+services: ["digital-marketing", "application-portfolio-rationalisation"]
 publishDate: "2024-02-20"
 featured: true
 challenge: |
@@ -74,15 +74,15 @@ technologies:
   - name: "Zomato/Swiggy APIs"
     category: "Integration"
 images:
-  - src: "/case-studies/restaurant-social-before.jpg"
+  - src: "/case-studies/restaurant-chain-before.png"
     alt: "Basic social media presence before digital transformation"
     type: "before"
     caption: "Limited social media presence with low engagement"
-  - src: "/case-studies/restaurant-social-after.jpg"
+  - src: "/case-studies/restaurant-chain-after.png"
     alt: "Vibrant social media presence with high engagement"
     type: "after"
     caption: "Engaging social media content driving customer interaction"
-  - src: "/case-studies/restaurant-analytics.jpg"
+  - src: "/case-studies/restaurant-chain-result.png"
     alt: "Digital marketing analytics dashboard"
     type: "result"
     caption: "Comprehensive analytics showing growth across all channels"

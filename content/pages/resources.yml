@@ -17,7 +17,7 @@ categories:
         description: "Ready-to-use template for planning and scheduling your social media content across platforms."
         type: "Template"
         requiresEmail: false
-  - name: "Web Development Resources"
+  - name: "Application Portfolio Rationalisation Resources"
     description: "Tools and guides for planning and managing your website development projects."
     resources:
       - title: "Website Planning Worksheet"

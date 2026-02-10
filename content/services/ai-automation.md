@@ -5,6 +5,7 @@ excerpt: "AI adoption strategy, business process automation, chatbots, and data 
 order: 3
 timeline: "2-12 weeks"
 startingPrice: "Starting from ₹20,000"
+serviceGuide: "/uploads/resources/Dhimahi - AI Implementation Guide for Small Businesses.pdf"
 features:
   - "AI Adoption Strategy"
   - "Business Process Automation"

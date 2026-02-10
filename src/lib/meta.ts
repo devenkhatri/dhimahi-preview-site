@@ -24,7 +24,7 @@ export function generateMetadata({
 }: MetaConfig): Metadata {
   const settings = getGeneralSettings();
   const companyName = settings.brand.companyName;
-  
+
   const baseUrl = "https://www.dhimahitechnolabs.com";
   const fullUrl = `${baseUrl}${path}`;
   const fullImageUrl = image.startsWith("http") ? image : `${baseUrl}${image}`;
@@ -107,50 +107,50 @@ export function generateMetadata({
 export function getDefaultMeta() {
   const settings = getGeneralSettings();
   const companyName = settings.brand.companyName;
-  
+
   return {
     home: {
       title: `${companyName} – Future-Ready IT Consulting for SMEs | AI Solutions & Digital Growth`,
-    description: "Transform your SME with AI solutions, digital marketing, and smart IT strategy. 25+ years experience helping Gujarat businesses grow. Free consultation available.",
-    keywords: [
-      "IT consulting SME",
-      "AI solutions Gujarat", 
-      "digital marketing Ahmedabad",
-      "business automation",
-      "CRM implementation",
-      "website development",
-      "SEO services",
-      "fractional CTO",
-      "small business IT",
-      "Gandhinagar IT services"
-    ],
-  },
+      description: "Transform your SME with AI solutions, digital marketing, and smart IT strategy. 25+ years experience helping Gujarat businesses grow. Free consultation available.",
+      keywords: [
+        "IT consulting SME",
+        "AI solutions Gujarat",
+        "digital marketing Ahmedabad",
+        "business automation",
+        "CRM implementation",
+        "website development",
+        "SEO services",
+        "fractional CTO",
+        "small business IT",
+        "Gandhinagar IT services"
+      ],
+    },
     about: {
       title: `About ${companyName} – 25+ Years of IT Excellence in Gujarat`,
-    description: "Learn about Dhimahi Technolabs' journey, mission, and team. 25+ years of helping SMEs in Gujarat with AI solutions, digital marketing, and IT consulting.",
-    path: "/about",
-    keywords: [
-      "about Dhimahi Technolabs",
-      "IT consulting company Gujarat",
-      "AI solutions provider Ahmedabad", 
-      "digital marketing agency Gandhinagar",
-      "business automation experts",
-      "SME IT consultancy"
-    ],
-  },
+      description: "Learn about Dhimahi Technolabs' journey, mission, and team. 25+ years of helping SMEs in Gujarat with AI solutions, digital marketing, and IT consulting.",
+      path: "/about",
+      keywords: [
+        "about Dhimahi Technolabs",
+        "IT consulting company Gujarat",
+        "AI solutions provider Ahmedabad",
+        "digital marketing agency Gandhinagar",
+        "business automation experts",
+        "SME IT consultancy"
+      ],
+    },
     services: {
-      title: `Services - ${companyName} | AI, Digital Marketing & Web Development`,
-    description: "Professional IT services for SMEs: AI automation, digital marketing, web development, and business consulting. Serving Ahmedabad, Gandhinagar, and Gujarat.",
-    path: "/services",
-    keywords: [
-      "IT services Gujarat",
-      "AI automation services",
-      "digital marketing services",
-      "web development Ahmedabad",
-      "business consulting",
-      "CRM implementation"
-    ],
-  },
+      title: `Services - ${companyName} | AI, Digital Marketing & Application Portfolio Rationalisation`,
+      description: "Professional IT services for SMEs: AI automation, digital marketing, web development, and business consulting. Serving Ahmedabad, Gandhinagar, and Gujarat.",
+      path: "/services",
+      keywords: [
+        "IT services Gujarat",
+        "AI automation services",
+        "digital marketing services",
+        "web development Ahmedabad",
+        "business consulting",
+        "CRM implementation"
+      ],
+    },
     consultation: {
       title: `Free IT Consultation - ${companyName} | Book Your Strategy Session`,
       description: "Get a free IT consultation for your SME. Discuss AI solutions, digital marketing strategy, and technology roadmap with our experts. Book your session today.",

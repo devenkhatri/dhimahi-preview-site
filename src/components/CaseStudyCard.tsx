@@ -9,13 +9,13 @@ interface CaseStudyCardProps {
 }
 
 const categoryColors = {
-  'web-development': 'bg-blue-100 text-blue-800',
+  'application-portfolio-rationalisation': 'bg-blue-100 text-blue-800',
   'digital-marketing': 'bg-green-100 text-green-800',
   'ai-automation': 'bg-purple-100 text-purple-800',
 };
 
 const categoryLabels = {
-  'web-development': 'Web Development',
+  'application-portfolio-rationalisation': 'Application Portfolio Rationalisation',
   'digital-marketing': 'Digital Marketing',
   'ai-automation': 'AI & Automation',
 };

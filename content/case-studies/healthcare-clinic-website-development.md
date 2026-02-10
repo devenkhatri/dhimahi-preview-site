@@ -9,8 +9,8 @@ client:
 projectType: "Healthcare Website Development & Patient Portal"
 duration: "6 months"
 teamSize: 5
-category: "web-development"
-services: ["web-development", "ai-automation"]
+category: "application-portfolio-rationalisation"
+services: ["application-portfolio-rationalisation", "ai-automation"]
 publishDate: "2024-03-10"
 featured: false
 challenge: |
@@ -76,15 +76,15 @@ technologies:
   - name: "AWS"
     category: "Cloud Hosting"
 images:
-  - src: "/case-studies/healthcare-website-home.jpg"
+  - src: "/case-studies/healthcare-clinic-before.png"
     alt: "Modern healthcare website homepage"
     type: "after"
     caption: "Clean, professional homepage with easy navigation"
-  - src: "/case-studies/healthcare-patient-portal.jpg"
+  - src: "/case-studies/healthcare-clinic-after.png"
     alt: "Secure patient portal dashboard"
     type: "after"
     caption: "Comprehensive patient portal with medical records access"
-  - src: "/case-studies/healthcare-booking-system.jpg"
+  - src: "/case-studies/healthcare-clinic-result.png"
     alt: "Online appointment booking interface"
     type: "process"
     caption: "Intuitive appointment booking with real-time availability"

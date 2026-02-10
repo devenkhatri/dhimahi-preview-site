@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 export default function PortfolioPage() {
   const caseStudies = getAllCMSCaseStudies();
   const featuredCaseStudies = caseStudies.filter(cs => cs.featured);
-  const categories = ['all', 'web-development', 'digital-marketing', 'ai-automation'];
+  const categories = ['all', 'application-portfolio-rationalisation', 'digital-marketing', 'ai-automation'];
 
   return (
     <main className="min-h-screen bg-white">
@@ -42,7 +42,7 @@ export default function PortfolioPage() {
               Our Portfolio & Case Studies
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
-              Real results for real businesses. Discover how we've helped SMEs across Gujarat 
+              Real results for real businesses. Discover how we've helped SMEs across Gujarat
               transform their operations through strategic IT consulting and digital innovation.
             </p>
             <div className="flex flex-wrap justify-center gap-8 text-center">
@@ -72,7 +72,7 @@ export default function PortfolioPage() {
                 Featured Success Stories
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Highlighting our most impactful projects that delivered exceptional results 
+                Highlighting our most impactful projects that delivered exceptional results
                 for our clients across different industries.
               </p>
             </div>
@@ -93,7 +93,7 @@ export default function PortfolioPage() {
               All Case Studies
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Browse our complete portfolio of successful projects across web development, 
+              Browse our complete portfolio of successful projects across web development,
               digital marketing, and AI automation.
             </p>
           </div>
@@ -110,7 +110,7 @@ export default function PortfolioPage() {
             Ready to Create Your Success Story?
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Join the growing list of successful SMEs who have transformed their businesses 
+            Join the growing list of successful SMEs who have transformed their businesses
             with our strategic IT consulting and digital solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -255,7 +255,7 @@ export function getAboutContent(): AboutContent {
       {
         year: "1999",
         title: "Foundation & Early Years",
-        description: "Started as a small IT services company, focusing on basic web development and computer solutions for local businesses in Ahmedabad."
+        description: "Started as a small IT services company, focusing on basic application modernization and computer solutions for local businesses in Ahmedabad."
       },
       {
         year: "2005",
@@ -294,7 +294,7 @@ export function getAboutContent(): AboutContent {
       {
         name: "Amit Desai",
         role: "Senior Web Developer",
-        bio: "Amit is our technical lead for web development projects, ensuring every website we build is fast, secure, and user-friendly.",
+        bio: "Amit is our technical lead for application projects, ensuring every solution we build is fast, secure, and reliable.",
         expertise: ["React", "Next.js", "WordPress", "E-commerce"]
       }
     ]
@@ -371,14 +371,14 @@ export function getAllResources(): Resource[] {
 export function getFeaturedResource(): Resource | null {
   try {
     const allResources = getAllResources();
-    
+
     if (allResources.length === 0) {
       return null;
     }
 
     // Find the first resource marked as featured
     const featuredResource = allResources.find(resource => resource.featured);
-    
+
     // If no featured resource found, return the first resource in the sorted list
     return featuredResource || allResources[0];
   } catch (error) {
@@ -440,14 +440,14 @@ export function getResourceTypes(): Resource['type'][] {
  * @returns Sorted array of resources
  */
 export function sortResources(
-  resources: Resource[], 
+  resources: Resource[],
   sortBy: 'order' | 'date' | 'title' | 'type' = 'order',
   sortOrder: 'asc' | 'desc' = 'asc'
 ): Resource[] {
   try {
     return [...resources].sort((a, b) => {
       let comparison = 0;
-      
+
       switch (sortBy) {
         case 'order':
           // Primary sort by order, secondary by publishDate (newest first)
@@ -457,15 +457,15 @@ export function sortResources(
             comparison = new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime();
           }
           break;
-          
+
         case 'date':
           comparison = new Date(a.publishDate).getTime() - new Date(b.publishDate).getTime();
           break;
-          
+
         case 'title':
           comparison = a.title.localeCompare(b.title);
           break;
-          
+
         case 'type':
           // Sort by type, then by order within each type
           if (a.type !== b.type) {
@@ -474,11 +474,11 @@ export function sortResources(
             comparison = a.order - b.order;
           }
           break;
-          
+
         default:
           comparison = a.order - b.order;
       }
-      
+
       return sortOrder === 'desc' ? -comparison : comparison;
     });
   } catch (error) {
@@ -501,25 +501,25 @@ export function getFilteredResources(options: {
 }): Resource[] {
   try {
     let resources = getAllResources();
-    
+
     // Filter by types if specified
     if (options.types && options.types.length > 0) {
       resources = resources.filter(resource => options.types!.includes(resource.type));
     }
-    
+
     // Filter by featured status if specified
     if (options.featured !== undefined) {
       resources = resources.filter(resource => resource.featured === options.featured);
     }
-    
+
     // Sort resources
     resources = sortResources(resources, options.sortBy, options.sortOrder);
-    
+
     // Limit results if specified
     if (options.limit && options.limit > 0) {
       resources = resources.slice(0, options.limit);
     }
-    
+
     return resources;
   } catch (error) {
     console.error('Error filtering resources:', error);
@@ -587,7 +587,7 @@ function validatePersonaData(data: any, fileName: string): { isValid: boolean; d
 
   // Essential fields that must exist
   const essentialFields = ['title', 'slug'];
-  
+
   // Check essential fields
   for (const field of essentialFields) {
     if (!data[field] || typeof data[field] !== 'string' || data[field].trim() === '') {
@@ -615,7 +615,7 @@ function validatePersonaData(data: any, fileName: string): { isValid: boolean; d
 
   const storytelling = sanitizedData.storytelling;
   const storyFields = ['everydayStruggle', 'whyThisMatters', 'howDhimahiHelps', 'theJourney'];
-  
+
   // Check storytelling fields with fallbacks
   for (const field of storyFields) {
     if (!storytelling[field] || typeof storytelling[field] !== 'string' || storytelling[field].trim() === '') {
@@ -637,12 +637,12 @@ function validatePersonaData(data: any, fileName: string): { isValid: boolean; d
     console.warn(`Persona ${fileName}: Using fallback call to action`);
   } else {
     const cta = storytelling.callToAction;
-    
+
     // Sanitize CTA fields
     if (!cta.title || typeof cta.title !== 'string') {
       cta.title = 'Ready to Transform Your Business?';
     }
-    
+
     if (!cta.description || typeof cta.description !== 'string') {
       cta.description = `Let's discuss how we can help ${sanitizedData.title} overcome challenges and achieve growth.`;
     }
@@ -731,7 +731,7 @@ export function getAllPersonas(): Persona[] {
           console.error(`Skipping invalid persona ${fileName}:`, validation.errors);
           continue;
         }
-        
+
         // Use sanitized data
         const sanitizedData = validation.data;
 
@@ -819,14 +819,14 @@ export function getFeaturedPersonas(): Persona[] {
  * @returns Sorted array of personas
  */
 export function sortPersonas(
-  personas: Persona[], 
+  personas: Persona[],
   sortBy: 'order' | 'date' | 'title' = 'order',
   sortOrder: 'asc' | 'desc' = 'asc'
 ): Persona[] {
   try {
     return [...personas].sort((a, b) => {
       let comparison = 0;
-      
+
       switch (sortBy) {
         case 'order':
           // Primary sort by order, secondary by publishDate (newest first)
@@ -836,19 +836,19 @@ export function sortPersonas(
             comparison = new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime();
           }
           break;
-          
+
         case 'date':
           comparison = new Date(a.publishDate).getTime() - new Date(b.publishDate).getTime();
           break;
-          
+
         case 'title':
           comparison = a.title.localeCompare(b.title);
           break;
-          
+
         default:
           comparison = a.order - b.order;
       }
-      
+
       return sortOrder === 'desc' ? -comparison : comparison;
     });
   } catch (error) {
@@ -871,27 +871,27 @@ export function getFilteredPersonas(options: {
 }): Persona[] {
   try {
     let personas = getAllPersonas();
-    
+
     // Filter by featured status if specified
     if (options.featured !== undefined) {
       personas = personas.filter(persona => persona.featured === options.featured);
     }
-    
+
     // Filter by tags if specified
     if (options.tags && options.tags.length > 0) {
-      personas = personas.filter(persona => 
+      personas = personas.filter(persona =>
         persona.tags && persona.tags.some(tag => options.tags!.includes(tag))
       );
     }
-    
+
     // Sort personas
     personas = sortPersonas(personas, options.sortBy, options.sortOrder);
-    
+
     // Limit results if specified
     if (options.limit && options.limit > 0) {
       personas = personas.slice(0, options.limit);
     }
-    
+
     return personas;
   } catch (error) {
     console.error('Error filtering personas:', error);
@@ -911,7 +911,7 @@ export function getPersonaSpecificInsights(personaSlug: string, personaTags: str
     // Import here to avoid circular dependency
     const { getAllCMSInsights } = require('./cms-content');
     const allInsights = getAllCMSInsights();
-    
+
     // Mapping of persona slugs to relevant insight tags and categories
     const personaInsightMapping: Record<string, { tags: string[]; categories: string[] }> = {
       'small-business-owner': {
@@ -924,11 +924,11 @@ export function getPersonaSpecificInsights(personaSlug: string, personaTags: str
       },
       'builders': {
         tags: ['Real Estate', 'Construction', 'Digital Marketing', 'Lead Generation', 'Project Management', 'SME'],
-        categories: ['Digital Marketing', 'Business Strategy', 'Web Development']
+        categories: ['Digital Marketing', 'Business Strategy', 'Application Portfolio Rationalisation']
       },
       'retail-entrepreneur': {
         tags: ['E-commerce', 'Retail', 'Inventory Management', 'Customer Retention', 'Digital Marketing', 'SME'],
-        categories: ['Digital Marketing', 'Business Strategy', 'Web Development']
+        categories: ['Digital Marketing', 'Business Strategy', 'Application Portfolio Rationalisation']
       },
       'chartered-accountants': {
         tags: ['Financial Management', 'Accounting Software', 'GST', 'Compliance', 'Automation', 'SME'],
@@ -944,7 +944,7 @@ export function getPersonaSpecificInsights(personaSlug: string, personaTags: str
       },
       'digital-media-house': {
         tags: ['Digital Marketing', 'Content Marketing', 'Social Media', 'Brand Building', 'Creative Services'],
-        categories: ['Digital Marketing', 'Web Development', 'Business Strategy']
+        categories: ['Digital Marketing', 'Application Portfolio Rationalisation', 'Business Strategy']
       },
       'friends-family-members': {
         tags: ['SME', 'Business Strategy', 'Digital Transformation', 'Technology Adoption', 'Growth'],
@@ -952,7 +952,7 @@ export function getPersonaSpecificInsights(personaSlug: string, personaTags: str
       },
       'jewelry-store-owner': {
         tags: ['E-commerce', 'Retail', 'Digital Marketing', 'Customer Retention', 'Local SEO', 'SME'],
-        categories: ['Digital Marketing', 'Web Development', 'Business Strategy']
+        categories: ['Digital Marketing', 'Application Portfolio Rationalisation', 'Business Strategy']
       },
       'restaurant-owner': {
         tags: ['Local SEO', 'Customer Service', 'Digital Marketing', 'Online Ordering', 'Social Media', 'SME'],
@@ -964,42 +964,42 @@ export function getPersonaSpecificInsights(personaSlug: string, personaTags: str
       },
       'ecommerce-business-owners': {
         tags: ['E-commerce', 'Online Sales', 'Digital Marketing', 'Customer Analytics', 'Automation', 'SME'],
-        categories: ['Digital Marketing', 'Web Development', 'AI & Automation']
+        categories: ['Digital Marketing', 'Application Portfolio Rationalisation', 'AI & Automation']
       }
     };
-    
+
     // Get relevant tags and categories for this persona
     const personaMapping = personaInsightMapping[personaSlug] || { tags: [], categories: [] };
     const allTags = [...personaTags, ...personaMapping.tags];
     const relevantTags = Array.from(new Set(allTags));
     const relevantCategories = personaMapping.categories;
-    
+
     // Score insights based on relevance
     const scoredInsights = allInsights.map((insight: any) => {
       let score = 0;
-      
+
       // Score based on tag matches
-      const tagMatches = insight.tags.filter((tag: string) => 
-        relevantTags.some(relevantTag => 
+      const tagMatches = insight.tags.filter((tag: string) =>
+        relevantTags.some(relevantTag =>
           tag.toLowerCase().includes(relevantTag.toLowerCase()) ||
           relevantTag.toLowerCase().includes(tag.toLowerCase())
         )
       ).length;
       score += tagMatches * 3;
-      
+
       // Score based on category matches
       if (relevantCategories.includes(insight.category)) {
         score += 2;
       }
-      
+
       // Boost score for SME-related content
       if (insight.tags.some((tag: string) => tag.toLowerCase().includes('sme'))) {
         score += 1;
       }
-      
+
       return { insight, score };
     });
-    
+
     // Filter and sort by score, then take the top results
     return scoredInsights
       .filter(item => item.score > 0)
@@ -1020,7 +1020,7 @@ export function getPersonaSpecificInsights(personaSlug: string, personaTags: str
 export function getPersonasByTags(tags: string[]): Persona[] {
   try {
     const allPersonas = getAllPersonas();
-    return allPersonas.filter(persona => 
+    return allPersonas.filter(persona =>
       persona.tags && persona.tags.some(tag => tags.includes(tag))
     );
   } catch (error) {

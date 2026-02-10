@@ -11,7 +11,7 @@ interface PortfolioFiltersProps {
 
 const categoryLabels = {
   all: 'All Projects',
-  'web-development': 'Web Development',
+  'application-portfolio-rationalisation': 'Application Portfolio Rationalisation',
   'digital-marketing': 'Digital Marketing',
   'ai-automation': 'AI & Automation',
 };
@@ -22,12 +22,12 @@ export default function PortfolioFilters({ categories, caseStudies }: PortfolioF
 
   const filteredCaseStudies = caseStudies.filter((caseStudy) => {
     const matchesCategory = activeCategory === 'all' || caseStudy.category === activeCategory;
-    const matchesSearch = searchTerm === '' || 
+    const matchesSearch = searchTerm === '' ||
       caseStudy.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       caseStudy.client.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       caseStudy.client.industry.toLowerCase().includes(searchTerm.toLowerCase()) ||
       caseStudy.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
-    
+
     return matchesCategory && matchesSearch;
   });
 
@@ -67,11 +67,10 @@ export default function PortfolioFilters({ categories, caseStudies }: PortfolioF
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 rounded-lg font-semibold transition-colors ${
-                activeCategory === category
+              className={`px-6 py-3 rounded-lg font-semibold transition-colors ${activeCategory === category
                   ? 'bg-[#215b6f] text-white'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
+                }`}
             >
               {categoryLabels[category as keyof typeof categoryLabels]}
             </button>

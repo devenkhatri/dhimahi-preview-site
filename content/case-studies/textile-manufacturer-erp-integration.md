@@ -10,7 +10,7 @@ projectType: "ERP Integration & Business Process Automation"
 duration: "8 months"
 teamSize: 6
 category: "ai-automation"
-services: ["ai-automation", "web-development"]
+services: ["ai-automation", "application-portfolio-rationalisation"]
 publishDate: "2024-01-15"
 featured: true
 challenge: |
@@ -76,15 +76,15 @@ technologies:
   - name: "Power BI"
     category: "Analytics"
 images:
-  - src: "/case-studies/textile-erp-before.jpg"
+  - src: "/case-studies/textile-manufacturer-before.png"
     alt: "Manual inventory tracking system before automation"
     type: "before"
     caption: "Manual inventory tracking with paper-based processes"
-  - src: "/case-studies/textile-erp-after.jpg"
+  - src: "/case-studies/textile-manufacturer-after.png"
     alt: "Automated ERP dashboard showing real-time metrics"
     type: "after"
     caption: "Real-time ERP dashboard with automated workflows"
-  - src: "/case-studies/textile-erp-process.jpg"
+  - src: "/case-studies/textile-manufacturer-result.png"
     alt: "Automated workflow diagram"
     type: "process"
     caption: "Streamlined process flow from order to delivery"

@@ -44,6 +44,7 @@ export interface ServiceData {
   faqs?: FAQ[];
   timeline?: string;
   startingPrice?: string;
+  serviceGuide?: string;
 }
 
 export interface ServiceMeta {
@@ -105,6 +106,7 @@ export async function getServiceData(slug: string): Promise<ServiceData> {
     faqs: matterResult.data.faqs,
     timeline: matterResult.data.timeline,
     startingPrice: matterResult.data.startingPrice,
+    serviceGuide: matterResult.data.serviceGuide,
   };
 }
 

@@ -8,7 +8,7 @@ interface RelatedPersonasProps {
 
 // Mapping of services to relevant personas
 const servicePersonaMapping: Record<string, string[]> = {
-  'web-development': ['small-business-owner', 'retail-entrepreneur', 'doctors', 'builders'],
+  'application-portfolio-rationalisation': ['small-business-owner', 'retail-entrepreneur', 'doctors', 'builders'],
   'digital-marketing': ['small-business-owner', 'retail-entrepreneur', 'chartered-accountants'],
   'ai-automation': ['small-business-owner', 'doctors', 'chartered-accountants', 'physiotherapists'],
 };
@@ -17,8 +17,8 @@ export default function RelatedPersonas({ serviceName, className = '' }: Related
   const allPersonas = getAllPersonas();
   const serviceSlug = serviceName.toLowerCase().replace(/\s+/g, '-');
   const relevantPersonaSlugs = servicePersonaMapping[serviceSlug] || [];
-  
-  const relatedPersonas = allPersonas.filter(persona => 
+
+  const relatedPersonas = allPersonas.filter(persona =>
     relevantPersonaSlugs.includes(persona.slug)
   ).slice(0, 3);
 
@@ -48,8 +48,8 @@ export default function RelatedPersonas({ serviceName, className = '' }: Related
               <div className="text-center">
                 {/* Icon */}
                 <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <img 
-                    src={persona.icon} 
+                  <img
+                    src={persona.icon}
                     alt={`${persona.title} icon`}
                     className="w-8 h-8"
                   />

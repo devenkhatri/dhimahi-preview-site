@@ -1,12 +1,12 @@
-import type { 
-  HomepageContent, 
-  ServiceData, 
+import type {
+  HomepageContent,
+  ServiceData,
   ServiceMeta,
-  CaseStudy, 
+  CaseStudy,
   CaseStudyMeta,
   Insight,
   InsightMeta,
-  AboutContent 
+  AboutContent
 } from './cms-content';
 
 // Fallback content for homepage
@@ -132,7 +132,7 @@ export function getDefaultAboutContent(): AboutContent {
       {
         year: "1999",
         title: "Foundation & Early Years",
-        description: "Started as a small IT services company, focusing on basic web development and computer solutions for local businesses in Ahmedabad."
+        description: "Started as a small IT services company, focusing on basic application modernization and computer solutions for local businesses in Ahmedabad."
       },
       {
         year: "2005",
@@ -160,18 +160,18 @@ export function getDefaultAboutContent(): AboutContent {
 export function getDefaultServiceMeta(): ServiceMeta[] {
   return [
     {
-      slug: "web-development",
-      title: "Web Development",
-      icon: "🌐",
-      excerpt: "Custom websites and web applications built for performance, SEO, and user experience.",
+      slug: "application-portfolio-rationalisation",
+      title: "Application Portfolio Rationalisation",
+      icon: "🎯",
+      excerpt: "Optimize your technology landscape, reduce costs, and discover AI opportunities.",
       order: 1,
       features: [
-        "Responsive Design",
-        "SEO Optimization",
-        "Performance Focused",
-        "Mobile-First Approach"
+        "Technology Assessment",
+        "Cost Optimization",
+        "AI Opportunity Mapping",
+        "Implementation Support"
       ],
-      timeline: "2-6 weeks"
+      timeline: "3-6 weeks"
     },
     {
       slug: "digital-marketing",
@@ -206,68 +206,68 @@ export function getDefaultServiceMeta(): ServiceMeta[] {
 
 export function getDefaultServiceData(slug: string): ServiceData {
   const services: Record<string, ServiceData> = {
-    "web-development": {
-      slug: "web-development",
-      title: "Web Development",
-      icon: "🌐",
-      excerpt: "Custom websites and web applications built for performance, SEO, and user experience.",
+    "application-portfolio-rationalisation": {
+      slug: "application-portfolio-rationalisation",
+      title: "Application Portfolio Rationalisation",
+      icon: "🎯",
+      excerpt: "Optimize your technology landscape, reduce costs, and discover AI opportunities.",
       order: 1,
       features: [
-        "Responsive Design",
-        "SEO Optimization",
-        "Performance Focused",
-        "Mobile-First Approach"
+        "Technology Assessment",
+        "Cost Optimization",
+        "AI Opportunity Mapping",
+        "Implementation Support"
       ],
-      content: "<p>Professional web development services for SMEs in Gujarat.</p>",
+      content: "<p>Professional portfolio rationalisation services for SMEs in Gujarat.</p>",
       processSteps: [
         {
           step: 1,
-          title: "Discovery & Planning",
-          description: "Understanding your business goals and technical requirements",
-          duration: "1-2 days",
-          deliverables: ["Project requirements", "Technical specification"]
+          title: "Discovery & Inventory",
+          description: "Comprehensive assessment of your technology landscape",
+          duration: "1 week",
+          deliverables: ["Application inventory", "Cost analysis"]
         },
         {
           step: 2,
-          title: "Design & Development",
-          description: "Creating responsive, user-friendly websites",
-          duration: "1-3 weeks",
-          deliverables: ["Website design", "Functional website"]
+          title: "Analysis & Optimization",
+          description: "Evaluate and optimize your portfolio",
+          duration: "1-2 weeks",
+          deliverables: ["Optimization recommendations", "ROI projections"]
         },
         {
           step: 3,
-          title: "Testing & Launch",
-          description: "Thorough testing and smooth deployment",
-          duration: "2-3 days",
-          deliverables: ["Tested website", "Live deployment"]
+          title: "Implementation",
+          description: "Execute rationalization initiatives",
+          duration: "Ongoing",
+          deliverables: ["Implementation support", "Progress tracking"]
         }
       ],
       technologyStack: [
         {
-          category: "Frontend",
+          category: "Assessment",
           technologies: [
-            { name: "React", description: "Modern JavaScript library for building user interfaces" },
-            { name: "Next.js", description: "React framework for production-ready applications" },
-            { name: "TypeScript", description: "Typed JavaScript for better development experience" }
+            { name: "Portfolio Analysis", description: "Comprehensive application analysis tools" },
+            { name: "Cost Modeling", description: "TCO and ROI modeling frameworks" },
+            { name: "Risk Assessment", description: "Security and compliance evaluation" }
           ]
         },
         {
-          category: "Backend",
+          category: "Optimization",
           technologies: [
-            { name: "Node.js", description: "JavaScript runtime for server-side development" },
-            { name: "Python", description: "Versatile programming language for web development" },
-            { name: "PHP", description: "Server-side scripting language for web applications" }
+            { name: "Cloud Migration", description: "Modern cloud platform strategies" },
+            { name: "Consolidation", description: "Application merging and elimination" },
+            { name: "AI Integration", description: "Identifying AI opportunities" }
           ]
         }
       ],
       faqs: [
         {
-          question: "How long does web development take?",
-          answer: "Typically 2-6 weeks depending on complexity and requirements."
+          question: "How long does portfolio rationalisation take?",
+          answer: "Typically 3-6 weeks depending on portfolio size and complexity."
         }
       ],
-      timeline: "2-6 weeks",
-      startingPrice: "₹25,000"
+      timeline: "3-6 weeks",
+      startingPrice: "₹50,000"
     },
     "digital-marketing": {
       slug: "digital-marketing",
@@ -395,7 +395,7 @@ export function getDefaultServiceData(slug: string): ServiceData {
     }
   };
 
-  return services[slug] || services["web-development"];
+  return services[slug] || services["application-portfolio-rationalisation"];
 }
 
 // Fallback content for case studies
@@ -410,13 +410,13 @@ export function getDefaultCaseStudyMeta(): CaseStudyMeta[] {
         size: "Small",
         location: "Ahmedabad"
       },
-      projectType: "Web Development",
+      projectType: "Application Portfolio Rationalisation",
       duration: "4 weeks",
-      excerpt: "Modern website with online appointment booking system for a growing healthcare clinic.",
+      excerpt: "Technology assessment and optimization for a growing healthcare clinic.",
       publishDate: new Date('2024-01-15'),
       featured: true,
-      category: "web-development",
-      services: ["web-development"],
+      category: "application-portfolio-rationalisation",
+      services: ["application-portfolio-rationalisation"],
       images: [
         {
           src: "/case-studies/healthcare-website-home.jpg",
@@ -438,7 +438,7 @@ export function getDefaultCaseStudyData(slug: string): CaseStudy {
       size: "Medium",
       location: "Ahmedabad"
     },
-    projectType: "Web Development",
+    projectType: "Application Portfolio Rationalisation",
     duration: "4 weeks",
     teamSize: 3,
     challenge: "The client needed a modern web presence to compete in the digital marketplace.",
@@ -479,12 +479,12 @@ export function getDefaultCaseStudyData(slug: string): CaseStudy {
       { name: "Next.js", category: "Frontend" },
       { name: "TypeScript", category: "Frontend" }
     ],
-    services: ["web-development"],
+    services: ["application-portfolio-rationalisation"],
     publishDate: new Date(),
     featured: false,
-    content: "<p>This is a sample case study demonstrating our web development capabilities.</p>",
-    excerpt: "A sample case study showcasing our development process and results.",
-    category: "web-development"
+    content: "<p>This is a sample case study demonstrating our portfolio rationalisation capabilities.</p>",
+    excerpt: "A sample case study showcasing our optimization process and results.",
+    category: "application-portfolio-rationalisation"
   };
 }
 
@@ -553,19 +553,19 @@ export function getDefaultInsightData(slug: string): Insight {
 
 // Error message templates
 export const ERROR_MESSAGES = {
-  CONTENT_NOT_FOUND: (type: string, slug: string) => 
+  CONTENT_NOT_FOUND: (type: string, slug: string) =>
     `${type} content not found for slug: ${slug}. Using fallback content.`,
-  CONTENT_INVALID: (type: string, errors: string[]) => 
+  CONTENT_INVALID: (type: string, errors: string[]) =>
     `${type} content validation failed: ${errors.join(', ')}. Using fallback content.`,
-  FILE_READ_ERROR: (path: string, error: string) => 
+  FILE_READ_ERROR: (path: string, error: string) =>
     `Failed to read file at ${path}: ${error}. Using fallback content.`,
-  YAML_PARSE_ERROR: (path: string, error: string) => 
+  YAML_PARSE_ERROR: (path: string, error: string) =>
     `Failed to parse YAML file at ${path}: ${error}. Using fallback content.`,
-  MARKDOWN_PARSE_ERROR: (path: string, error: string) => 
+  MARKDOWN_PARSE_ERROR: (path: string, error: string) =>
     `Failed to parse Markdown file at ${path}: ${error}. Using fallback content.`,
-  DIRECTORY_NOT_FOUND: (path: string) => 
+  DIRECTORY_NOT_FOUND: (path: string) =>
     `Directory not found: ${path}. Using fallback content.`,
-  BUILD_TIME_ERROR: (type: string, count: number) => 
+  BUILD_TIME_ERROR: (type: string, count: number) =>
     `Build-time validation found ${count} errors in ${type} content. Check logs for details.`
 };
 

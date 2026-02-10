@@ -21,7 +21,7 @@ export default function Header({ transparent = false, sticky = true, personas = 
   const [isPersonasDropdownOpen, setIsPersonasDropdownOpen] = useState(false);
   const [isMobilePersonasOpen, setIsMobilePersonasOpen] = useState(false);
   const pathname = usePathname();
-  
+
   // Use provided settings or fallback to default values
   const companyName = settings?.brand?.companyName || 'Dhīmahi Technolabs';
   const tagline = settings?.brand?.tagline || 'Future-Ready IT Solutions';
@@ -75,8 +75,6 @@ export default function Header({ transparent = false, sticky = true, personas = 
     }
   };
 
-
-
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
@@ -87,7 +85,7 @@ export default function Header({ transparent = false, sticky = true, personas = 
 
   const navigationItems = [
     { href: '/services', label: 'Services' },
-    // { href: '/portfolio', label: 'Portfolio' },
+    { href: '/portfolio', label: 'Portfolio' },
     { href: '/insights', label: 'Insights' },
     { href: '/resources', label: 'Resources' },
     { href: '/about', label: 'About' },
@@ -149,75 +147,93 @@ export default function Header({ transparent = false, sticky = true, personas = 
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#215b6f] transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
-            
+
             {/* Personas Dropdown */}
             <div className="relative" id="personas-menu-item">
               <button
                 onClick={togglePersonasDropdown}
-                className={`flex items-center gap-1 font-medium transition-colors duration-200 relative group ${
-                  isPersonasActive ? 'text-[#215b6f]' : 'text-gray-700 hover:text-[#215b6f]'
-                }`}
+                className={`flex items-center gap-1 font-medium transition-colors duration-200 relative group ${isPersonasActive ? 'text-[#215b6f]' : 'text-gray-700 hover:text-[#215b6f]'
+                  }`}
                 aria-expanded={isPersonasDropdownOpen}
                 aria-haspopup="true"
               >
                 Personas
                 <svg
-                  className={`w-4 h-4 transition-transform duration-200 ${
-                    isPersonasDropdownOpen ? 'rotate-180' : ''
-                  }`}
+                  className={`w-4 h-4 transition-transform duration-200 ${isPersonasDropdownOpen ? 'rotate-180' : ''
+                    }`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
-                <span className={`absolute -bottom-1 left-0 h-0.5 bg-[#215b6f] transition-all duration-300 ${
-                  isPersonasActive ? 'w-full' : 'w-0 group-hover:w-full'
-                }`}></span>
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-[#215b6f] transition-all duration-300 ${isPersonasActive ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}></span>
               </button>
 
-              {/* Dropdown Menu */}
+              {/* Dropdown Menu - Megamenu */}
               {mounted && isPersonasDropdownOpen && (
                 <div
                   id="personas-dropdown"
-                  className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50 animate-fade-in"
+                  className="absolute top-full left-1/2 transform -translate-x-1/2 mt-4 w-[90vw] max-w-[800px] bg-white rounded-xl shadow-xl border border-gray-100/50 p-6 z-50 animate-fade-in ring-1 ring-gray-900/5"
                 >
-                  {/* Main Personas Link */}
-                  <Link
-                    href="/personas"
-                    className="block px-4 py-3 text-gray-700 hover:text-[#215b6f] hover:bg-gray-50 font-medium border-b border-gray-100"
-                    onClick={() => setIsPersonasDropdownOpen(false)}
-                  >
-                    All Personas
-                  </Link>
-                  
-                  {/* Individual Personas */}
+                  <div className="flex items-center justify-between mb-4 border-b border-gray-100 pb-2">
+                    <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Select Your Persona</h3>
+                    <Link
+                      href="/personas"
+                      className="text-xs font-semibold text-[#215b6f] hover:text-[#1a4a5a] flex items-center gap-1 group/link"
+                      onClick={() => setIsPersonasDropdownOpen(false)}
+                    >
+                      View All Personas
+                      <svg className="w-3 h-3 transition-transform group-hover/link:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
+                  </div>
+
                   {personas.length > 0 ? (
-                    personas.map((persona) => (
-                      <Link
-                        key={persona.slug}
-                        href={`/personas/${persona.slug}`}
-                        className="flex items-center gap-3 px-4 py-3 text-gray-600 hover:text-[#215b6f] hover:bg-gray-50 transition-colors duration-200"
-                        onClick={() => setIsPersonasDropdownOpen(false)}
-                      >
-                        {persona.icon && (
-                          <img
-                            src={persona.icon}
-                            alt={`${persona.title} icon`}
-                            className="w-5 h-5 flex-shrink-0"
-                          />
-                        )}
-                        <div className="flex-1 min-w-0">
-                          <div className="font-medium text-sm">{persona.title}</div>
-                          <div className="text-xs text-gray-500 truncate">{persona.excerpt}</div>
-                        </div>
-                      </Link>
-                    ))
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {personas.map((persona) => (
+                        <Link
+                          key={persona.slug}
+                          href={`/personas/${persona.slug}`}
+                          className="flex flex-col gap-2 p-3 rounded-lg hover:bg-gray-50 transition-all duration-200 group/card border border-transparent hover:border-gray-100"
+                          onClick={() => setIsPersonasDropdownOpen(false)}
+                        >
+                          <div className="flex items-start gap-3">
+                            {persona.icon && (
+                              <div className="bg-gray-50 group-hover/card:bg-white p-2 rounded-lg transition-colors border border-gray-100">
+                                <img
+                                  src={persona.icon}
+                                  alt=""
+                                  className="w-6 h-6 object-contain"
+                                />
+                              </div>
+                            )}
+                            <div className="flex-1 min-w-0">
+                              <div className="font-semibold text-gray-900 group-hover/card:text-[#215b6f] transition-colors mb-0.5 text-sm">
+                                {persona.title}
+                              </div>
+                              <p className="text-xs text-gray-500 line-clamp-2">
+                                {persona.excerpt}
+                              </p>
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
                   ) : (
-                    <div className="px-4 py-3 text-gray-500 text-sm">
-                      No personas available
+                    <div className="py-8 text-center text-gray-500 text-sm">
+                      No personas available at the moment.
                     </div>
                   )}
+
+                  <div className="mt-4 pt-4 border-t border-gray-100 bg-gray-50/50 -mx-6 -mb-6 px-6 py-3 flex items-center justify-between rounded-b-xl">
+                    <span className="text-xs text-gray-500">Not sure which one fits you?</span>
+                    <Link href="/consultation" className="text-xs font-semibold text-[#215b6f] hover:underline">
+                      Get a generic consultation &rarr;
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
@@ -337,16 +353,15 @@ export default function Header({ transparent = false, sticky = true, personas = 
               <div className="flex items-center justify-between">
                 <Link
                   href="/personas"
-                  className={`flex-1 block px-4 py-3 rounded-lg transition-all duration-200 font-medium ${
-                    isPersonasActive 
-                      ? 'text-[#215b6f] bg-[#215b6f]/5' 
-                      : 'text-gray-700 hover:text-[#215b6f] hover:bg-gray-50'
-                  }`}
+                  className={`flex-1 block px-4 py-3 rounded-lg transition-all duration-200 font-medium ${isPersonasActive
+                    ? 'text-[#215b6f] bg-[#215b6f]/5'
+                    : 'text-gray-700 hover:text-[#215b6f] hover:bg-gray-50'
+                    }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Personas
                 </Link>
-                
+
                 {/* Toggle button for personas submenu */}
                 {personas.length > 0 && (
                   <button
@@ -355,9 +370,8 @@ export default function Header({ transparent = false, sticky = true, personas = 
                     aria-label="Toggle personas submenu"
                   >
                     <svg
-                      className={`w-4 h-4 transition-transform duration-200 ${
-                        isMobilePersonasOpen ? 'rotate-180' : ''
-                      }`}
+                      className={`w-4 h-4 transition-transform duration-200 ${isMobilePersonasOpen ? 'rotate-180' : ''
+                        }`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -367,32 +381,41 @@ export default function Header({ transparent = false, sticky = true, personas = 
                   </button>
                 )}
               </div>
-              
+
               {/* Mobile Personas Submenu */}
               {personas.length > 0 && (
-                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  isMobilePersonasOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
-                }`}>
-                  <div className="ml-4 mt-1 space-y-1 pb-2">
-                    {personas.map((persona) => (
-                      <Link
-                        key={persona.slug}
-                        href={`/personas/${persona.slug}`}
-                        className="flex items-center gap-3 px-4 py-2 text-gray-600 hover:text-[#215b6f] hover:bg-gray-50 rounded-lg transition-all duration-200"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {persona.icon && (
-                          <img
-                            src={persona.icon}
-                            alt={`${persona.title} icon`}
-                            className="w-4 h-4 flex-shrink-0"
-                          />
-                        )}
-                        <div className="flex-1 min-w-0">
-                          <div className="font-medium text-sm">{persona.title}</div>
-                        </div>
-                      </Link>
-                    ))}
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isMobilePersonasOpen ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
+                  }`}>
+                  <div className="px-4 py-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {personas.map((persona) => (
+                        <Link
+                          key={persona.slug}
+                          href={`/personas/${persona.slug}`}
+                          className="flex items-start gap-3 p-3 rounded-xl bg-gray-50/50 border border-gray-100 active:scale-98 transition-all duration-200"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {persona.icon && (
+                            <img
+                              src={persona.icon}
+                              alt=""
+                              className="w-8 h-8 object-contain p-1 bg-white rounded-md shadow-sm"
+                            />
+                          )}
+                          <div className="flex-1 min-w-0">
+                            <div className="font-semibold text-gray-900 text-sm mb-0.5">{persona.title}</div>
+                            <div className="text-xs text-gray-500 line-clamp-1">{persona.excerpt}</div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                    <Link
+                      href="/personas"
+                      className="block mt-4 text-center text-sm font-medium text-[#215b6f] py-2 border border-[#215b6f]/20 rounded-lg hover:bg-[#215b6f]/5 transition-colors"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      View All Personas
+                    </Link>
                   </div>
                 </div>
               )}

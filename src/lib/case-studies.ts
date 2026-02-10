@@ -61,7 +61,7 @@ export interface CaseStudy {
   featured: boolean;
   content: string;
   excerpt: string;
-  category: 'web-development' | 'digital-marketing' | 'ai-automation';
+  category: 'application-portfolio-rationalisation' | 'digital-marketing' | 'ai-automation';
 }
 
 export interface CaseStudyMeta {
@@ -73,7 +73,7 @@ export interface CaseStudyMeta {
   excerpt: string;
   publishDate: Date;
   featured: boolean;
-  category: 'web-development' | 'digital-marketing' | 'ai-automation';
+  category: 'application-portfolio-rationalisation' | 'digital-marketing' | 'ai-automation';
   services: string[];
   images: ImageAsset[];
 }
@@ -156,7 +156,7 @@ export function getCaseStudiesByCategory(category: string): CaseStudyMeta[] {
 
 export function getCaseStudiesByService(serviceSlug: string): CaseStudyMeta[] {
   const allCaseStudies = getAllCaseStudies();
-  return allCaseStudies.filter(caseStudy => 
+  return allCaseStudies.filter(caseStudy =>
     caseStudy.services.includes(serviceSlug)
   );
 }
@@ -164,8 +164,8 @@ export function getCaseStudiesByService(serviceSlug: string): CaseStudyMeta[] {
 export function getRelatedCaseStudies(currentSlug: string, category: string, limit: number = 3): CaseStudyMeta[] {
   const allCaseStudies = getAllCaseStudies();
   return allCaseStudies
-    .filter(caseStudy => 
-      caseStudy.slug !== currentSlug && 
+    .filter(caseStudy =>
+      caseStudy.slug !== currentSlug &&
       caseStudy.category === category
     )
     .slice(0, limit);

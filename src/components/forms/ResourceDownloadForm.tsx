@@ -27,7 +27,7 @@ interface ResourceDownloadFormProps {
 const INTERESTS = [
   { value: "ai-automation", label: "AI & Automation" },
   { value: "digital-marketing", label: "Digital Marketing" },
-  { value: "web-development", label: "Web Development" },
+  { value: "application-portfolio-rationalisation", label: "Application Portfolio Rationalisation" },
   { value: "fractional-cto", label: "Fractional CTO Services" },
   { value: "business-strategy", label: "Business Strategy" },
   { value: "other", label: "Other" }
@@ -80,7 +80,7 @@ export default function ResourceDownloadForm({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
 
     setIsSubmitting(true);
@@ -147,7 +147,7 @@ export default function ResourceDownloadForm({
           <p className="text-gray-600 mb-6 text-sm">
             Check your email for the download link. Thank you for your interest in our resources!
           </p>
-          
+
           <a
             href={resource.downloadUrl}
             download
@@ -196,7 +196,7 @@ export default function ResourceDownloadForm({
           <p className="text-gray-600 text-sm mb-4">
             {resource.description}
           </p>
-          
+
           <div className="flex items-center justify-center gap-4 text-xs text-gray-500">
             <span className="flex items-center">
               📁 {resource.fileSize}
@@ -223,9 +223,8 @@ export default function ResourceDownloadForm({
               value={formData.name}
               onChange={(e) => handleInputChange('name', e.target.value)}
               placeholder="Enter your full name"
-              className={`w-full px-3 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-gray-900 transition-colors ${
-                errors.name ? 'border-red-300' : 'border-gray-300'
-              }`}
+              className={`w-full px-3 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-gray-900 transition-colors ${errors.name ? 'border-red-300' : 'border-gray-300'
+                }`}
             />
             {errors.name && <p className="text-sm text-red-600 mt-1">{errors.name}</p>}
           </div>
@@ -239,9 +238,8 @@ export default function ResourceDownloadForm({
               value={formData.email}
               onChange={(e) => handleInputChange('email', e.target.value)}
               placeholder="your@email.com"
-              className={`w-full px-3 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-gray-900 transition-colors ${
-                errors.email ? 'border-red-300' : 'border-gray-300'
-              }`}
+              className={`w-full px-3 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-gray-900 transition-colors ${errors.email ? 'border-red-300' : 'border-gray-300'
+                }`}
             />
             {errors.email && <p className="text-sm text-red-600 mt-1">{errors.email}</p>}
           </div>
