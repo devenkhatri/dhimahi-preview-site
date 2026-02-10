@@ -13,7 +13,7 @@ import {
   validateEmployeeCount,
   ValidationResult
 } from './validation';
-import { settingsLogger } from './error-logging';
+import { settingsLogger, LogLevel } from './error-logging';
 
 export interface SocialMediaLinks {
   linkedin?: string;
@@ -515,7 +515,7 @@ export function getGeneralSettingsUncached(): GeneralSettings {
 export function validateSettings(rawSettings: any): { isValid: boolean; errors: string[]; settings?: GeneralSettings } {
   try {
     const settings = validateAndEnhanceSettings(rawSettings);
-    const errors = settingsLogger.getLogs('WARN').map(log => log.message);
+    const errors = settingsLogger.getLogs(LogLevel.WARN).map(log => log.message);
     return {
       isValid: errors.length === 0,
       errors,
@@ -538,7 +538,7 @@ export function getSettingsHealth(): {
   lastUpdated: string;
 } {
   const summary = settingsLogger.getErrorSummary(new Date(Date.now() - 24 * 60 * 60 * 1000)); // Last 24 hours
-  const isUsingFallback = cachedSettings === null || settingsLogger.getLogs('WARN').some(log =>
+  const isUsingFallback = cachedSettings === null || settingsLogger.getLogs(LogLevel.WARN).some(log =>
     log.message.includes('complete fallback settings')
   );
 

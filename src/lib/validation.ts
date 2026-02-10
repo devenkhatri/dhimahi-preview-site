@@ -3,10 +3,10 @@
  * Provides comprehensive validation for email addresses, phone numbers, URLs, and other data types
  */
 
-export interface ValidationResult {
+export interface ValidationResult<T = string> {
   isValid: boolean;
   error?: string;
-  sanitized?: string;
+  sanitized?: T;
 }
 
 /**
@@ -18,7 +18,7 @@ export function validateEmail(email: string): ValidationResult {
   }
 
   const trimmedEmail = email.trim();
-  
+
   if (trimmedEmail.length === 0) {
     return { isValid: false, error: 'Email cannot be empty' };
   }
@@ -29,7 +29,7 @@ export function validateEmail(email: string): ValidationResult {
 
   // RFC 5322 compliant email regex
   const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-  
+
   if (!emailRegex.test(trimmedEmail)) {
     return { isValid: false, error: 'Invalid email format' };
   }
@@ -46,26 +46,26 @@ export function validatePhone(phone: string): ValidationResult {
   }
 
   const trimmedPhone = phone.trim();
-  
+
   if (trimmedPhone.length === 0) {
     return { isValid: false, error: 'Phone number cannot be empty' };
   }
 
   // Remove all non-digit characters except + for international prefix
   const cleanPhone = trimmedPhone.replace(/[^\d+]/g, '');
-  
+
   // Check for valid international format
   const internationalRegex = /^\+[1-9]\d{6,14}$/;
   // Check for valid domestic format (assuming 10+ digits)
   const domesticRegex = /^\d{10,15}$/;
-  
+
   if (internationalRegex.test(cleanPhone) || domesticRegex.test(cleanPhone)) {
     return { isValid: true, sanitized: cleanPhone };
   }
 
-  return { 
-    isValid: false, 
-    error: 'Invalid phone format. Use international format (+country code) or domestic format (10-15 digits)' 
+  return {
+    isValid: false,
+    error: 'Invalid phone format. Use international format (+country code) or domestic format (10-15 digits)'
   };
 }
 
@@ -78,20 +78,20 @@ export function validateUrl(url: string): ValidationResult {
   }
 
   const trimmedUrl = url.trim();
-  
+
   if (trimmedUrl.length === 0) {
     return { isValid: false, error: 'URL cannot be empty' };
   }
 
   try {
     const urlObj = new URL(trimmedUrl);
-    
+
     // Check for valid protocols
     const validProtocols = ['http:', 'https:'];
     if (!validProtocols.includes(urlObj.protocol)) {
-      return { 
-        isValid: false, 
-        error: `Invalid protocol. Only HTTP and HTTPS are allowed, got: ${urlObj.protocol}` 
+      return {
+        isValid: false,
+        error: `Invalid protocol. Only HTTP and HTTPS are allowed, got: ${urlObj.protocol}`
       };
     }
 
@@ -107,9 +107,9 @@ export function validateUrl(url: string): ValidationResult {
 
     return { isValid: true, sanitized: urlObj.toString() };
   } catch (error) {
-    return { 
-      isValid: false, 
-      error: `Invalid URL format: ${error instanceof Error ? error.message : 'Unknown error'}` 
+    return {
+      isValid: false,
+      error: `Invalid URL format: ${error instanceof Error ? error.message : 'Unknown error'}`
     };
   }
 }
@@ -158,7 +158,7 @@ export function validateBusinessHours(hours: string): ValidationResult {
   }
 
   const trimmedHours = hours.trim();
-  
+
   if (trimmedHours.length === 0) {
     return { isValid: false, error: 'Business hours cannot be empty' };
   }
@@ -186,7 +186,7 @@ export function validateTimezone(timezone: string): ValidationResult {
   }
 
   const trimmedTimezone = timezone.trim();
-  
+
   if (trimmedTimezone.length === 0) {
     return { isValid: false, error: 'Timezone cannot be empty' };
   }
@@ -206,7 +206,7 @@ export function validateTimezone(timezone: string): ValidationResult {
 /**
  * Validates array of strings (e.g., service areas, keywords)
  */
-export function validateStringArray(arr: any, fieldName: string, minLength = 0, maxLength = 100): ValidationResult {
+export function validateStringArray(arr: any, fieldName: string, minLength = 0, maxLength = 100): ValidationResult<string[]> {
   if (!Array.isArray(arr)) {
     return { isValid: false, error: `${fieldName} must be an array` };
   }
@@ -225,12 +225,12 @@ export function validateStringArray(arr: any, fieldName: string, minLength = 0, 
     if (typeof item !== 'string') {
       return { isValid: false, error: `${fieldName}[${i}] must be a string` };
     }
-    
+
     const trimmed = item.trim();
     if (trimmed.length === 0) {
       return { isValid: false, error: `${fieldName}[${i}] cannot be empty` };
     }
-    
+
     sanitized.push(trimmed);
   }
 
@@ -240,17 +240,17 @@ export function validateStringArray(arr: any, fieldName: string, minLength = 0, 
 /**
  * Validates year (for founded year, etc.)
  */
-export function validateYear(year: any): ValidationResult {
+export function validateYear(year: any): ValidationResult<number> {
   if (typeof year !== 'number') {
     return { isValid: false, error: 'Year must be a number' };
   }
 
   const currentYear = new Date().getFullYear();
-  
+
   if (year < 1800 || year > currentYear + 10) {
-    return { 
-      isValid: false, 
-      error: `Year must be between 1800 and ${currentYear + 10}` 
+    return {
+      isValid: false,
+      error: `Year must be between 1800 and ${currentYear + 10}`
     };
   }
 
@@ -266,14 +266,14 @@ export function validateEmployeeCount(count: string): ValidationResult {
   }
 
   const trimmed = count.trim();
-  
+
   if (trimmed.length === 0) {
     return { isValid: false, error: 'Employee count cannot be empty' };
   }
 
   // Valid formats: "1-10", "50+", "100-500", single numbers
   const validFormats = /^(\d+|\d+-\d+|\d+\+)$/;
-  
+
   if (!validFormats.test(trimmed)) {
     return {
       isValid: false,
