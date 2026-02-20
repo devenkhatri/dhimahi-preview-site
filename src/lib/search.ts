@@ -1,8 +1,8 @@
-import { getAllPersonas } from './content';
-import { getAllCMSServices, getAllCMSInsights } from './cms-content';
+import { getAllPersonas, getAllResources } from './content';
+import { getAllCMSServices, getAllCMSInsights, getAllCMSCaseStudies } from './cms-content';
 
 export interface SearchResult {
-  type: 'service' | 'insight' | 'persona';
+  type: 'service' | 'insight' | 'persona' | 'case-study' | 'resource' | 'about';
   title: string;
   excerpt: string;
   href: string;
@@ -77,19 +77,85 @@ export function getAllSearchableContent(): SearchResult[] {
     console.warn('Could not load personas for search:', error);
   }
 
+  // Add case studies
+  try {
+    const caseStudies = getAllCMSCaseStudies();
+    caseStudies.forEach(caseStudy => {
+      searchableContent.push({
+        type: 'case-study',
+        title: caseStudy.title,
+        excerpt: caseStudy.excerpt,
+        href: `/portfolio/${caseStudy.slug}`,
+        icon: '🏆',
+        tags: [
+          caseStudy.category,
+          caseStudy.client?.industry || '',
+          caseStudy.projectType || '',
+          ...(caseStudy.services || []),
+          'case study',
+          'portfolio',
+          'project'
+        ].filter(Boolean),
+        category: caseStudy.category,
+        publishDate: caseStudy.publishDate,
+      });
+    });
+  } catch (error) {
+    console.warn('Could not load case studies for search:', error);
+  }
+
+  // Add resources
+  try {
+    const resources = getAllResources();
+    resources.forEach(resource => {
+      searchableContent.push({
+        type: 'resource',
+        title: resource.title,
+        excerpt: resource.description,
+        href: `/resources`,
+        icon: '📚',
+        tags: [
+          resource.type,
+          ...(resource.tags || []),
+          'resource',
+          'download',
+          'guide',
+          'checklist',
+          'template'
+        ].filter(Boolean),
+        category: resource.type,
+      });
+    });
+  } catch (error) {
+    console.warn('Could not load resources for search:', error);
+  }
+
+  // Add About Us page as a static searchable entry
+  searchableContent.push({
+    type: 'about',
+    title: 'About Dhīmahi Technolabs',
+    excerpt: 'Learn about our 25+ years of experience helping SMEs in Gujarat with IT, AI, and digital marketing solutions. Meet our team and discover our mission.',
+    href: '/about',
+    icon: 'ℹ️',
+    tags: [
+      'about', 'company', 'team', 'mission', 'vision', 'values', 'history',
+      'founder', 'experience', 'gujarat', 'ahmedabad', 'gandhinagar', 'sme', 'it consultancy'
+    ],
+  });
+
   return searchableContent;
 }
 
-export function searchContent(query: string, contentType?: 'service' | 'insight' | 'persona'): SearchResult[] {
+export function searchContent(query: string, contentType?: 'service' | 'insight' | 'persona' | 'case-study' | 'resource' | 'about'): SearchResult[] {
   const allContent = getAllSearchableContent();
-  
+
   if (!query.trim()) {
     return contentType ? allContent.filter(item => item.type === contentType) : allContent;
   }
 
   const searchTerm = query.toLowerCase();
-  
-  let filteredContent = allContent.filter(item => 
+
+  let filteredContent = allContent.filter(item =>
     item.title.toLowerCase().includes(searchTerm) ||
     item.excerpt.toLowerCase().includes(searchTerm) ||
     item.tags.some(tag => tag.toLowerCase().includes(searchTerm)) ||
