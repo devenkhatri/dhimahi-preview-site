@@ -101,17 +101,38 @@ function SearchResults({ query }: { query: string }) {
   const [error, setError] = useState<string | null>(null);
 
   const fetchResults = useCallback(async (q: string) => {
-    if (!q.trim()) {
-      setResults([]);
-      return;
-    }
     setIsLoading(true);
     setError(null);
     try {
-      const res = await fetch(`/api/search?q=${encodeURIComponent(q.trim())}`);
-      if (!res.ok) throw new Error('Search request failed');
-      const data = await res.json();
-      setResults(data.results ?? []);
+      const res = await fetch('/search-index.json');
+      if (!res.ok) throw new Error('Could not load search index');
+      const allContent: SearchResult[] = await res.json();
+
+      if (!q.trim()) {
+        setResults([]);
+        setIsLoading(false);
+        return;
+      }
+
+      const searchTerm = q.toLowerCase();
+
+      const filtered = allContent.filter(item =>
+        item.title.toLowerCase().includes(searchTerm) ||
+        item.excerpt.toLowerCase().includes(searchTerm) ||
+        item.tags.some(tag => tag.toLowerCase().includes(searchTerm)) ||
+        item.category?.toLowerCase().includes(searchTerm)
+      );
+
+      // Sort: title match (3pts) > excerpt match (2pts) > tag match (1pt)
+      const scored = filtered.sort((a, b) => {
+        const score = (item: SearchResult) =>
+          (item.title.toLowerCase().includes(searchTerm) ? 3 : 0) +
+          (item.excerpt.toLowerCase().includes(searchTerm) ? 2 : 0) +
+          (item.tags.some(t => t.toLowerCase().includes(searchTerm)) ? 1 : 0);
+        return score(b) - score(a);
+      });
+
+      setResults(scored);
     } catch (err) {
       console.error('Search error:', err);
       setError('Something went wrong while searching. Please try again.');

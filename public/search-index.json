@@ -1,0 +1,1806 @@
+[
+  {
+    "type": "service",
+    "title": "AI & Automation Consulting",
+    "excerpt": "AI adoption strategy, business process automation, chatbots, and data insights to transform your business operations.",
+    "href": "/services/ai-automation",
+    "icon": "🤖",
+    "tags": [
+      "ai & automation consulting",
+      "ai adoption strategy",
+      "business process automation",
+      "chatbots & virtual assistants",
+      "data insights & analytics",
+      "workflow automation",
+      "service",
+      "business solution"
+    ]
+  },
+  {
+    "type": "service",
+    "title": "Application Portfolio Rationalisation",
+    "excerpt": "Optimize your technology landscape, reduce costs, and discover AI opportunities to transform your business operations.",
+    "href": "/services/application-portfolio-rationalisation",
+    "icon": "🎯",
+    "tags": [
+      "application portfolio rationalisation",
+      "technology landscape assessment",
+      "cost optimization analysis",
+      "feature & enhancement roadmap",
+      "ai integration opportunity mapping",
+      "application consolidation strategy",
+      "service",
+      "business solution"
+    ]
+  },
+  {
+    "type": "service",
+    "title": "Digital Marketing",
+    "excerpt": "Comprehensive digital marketing strategies including SEO, social media, PPC, and content marketing to grow your online presence.",
+    "href": "/services/digital-marketing",
+    "icon": "📢",
+    "tags": [
+      "digital marketing",
+      "search engine optimization (seo)",
+      "social media marketing (smm)",
+      "pay-per-click advertising (ppc)",
+      "content marketing & email automation",
+      "local seo & google my business",
+      "service",
+      "business solution"
+    ]
+  },
+  {
+    "type": "case-study",
+    "title": "Brand Launch & Digital Strategy for Ayurvedic Wellness Brand",
+    "excerpt": "Launched a new Ayurvedic wellness brand from zero to ₹40 lakhs monthly revenue in 7 months through integrated branding, e-commerce, and content marketing strategy.",
+    "href": "/portfolio/ayurvedic-brand-digital-launch",
+    "icon": "🏆",
+    "tags": [
+      "digital-marketing",
+      "Brand Launch & Digital-First Go-to-Market",
+      "Health & Wellness",
+      "digital-marketing",
+      "application-portfolio-rationalisation",
+      "case study",
+      "portfolio",
+      "project"
+    ],
+    "category": "digital-marketing"
+  },
+  {
+    "type": "case-study",
+    "title": "Software Optimisation for Chartered Accountancy Firm",
+    "excerpt": "Streamlined technology stack from 9 tools to 4 integrated platforms for a CA firm, reducing IT costs by 40% and automating GST compliance workflows.",
+    "href": "/portfolio/ca-firm-software-optimisation",
+    "icon": "🏆",
+    "tags": [
+      "application-portfolio-rationalisation",
+      "Application Portfolio Rationalisation",
+      "Professional Services",
+      "application-portfolio-rationalisation",
+      "case study",
+      "portfolio",
+      "project"
+    ],
+    "category": "application-portfolio-rationalisation"
+  },
+  {
+    "type": "case-study",
+    "title": "Social Media Growth & Student Enrollment Campaign for Coaching Institute",
+    "excerpt": "Increased student enrollment by 180% and built a 75,000+ YouTube subscriber base through strategic digital marketing for a competitive exam coaching institute.",
+    "href": "/portfolio/coaching-institute-social-media-growth",
+    "icon": "🏆",
+    "tags": [
+      "digital-marketing",
+      "Social Media Marketing & Student Acquisition",
+      "Education & Coaching",
+      "digital-marketing",
+      "case study",
+      "portfolio",
+      "project"
+    ],
+    "category": "digital-marketing"
+  },
+  {
+    "type": "case-study",
+    "title": "Local SEO & Reputation Management for Dental Clinic Chain",
+    "excerpt": "Achieved #1 Google ranking for 15+ dental keywords and grew patient bookings by 200% through hyper-local SEO and review management for a 3-location dental clinic chain.",
+    "href": "/portfolio/dental-clinic-local-seo",
+    "icon": "🏆",
+    "tags": [
+      "digital-marketing",
+      "Local SEO & Online Reputation Management",
+      "Healthcare - Dental",
+      "digital-marketing",
+      "case study",
+      "portfolio",
+      "project"
+    ],
+    "category": "digital-marketing"
+  },
+  {
+    "type": "case-study",
+    "title": "AI-Powered Quality Control for Diamond Processing Unit",
+    "excerpt": "Implemented computer vision-based diamond grading system that reduced inspection time by 70% and improved grading consistency to 98.5% for a diamond processing company.",
+    "href": "/portfolio/diamond-ai-quality-control",
+    "icon": "🏆",
+    "tags": [
+      "ai-automation",
+      "AI/ML Implementation & Process Automation",
+      "Diamond Processing",
+      "ai-automation",
+      "case study",
+      "portfolio",
+      "project"
+    ],
+    "category": "ai-automation"
+  },
+  {
+    "type": "case-study",
+    "title": "Digital Transformation Roadmap for Education Group",
+    "excerpt": "Assessed and rationalised technology across 5 school campuses, creating a unified EdTech strategy that reduced costs by 30% and identified AI-powered personalised learning opportunities.",
+    "href": "/portfolio/education-group-digital-transformation",
+    "icon": "🏆",
+    "tags": [
+      "application-portfolio-rationalisation",
+      "Application Portfolio Rationalisation & EdTech Strategy",
+      "Education",
+      "application-portfolio-rationalisation",
+      "case study",
+      "portfolio",
+      "project"
+    ],
+    "category": "application-portfolio-rationalisation"
+  },
+  {
+    "type": "case-study",
+    "title": "E-Commerce Growth Strategy for Ethnic Wear Brand",
+    "excerpt": "Grew online revenue by 450% and built a 50,000+ Instagram following for an ethnic wear brand through integrated SEO, social media marketing, and influencer partnerships.",
+    "href": "/portfolio/ethnic-wear-ecommerce-growth",
+    "icon": "🏆",
+    "tags": [
+      "digital-marketing",
+      "Digital Marketing & E-Commerce Growth",
+      "Fashion & E-Commerce",
+      "digital-marketing",
+      "case study",
+      "portfolio",
+      "project"
+    ],
+    "category": "digital-marketing"
+  },
+  {
+    "type": "case-study",
+    "title": "Smart Agriculture Monitoring System for Farming Cooperative",
+    "excerpt": "Deployed IoT sensors and AI-powered crop health monitoring across 500 acres, reducing water usage by 30% and increasing yield by 22% for a farming cooperative.",
+    "href": "/portfolio/farming-cooperative-smart-agriculture",
+    "icon": "🏆",
+    "tags": [
+      "ai-automation",
+      "IoT & AI-Powered Smart Agriculture",
+      "Agriculture",
+      "ai-automation",
+      "case study",
+      "portfolio",
+      "project"
+    ],
+    "category": "ai-automation"
+  },
+  {
+    "type": "case-study",
+    "title": "Modern Healthcare Website with Patient Portal for Multi-Specialty Clinic",
+    "excerpt": "Developed comprehensive healthcare website with patient portal, online appointment booking, and telemedicine integration, improving patient experience and operational efficiency.",
+    "href": "/portfolio/healthcare-clinic-website-development",
+    "icon": "🏆",
+    "tags": [
+      "application-portfolio-rationalisation",
+      "Healthcare Website Development & Patient Portal",
+      "Healthcare",
+      "application-portfolio-rationalisation",
+      "ai-automation",
+      "case study",
+      "portfolio",
+      "project"
+    ],
+    "category": "application-portfolio-rationalisation"
+  },
+  {
+    "type": "case-study",
+    "title": "WhatsApp Chatbot & Booking Automation for Hotel Chain",
+    "excerpt": "Built AI-powered WhatsApp chatbot handling 80% of guest queries automatically, integrated with PMS for real-time booking, reducing front desk call volume by 65% for a 4-hotel chain.",
+    "href": "/portfolio/hotel-chatbot-booking-automation",
+    "icon": "🏆",
+    "tags": [
+      "ai-automation",
+      "AI Chatbot & Business Process Automation",
+      "Hospitality",
+      "ai-automation",
+      "digital-marketing",
+      "case study",
+      "portfolio",
+      "project"
+    ],
+    "category": "ai-automation"
+  },
+  {
+    "type": "case-study",
+    "title": "Lead Generation System for B2B Industrial Supplier",
+    "excerpt": "Built a digital lead generation engine that generated 150+ qualified leads monthly, reducing cost per lead by 60% and growing B2B pipeline by ₹2.5 crore for an industrial equipment supplier.",
+    "href": "/portfolio/industrial-b2b-lead-generation",
+    "icon": "🏆",
+    "tags": [
+      "digital-marketing",
+      "B2B Digital Marketing & Lead Generation",
+      "Industrial Equipment",
+      "digital-marketing",
+      "case study",
+      "portfolio",
+      "project"
+    ],
+    "category": "digital-marketing"
+  },
+  {
+    "type": "case-study",
+    "title": "HR Automation & Employee Self-Service for IT Services Company",
+    "excerpt": "Automated 85% of HR processes including leave management, payroll, and onboarding, reducing HR team workload by 60% and improving employee satisfaction to 4.6/5 for a growing IT company.",
+    "href": "/portfolio/it-company-hr-automation",
+    "icon": "🏆",
+    "tags": [
+      "ai-automation",
+      "HR Process Automation & AI-Powered Employee Experience",
+      "IT Services",
+      "ai-automation",
+      "application-portfolio-rationalisation",
+      "case study",
+      "portfolio",
+      "project"
+    ],
+    "category": "ai-automation"
+  },
+  {
+    "type": "case-study",
+    "title": "Legacy System Modernisation for Logistics Company",
+    "excerpt": "Replaced 3 legacy systems with modern cloud platforms for a logistics company, reducing downtime by 90% and enabling real-time shipment tracking with AI-powered route optimisation.",
+    "href": "/portfolio/logistics-company-legacy-modernisation",
+    "icon": "🏆",
+    "tags": [
+      "application-portfolio-rationalisation",
+      "Application Portfolio Rationalisation & Modernisation",
+      "Transportation & Logistics",
+      "application-portfolio-rationalisation",
+      "ai-automation",
+      "case study",
+      "portfolio",
+      "project"
+    ],
+    "category": "application-portfolio-rationalisation"
+  },
+  {
+    "type": "case-study",
+    "title": "Application Portfolio Rationalisation for Regional Pharmaceutical Distributor",
+    "excerpt": "Consolidated 14 overlapping applications into 6 integrated platforms, reducing annual IT spend by 35% and identifying 5 high-impact AI opportunities for a pharma distribution company.",
+    "href": "/portfolio/pharma-distributor-portfolio-rationalisation",
+    "icon": "🏆",
+    "tags": [
+      "application-portfolio-rationalisation",
+      "Application Portfolio Rationalisation & AI Opportunity Mapping",
+      "Pharmaceutical Distribution",
+      "application-portfolio-rationalisation",
+      "ai-automation",
+      "case study",
+      "portfolio",
+      "project"
+    ],
+    "category": "application-portfolio-rationalisation"
+  },
+  {
+    "type": "case-study",
+    "title": "Technology Consolidation for Growing Real Estate Developer",
+    "excerpt": "Rationalised 11 applications to 5 core platforms for a real estate developer, saving ₹18 lakhs annually and enabling AI-powered lead scoring that increased conversions by 45%.",
+    "href": "/portfolio/real-estate-app-consolidation",
+    "icon": "🏆",
+    "tags": [
+      "application-portfolio-rationalisation",
+      "Application Portfolio Rationalisation & AI Integration",
+      "Real Estate & Construction",
+      "application-portfolio-rationalisation",
+      "ai-automation",
+      "case study",
+      "portfolio",
+      "project"
+    ],
+    "category": "application-portfolio-rationalisation"
+  },
+  {
+    "type": "case-study",
+    "title": "Digital Marketing Transformation for Multi-Location Restaurant Chain",
+    "excerpt": "Increased online orders by 300% and customer engagement by 250% through comprehensive digital marketing strategy for a popular Gujarati restaurant chain.",
+    "href": "/portfolio/restaurant-chain-digital-marketing",
+    "icon": "🏆",
+    "tags": [
+      "digital-marketing",
+      "Digital Marketing & Brand Development",
+      "Food & Hospitality",
+      "digital-marketing",
+      "application-portfolio-rationalisation",
+      "case study",
+      "portfolio",
+      "project"
+    ],
+    "category": "digital-marketing"
+  },
+  {
+    "type": "case-study",
+    "title": "ERP Integration & Process Automation for Leading Textile Manufacturer",
+    "excerpt": "Streamlined operations and reduced manual work by 75% through custom ERP integration and automated workflows for a 500+ employee textile manufacturing company.",
+    "href": "/portfolio/textile-manufacturer-erp-integration",
+    "icon": "🏆",
+    "tags": [
+      "ai-automation",
+      "ERP Integration & Business Process Automation",
+      "Textile Manufacturing",
+      "ai-automation",
+      "application-portfolio-rationalisation",
+      "case study",
+      "portfolio",
+      "project"
+    ],
+    "category": "ai-automation"
+  },
+  {
+    "type": "case-study",
+    "title": "Automated Invoice Processing for Trading Company",
+    "excerpt": "Implemented AI-powered invoice processing that reduced manual data entry by 90% and processing time from 3 days to 4 hours for a commodity trading company handling 2,000+ invoices monthly.",
+    "href": "/portfolio/trading-company-invoice-automation",
+    "icon": "🏆",
+    "tags": [
+      "ai-automation",
+      "AI Document Processing & Workflow Automation",
+      "Commodity Trading",
+      "ai-automation",
+      "case study",
+      "portfolio",
+      "project"
+    ],
+    "category": "ai-automation"
+  },
+  {
+    "type": "insight",
+    "title": "AI Chatbots for SME Customer Service: Implementation Guide",
+    "excerpt": "Deploy smart chatbots to handle 80% of customer queries while maintaining personal touch.",
+    "href": "/insights/ai-chatbots-customer-service-sme",
+    "icon": "💡",
+    "tags": [
+      "AI",
+      "Chatbots",
+      "Customer Service",
+      "Automation",
+      "SME"
+    ],
+    "category": "AI & Automation"
+  },
+  {
+    "type": "insight",
+    "title": "AI Customer Segmentation: Personalized Marketing for SME Growth",
+    "excerpt": "Increase marketing ROI by 300% with AI-powered customer segmentation that creates personalized campaigns and improves customer lifetime value.",
+    "href": "/insights/ai-customer-segmentation-personalized-marketing",
+    "icon": "💡",
+    "tags": [
+      "AI",
+      "Customer Segmentation",
+      "Personalized Marketing",
+      "Customer Analytics",
+      "SME"
+    ],
+    "category": "AI & Automation"
+  },
+  {
+    "type": "insight",
+    "title": "AI Document Processing: Automate Paperwork and Save 20 Hours Weekly",
+    "excerpt": "Transform document-heavy processes with AI that extracts data, processes invoices, and automates paperwork with 99% accuracy.",
+    "href": "/insights/ai-document-processing-automation-sme",
+    "icon": "💡",
+    "tags": [
+      "AI",
+      "Document Processing",
+      "Automation",
+      "OCR",
+      "SME"
+    ],
+    "category": "AI & Automation"
+  },
+  {
+    "type": "insight",
+    "title": "AI Energy Management: Smart Power Optimization for SME Cost Savings",
+    "excerpt": "Reduce energy costs by 20-35% with AI-powered energy management that optimizes consumption, predicts demand, and automates efficiency measures.",
+    "href": "/insights/ai-energy-management-cost-optimization-sme",
+    "icon": "💡",
+    "tags": [
+      "AI",
+      "Energy Management",
+      "Cost Optimization",
+      "Smart Grid",
+      "SME"
+    ],
+    "category": "AI & Automation"
+  },
+  {
+    "type": "insight",
+    "title": "AI Financial Risk Assessment: Smart Credit Scoring for SME Lending",
+    "excerpt": "Improve loan approval accuracy by 40% and reduce default rates with AI-powered credit scoring and financial risk assessment systems.",
+    "href": "/insights/ai-financial-risk-assessment-credit-scoring",
+    "icon": "💡",
+    "tags": [
+      "AI",
+      "Financial Risk",
+      "Credit Scoring",
+      "Lending",
+      "SME"
+    ],
+    "category": "AI & Automation"
+  },
+  {
+    "type": "insight",
+    "title": "AI Fraud Detection for SMEs: Protect Your Business from Financial Threats",
+    "excerpt": "Prevent 95% of fraudulent transactions with AI-powered fraud detection systems that protect SME revenue and customer trust.",
+    "href": "/insights/ai-fraud-detection-sme-financial-security",
+    "icon": "💡",
+    "tags": [
+      "AI",
+      "Fraud Detection",
+      "Financial Security",
+      "Risk Management",
+      "SME"
+    ],
+    "category": "AI & Automation"
+  },
+  {
+    "type": "insight",
+    "title": "AI-Powered HR Recruitment: Smart Talent Acquisition for SMEs",
+    "excerpt": "Reduce hiring time by 60% and improve candidate quality with AI-driven recruitment tools that automate screening, matching, and candidate assessment.",
+    "href": "/insights/ai-hr-recruitment-talent-acquisition-sme",
+    "icon": "💡",
+    "tags": [
+      "AI",
+      "HR",
+      "Recruitment",
+      "Talent Acquisition",
+      "SME"
+    ],
+    "category": "AI & Automation"
+  },
+  {
+    "type": "insight",
+    "title": "AI-Powered Inventory Management for SMEs: Smart Stock Control",
+    "excerpt": "Reduce inventory costs by 25% and prevent stockouts with AI-driven demand forecasting and automated reordering systems.",
+    "href": "/insights/ai-inventory-management-sme-automation",
+    "icon": "💡",
+    "tags": [
+      "AI",
+      "Inventory Management",
+      "Supply Chain",
+      "Automation",
+      "SME"
+    ],
+    "category": "AI & Automation"
+  },
+  {
+    "type": "insight",
+    "title": "AI-Powered Application Portfolio Management: Using Intelligence to Optimise",
+    "excerpt": "Discover how AI and automation can transform application portfolio management—from automated discovery to intelligent recommendations for optimisation.",
+    "href": "/insights/ai-powered-application-portfolio-management",
+    "icon": "💡",
+    "tags": [
+      "AI",
+      "Application Portfolio",
+      "Automation",
+      "Machine Learning",
+      "Portfolio Intelligence"
+    ],
+    "category": "AI & Automation"
+  },
+  {
+    "type": "insight",
+    "title": "AI Predictive Maintenance: Prevent Equipment Failures Before They Happen",
+    "excerpt": "Reduce equipment downtime by 75% and maintenance costs by 40% with AI-powered predictive maintenance that forecasts failures before they occur.",
+    "href": "/insights/ai-predictive-maintenance-equipment-optimization",
+    "icon": "💡",
+    "tags": [
+      "AI",
+      "Predictive Maintenance",
+      "Equipment Optimization",
+      "Manufacturing",
+      "SME"
+    ],
+    "category": "AI & Automation"
+  },
+  {
+    "type": "insight",
+    "title": "AI Price Optimization: Dynamic Pricing Strategies for SME Profitability",
+    "excerpt": "Increase profit margins by 15-25% with AI-powered dynamic pricing that optimizes prices based on demand, competition, and market conditions.",
+    "href": "/insights/ai-price-optimization-dynamic-pricing-sme",
+    "icon": "💡",
+    "tags": [
+      "AI",
+      "Price Optimization",
+      "Dynamic Pricing",
+      "Revenue Management",
+      "SME"
+    ],
+    "category": "AI & Automation"
+  },
+  {
+    "type": "insight",
+    "title": "AI Quality Control: Automated Inspection for Manufacturing Excellence",
+    "excerpt": "Achieve 99.9% quality accuracy and reduce inspection time by 80% with AI-powered visual inspection and automated quality control systems.",
+    "href": "/insights/ai-quality-control-manufacturing-inspection",
+    "icon": "💡",
+    "tags": [
+      "AI",
+      "Quality Control",
+      "Manufacturing",
+      "Visual Inspection",
+      "SME"
+    ],
+    "category": "AI & Automation"
+  },
+  {
+    "type": "insight",
+    "title": "AI Sales Forecasting for SMEs: Predict Revenue with 90% Accuracy",
+    "excerpt": "Transform your business planning with AI-powered sales forecasting that predicts revenue trends, identifies opportunities, and optimizes resource allocation.",
+    "href": "/insights/ai-sales-forecasting-sme-revenue-prediction",
+    "icon": "💡",
+    "tags": [
+      "AI",
+      "Sales Forecasting",
+      "Revenue Prediction",
+      "Business Intelligence",
+      "SME"
+    ],
+    "category": "AI & Automation"
+  },
+  {
+    "type": "insight",
+    "title": "AI Supply Chain Optimization: Smart Logistics for SME Growth",
+    "excerpt": "Reduce supply chain costs by 30% and improve delivery times with AI-powered logistics optimization, demand planning, and supplier management.",
+    "href": "/insights/ai-supply-chain-optimization-sme-logistics",
+    "icon": "💡",
+    "tags": [
+      "AI",
+      "Supply Chain",
+      "Logistics",
+      "Optimization",
+      "SME"
+    ],
+    "category": "AI & Automation"
+  },
+  {
+    "type": "insight",
+    "title": "API Integration for Business Automation: Connect Your Systems Seamlessly",
+    "excerpt": "Learn how to integrate different business systems using APIs to automate workflows and eliminate manual data entry.",
+    "href": "/insights/api-integration-business-automation",
+    "icon": "💡",
+    "tags": [
+      "API Integration",
+      "Business Automation",
+      "System Integration",
+      "Workflow Automation",
+      "Digital Transformation"
+    ],
+    "category": "AI & Automation"
+  },
+  {
+    "type": "insight",
+    "title": "Application Integration Strategy: Connecting Your Software Ecosystem",
+    "excerpt": "Build a cohesive technology ecosystem by integrating your business applications. Learn API strategies, middleware options, and integration patterns that reduce data silos.",
+    "href": "/insights/application-integration-strategy-sme",
+    "icon": "💡",
+    "tags": [
+      "Application Integration",
+      "API Strategy",
+      "Data Silos",
+      "Middleware",
+      "SME"
+    ],
+    "category": "IT Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "Application Portfolio and Compliance: Meeting Regulatory Requirements",
+    "excerpt": "Ensure your application portfolio meets regulatory and compliance requirements. From data protection to industry standards, learn how to manage compliance across your software landscape.",
+    "href": "/insights/application-portfolio-compliance-regulatory",
+    "icon": "💡",
+    "tags": [
+      "Compliance",
+      "Regulatory",
+      "Data Protection",
+      "Application Portfolio",
+      "GDPR"
+    ],
+    "category": "Compliance"
+  },
+  {
+    "type": "insight",
+    "title": "Application Portfolio and Digital Transformation: Building the Right Foundation",
+    "excerpt": "Your application portfolio is the foundation of digital transformation. Learn how portfolio optimisation enables—or blocks—your digital ambitions.",
+    "href": "/insights/application-portfolio-digital-transformation-foundation",
+    "icon": "💡",
+    "tags": [
+      "Digital Transformation",
+      "Application Portfolio",
+      "IT Foundation",
+      "Technology Strategy",
+      "SME"
+    ],
+    "category": "Digital Transformation"
+  },
+  {
+    "type": "insight",
+    "title": "Application Portfolio Governance: Building a Sustainable Management Framework",
+    "excerpt": "Establish a governance framework that ensures your application portfolio stays optimised over time, with clear policies, roles, and review cycles.",
+    "href": "/insights/application-portfolio-governance-framework",
+    "icon": "💡",
+    "tags": [
+      "IT Governance",
+      "Application Portfolio",
+      "Policy Framework",
+      "Portfolio Management",
+      "SME"
+    ],
+    "category": "IT Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "Measuring Application Portfolio Health: KPIs and Metrics That Matter",
+    "excerpt": "Define and track the right metrics to measure your application portfolio's health. From cost efficiency to user satisfaction, learn what to measure and why.",
+    "href": "/insights/application-portfolio-health-kpis-metrics",
+    "icon": "💡",
+    "tags": [
+      "Portfolio Metrics",
+      "KPIs",
+      "Application Health",
+      "IT Performance",
+      "SME"
+    ],
+    "category": "IT Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "The Application Portfolio Optimisation Roadmap: A 90-Day Quick Start Plan",
+    "excerpt": "A practical 90-day action plan to kickstart your application portfolio optimisation journey. Week-by-week activities, milestones, and quick wins to demonstrate immediate value.",
+    "href": "/insights/application-portfolio-optimisation-90-day-plan",
+    "icon": "💡",
+    "tags": [
+      "Portfolio Roadmap",
+      "Action Plan",
+      "Quick Start",
+      "Application Optimization",
+      "SME"
+    ],
+    "category": "IT Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "Application Portfolio Optimisation for Manufacturing SMEs",
+    "excerpt": "Industry-specific guidance for manufacturing businesses looking to rationalise their ERP, MES, QMS, and operational technology applications for maximum efficiency.",
+    "href": "/insights/application-portfolio-optimisation-manufacturing",
+    "icon": "💡",
+    "tags": [
+      "Manufacturing",
+      "ERP Optimization",
+      "MES",
+      "Application Portfolio",
+      "Industry 4.0"
+    ],
+    "category": "Industry Solutions"
+  },
+  {
+    "type": "insight",
+    "title": "Application Portfolio Optimisation for Professional Services Firms",
+    "excerpt": "Tailored application portfolio strategies for consulting, legal, accounting, and other professional services firms. Optimise tools for billable efficiency and client delivery.",
+    "href": "/insights/application-portfolio-optimisation-professional-services",
+    "icon": "💡",
+    "tags": [
+      "Professional Services",
+      "Application Portfolio",
+      "Consulting",
+      "Legal Tech",
+      "SME"
+    ],
+    "category": "Industry Solutions"
+  },
+  {
+    "type": "insight",
+    "title": "Application Portfolio Optimisation for Retail and E-Commerce SMEs",
+    "excerpt": "Streamline your retail technology stack. From POS systems to e-commerce platforms, learn how to optimise the applications that power modern retail operations.",
+    "href": "/insights/application-portfolio-optimisation-retail-ecommerce",
+    "icon": "💡",
+    "tags": [
+      "Retail",
+      "E-Commerce",
+      "Application Portfolio",
+      "POS",
+      "Omnichannel"
+    ],
+    "category": "Industry Solutions"
+  },
+  {
+    "type": "insight",
+    "title": "Application Portfolio Rationalisation: The Complete Guide for SMEs",
+    "excerpt": "Learn how to evaluate, optimize, and streamline your application portfolio to reduce costs, eliminate redundancy, and align IT investments with business strategy.",
+    "href": "/insights/application-portfolio-rationalisation-complete-guide",
+    "icon": "💡",
+    "tags": [
+      "Application Portfolio",
+      "Rationalisation",
+      "IT Optimization",
+      "SME",
+      "Cost Reduction"
+    ],
+    "category": "IT Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "Application Portfolio Risk Assessment: Identifying and Mitigating Technology Risks",
+    "excerpt": "Identify and manage risks hidden in your application portfolio—from vendor dependence to technical debt. A comprehensive risk framework for SMEs.",
+    "href": "/insights/application-portfolio-risk-assessment",
+    "icon": "💡",
+    "tags": [
+      "Risk Assessment",
+      "Application Portfolio",
+      "Technical Debt",
+      "Vendor Risk",
+      "Business Continuity"
+    ],
+    "category": "Risk Management"
+  },
+  {
+    "type": "insight",
+    "title": "Application Retirement Playbook: How to Decommission Software Safely",
+    "excerpt": "A step-by-step playbook for safely retiring applications from your portfolio. Handle data preservation, user transition, and compliance without risking business continuity.",
+    "href": "/insights/application-retirement-decommission-playbook",
+    "icon": "💡",
+    "tags": [
+      "Application Retirement",
+      "Decommissioning",
+      "Portfolio Management",
+      "Data Archival",
+      "SME"
+    ],
+    "category": "IT Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "Application Security Assessment: Protecting Your Software Portfolio",
+    "excerpt": "Evaluate the security posture of every application in your portfolio. Learn to identify vulnerabilities, assess risk, and prioritise remediation for maximum protection.",
+    "href": "/insights/application-security-assessment-portfolio",
+    "icon": "💡",
+    "tags": [
+      "Application Security",
+      "Vulnerability Assessment",
+      "Risk Management",
+      "Portfolio Security",
+      "SME"
+    ],
+    "category": "Cybersecurity"
+  },
+  {
+    "type": "insight",
+    "title": "Calculating Total Cost of Ownership for Business Applications",
+    "excerpt": "Go beyond license fees to understand the true cost of every application in your portfolio, including hidden expenses that inflate your IT budget.",
+    "href": "/insights/application-tco-calculation-sme",
+    "icon": "💡",
+    "tags": [
+      "TCO",
+      "Cost Analysis",
+      "Application Portfolio",
+      "IT Budget",
+      "SME"
+    ],
+    "category": "IT Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "Build vs. Buy vs. Integrate: Making the Right Application Decision",
+    "excerpt": "When you need new functionality, should you build a custom application, buy a commercial product, or integrate existing tools? A decision framework for SMEs.",
+    "href": "/insights/build-vs-buy-application-decision-sme",
+    "icon": "💡",
+    "tags": [
+      "Build vs Buy",
+      "Application Decision",
+      "Custom Software",
+      "SaaS Evaluation",
+      "SME"
+    ],
+    "category": "IT Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "Business Process Automation for SMEs: Eliminate Manual Work",
+    "excerpt": "Identify and automate repetitive business processes to save time, reduce errors, and focus on growth activities.",
+    "href": "/insights/business-process-automation-sme",
+    "icon": "💡",
+    "tags": [
+      "Process Automation",
+      "Workflow Automation",
+      "Business Efficiency",
+      "SME",
+      "Digital Transformation"
+    ],
+    "category": "AI & Automation"
+  },
+  {
+    "type": "insight",
+    "title": "Choosing the Right Tools: CRM, ERP, and HR for SMEs",
+    "excerpt": "Buy what you'll use. A simple guide to avoid overpaying for software.",
+    "href": "/insights/choose-right-tools-sme",
+    "icon": "💡",
+    "tags": [
+      "CRM",
+      "ERP",
+      "HR",
+      "SME",
+      "Software Selection"
+    ],
+    "category": "Business Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "Cloud Migration for Application Portfolio Optimisation",
+    "excerpt": "Learn how cloud migration fits into your application portfolio strategy. Evaluate which applications to move to the cloud, which to keep on-premises, and how to execute a successful transition.",
+    "href": "/insights/cloud-migration-application-portfolio",
+    "icon": "💡",
+    "tags": [
+      "Cloud Migration",
+      "Application Portfolio",
+      "IaaS",
+      "SaaS",
+      "Digital Transformation"
+    ],
+    "category": "Cloud Computing"
+  },
+  {
+    "type": "insight",
+    "title": "Cloud Migration for SMEs: Security and Cost Optimization Guide",
+    "excerpt": "Move to cloud safely while reducing IT costs by 40-60% with proper planning and security measures.",
+    "href": "/insights/cloud-migration-sme-security-guide",
+    "icon": "💡",
+    "tags": [
+      "Cloud Migration",
+      "Security",
+      "Cost Optimization",
+      "SME",
+      "IT Strategy"
+    ],
+    "category": "IT Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "Content Marketing Strategy for SMEs: Build Authority and Drive Growth",
+    "excerpt": "Create valuable content that attracts customers, builds trust, and establishes your business as an industry leader.",
+    "href": "/insights/content-marketing-strategy-sme",
+    "icon": "💡",
+    "tags": [
+      "Content Marketing",
+      "Brand Building",
+      "SEO",
+      "Lead Generation",
+      "SME"
+    ],
+    "category": "Digital Marketing"
+  },
+  {
+    "type": "insight",
+    "title": "Customer Data Analytics for SMEs: Turn Data into Profitable Insights",
+    "excerpt": "Use customer data analytics to increase sales, improve retention, and make data-driven business decisions.",
+    "href": "/insights/customer-data-analytics-sme",
+    "icon": "💡",
+    "tags": [
+      "Data Analytics",
+      "Customer Insights",
+      "Business Intelligence",
+      "SME",
+      "Data-Driven Decisions"
+    ],
+    "category": "Business Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "Customer Retention Strategies for SMEs: Keep Your Best Customers Coming Back",
+    "excerpt": "Proven strategies to increase customer loyalty, reduce churn, and maximize customer lifetime value for sustainable growth.",
+    "href": "/insights/customer-retention-strategies-sme",
+    "icon": "💡",
+    "tags": [
+      "Customer Retention",
+      "Customer Loyalty",
+      "CRM",
+      "Customer Experience",
+      "SME Growth"
+    ],
+    "category": "Business Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "Cybersecurity Essentials for Small Businesses: Protect Your Digital Assets",
+    "excerpt": "Essential cybersecurity measures every SME needs to implement to protect against cyber threats and data breaches.",
+    "href": "/insights/cybersecurity-essentials-small-business",
+    "icon": "💡",
+    "tags": [
+      "Cybersecurity",
+      "Data Protection",
+      "SME Security",
+      "Risk Management",
+      "IT Security"
+    ],
+    "category": "IT Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "Data Backup and Disaster Recovery for SMEs: Protect Your Business from Data Loss",
+    "excerpt": "Essential guide to implementing robust backup and disaster recovery solutions to safeguard your business data and ensure continuity.",
+    "href": "/insights/data-backup-disaster-recovery-sme",
+    "icon": "💡",
+    "tags": [
+      "Data Backup",
+      "Disaster Recovery",
+      "Business Continuity",
+      "Data Protection",
+      "SME Security"
+    ],
+    "category": "IT Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "Data Migration Best Practices: Moving Data Between Applications Safely",
+    "excerpt": "Master the art of migrating data between applications during portfolio rationalisation. Avoid data loss, maintain integrity, and minimise business disruption.",
+    "href": "/insights/data-migration-best-practices-applications",
+    "icon": "💡",
+    "tags": [
+      "Data Migration",
+      "Application Portfolio",
+      "Data Integrity",
+      "ETL",
+      "SME"
+    ],
+    "category": "IT Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "Digital Marketing Budget Guide for Gujarat SMEs",
+    "excerpt": "How to allocate your marketing budget across channels for maximum ROI in the Gujarat market.",
+    "href": "/insights/digital-marketing-budget-sme-gujarat",
+    "icon": "💡",
+    "tags": [
+      "Digital Marketing",
+      "Budget",
+      "ROI",
+      "Gujarat",
+      "SME"
+    ],
+    "category": "Digital Marketing"
+  },
+  {
+    "type": "insight",
+    "title": "Digital Payment Solutions for SMEs: Accept Payments Seamlessly",
+    "excerpt": "Implement modern payment solutions to improve cash flow, reduce transaction costs, and enhance customer experience.",
+    "href": "/insights/digital-payment-solutions-sme",
+    "icon": "💡",
+    "tags": [
+      "Digital Payments",
+      "Payment Gateway",
+      "Fintech",
+      "UPI",
+      "E-commerce Payments"
+    ],
+    "category": "Business Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "Digital Transformation Roadmap for SMEs: Step-by-Step Guide",
+    "excerpt": "Complete digital transformation strategy to modernize your business operations and stay competitive.",
+    "href": "/insights/digital-transformation-roadmap-sme",
+    "icon": "💡",
+    "tags": [
+      "Digital Transformation",
+      "Business Strategy",
+      "Technology Adoption",
+      "SME",
+      "Modernization"
+    ],
+    "category": "IT Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "E-commerce Setup Guide for Gujarat SMEs: From Zero to Online Sales",
+    "excerpt": "Complete roadmap to launch your online store and start selling digitally in the Gujarat market.",
+    "href": "/insights/e-commerce-setup-guide-gujarat-sme",
+    "icon": "💡",
+    "tags": [
+      "E-commerce",
+      "Online Sales",
+      "Digital Transformation",
+      "Gujarat",
+      "SME"
+    ],
+    "category": "Web Development"
+  },
+  {
+    "type": "insight",
+    "title": "Email Marketing Automation for SMEs: Drive Sales on Autopilot",
+    "excerpt": "Set up automated email campaigns that nurture leads and drive sales while you focus on running your business.",
+    "href": "/insights/email-marketing-automation-sme",
+    "icon": "💡",
+    "tags": [
+      "Email Marketing",
+      "Marketing Automation",
+      "Lead Nurturing",
+      "SME",
+      "Sales"
+    ],
+    "category": "AI & Automation"
+  },
+  {
+    "type": "insight",
+    "title": "Financial Management Software for SMEs: Streamline Your Money Management",
+    "excerpt": "Choose the right financial software to automate accounting, improve cash flow, and make better financial decisions.",
+    "href": "/insights/financial-management-software-sme",
+    "icon": "💡",
+    "tags": [
+      "Financial Management",
+      "Accounting Software",
+      "Cash Flow",
+      "SME Finance",
+      "Business Intelligence"
+    ],
+    "category": "Business Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "Google My Business Optimization for Ahmedabad Businesses",
+    "excerpt": "Complete guide to optimize your Google My Business listing and dominate local search results in Ahmedabad.",
+    "href": "/insights/google-my-business-optimization-ahmedabad",
+    "icon": "💡",
+    "tags": [
+      "Local SEO",
+      "Google My Business",
+      "Ahmedabad",
+      "Local Marketing",
+      "SME"
+    ],
+    "category": "Digital Marketing"
+  },
+  {
+    "type": "insight",
+    "title": "GST Compliance Made Easy: Automation Tools for SMEs",
+    "excerpt": "Streamline GST filing, invoice generation, and compliance tracking with the right tools.",
+    "href": "/insights/gst-compliance-automation-tools",
+    "icon": "💡",
+    "tags": [
+      "GST",
+      "Compliance",
+      "Automation",
+      "Accounting",
+      "SME"
+    ],
+    "category": "AI & Automation"
+  },
+  {
+    "type": "insight",
+    "title": "HR Management Software for SMEs: Streamline People Operations",
+    "excerpt": "Choose the right HR software to automate payroll, manage employees, ensure compliance, and build a better workplace culture.",
+    "href": "/insights/hr-management-software-sme",
+    "icon": "💡",
+    "tags": [
+      "HR Management",
+      "Payroll Software",
+      "Employee Management",
+      "HR Automation",
+      "SME Operations"
+    ],
+    "category": "Business Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "Inventory Management Systems for SMEs: Stop Losing Money on Stock",
+    "excerpt": "Choose and implement the right inventory management system to reduce costs, prevent stockouts, and optimize cash flow.",
+    "href": "/insights/inventory-management-system-sme",
+    "icon": "💡",
+    "tags": [
+      "Inventory Management",
+      "ERP",
+      "Supply Chain",
+      "Cost Optimization",
+      "SME"
+    ],
+    "category": "Business Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "Legacy Application Modernisation: When and How to Upgrade Aging Software",
+    "excerpt": "Identify aging applications that are holding your business back and learn practical strategies for modernisation—from simple upgrades to complete replacements.",
+    "href": "/insights/legacy-application-modernisation-sme",
+    "icon": "💡",
+    "tags": [
+      "Legacy Modernisation",
+      "Application Upgrade",
+      "Digital Transformation",
+      "Technical Debt",
+      "SME"
+    ],
+    "category": "IT Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "LinkedIn Marketing for B2B SMEs: Generate Quality Leads",
+    "excerpt": "Master LinkedIn marketing to connect with decision-makers and generate high-quality B2B leads for your business.",
+    "href": "/insights/linkedin-marketing-b2b-sme",
+    "icon": "💡",
+    "tags": [
+      "LinkedIn Marketing",
+      "B2B Marketing",
+      "Lead Generation",
+      "Social Selling",
+      "SME"
+    ],
+    "category": "Digital Marketing"
+  },
+  {
+    "type": "insight",
+    "title": "Local SEO Checklist for Ahmedabad Businesses",
+    "excerpt": "Practical steps to rank in Maps and drive real footfall and leads.",
+    "href": "/insights/local-seo-ahmedabad-checklist",
+    "icon": "💡",
+    "tags": [
+      "SEO",
+      "Local Business",
+      "Ahmedabad",
+      "Digital Marketing"
+    ],
+    "category": "Digital Marketing"
+  },
+  {
+    "type": "insight",
+    "title": "Marketing Automation Workflows for SMEs: Scale Your Marketing Efforts",
+    "excerpt": "Design and implement automated marketing workflows that nurture leads, engage customers, and drive sales without constant manual effort.",
+    "href": "/insights/marketing-automation-workflows-sme",
+    "icon": "💡",
+    "tags": [
+      "Marketing Automation",
+      "Lead Nurturing",
+      "Email Marketing",
+      "Customer Journey",
+      "SME Marketing"
+    ],
+    "category": "AI & Automation"
+  },
+  {
+    "type": "insight",
+    "title": "Mobile App Development for SMEs: Build or Buy Decision Guide",
+    "excerpt": "Strategic guide to mobile app development for SMEs - when to build custom, when to use no-code, and how to maximize ROI.",
+    "href": "/insights/mobile-app-development-sme",
+    "icon": "💡",
+    "tags": [
+      "Mobile App Development",
+      "Digital Strategy",
+      "SME Technology",
+      "App Strategy",
+      "Business Apps"
+    ],
+    "category": "Web Development"
+  },
+  {
+    "type": "insight",
+    "title": "Project Management Tools for SMEs: Deliver Projects On Time and Budget",
+    "excerpt": "Choose the right project management software to improve team collaboration, track progress, and deliver successful projects.",
+    "href": "/insights/project-management-tools-sme",
+    "icon": "💡",
+    "tags": [
+      "Project Management",
+      "Team Collaboration",
+      "Productivity",
+      "SME Tools",
+      "Workflow Management"
+    ],
+    "category": "Business Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "Remote Work Tools for SME Productivity: Complete Setup Guide",
+    "excerpt": "Essential tools and strategies to enable effective remote work and boost team productivity for small businesses.",
+    "href": "/insights/remote-work-tools-sme-productivity",
+    "icon": "💡",
+    "tags": [
+      "Remote Work",
+      "Productivity Tools",
+      "Team Collaboration",
+      "SME",
+      "Digital Workplace"
+    ],
+    "category": "Business Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "SaaS Sprawl Management: How to Control Your Growing Software Stack",
+    "excerpt": "Discover practical strategies to identify, consolidate, and optimise your SaaS subscriptions to eliminate waste and reduce software spending by 20-40%.",
+    "href": "/insights/saas-sprawl-management-sme",
+    "icon": "💡",
+    "tags": [
+      "SaaS Management",
+      "Software Optimization",
+      "Cost Reduction",
+      "Application Portfolio",
+      "SME"
+    ],
+    "category": "IT Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "SEO Strategy for Local Businesses in Gujarat: Dominate Local Search",
+    "excerpt": "Complete SEO guide to rank higher in local search results and attract more customers in Gujarat markets.",
+    "href": "/insights/seo-strategy-local-business-gujarat",
+    "icon": "💡",
+    "tags": [
+      "SEO",
+      "Local SEO",
+      "Gujarat Business",
+      "Search Marketing",
+      "Digital Visibility"
+    ],
+    "category": "Digital Marketing"
+  },
+  {
+    "type": "insight",
+    "title": "Shadow IT Discovery: Uncovering Hidden Applications in Your Business",
+    "excerpt": "Learn how to identify and manage shadow IT applications that create security risks, inflate costs, and fragment your technology landscape.",
+    "href": "/insights/shadow-it-discovery-application-portfolio",
+    "icon": "💡",
+    "tags": [
+      "Shadow IT",
+      "Application Discovery",
+      "IT Governance",
+      "Security",
+      "SME"
+    ],
+    "category": "IT Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "How SMEs Can Save 5+ Hours/Week with AI",
+    "excerpt": "Small automations add up: email replies, follow-ups, proposals, and reporting.",
+    "href": "/insights/sme-ai-time-savings",
+    "icon": "💡",
+    "tags": [
+      "AI",
+      "Automation",
+      "SME",
+      "Productivity"
+    ],
+    "category": "AI & Automation"
+  },
+  {
+    "type": "insight",
+    "title": "Social Media Marketing for Gujarati Businesses: Cultural Strategy Guide",
+    "excerpt": "Leverage Gujarat's social culture and festivals to build authentic brand connections on social media.",
+    "href": "/insights/social-media-marketing-gujarati-businesses",
+    "icon": "💡",
+    "tags": [
+      "Social Media",
+      "Gujarat",
+      "Cultural Marketing",
+      "Brand Building",
+      "SME"
+    ],
+    "category": "Digital Marketing"
+  },
+  {
+    "type": "insight",
+    "title": "Software License Optimisation: Stop Overpaying for Applications",
+    "excerpt": "Audit your software licenses to eliminate waste, right-size subscriptions, and negotiate better deals. Most SMEs can save 20-35% on licensing through proper optimisation.",
+    "href": "/insights/software-license-optimisation-sme",
+    "icon": "💡",
+    "tags": [
+      "License Optimisation",
+      "Software Licensing",
+      "Cost Savings",
+      "Subscription Management",
+      "SME"
+    ],
+    "category": "IT Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "The TIME Framework: How to Classify Every Application in Your Portfolio",
+    "excerpt": "Master the Tolerate-Invest-Migrate-Eliminate framework to make confident, data-driven decisions about every application in your technology landscape.",
+    "href": "/insights/time-framework-application-assessment",
+    "icon": "💡",
+    "tags": [
+      "TIME Framework",
+      "Application Assessment",
+      "Portfolio Management",
+      "IT Decision Making",
+      "SME"
+    ],
+    "category": "IT Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "User Adoption Strategies for New Applications in Your Portfolio",
+    "excerpt": "The best application means nothing if people don't use it. Learn proven strategies to drive adoption when introducing new tools during portfolio optimisation.",
+    "href": "/insights/user-adoption-strategies-new-applications",
+    "icon": "💡",
+    "tags": [
+      "User Adoption",
+      "Change Management",
+      "Application Portfolio",
+      "Training",
+      "SME"
+    ],
+    "category": "Change Management"
+  },
+  {
+    "type": "insight",
+    "title": "Vendor Consolidation Strategy: Fewer Vendors, Better Value",
+    "excerpt": "Reduce vendor complexity and increase negotiation leverage by consolidating your application vendors. Learn when to consolidate and how to execute it smoothly.",
+    "href": "/insights/vendor-consolidation-application-portfolio",
+    "icon": "💡",
+    "tags": [
+      "Vendor Consolidation",
+      "Vendor Management",
+      "Application Portfolio",
+      "Cost Optimization",
+      "SME"
+    ],
+    "category": "IT Strategy"
+  },
+  {
+    "type": "insight",
+    "title": "Video Marketing Strategy for SMEs: Engage and Convert with Video Content",
+    "excerpt": "Create compelling video content that drives engagement, builds trust, and converts viewers into customers.",
+    "href": "/insights/video-marketing-strategy-sme",
+    "icon": "💡",
+    "tags": [
+      "Video Marketing",
+      "Content Marketing",
+      "Digital Marketing",
+      "SME",
+      "Brand Building"
+    ],
+    "category": "Digital Marketing"
+  },
+  {
+    "type": "insight",
+    "title": "Voice Search Optimization for Local Businesses: Capture Voice Queries",
+    "excerpt": "Optimize your business for voice search to capture the growing number of voice queries and local 'near me' searches.",
+    "href": "/insights/voice-search-optimization-local-business",
+    "icon": "💡",
+    "tags": [
+      "Voice Search",
+      "Local SEO",
+      "Voice Optimization",
+      "Mobile Search",
+      "Digital Marketing"
+    ],
+    "category": "Digital Marketing"
+  },
+  {
+    "type": "insight",
+    "title": "Website Speed Optimization: Boost SEO and User Experience",
+    "excerpt": "Improve your website loading speed to rank higher on Google and reduce bounce rates by up to 50%.",
+    "href": "/insights/website-speed-optimization-seo",
+    "icon": "💡",
+    "tags": [
+      "Website Speed",
+      "SEO",
+      "User Experience",
+      "Performance",
+      "Web Development"
+    ],
+    "category": "Digital Marketing"
+  },
+  {
+    "type": "insight",
+    "title": "WhatsApp Business Automation for Gujarat SMEs",
+    "excerpt": "Automate customer support and sales on WhatsApp without losing the personal touch.",
+    "href": "/insights/whatsapp-business-automation-sme",
+    "icon": "💡",
+    "tags": [
+      "WhatsApp",
+      "Automation",
+      "Customer Service",
+      "SME"
+    ],
+    "category": "AI & Automation"
+  },
+  {
+    "type": "persona",
+    "title": "Construction & Building Professionals",
+    "excerpt": "Construction professionals seeking to modernize project management, client communication, and business operations through technology.",
+    "href": "/personas/builders",
+    "icon": "/uploads/personas/builders-icon.svg",
+    "tags": [
+      "Construction",
+      "Project Management",
+      "Digital Tools",
+      "persona",
+      "business type",
+      "customer story"
+    ]
+  },
+  {
+    "type": "persona",
+    "title": "Chartered Accountants & Financial Professionals",
+    "excerpt": "Financial professionals seeking to modernize client services, automate routine tasks, and enhance practice efficiency through technology.",
+    "href": "/personas/chartered-accountants",
+    "icon": "/uploads/personas/chartered-accountants-icon.svg",
+    "tags": [
+      "Finance",
+      "Accounting",
+      "Professional Services",
+      "persona",
+      "business type",
+      "customer story"
+    ]
+  },
+  {
+    "type": "persona",
+    "title": "Digital Media & Creative Agencies",
+    "excerpt": "Creative agencies and media houses looking to streamline workflows, enhance client collaboration, and scale their digital operations.",
+    "href": "/personas/digital-media-house",
+    "icon": "/uploads/personas/digital-media-house-icon.svg",
+    "tags": [
+      "Creative",
+      "Media",
+      "Agency",
+      "Workflow",
+      "persona",
+      "business type",
+      "customer story"
+    ]
+  },
+  {
+    "type": "persona",
+    "title": "Healthcare Professionals",
+    "excerpt": "Medical professionals looking to modernize patient care through technology while maintaining focus on clinical excellence.",
+    "href": "/personas/doctors",
+    "icon": "/uploads/personas/doctors-icon.svg",
+    "tags": [
+      "Healthcare",
+      "Patient Care",
+      "Digital Transformation",
+      "persona",
+      "business type",
+      "customer story"
+    ]
+  },
+  {
+    "type": "persona",
+    "title": "E-commerce Business Owners",
+    "excerpt": "Online business owners looking to scale their e-commerce operations, improve conversion rates, and build sustainable digital growth.",
+    "href": "/personas/ecommerce-business-owners",
+    "icon": "/uploads/personas/ecommerce-business-owners-icon.svg",
+    "tags": [
+      "E-commerce",
+      "Online Business",
+      "Digital Growth",
+      "Conversion Optimization",
+      "persona",
+      "business type",
+      "customer story"
+    ]
+  },
+  {
+    "type": "persona",
+    "title": "Friends & Family Members",
+    "excerpt": "Personal connections who need help with technology challenges, digital presence, or turning their ideas into reality.",
+    "href": "/personas/friends-family-members",
+    "icon": "/uploads/personas/friends-family-members-icon.svg",
+    "tags": [
+      "Personal",
+      "Support",
+      "Ideas",
+      "persona",
+      "business type",
+      "customer story"
+    ]
+  },
+  {
+    "type": "persona",
+    "title": "IT Colleagues",
+    "excerpt": "Tech professionals seeking reliable partners for complex projects and innovative solutions that push boundaries.",
+    "href": "/personas/it-colleagues",
+    "icon": "/uploads/personas/it-colleagues-icon.svg",
+    "tags": [
+      "Technology",
+      "Partnership",
+      "Innovation",
+      "persona",
+      "business type",
+      "customer story"
+    ]
+  },
+  {
+    "type": "persona",
+    "title": "Jewelry Store Owner",
+    "excerpt": "Operating a jewelry business but struggling with online showcase, customer trust, and competing with e-commerce platforms effectively.",
+    "href": "/personas/jewelry-store-owner",
+    "icon": "/uploads/personas/jewelry-store-owner-icon.svg",
+    "tags": [
+      "Jewelry",
+      "Retail",
+      "E-commerce",
+      "Trust Building",
+      "persona",
+      "business type",
+      "customer story"
+    ]
+  },
+  {
+    "type": "persona",
+    "title": "Physiotherapists & Wellness Professionals",
+    "excerpt": "Healthcare and wellness professionals looking to enhance patient care through digital tools and streamlined practice management.",
+    "href": "/personas/physiotherapists",
+    "icon": "/uploads/personas/physiotherapists-icon.svg",
+    "tags": [
+      "Healthcare",
+      "Wellness",
+      "Patient Management",
+      "persona",
+      "business type",
+      "customer story"
+    ]
+  },
+  {
+    "type": "persona",
+    "title": "Restaurant Owner",
+    "excerpt": "Running a restaurant but struggling with online ordering, customer management, and competing with food delivery platforms effectively.",
+    "href": "/personas/restaurant-owner",
+    "icon": "/uploads/personas/restaurant-owner-icon.svg",
+    "tags": [
+      "Restaurant",
+      "Food Service",
+      "Online Ordering",
+      "Customer Management",
+      "persona",
+      "business type",
+      "customer story"
+    ]
+  },
+  {
+    "type": "persona",
+    "title": "Retail Entrepreneur",
+    "excerpt": "Retail business owners navigating the digital transformation while managing both online and offline customer experiences.",
+    "href": "/personas/retail-entrepreneur",
+    "icon": "/uploads/personas/retail-entrepreneur-icon.svg",
+    "tags": [
+      "Retail",
+      "E-commerce",
+      "Customer Experience",
+      "persona",
+      "business type",
+      "customer story"
+    ]
+  },
+  {
+    "type": "persona",
+    "title": "Small Business Owner",
+    "excerpt": "Running a growing business but struggling with outdated systems and manual processes that limit growth potential.",
+    "href": "/personas/small-business-owner",
+    "icon": "/uploads/personas/small-business-icon.svg",
+    "tags": [
+      "SME",
+      "Growth",
+      "Automation",
+      "persona",
+      "business type",
+      "customer story"
+    ]
+  },
+  {
+    "type": "persona",
+    "title": "Textile Manufacturer",
+    "excerpt": "Manufacturing textile products but struggling with outdated processes, inventory management, and reaching global buyers effectively.",
+    "href": "/personas/textile-manufacturer",
+    "icon": "/uploads/personas/textile-manufacturer-icon.svg",
+    "tags": [
+      "Manufacturing",
+      "Textile",
+      "Export",
+      "B2B",
+      "persona",
+      "business type",
+      "customer story"
+    ]
+  },
+  {
+    "type": "resource",
+    "title": "AI Implementation Guide for Small Businesses",
+    "excerpt": "Step-by-step guide to implementing AI solutions in your business. Covers use cases, tool selection, and ROI measurement for SMEs.",
+    "href": "/resources",
+    "icon": "📚",
+    "tags": [
+      "guide",
+      "ai",
+      "implementation",
+      "guide",
+      "sme",
+      "roi",
+      "resource",
+      "download",
+      "guide",
+      "checklist",
+      "template"
+    ],
+    "category": "guide"
+  },
+  {
+    "type": "resource",
+    "title": "Application Portfolio Rationalisation Service Guide",
+    "excerpt": "A strategic guide to analyzing and optimizing your software applications to reduce costs, improve efficiency, and align IT with business goals. Learn how to eliminate redundancy and modernize your tech stack.",
+    "href": "/resources",
+    "icon": "📚",
+    "tags": [
+      "guide",
+      "application-portfolio",
+      "rationalisation",
+      "cost-optimization",
+      "it-strategy",
+      "modernization",
+      "resource",
+      "download",
+      "guide",
+      "checklist",
+      "template"
+    ],
+    "category": "guide"
+  },
+  {
+    "type": "resource",
+    "title": "Business Automation Roadmap Template",
+    "excerpt": "Strategic template to identify and prioritize automation opportunities in your business. Includes cost-benefit analysis and implementation timeline.",
+    "href": "/resources",
+    "icon": "📚",
+    "tags": [
+      "template",
+      "automation",
+      "roadmap",
+      "template",
+      "strategy",
+      "implementation",
+      "resource",
+      "download",
+      "guide",
+      "checklist",
+      "template"
+    ],
+    "category": "template"
+  },
+  {
+    "type": "resource",
+    "title": "CRM Selection Guide for SMEs",
+    "excerpt": "Comprehensive guide to choosing the right CRM system for your business. Includes comparison matrix and implementation checklist.",
+    "href": "/resources",
+    "icon": "📚",
+    "tags": [
+      "guide",
+      "crm",
+      "selection",
+      "guide",
+      "sme",
+      "comparison",
+      "resource",
+      "download",
+      "guide",
+      "checklist",
+      "template"
+    ],
+    "category": "guide"
+  },
+  {
+    "type": "resource",
+    "title": "Cybersecurity Essentials Checklist",
+    "excerpt": "Essential cybersecurity measures every small business should implement. Includes free tools recommendations and security audit template.",
+    "href": "/resources",
+    "icon": "📚",
+    "tags": [
+      "checklist",
+      "cybersecurity",
+      "checklist",
+      "security",
+      "audit",
+      "tools",
+      "resource",
+      "download",
+      "guide",
+      "checklist",
+      "template"
+    ],
+    "category": "checklist"
+  },
+  {
+    "type": "resource",
+    "title": "Digital Marketing ROI Calculator",
+    "excerpt": "Excel template to calculate and track ROI for your digital marketing campaigns. Includes templates for Google Ads, social media, and email marketing.",
+    "href": "/resources",
+    "icon": "📚",
+    "tags": [
+      "template",
+      "digital-marketing",
+      "roi",
+      "calculator",
+      "excel",
+      "campaigns",
+      "resource",
+      "download",
+      "guide",
+      "checklist",
+      "template"
+    ],
+    "category": "template"
+  },
+  {
+    "type": "resource",
+    "title": "Digital Transformation Checklist for SMEs",
+    "excerpt": "A comprehensive 25-point checklist to modernize your business with AI, automation, and smart IT solutions. Includes implementation timeline and budget guidelines.",
+    "href": "/resources",
+    "icon": "📚",
+    "tags": [
+      "checklist",
+      "digital-transformation",
+      "sme",
+      "checklist",
+      "ai",
+      "automation",
+      "resource",
+      "download",
+      "guide",
+      "checklist",
+      "template"
+    ],
+    "category": "checklist"
+  },
+  {
+    "type": "resource",
+    "title": "Website Redesign Planning Template",
+    "excerpt": "Complete template for planning your website redesign project. Includes content audit, competitor analysis, and project timeline templates.",
+    "href": "/resources",
+    "icon": "📚",
+    "tags": [
+      "template",
+      "website",
+      "redesign",
+      "template",
+      "planning",
+      "audit",
+      "resource",
+      "download",
+      "guide",
+      "checklist",
+      "template"
+    ],
+    "category": "template"
+  },
+  {
+    "type": "about",
+    "title": "About Dhīmahi Technolabs",
+    "excerpt": "Learn about our 25+ years of experience helping SMEs in Gujarat with IT, AI, and digital marketing solutions. Meet our team and discover our mission.",
+    "href": "/about",
+    "icon": "ℹ️",
+    "tags": [
+      "about",
+      "company",
+      "team",
+      "mission",
+      "vision",
+      "values",
+      "history",
+      "founder",
+      "experience",
+      "gujarat",
+      "ahmedabad",
+      "gandhinagar",
+      "sme",
+      "it consultancy"
+    ]
+  }
+]
