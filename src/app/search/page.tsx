@@ -26,6 +26,8 @@ function TypeBadge({ type }: { type: SearchResult['type'] }) {
 // ─── Result Card ─────────────────────────────────────────────────────────────
 
 function ResultCard({ item }: { item: SearchResult }) {
+  const isImagePath = item.icon && (item.icon.startsWith('/') || item.icon.startsWith('http'));
+
   return (
     <Link
       href={item.href}
@@ -33,7 +35,13 @@ function ResultCard({ item }: { item: SearchResult }) {
     >
       <div className="flex items-start gap-4">
         {item.icon && (
-          <div className="text-2xl flex-shrink-0 mt-0.5">{item.icon}</div>
+          <div className="flex-shrink-0 mt-0.5 w-8 h-8 flex items-center justify-center">
+            {isImagePath ? (
+              <img src={item.icon} alt="" className="w-8 h-8 object-contain" />
+            ) : (
+              <span className="text-2xl">{item.icon}</span>
+            )}
+          </div>
         )}
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1 flex-wrap">
