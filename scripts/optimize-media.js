@@ -38,13 +38,13 @@ function checkSharpAvailability() {
  */
 async function getImageFiles(dir) {
   const files = [];
-  
+
   try {
     const entries = await fs.readdir(dir, { withFileTypes: true });
-    
+
     for (const entry of entries) {
       const fullPath = path.join(dir, entry.name);
-      
+
       if (entry.isDirectory()) {
         const subFiles = await getImageFiles(fullPath);
         files.push(...subFiles);
@@ -58,7 +58,7 @@ async function getImageFiles(dir) {
   } catch (error) {
     console.error(`Error reading directory ${dir}:`, error.message);
   }
-  
+
   return files;
 }
 
@@ -70,7 +70,7 @@ async function getImageMetadata(filePath) {
     const stats = await fs.stat(filePath);
     const relativePath = path.relative(UPLOADS_DIR, filePath);
     const category = relativePath.split(path.sep)[0] || 'general';
-    
+
     return {
       path: filePath,
       relativePath,
@@ -91,16 +91,16 @@ async function getImageMetadata(filePath) {
 async function optimizeWithSharp(inputPath, outputPath, options = {}) {
   const sharp = require('sharp');
   const { width, height, quality = 85, format } = options;
-  
+
   let pipeline = sharp(inputPath);
-  
+
   if (width || height) {
     pipeline = pipeline.resize(width, height, {
       fit: 'inside',
       withoutEnlargement: true
     });
   }
-  
+
   if (format === 'webp') {
     pipeline = pipeline.webp({ quality });
   } else if (format === 'avif') {
@@ -110,7 +110,7 @@ async function optimizeWithSharp(inputPath, outputPath, options = {}) {
   } else if (format === 'png') {
     pipeline = pipeline.png({ quality, progressive: true });
   }
-  
+
   await pipeline.toFile(outputPath);
 }
 
@@ -122,75 +122,75 @@ async function generateResponsiveVariants(imagePath, metadata) {
     console.log(`Skipping responsive variants for ${metadata.relativePath} (Sharp not available)`);
     return [];
   }
-  
+
   const sharp = require('sharp');
   const variants = [];
-  
+
   try {
     // Get original dimensions
     const imageInfo = await sharp(imagePath).metadata();
     const originalWidth = imageInfo.width;
     const originalHeight = imageInfo.height;
-    
+
     if (!originalWidth || !originalHeight) {
       console.warn(`Could not get dimensions for ${metadata.relativePath}`);
       return variants;
     }
-    
+
     const baseName = path.basename(imagePath, metadata.extension);
     const dirName = path.dirname(imagePath);
-    
+
     // Generate WebP variants
     for (const breakpoint of RESPONSIVE_BREAKPOINTS) {
       if (breakpoint >= originalWidth) continue;
-      
+
       const outputPath = path.join(dirName, `${baseName}-${breakpoint}w.webp`);
-      
+
       try {
         await optimizeWithSharp(imagePath, outputPath, {
           width: breakpoint,
           quality: QUALITY_SETTINGS.medium,
           format: 'webp'
         });
-        
+
         variants.push({
           path: outputPath,
           width: breakpoint,
           format: 'webp'
         });
-        
+
         console.log(`Generated WebP variant: ${path.relative(UPLOADS_DIR, outputPath)}`);
       } catch (error) {
         console.error(`Failed to generate WebP variant for ${breakpoint}w:`, error.message);
       }
     }
-    
+
     // Generate AVIF variant for the original size (if not too large)
     if (originalWidth <= 1920) {
       const avifPath = path.join(dirName, `${baseName}.avif`);
-      
+
       try {
         await optimizeWithSharp(imagePath, avifPath, {
           quality: QUALITY_SETTINGS.medium,
           format: 'avif'
         });
-        
+
         variants.push({
           path: avifPath,
           width: originalWidth,
           format: 'avif'
         });
-        
+
         console.log(`Generated AVIF variant: ${path.relative(UPLOADS_DIR, avifPath)}`);
       } catch (error) {
         console.error(`Failed to generate AVIF variant:`, error.message);
       }
     }
-    
+
   } catch (error) {
     console.error(`Error processing ${metadata.relativePath}:`, error.message);
   }
-  
+
   return variants;
 }
 
@@ -199,11 +199,11 @@ async function generateResponsiveVariants(imagePath, metadata) {
  */
 async function validateImages(imageFiles) {
   const issues = [];
-  
+
   for (const filePath of imageFiles) {
     const metadata = await getImageMetadata(filePath);
     if (!metadata) continue;
-    
+
     // Check file size (warn if > 2MB)
     const sizeMB = metadata.size / (1024 * 1024);
     if (sizeMB > 2) {
@@ -214,7 +214,7 @@ async function validateImages(imageFiles) {
         suggestion: 'Consider compressing this image'
       });
     }
-    
+
     // Check filename
     const filename = path.basename(filePath);
     if (filename.length > 100) {
@@ -224,7 +224,7 @@ async function validateImages(imageFiles) {
         suggestion: 'Use shorter, descriptive filenames'
       });
     }
-    
+
     if (!/^[a-zA-Z0-9._-]+$/.test(filename)) {
       issues.push({
         type: 'invalid-characters',
@@ -233,7 +233,7 @@ async function validateImages(imageFiles) {
       });
     }
   }
-  
+
   return issues;
 }
 
@@ -247,11 +247,11 @@ async function generateMediaManifest(imageFiles) {
     categories: {},
     files: []
   };
-  
+
   for (const filePath of imageFiles) {
     const metadata = await getImageMetadata(filePath);
     if (!metadata) continue;
-    
+
     // Update category stats
     if (!manifest.categories[metadata.category]) {
       manifest.categories[metadata.category] = {
@@ -259,10 +259,10 @@ async function generateMediaManifest(imageFiles) {
         totalSize: 0
       };
     }
-    
+
     manifest.categories[metadata.category].count++;
     manifest.categories[metadata.category].totalSize += metadata.size;
-    
+
     // Add file info
     manifest.files.push({
       path: metadata.relativePath,
@@ -272,11 +272,11 @@ async function generateMediaManifest(imageFiles) {
       extension: metadata.extension
     });
   }
-  
+
   // Write manifest file
   const manifestPath = path.join(UPLOADS_DIR, 'media-manifest.json');
   await fs.writeFile(manifestPath, JSON.stringify(manifest, null, 2));
-  
+
   console.log(`Generated media manifest: ${manifestPath}`);
   return manifest;
 }
@@ -286,20 +286,20 @@ async function generateMediaManifest(imageFiles) {
  */
 async function optimizeMedia() {
   console.log('Starting media optimization...');
-  
+
   try {
     // Ensure uploads directory exists
     await fs.mkdir(UPLOADS_DIR, { recursive: true });
-    
+
     // Get all image files
     const imageFiles = await getImageFiles(UPLOADS_DIR);
     console.log(`Found ${imageFiles.length} image files`);
-    
+
     if (imageFiles.length === 0) {
       console.log('No images to optimize');
       return;
     }
-    
+
     // Validate images
     const issues = await validateImages(imageFiles);
     if (issues.length > 0) {
@@ -308,37 +308,37 @@ async function optimizeMedia() {
         console.log(`- ${issue.type}: ${issue.path} - ${issue.suggestion}`);
       });
     }
-    
+
     // Generate responsive variants (if Sharp is available)
-    if (checkSharpAvailability()) {
-      console.log('\nGenerating responsive variants...');
-      
-      for (const filePath of imageFiles) {
-        const metadata = await getImageMetadata(filePath);
-        if (metadata) {
-          await generateResponsiveVariants(filePath, metadata);
-        }
-      }
-    }
-    
+    // if (checkSharpAvailability()) {
+    //   console.log('\nGenerating responsive variants...');
+
+    //   for (const filePath of imageFiles) {
+    //     const metadata = await getImageMetadata(filePath);
+    //     if (metadata) {
+    //       await generateResponsiveVariants(filePath, metadata);
+    //     }
+    //   }
+    // }
+
     // Generate manifest
     const manifest = await generateMediaManifest(imageFiles);
-    
+
     console.log('\nOptimization Summary:');
     console.log(`- Total files: ${manifest.totalFiles}`);
     console.log(`- Categories: ${Object.keys(manifest.categories).join(', ')}`);
-    
+
     Object.entries(manifest.categories).forEach(([category, stats]) => {
       const sizeMB = (stats.totalSize / (1024 * 1024)).toFixed(2);
       console.log(`  - ${category}: ${stats.count} files (${sizeMB}MB)`);
     });
-    
+
     if (issues.length > 0) {
       console.log(`- Issues found: ${issues.length}`);
     }
-    
+
     console.log('\nMedia optimization complete!');
-    
+
   } catch (error) {
     console.error('Media optimization failed:', error);
     process.exit(1);
