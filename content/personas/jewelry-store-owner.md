@@ -2,6 +2,7 @@
 title: "Jewelry Store Owner"
 slug: "jewelry-store-owner"
 icon: "/uploads/personas/jewelry-store-owner-icon.svg"
+infographic: "/uploads/personas/infographics/jewelry-store-owner-infographic.png"
 excerpt: "Operating a jewelry business but struggling with online showcase, customer trust, and competing with e-commerce platforms effectively."
 publishDate: "2024-01-22"
 featured: true

@@ -2,6 +2,7 @@
 title: "Digital Media & Creative Agencies"
 slug: "digital-media-house"
 icon: "/uploads/personas/digital-media-house-icon.svg"
+infographic: "/uploads/personas/infographics/digital-media-house-infographic.png"
 excerpt: "Creative agencies and media houses looking to streamline workflows, enhance client collaboration, and scale their digital operations."
 publishDate: "2024-01-21"
 featured: true

@@ -2,6 +2,7 @@
 title: "IT Colleagues"
 slug: "it-colleagues"
 icon: "/uploads/personas/it-colleagues-icon.svg"
+infographic: "/uploads/personas/infographics/it-colleagues-infographic.png"
 excerpt: "Tech professionals seeking reliable partners for complex projects and innovative solutions that push boundaries."
 publishDate: "2024-01-16"
 featured: false

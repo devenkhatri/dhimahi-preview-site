@@ -2,6 +2,7 @@
 title: "Friends & Family Members"
 slug: "friends-family-members"
 icon: "/uploads/personas/friends-family-members-icon.svg"
+infographic: "/uploads/personas/infographics/friends-family-members-infographic.png"
 excerpt: "Personal connections who need help with technology challenges, digital presence, or turning their ideas into reality."
 publishDate: "2024-01-23"
 featured: false

@@ -2,6 +2,7 @@
 title: "Healthcare Professionals"
 slug: "doctors"
 icon: "/uploads/personas/doctors-icon.svg"
+infographic: "/uploads/personas/infographics/doctors-infographic.png"
 excerpt: "Medical professionals looking to modernize patient care through technology while maintaining focus on clinical excellence."
 publishDate: "2024-01-17"
 featured: true

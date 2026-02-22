@@ -2,6 +2,7 @@
 title: "Retail Entrepreneur"
 slug: "retail-entrepreneur"
 icon: "/uploads/personas/retail-entrepreneur-icon.svg"
+infographic: "/uploads/personas/infographics/retail-entrepreneur-infographic.png"
 excerpt: "Retail business owners navigating the digital transformation while managing both online and offline customer experiences."
 publishDate: "2024-01-18"
 featured: true

@@ -2,6 +2,7 @@
 title: "Chartered Accountants & Financial Professionals"
 slug: "chartered-accountants"
 icon: "/uploads/personas/chartered-accountants-icon.svg"
+infographic: "/uploads/personas/infographics/chartered-accountants-infographic.png"
 excerpt: "Financial professionals seeking to modernize client services, automate routine tasks, and enhance practice efficiency through technology."
 publishDate: "2024-01-22"
 featured: false

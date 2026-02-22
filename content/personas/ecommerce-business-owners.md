@@ -2,6 +2,7 @@
 title: "E-commerce Business Owners"
 slug: "ecommerce-business-owners"
 icon: "/uploads/personas/ecommerce-business-owners-icon.svg"
+infographic: "/uploads/personas/infographics/ecommerce-business-owners-infographic.png"
 excerpt: "Online business owners looking to scale their e-commerce operations, improve conversion rates, and build sustainable digital growth."
 publishDate: "2024-01-24"
 featured: true

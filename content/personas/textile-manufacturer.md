@@ -2,6 +2,7 @@
 title: "Textile Manufacturer"
 slug: "textile-manufacturer"
 icon: "/uploads/personas/textile-manufacturer-icon.svg"
+infographic: "/uploads/personas/infographics/textile-manufacturer-infographic.png"
 excerpt: "Manufacturing textile products but struggling with outdated processes, inventory management, and reaching global buyers effectively."
 publishDate: "2024-01-20"
 featured: false

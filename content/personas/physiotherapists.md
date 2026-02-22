@@ -2,6 +2,7 @@
 title: "Physiotherapists & Wellness Professionals"
 slug: "physiotherapists"
 icon: "/uploads/personas/physiotherapists-icon.svg"
+infographic: "/uploads/personas/infographics/physiotherapists-infographic.png"
 excerpt: "Healthcare and wellness professionals looking to enhance patient care through digital tools and streamlined practice management."
 publishDate: "2024-01-20"
 featured: true

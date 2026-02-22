@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PersonaPageProps): Promise<Me
   try {
     const { slug } = await params;
     const persona = await getPersonaBySlug(slug);
-    
+
     if (!persona) {
       return {
         title: 'Persona Not Found | Dhimahi Technolabs',
@@ -70,7 +70,7 @@ export async function generateMetadata({ params }: PersonaPageProps): Promise<Me
 async function PersonaContent({ slug }: { slug: string }) {
   try {
     const persona = await getPersonaBySlug(slug);
-    
+
     if (!persona) {
       notFound();
     }
@@ -164,10 +164,10 @@ async function PersonaContent({ slug }: { slug: string }) {
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
-                    {new Date(persona.publishDate).toLocaleDateString('en-IN', { 
-                      year: 'numeric', 
-                      month: 'long', 
-                      day: 'numeric' 
+                    {new Date(persona.publishDate).toLocaleDateString('en-IN', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
                     })}
                   </span>
                 )}
@@ -206,9 +206,30 @@ async function PersonaContent({ slug }: { slug: string }) {
               <meta itemProp="author" content="Dhīmahi Technolabs" />
               <meta itemProp="publisher" content="Dhīmahi Technolabs" />
               {persona.icon && <meta itemProp="image" content={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://dhimahitechnolabs.com'}${persona.icon}`} />}
-              
+
               {/* Progressive Content Disclosure */}
               <div className="space-y-16" itemProp="articleBody">
+                {/* Infographic – shown at top if available */}
+                {persona.infographic && (
+                  <section className="text-center">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-6">At a Glance</h2>
+                    <PersonaErrorBoundary fallbackType="section">
+                      <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-md bg-white">
+                        <OptimizedImage
+                          src={persona.infographic}
+                          alt={`${persona.title} – infographic`}
+                          width={900}
+                          height={600}
+                          className="w-full h-auto object-contain"
+                        />
+                      </div>
+                      <p className="mt-3 text-sm text-gray-500 italic">
+                        Overview infographic for {persona.title}
+                      </p>
+                    </PersonaErrorBoundary>
+                  </section>
+                )}
+
                 {/* Everyday Struggle */}
                 {persona.storytelling.everydayStruggle && (
                   <PersonaStorySection
@@ -254,7 +275,7 @@ async function PersonaContent({ slug }: { slug: string }) {
                     <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
                       {persona.storytelling.callToAction.description || 'Let\'s discuss how we can help you overcome your challenges and achieve your goals.'}
                     </p>
-                    
+
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                       {/* Primary Button */}
                       {persona.storytelling.callToAction.primaryButton && (
@@ -265,7 +286,7 @@ async function PersonaContent({ slug }: { slug: string }) {
                           {persona.storytelling.callToAction.primaryButton.text || 'Get Started'}
                         </Link>
                       )}
-                      
+
                       {/* Secondary Button */}
                       {persona.storytelling.callToAction.secondaryButton && (
                         <Link
@@ -367,12 +388,12 @@ export default async function PersonaPage({ params }: PersonaPageProps) {
         <script
           key={index}
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ 
+          dangerouslySetInnerHTML={{
             __html: JSON.stringify(structuredData)
           }}
         />
       ))}
-      
+
       <PersonaErrorBoundary fallbackType="page" personaTitle={slug}>
         <PersonaContent slug={slug} />
       </PersonaErrorBoundary>

@@ -548,6 +548,8 @@ export interface Persona {
   title: string;
   slug: string;
   icon: string;
+  /** Optional infographic image shown on the persona detail page */
+  infographic?: string;
   excerpt: string;
   publishDate: string;
   featured: boolean;
@@ -741,6 +743,7 @@ export function getAllPersonas(): Persona[] {
           title: sanitizedData.title,
           slug: sanitizedData.slug,
           icon: sanitizedData.icon,
+          ...(sanitizedData.infographic && { infographic: sanitizedData.infographic }),
           excerpt: sanitizedData.excerpt,
           publishDate: sanitizedData.publishDate,
           ...(sanitizedData.modifiedDate && { modifiedDate: sanitizedData.modifiedDate }),

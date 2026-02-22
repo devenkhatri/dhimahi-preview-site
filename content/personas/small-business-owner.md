@@ -2,6 +2,7 @@
 title: "Small Business Owner"
 slug: "small-business-owner"
 icon: "/uploads/personas/small-business-icon.svg"
+infographic: "/uploads/personas/infographics/small-business-owner-infographic.png"
 excerpt: "Running a growing business but struggling with outdated systems and manual processes that limit growth potential."
 publishDate: "2024-01-15"
 featured: true

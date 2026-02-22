@@ -2,6 +2,7 @@
 title: "Construction & Building Professionals"
 slug: "builders"
 icon: "/uploads/personas/builders-icon.svg"
+infographic: "/uploads/personas/infographics/builders-infographic.png"
 excerpt: "Construction professionals seeking to modernize project management, client communication, and business operations through technology."
 publishDate: "2024-01-19"
 featured: true

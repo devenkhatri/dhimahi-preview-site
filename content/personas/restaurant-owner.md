@@ -2,6 +2,7 @@
 title: "Restaurant Owner"
 slug: "restaurant-owner"
 icon: "/uploads/personas/restaurant-owner-icon.svg"
+infographic: "/uploads/personas/infographics/restaurant-owner-infographic.png"
 excerpt: "Running a restaurant but struggling with online ordering, customer management, and competing with food delivery platforms effectively."
 publishDate: "2024-01-21"
 featured: true
