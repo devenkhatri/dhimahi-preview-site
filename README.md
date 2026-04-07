@@ -35,6 +35,8 @@ Visit the live site: [dhimahitechnolabs.com](https://www.dhimahitechnolabs.com)
 - **Dynamic Service Pages** - Programmatically generated service detail pages
 - **Type-safe Content** - TypeScript interfaces for all content structures
 - **Easy Content Updates** - Simple file-based content management
+- **Persona Pages** - Detailed customer success stories with rich media carousels
+- **Interactive Carousels** - Native scroll-snap carousels with infographics and YouTube videos
 
 ## 🏗 Project Structure
 
@@ -87,6 +89,12 @@ dhimahi-site/
 - **Team Profiles** - Key team members with expertise and backgrounds
 - **Company Values** - Core principles that guide business decisions
 - **Timeline** - Major milestones and evolution over the years
+
+### 🎯 Personas
+- **Customer Success Stories** - Detailed personas for 15+ target customer segments
+- **Interactive Carousels** - "At a Glance" sections with infographics and YouTube videos
+- **Rich Storytelling** - Multi-section narratives (struggle → solution → journey → CTA)
+- **Responsive Media** - Native scroll-snap carousels optimized for mobile
 
 ## � NGetting Started
 
@@ -147,7 +155,22 @@ export const CITY_LINE = "Your City & Region";
 ### 📝 Content Updates
 - **Services**: Edit files in `src/content/services/`
 - **Blog Posts**: Add markdown files to `src/content/insights/`
+- **Personas**: Edit files in `content/personas/` (add YouTube videos with `youtubeVideoId` field)
 - **Homepage**: Modify `src/app/page.tsx`
+
+### 🎬 Adding Videos to Personas
+
+To add a YouTube video to the "At a Glance" carousel on a persona page:
+
+1. Open `content/personas/[persona-slug].md`
+2. Add the `youtubeVideoId` field to the frontmatter:
+   ```yaml
+   infographic: "/uploads/personas/infographics/doctors-infographic.png"
+   youtubeVideoId: "dQw4w9WgXcQ"  # YouTube video ID from the URL
+   ```
+3. Save and publish — the carousel will render with both infographic and video
+
+For detailed guidance, see [Personas Carousel Guide](docs/PERSONAS_CAROUSEL_GUIDE.md)
 
 ## 🌟 Launch Notices
 

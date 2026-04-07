@@ -3,6 +3,7 @@ title: "Catering Business Owners"
 slug: "catering-business"
 icon: "/uploads/personas/catering-business-icon.png"
 infographic: "/uploads/personas/infographics/catering-business-infographic.png"
+youtubeVideoId: "gvCp4Xe8W8M"
 excerpt: "Managing large-scale event catering but struggling with manual quotes, unpredictable ingredient forecasting, and chaotic live event operations."
 publishDate: "2024-03-20"
 featured: true

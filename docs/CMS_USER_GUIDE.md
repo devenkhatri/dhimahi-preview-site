@@ -6,9 +6,10 @@
 3. [Understanding the Interface](#understanding-the-interface)
 4. [Managing Content](#managing-content)
 5. [Content Types Overview](#content-types-overview)
-6. [Media Management](#media-management)
-7. [Preview and Publishing](#preview-and-publishing)
-8. [Best Practices](#best-practices)
+6. [Personas with Media Carousels](#personas-with-media-carousels)
+7. [Media Management](#media-management)
+8. [Preview and Publishing](#preview-and-publishing)
+9. [Best Practices](#best-practices)
 
 ## Getting Started
 
@@ -75,6 +76,7 @@ The left sidebar contains all content types you can manage:
 - **Pages**: About, Contact, and other static pages  
 - **Services**: Individual service offerings
 - **Case Studies**: Portfolio and project showcases
+- **Personas**: Customer success stories and buyer personas
 - **Insights**: Blog articles and thought leadership
 - **Site Settings**: Global website configuration
 
@@ -230,6 +232,86 @@ Global website configuration:
 - Menu structure
 - Footer links
 - Call-to-action buttons
+
+## Personas with Media Carousels
+
+Customer personas with interactive "At a Glance" sections:
+
+### Persona Content
+
+Each persona includes:
+
+**Basic Information**:
+- Title (e.g., "Healthcare Professionals")
+- URL slug for the persona page
+- Persona icon/avatar
+- Excerpt describing the persona
+
+**Media Carousel**:
+- **Infographic**: Visual overview of the persona
+- **YouTube Video**: Optional promotional or educational video
+
+The "At a Glance" section displays both media items in an interactive carousel:
+- On desktop: 92% width with 8% peek of next slide
+- On mobile: 88% width with 12% peek
+- Thumbnail strip below for quick navigation
+
+### Adding a Video to a Persona
+
+1. Edit the persona markdown file
+2. In the YAML frontmatter, add the `youtubeVideoId` field:
+
+```yaml
+---
+title: "Healthcare Professionals"
+slug: "doctors"
+icon: "/uploads/personas/doctors-icon.svg"
+infographic: "/uploads/personas/infographics/doctors-infographic.png"
+youtubeVideoId: "sboNwYmH3AY"  # Add this line with your YouTube video ID
+excerpt: "Medical professionals..."
+publishDate: "2024-01-17"
+featured: true
+order: 3
+---
+```
+
+### Getting Your YouTube Video ID
+
+1. Go to your YouTube video
+2. Look at the URL: `https://www.youtube.com/watch?v=sboNwYmH3AY`
+3. The video ID is the alphanumeric code after `v=` → `sboNwYmH3AY`
+
+### Persona Storytelling Sections
+
+Each persona includes narrative content:
+
+**The Everyday Struggle**: Pain points and challenges
+**Why This Matters**: Business impact of not addressing the challenge
+**How Dhimahi Helps**: Solutions and approach
+**The Journey**: Implementation timeline and process
+**Call to Action**: Next steps with buttons for consultation
+
+### Persona Fields Reference
+
+| Field | Required | Type | Notes |
+|-------|----------|------|-------|
+| `title` | ✅ | string | Persona title |
+| `slug` | ✅ | string | URL identifier |
+| `icon` | ✅ | string | Path to icon image |
+| `excerpt` | ✅ | string | Short description |
+| `publishDate` | ✅ | string | ISO date format |
+| `featured` | ✅ | boolean | Show on main listing |
+| `order` | ✅ | number | Display order |
+| `infographic` | ❌ | string | Path to infographic image |
+| `youtubeVideoId` | ❌ | string | YouTube video ID |
+| `tags` | ❌ | array | Content tags |
+
+**Carousel Display:**
+- Only infographic: Single image display, no carousel
+- Only video: Single video display, no carousel
+- Both: Full carousel with thumbnail navigation
+
+For detailed information, see [Personas Carousel Guide](PERSONAS_CAROUSEL_GUIDE.md)
 
 ## Media Management
 

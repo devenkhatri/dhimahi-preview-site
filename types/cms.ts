@@ -173,6 +173,8 @@ export interface Persona {
   title: string;
   slug: string;
   icon: string;
+  infographic?: string;
+  youtubeVideoId?: string;
   excerpt: string;
   publishDate: string;
   modifiedDate?: string;

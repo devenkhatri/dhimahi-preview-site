@@ -6,6 +6,7 @@ import { PersonaStorySection } from '@/components/PersonaStorySection';
 import PersonaCard from '@/components/PersonaCard';
 import Link from 'next/link';
 import OptimizedImage from '@/components/OptimizedImage';
+import AtAGlanceCarousel from '@/components/AtAGlanceCarousel';
 import { PersonaErrorBoundary } from '@/components/PersonaErrorBoundary';
 import SocialShare from '@/components/SocialShare';
 import RelatedInsightsPersona from '@/components/RelatedInsightsPersona';
@@ -209,23 +210,16 @@ async function PersonaContent({ slug }: { slug: string }) {
 
               {/* Progressive Content Disclosure */}
               <div className="space-y-16" itemProp="articleBody">
-                {/* Infographic – shown at top if available */}
-                {persona.infographic && (
+                {/* At a Glance – infographic and/or YouTube video carousel */}
+                {(persona.infographic || persona.youtubeVideoId) && (
                   <section className="text-center">
                     <h2 className="text-2xl font-bold text-gray-900 mb-6">At a Glance</h2>
                     <PersonaErrorBoundary fallbackType="section">
-                      <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-md bg-white">
-                        <OptimizedImage
-                          src={persona.infographic}
-                          alt={`${persona.title} – infographic`}
-                          width={900}
-                          height={600}
-                          className="w-full h-auto object-contain"
-                        />
-                      </div>
-                      <p className="mt-3 text-sm text-gray-500 italic">
-                        Overview infographic for {persona.title}
-                      </p>
+                      <AtAGlanceCarousel
+                        infographic={persona.infographic}
+                        youtubeVideoId={persona.youtubeVideoId}
+                        personaTitle={persona.title}
+                      />
                     </PersonaErrorBoundary>
                   </section>
                 )}

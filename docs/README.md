@@ -10,6 +10,7 @@ Complete guides for managing website content through Decap CMS:
 - **[CMS Documentation Hub](CMS_DOCUMENTATION_README.md)** - Main entry point for all CMS documentation
 - **[Quick Start Guide](CMS_QUICK_START.md)** - Get started with the CMS in 5 minutes
 - **[Complete User Guide](CMS_USER_GUIDE.md)** - Comprehensive CMS usage documentation
+- **[Personas Carousel Guide](PERSONAS_CAROUSEL_GUIDE.md)** - Adding videos and managing persona media carousels
 - **[Workflow Guide](CMS_WORKFLOW_GUIDE.md)** - Content workflow and approval processes
 - **[Troubleshooting Guide](CMS_TROUBLESHOOTING_GUIDE.md)** - Solutions to common problems
 - **[Training Checklist](CMS_TRAINING_CHECKLIST.md)** - Structured training program
@@ -145,6 +146,7 @@ All documentation is version controlled alongside the codebase:
 - [CMS Documentation Hub](CMS_DOCUMENTATION_README.md) - Main CMS documentation entry point
 - [CMS Quick Start Guide](CMS_QUICK_START.md) - 5-minute getting started guide
 - [CMS User Guide](CMS_USER_GUIDE.md) - Comprehensive usage documentation
+- [Personas Carousel Guide](PERSONAS_CAROUSEL_GUIDE.md) - Managing persona media carousels with videos
 - [CMS Workflow Guide](CMS_WORKFLOW_GUIDE.md) - Content workflow and processes
 - [CMS Troubleshooting Guide](CMS_TROUBLESHOOTING_GUIDE.md) - Problem solving guide
 - [CMS Training Checklist](CMS_TRAINING_CHECKLIST.md) - Structured training program

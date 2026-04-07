@@ -550,6 +550,8 @@ export interface Persona {
   icon: string;
   /** Optional infographic image shown on the persona detail page */
   infographic?: string;
+  /** Optional YouTube video ID for the At a Glance carousel */
+  youtubeVideoId?: string;
   excerpt: string;
   publishDate: string;
   featured: boolean;
@@ -698,6 +700,11 @@ function validatePersonaData(data: any, fileName: string): { isValid: boolean; d
     sanitizedData.modifiedDate = undefined;
   }
 
+  // Handle youtubeVideoId - optional field
+  if (sanitizedData.youtubeVideoId && typeof sanitizedData.youtubeVideoId !== 'string') {
+    sanitizedData.youtubeVideoId = undefined;
+  }
+
   return { isValid: true, data: sanitizedData, errors };
 }
 
@@ -744,6 +751,7 @@ export function getAllPersonas(): Persona[] {
           slug: sanitizedData.slug,
           icon: sanitizedData.icon,
           ...(sanitizedData.infographic && { infographic: sanitizedData.infographic }),
+          ...(sanitizedData.youtubeVideoId && { youtubeVideoId: sanitizedData.youtubeVideoId }),
           excerpt: sanitizedData.excerpt,
           publishDate: sanitizedData.publishDate,
           ...(sanitizedData.modifiedDate && { modifiedDate: sanitizedData.modifiedDate }),
