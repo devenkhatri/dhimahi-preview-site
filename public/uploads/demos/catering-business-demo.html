@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catering Business Tech Solutions | Dhīmahi Technolabs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #FAF7F2;
+      --color-bg-warm: #F5F0E8;
+      --color-bg-code: #1E1E2E;
+      --color-text: #2C2A28;
+      --color-text-secondary: #6B6560;
+      --color-text-muted: #9E9790;
+      --color-border: #E5DFD6;
+      --color-border-light: #EEEBE5;
+      --color-surface: #FFFFFF;
+      --color-surface-warm: #FDF9F3;
+      --color-accent: #D94F30;
+      --color-accent-hover: #C4432A;
+      --color-accent-light: #FDEEE9;
+      --color-accent-muted: #E8836C;
+      --color-success: #2D8B55;
+      --color-success-light: #E8F5EE;
+      --color-error: #C93B3B;
+      --color-error-light: #FDE8E8;
+      --color-info: #2A7B9B;
+      --color-info-light: #E4F2F7;
+      --color-actor-1: #D94F30;
+      --color-actor-2: #2A7B9B;
+      --color-actor-3: #7B6DAA;
+      --color-actor-4: #D4A843;
+      --color-actor-5: #2D8B55;
+      --font-display: 'Bricolage Grotesque', Georgia, serif;
+      --font-body: 'DM Sans', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+      --text-xs: 0.75rem;
+      --text-sm: 0.875rem;
+      --text-base: 1rem;
+      --text-lg: 1.125rem;
+      --text-xl: 1.25rem;
+      --text-2xl: 1.5rem;
+      --text-3xl: 1.875rem;
+      --text-4xl: 2.25rem;
+      --text-5xl: 3rem;
+      --text-6xl: 3.75rem;
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --space-24: 6rem;
+      --content-width: 800px;
+      --content-width-wide: 1000px;
+      --nav-height: 50px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+      --shadow-sm: 0 1px 2px rgba(44, 42, 40, 0.05);
+      --shadow-md: 0 4px 12px rgba(44, 42, 40, 0.08);
+      --shadow-lg: 0 8px 24px rgba(44, 42, 40, 0.1);
+      --shadow-xl: 0 16px 48px rgba(44, 42, 40, 0.12);
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --duration-fast: 150ms;
+      --duration-normal: 300ms;
+      --duration-slow: 500ms;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-snap-type: y proximity; scroll-behavior: smooth; }
+    body {
+      background: var(--color-bg);
+      background-image: radial-gradient(ellipse at 20% 50%, rgba(217, 79, 48, 0.03) 0%, transparent 50%);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.6;
+    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: var(--radius-full); }
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      background: #0F1117;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--space-6);
+    }
+    .nav-title { color: white; font-family: var(--font-display); font-weight: 600; font-size: var(--text-sm); }
+    .nav-dots { display: flex; gap: var(--space-2); }
+    .nav-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid var(--color-text-muted);
+      background: transparent;
+      cursor: pointer;
+      transition: all var(--duration-normal) var(--ease-out);
+    }
+    .nav-dot.active { border-color: var(--color-accent); background: var(--color-accent); }
+    .progress-bar { position: absolute; bottom: 0; left: 0; height: 3px; background: var(--color-accent); transition: width var(--duration-normal) var(--ease-out); }
+    .module {
+      min-height: 100dvh;
+      scroll-snap-align: start;
+      padding: var(--space-16) var(--space-6);
+      padding-top: calc(var(--nav-height) + var(--space-12));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .module-content { max-width: var(--content-width); width: 100%; }
+    .module-header { margin-bottom: var(--space-10); text-align: center; }
+    .module-number {
+      display: block;
+      font-family: var(--font-display);
+      font-size: var(--text-6xl);
+      font-weight: 800;
+      color: var(--color-accent);
+      opacity: 0.15;
+      margin-bottom: var(--space-4);
+    }
+    .module-title {
+      font-family: var(--font-display);
+      font-size: var(--text-4xl);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: var(--space-4);
+    }
+    .module-subtitle {
+      font-size: var(--text-lg);
+      color: var(--color-text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .animate-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity var(--duration-slow) var(--ease-out), transform var(--duration-slow) var(--ease-out);
+    }
+    .animate-in.visible { opacity: 1; transform: translateY(0); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-4) var(--space-6);
+      background: var(--color-accent);
+      color: white;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      font-weight: 600;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all var(--duration-normal) var(--ease-out);
+      text-decoration: none;
+    }
+    .btn:hover { background: var(--color-accent-hover); transform: translateY(-2px); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-accent);
+      border: 2px solid var(--color-accent);
+    }
+    .btn-secondary:hover { background: var(--color-accent-light); }
+
+    /* Hook Module */
+    .hook-module {
+      background: #0F1117;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hook-module::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(217, 79, 48, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hook-content { position: relative; z-index: 1; padding: var(--space-6); }
+    .hook-line-1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
+      font-weight: 700;
+      color: white;
+      line-height: 1.2;
+      margin-bottom: var(--space-6);
+    }
+    .hook-line-1 span { color: var(--color-accent); text-decoration: underline; text-underline-offset: 8px; }
+    .hook-line-2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      color: var(--color-text-muted);
+      font-weight: 400;
+    }
+
+    /* Problem Module */
+    .problem-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-6);
+      margin: var(--space-8) 0;
+    }
+    .stat-card {
+      background: var(--color-surface);
+      padding: var(--space-6);
+      border-radius: var(--radius-md);
+      text-align: center;
+      box-shadow: var(--shadow-md);
+    }
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: var(--text-5xl);
+      font-weight: 800;
+      color: var(--color-accent);
+      margin-bottom: var(--space-2);
+    }
+    .stat-label { color: var(--color-text-secondary); font-size: var(--text-sm); }
+
+    /* Before/After Toggle */
+    .before-after-toggle { position: relative; margin: var(--space-8) 0; }
+    .toggle-controls { display: flex; justify-content: center; gap: var(--space-2); margin-bottom: var(--space-6); }
+    .toggle-btn {
+      padding: var(--space-3) var(--space-6);
+      border: 2px solid var(--color-border);
+      background: transparent;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      font-weight: 600;
+      transition: all var(--duration-normal) var(--ease-out);
+    }
+    .toggle-btn.active { background: var(--color-accent); border-color: var(--color-accent); color: white; }
+    .panel { display: none; animation: fadeIn 0.4s var(--ease-out); }
+    .panel.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .process-timeline { display: flex; flex-direction: column; gap: var(--space-3); }
+    .timeline-step {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      border-left: 3px solid var(--color-error);
+    }
+    .timeline-step.automated { border-left-color: var(--color-success); }
+    .step-badge {
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-sm);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .step-badge.manual { background: var(--color-error-light); color: var(--color-error); }
+    .step-badge.auto { background: var(--color-success-light); color: var(--color-success); }
+    .step-time { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-muted); margin-left: auto; }
+
+    /* Solution Overview */
+    .solution-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-6);
+      margin: var(--space-8) 0;
+    }
+    .solution-card {
+      background: var(--color-surface);
+      padding: var(--space-6);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      transition: all var(--duration-normal) var(--ease-out);
+    }
+    .solution-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .solution-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--color-accent-light);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: var(--space-4);
+    }
+    .solution-card h3 { font-family: var(--font-display); font-size: var(--text-xl); margin-bottom: var(--space-2); }
+    .solution-card p { color: var(--color-text-secondary); font-size: var(--text-sm); }
+
+    /* Sequence Diagram */
+    .sequence-diagram { margin: var(--space-8) 0; }
+    .seq-progress-bar { height: 4px; background: var(--color-border-light); border-radius: 2px; margin-bottom: var(--space-4); }
+    .seq-progress-fill { height: 100%; background: var(--color-accent); border-radius: 2px; width: 0%; transition: width 0.4s var(--ease-out); }
+    .seq-step {
+      display: none;
+      align-items: flex-start;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      margin-bottom: var(--space-3);
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      border-left: 3px solid var(--color-accent);
+    }
+    .seq-step[data-step="1"] { border-left-color: var(--color-actor-1); }
+    .seq-step[data-step="2"] { border-left-color: var(--color-actor-2); }
+    .seq-step[data-step="3"] { border-left-color: var(--color-actor-3); }
+    .seq-step[data-step="4"] { border-left-color: var(--color-actor-4); }
+    .step-marker {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .step-component-badge {
+      display: inline-block;
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-sm);
+      color: white;
+      font-size: var(--text-xs);
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+    }
+    .step-time { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-muted); margin-left: var(--space-2); }
+    .step-detail { margin-top: var(--space-2); font-size: var(--text-sm); }
+    .step-detail summary { cursor: pointer; color: var(--color-accent); }
+    .step-detail p { margin-top: var(--space-2); color: var(--color-text-secondary); }
+    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .seq-controls { display: flex; justify-content: center; gap: var(--space-4); margin-top: var(--space-6); flex-wrap: wrap; }
+    .seq-controls button {
+      padding: var(--space-3) var(--space-5);
+      background: var(--color-surface);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--duration-normal) var(--ease-out);
+    }
+    .seq-controls button:hover { border-color: var(--color-accent); }
+    .seq-controls button.primary { background: var(--color-accent); border-color: var(--color-accent); color: white; }
+    .seq-progress-text { font-family: var(--font-mono); font-size: var(--text-sm); color: var(--color-text-muted); align-self: center; }
+
+    /* Architecture Map */
+    .arch-map { position: relative; margin: var(--space-8) 0; }
+    .arch-svg { width: 100%; height: auto; }
+    .arch-node { cursor: pointer; transition: all var(--duration-normal) var(--ease-out); }
+    .arch-node rect { fill: var(--color-surface); stroke: var(--color-border); stroke-width: 2; }
+    .arch-node:hover rect { stroke: var(--color-accent); }
+    .arch-node.active rect { stroke: var(--color-accent); stroke-width: 3; filter: drop-shadow(0 0 10px rgba(217, 79, 48, 0.3)); }
+    .arch-node text { font-family: var(--font-body); font-size: 14px; fill: var(--color-text); }
+    .arch-line { stroke: var(--color-border-light); stroke-width: 2; stroke-dasharray: 8 4; }
+    .arch-detail {
+      background: var(--color-bg-code);
+      color: #CDD6F4;
+      padding: var(--space-4);
+      border-radius: var(--radius-md);
+      margin-top: var(--space-4);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all var(--duration-normal) var(--ease-out);
+    }
+    .arch-detail.visible { opacity: 1; transform: translateY(0); }
+    .arch-detail h4 { margin-bottom: var(--space-2); color: var(--color-accent); }
+    .io-row { display: flex; gap: var(--space-3); margin-top: var(--space-3); }
+    .input-badge, .output-badge { padding: var(--space-1) var(--space-2); border-radius: var(--radius-sm); font-size: var(--text-xs); font-family: var(--font-mono); }
+    .input-badge { background: #3b82f6; color: white; }
+    .output-badge { background: #10b981; color: white; }
+
+    /* Resilience Explorer */
+    .resilience-explorer { margin: var(--space-8) 0; }
+    .scenario-buttons { display: flex; flex-wrap: wrap; gap: var(--space-3); margin: var(--space-4) 0; }
+    .scenario-btn {
+      padding: var(--space-3) var(--space-4);
+      border: 2px solid var(--color-border);
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all var(--duration-normal) var(--ease-out);
+      font-size: var(--text-sm);
+    }
+    .scenario-btn:hover { border-color: var(--color-accent); }
+    .scenario-detail {
+      padding: var(--space-4);
+      border-radius: var(--radius-md);
+      background: var(--color-bg-code);
+      color: #CDD6F4;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all var(--duration-normal) var(--ease-out);
+    }
+    .scenario-detail.visible { opacity: 1; transform: translateY(0); }
+    .scenario-detail.severity-amber { border-left: 4px solid #f59e0b; }
+    .scenario-detail.severity-green { border-left: 4px solid #10b981; }
+    .scenario-detail.severity-red { border-left: 4px solid #ef4444; }
+    .scenario-failure, .scenario-response, .scenario-buyer, .scenario-recovery { margin-bottom: var(--space-2); }
+    .recovery-btn {
+      margin-top: var(--space-4);
+      padding: var(--space-2) var(--space-4);
+      background: var(--color-accent);
+      color: white;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+    }
+
+    /* Tech Stack */
+    .tech-stack { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); margin: var(--space-8) 0; }
+    .stack-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      padding: var(--space-6);
+      border-top: 3px solid var(--color-accent);
+    }
+    .stack-header { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4); flex-wrap: wrap; }
+    .stack-logo { font-size: 1.5rem; }
+    .stack-role { font-size: var(--text-xs); color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .stack-reason { color: var(--color-text-secondary); line-height: 1.6; margin-bottom: var(--space-4); }
+    .stack-vs { font-size: var(--text-sm); padding: var(--space-3); background: var(--color-bg-code); border-radius: var(--radius-sm); }
+    .vs-label { font-weight: 600; color: var(--color-accent); }
+    .vs-reason { color: #CDD6F4; }
+
+    /* Integration Map */
+    .integration-map { position: relative; margin: var(--space-8) 0; text-align: center; }
+    .int-hub {
+      display: inline-block;
+      padding: var(--space-4) var(--space-6);
+      background: var(--color-accent);
+      color: white;
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-6);
+    }
+    .int-spokes { display: flex; justify-content: center; gap: var(--space-6); flex-wrap: wrap; }
+    .int-spoke {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: var(--space-4);
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      border: 2px solid var(--color-border);
+      min-width: 100px;
+    }
+    .int-spoke-icon { font-size: 2rem; margin-bottom: var(--space-2); }
+    .int-legend { margin-top: var(--space-6); display: flex; justify-content: center; gap: var(--space-4); flex-wrap: wrap; }
+    .legend-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; margin-right: var(--space-1); }
+    .legend-dot.crm { background: #3b82f6; }
+    .legend-dot.comm { background: #10b981; }
+    .legend-dot.ai { background: #8b5cf6; }
+    .legend-dot.storage { background: #f59e0b; }
+
+    /* Deployment */
+    .deployment-notes { margin: var(--space-8) 0; }
+    .deploy-columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-6); margin-bottom: var(--space-8); }
+    .deploy-column { background: var(--color-surface); padding: var(--space-5); border-radius: var(--radius-md); }
+    .deploy-column h4 { font-family: var(--font-display); color: var(--color-accent); margin-bottom: var(--space-4); }
+    .deploy-item { margin-bottom: var(--space-3); }
+    .deploy-item strong { display: block; font-size: var(--text-xs); color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-1); }
+    .deploy-item span { font-size: var(--text-sm); }
+    .api-cost-section {
+      margin-top: var(--space-6);
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      padding: var(--space-5);
+      border: 1px solid var(--color-border);
+    }
+    .cost-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-4); }
+    .cost-header h4 { color: var(--color-accent); margin: 0; }
+    .currency-toggle { display: flex; background: var(--color-bg-code); border-radius: var(--radius-sm); overflow: hidden; }
+    .currency-btn {
+      padding: var(--space-2) var(--space-3);
+      border: none;
+      background: transparent;
+      color: var(--color-text-muted);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .currency-btn.active { background: var(--color-accent); color: white; }
+    .cost-breakdown { display: flex; flex-direction: column; gap: var(--space-3); }
+    .cost-row { display: flex; justify-content: space-between; padding: var(--space-2) 0; border-bottom: 1px solid var(--color-border); }
+    .cost-total { display: flex; justify-content: space-between; margin-top: var(--space-3); padding-top: var(--space-3); border-top: 2px solid var(--color-accent); }
+    .total-label { font-weight: 600; color: var(--color-accent); }
+    .total-value { font-family: var(--font-mono); font-weight: 700; color: var(--color-accent); }
+    .rate-info { margin-top: var(--space-3); font-size: var(--text-xs); color: var(--color-text-muted); }
+    .hidden { display: none; }
+    .deploy-contact { margin-top: var(--space-6); background: var(--color-surface); padding: var(--space-5); border-radius: var(--radius-md); }
+    .deploy-contact h4 { font-family: var(--font-display); color: var(--color-accent); margin-bottom: var(--space-4); }
+    .contact-item { margin-bottom: var(--space-2); }
+    .contact-label { font-weight: 600; color: var(--color-text-secondary); }
+
+    /* Screenshots Gallery */
+    .screenshots-gallery { margin: var(--space-8) 0; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); }
+    .gallery-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      cursor: zoom-in;
+      transition: all var(--duration-normal) var(--ease-out);
+    }
+    .gallery-card:hover { transform: scale(1.02); }
+    .gallery-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--color-bg-warm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-muted);
+      padding: var(--space-6);
+    }
+    .gallery-placeholder-icon { font-size: 3rem; margin-bottom: var(--space-3); }
+    .gallery-caption { padding: var(--space-4); font-size: var(--text-sm); color: var(--color-text-secondary); }
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: var(--space-6);
+    }
+    .lightbox.hidden { display: none; }
+    .lightbox-close {
+      position: absolute;
+      top: var(--space-4);
+      right: var(--space-4);
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .lightbox-img { max-width: 90%; max-height: 70vh; border-radius: var(--radius-md); }
+    .lightbox-caption { color: white; margin-top: var(--space-4); text-align: center; }
+
+    /* Next Steps */
+    .next-steps { text-align: center; }
+    .next-steps .btn { margin: var(--space-2); }
+    .timeline-note { margin-top: var(--space-6); padding: var(--space-4); background: var(--color-bg-warm); border-radius: var(--radius-md); }
+    .timeline-note p { font-size: var(--text-sm); color: var(--color-text-secondary); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      :root {
+        --text-4xl: 1.875rem;
+        --text-5xl: 2.25rem;
+        --text-6xl: 3rem;
+      }
+      .module { padding: var(--space-12) var(--space-4); }
+      .process-timeline { gap: var(--space-2); }
+      .timeline-step { padding: var(--space-3); }
+      .seq-controls { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <span class="nav-title">Catering Business Solutions</span>
+    <div class="nav-dots">
+      <button class="nav-dot active" data-target="hook"></button>
+      <button class="nav-dot" data-target="problem"></button>
+      <button class="nav-dot" data-target="solution"></button>
+      <button class="nav-dot" data-target="how-it-works"></button>
+      <button class="nav-dot" data-target="architecture"></button>
+      <button class="nav-dot" data-target="resilience"></button>
+      <button class="nav-dot" data-target="tech-stack"></button>
+      <button class="nav-dot" data-target="integrations"></button>
+      <button class="nav-dot" data-target="going-live"></button>
+      <button class="nav-dot" data-target="screenshots"></button>
+      <button class="nav-dot" data-target="next-steps"></button>
+    </div>
+    <div class="progress-bar" role="progressbar" aria-valuenow="0" style="width: 0%"></div>
+  </nav>
+
+  <!-- Module 0: Hook -->
+  <section class="hook-module" id="hook">
+    <div class="hook-content">
+      <p class="hook-line-1">Your team spends <span>3 hours every day</span> just sending quotes and chasing ingredient prices.</p>
+      <p class="hook-line-2">See how instant WhatsApp quoting and AI forecasting can cut that to minutes.</p>
+    </div>
+  </section>
+
+  <!-- Module 1: The Problem -->
+  <section class="module" id="problem" style="background: var(--color-bg-warm)">
+    <div class="module-content">
+      <header class="module-header animate-in">
+        <span class="module-number">01</span>
+        <h1 class="module-title">Do You Understand My World?</h1>
+        <p class="module-subtitle">Running large-scale event catering means battling manual quotes, unpredictable costs, and chaotic live operations.</p>
+      </header>
+
+      <div class="problem-stats animate-in">
+        <div class="stat-card">
+          <div class="stat-number">3+</div>
+          <div class="stat-label">Hours daily on manual quoting</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">40%</div>
+          <div class="stat-label">Ingredient waste due to poor forecasting</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">60%</div>
+          <div class="stat-label">Of quotes sent late to clients</div>
+        </div>
+      </div>
+
+      <div class="before-after-toggle animate-in">
+        <div class="toggle-controls">
+          <button class="toggle-btn active" data-panel="before">Before</button>
+          <button class="toggle-btn" data-panel="after">After</button>
+        </div>
+        
+        <div class="panel before-panel active">
+          <div class="process-timeline">
+            <div class="timeline-step">
+              <span class="step-badge manual">Manual</span>
+              <div>
+                <strong>Client calls or emails</strong>
+                <p style="font-size: var(--text-sm); color: var(--color-text-secondary);">Phone tag, missed messages</p>
+              </div>
+              <span class="step-time">+0 min</span>
+            </div>
+            <div class="timeline-step">
+              <span class="step-badge manual">Manual</span>
+              <div>
+                <strong>Call suppliers for ingredient prices</strong>
+                <p style="font-size: var(--text-sm); color: var(--color-text-secondary);">Multiple calls, outdated quotes</p>
+              </div>
+              <span class="step-time">+45 min</span>
+            </div>
+            <div class="timeline-step">
+              <span class="step-badge manual">Manual</span>
+              <div>
+                <strong>Calculate food costs + markup</strong>
+                <p style="font-size: var(--text-sm); color: var(--color-text-secondary);">Spreadsheet calculations, errors</p>
+              </div>
+              <span class="step-time">+30 min</span>
+            </div>
+            <div class="timeline-step">
+              <span class="step-badge manual">Manual</span>
+              <div>
+                <strong>Draft quote document</strong>
+                <p style="font-size: var(--text-sm); color: var(--color-text-secondary);">Email with PDF attachment</p>
+              </div>
+              <span class="step-time">+20 min</span>
+            </div>
+            <div class="timeline-step">
+              <span class="step-badge manual">Manual</span>
+              <div>
+                <strong>Send quote to client</strong>
+                <p style="font-size: var(--text-sm); color: var(--color-text-secondary);">Hope they respond quickly</p>
+              </div>
+              <span class="step-time">+10 min</span>
+            </div>
+          </div>
+          <p style="text-align: center; margin-top: var(--space-4); color: var(--color-accent); font-weight: 600;">Total: ~2 hours per quote</p>
+        </div>
+
+        <div class="panel after-panel">
+          <div class="process-timeline">
+            <div class="timeline-step automated">
+              <span class="step-badge auto">Auto</span>
+              <div>
+                <strong>Client fills WhatsApp form</strong>
+                <p style="font-size: var(--text-sm); color: var(--color-text-secondary);">Instant lead capture via link</p>
+              </div>
+              <span class="step-time">+0 min</span>
+            </div>
+            <div class="timeline-step automated">
+              <span class="step-badge auto">AI</span>
+              <div>
+                <strong>AI calculates ingredients & costs</strong>
+                <p style="font-size: var(--text-sm); color: var(--color-text-secondary);">Real-time pricing from suppliers</p>
+              </div>
+              <span class="step-time">+15 sec</span>
+            </div>
+            <div class="timeline-step automated">
+              <span class="step-badge auto">Auto</span>
+              <div>
+                <strong>Quote generated & sent via WhatsApp</strong>
+                <p style="font-size: var(--text-sm); color: var(--color-text-secondary);">Beautiful quote card, ready to send</p>
+              </div>
+              <span class="step-time">+30 sec</span>
+            </div>
+            <div class="timeline-step">
+              <span class="step-badge manual">Review</span>
+              <div>
+                <strong>You review & send</strong>
+                <p style="font-size: var(--text-sm); color: var(--color-text-secondary);">One-tap approval</p>
+              </div>
+              <span class="step-time">+1 min</span>
+            </div>
+          </div>
+          <p style="text-align: center; margin-top: var(--space-4); color: var(--color-success); font-weight: 600;">Total: ~2 minutes per quote</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module 2: The Solution -->
+  <section class="module" id="solution">
+    <div class="module-content">
+      <header class="module-header animate-in">
+        <span class="module-number">02</span>
+        <h1 class="module-title">What Does It Actually Do?</h1>
+        <p class="module-subtitle">Three powerful tools that work together to streamline your entire catering operation.</p>
+      </header>
+
+      <div class="solution-cards animate-in">
+        <div class="solution-card">
+          <div class="solution-icon">💬</div>
+          <h3>Instant WhatsApp Quoting</h3>
+          <p>Send beautiful, professional quotes directly through WhatsApp. Clients get instant responses — no more lost leads.</p>
+        </div>
+        <div class="solution-card">
+          <div class="solution-icon">📊</div>
+          <h3>AI Ingredient Forecasting</h3>
+          <p>Predict ingredient needs based on event size, menu, and historical data. Reduce waste by up to 40%.</p>
+        </div>
+        <div class="solution-card">
+          <div class="solution-icon">⚖️</div>
+          <h3>Dynamic Menu Scaling</h3>
+          <p>Automatically adjust quantities for different group sizes while maintaining proper portions and costs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module 3: How It Works -->
+  <section class="module" id="how-it-works" style="background: var(--color-bg-warm)">
+    <div class="module-content">
+      <header class="module-header animate-in">
+        <span class="module-number">03</span>
+        <h1 class="module-title">Walk Me Through It</h1>
+        <p class="module-subtitle">See exactly what happens when a new catering inquiry comes in.</p>
+      </header>
+
+      <div class="sequence-diagram animate-in">
+        <div class="seq-progress-bar">
+          <div class="seq-progress-fill" id="seq-progress"></div>
+        </div>
+        <div class="seq-steps" id="seq-steps">
+          <div class="seq-step" data-step="1">
+            <div class="step-marker">1</div>
+            <div class="step-body">
+              <div class="step-component-badge" style="background: var(--color-actor-1)">WhatsApp</div>
+              <p class="step-description">A client clicks your WhatsApp link and fills in event details — date, guest count, menu preferences.</p>
+              <span class="step-time">+0s</span>
+            </div>
+          </div>
+          <div class="seq-step" data-step="2">
+            <div class="step-marker">2</div>
+            <div class="step-body">
+              <div class="step-component-badge" style="background: var(--color-actor-2)">AI Engine</div>
+              <p class="step-description">The system instantly calculates ingredient requirements, fetches current supplier prices, and applies your margin.</p>
+              <span class="step-time">+2s</span>
+              <details class="step-detail">
+                <summary>Behind the scenes</summary>
+                <p>AI analyzes your menu database, checks real-time pricing from supplier APIs, and calculates total cost with recommended markup.</p>
+              </details>
+            </div>
+          </div>
+          <div class="seq-step" data-step="3">
+            <div class="step-marker">3</div>
+            <div class="step-body">
+              <div class="step-component-badge" style="background: var(--color-actor-3)">Quote Generator</div>
+              <p class="step-description">A beautiful quote card is generated with itemized costs, total price, and your branding — ready for your review.</p>
+              <span class="step-time">+5s</span>
+            </div>
+          </div>
+          <div class="seq-step" data-step="4">
+            <div class="step-marker">4</div>
+            <div class="step-body">
+              <div class="step-component-badge" style="background: var(--color-actor-4)">WhatsApp</div>
+              <p class="step-description">You receive the quote in WhatsApp with one-tap options to edit, approve, or send directly to the client.</p>
+              <span class="step-time">+6s</span>
+              <details class="step-detail">
+                <summary>What's included</summary>
+                <p>The quote card includes: breakdown per person, menu items, dietary notes, payment terms, and a book-now button.</p>
+              </details>
+            </div>
+          </div>
+        </div>
+        <div class="seq-controls">
+          <button onclick="seqNext()">Next Step</button>
+          <button onclick="seqPlayAll()" class="primary">Play All</button>
+          <button onclick="seqReset()">Replay</button>
+          <span class="seq-progress-text" id="seq-progress-text">Step 0 / 4</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module 4: Architecture -->
+  <section class="module" id="architecture">
+    <div class="module-content">
+      <header class="module-header animate-in">
+        <span class="module-number">04</span>
+        <h1 class="module-title">What Are the Moving Parts?</h1>
+        <p class="module-subtitle">Click any component to see what it does.</p>
+      </header>
+
+      <div class="arch-map animate-in">
+        <svg class="arch-svg" viewBox="0 0 800 400">
+          <!-- Connection Lines -->
+          <path class="arch-line" d="M150,180 L280,120" />
+          <path class="arch-line" d="M280,120 L420,180" />
+          <path class="arch-line" d="M420,180 L550,120" />
+          <path class="arch-line" d="M550,120 L680,180" />
+          
+          <!-- Component Nodes -->
+          <g class="arch-node" data-name="whatsapp-form">
+            <rect x="50" y="130" width="120" height="80" rx="8" />
+            <text x="110" y="175" text-anchor="middle">WhatsApp Form</text>
+          </g>
+          <g class="arch-node" data-name="lead-capture">
+            <rect x="220" y="70" width="120" height="80" rx="8" />
+            <text x="280" y="115" text-anchor="middle">Lead Capture</text>
+          </g>
+          <g class="arch-node" data-name="ai-engine">
+            <rect x="360" y="130" width="120" height="80" rx="8" />
+            <text x="420" y="175" text-anchor="middle">AI Engine</text>
+          </g>
+          <g class="arch-node" data-name="pricing-db">
+            <rect x="490" y="70" width="120" height="80" rx="8" />
+            <text x="550" y="115" text-anchor="middle">Pricing DB</text>
+          </g>
+          <g class="arch-node" data-name="quote-generator">
+            <rect x="620" y="130" width="120" height="80" rx="8" />
+            <text x="680" y="175" text-anchor="middle">Quote Generator</text>
+          </g>
+        </svg>
+        <div class="arch-detail" id="arch-detail">
+          <h4>Click any component to learn what it does</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module 5: Resilience -->
+  <section class="module" id="resilience" style="background: var(--color-bg-warm)">
+    <div class="module-content">
+      <header class="module-header animate-in">
+        <span class="module-number">05</span>
+        <h1 class="module-title">What Happens When Something Goes Wrong?</h1>
+        <p class="module-subtitle">The system is built to handle failures gracefully — here's how.</p>
+      </header>
+
+      <div class="resilience-explorer animate-in">
+        <div class="scenario-buttons">
+          <button class="scenario-btn" data-scenario="supplier-down">What if supplier API is down?</button>
+          <button class="scenario-btn" data-scenario="duplicate-lead">What if client submits twice?</button>
+          <button class="scenario-btn" data-scenario="ai-fail">What if AI returns an error?</button>
+        </div>
+        <div class="scenario-detail" id="scenario-detail">
+          <p>Select a scenario above to see how the system handles it.</p>
+        </div>
+        <button class="recovery-btn" onclick="resetResilience()">Reset View</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module 6: Tech Stack -->
+  <section class="module" id="tech-stack">
+    <div class="module-content">
+      <header class="module-header animate-in">
+        <span class="module-number">06</span>
+        <h1 class="module-title">Why These Tools?</h1>
+        <p class="module-subtitle">Each technology was chosen for specific business reasons — not technical preferences.</p>
+      </header>
+
+      <div class="tech-stack animate-in">
+        <div class="stack-card">
+          <div class="stack-header">
+            <span class="stack-logo">💬</span>
+            <h3>WhatsApp Business API</h3>
+            <span class="stack-role">Client Communication</span>
+          </div>
+          <p class="stack-reason">Your clients already use WhatsApp 24/7. They respond 3× faster than email. No app download required.</p>
+          <div class="stack-vs">
+            <span class="vs-label">vs. Email quotes:</span>
+            <span class="vs-reason">60% faster response times, higher booking rates, better client experience.</span>
+          </div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-header">
+            <span class="stack-logo">🤖</span>
+            <h3>OpenAI GPT-4</h3>
+            <span class="stack-role">AI Processing</span>
+          </div>
+          <p class="stack-reason">Industry-leading language model that understands complex menu requirements and generates accurate cost calculations.</p>
+          <div class="stack-vs">
+            <span class="vs-label">vs. Rule-based systems:</span>
+            <span class="vs-reason">Handles menu variations, dietary restrictions, and special requests without manual rule updates.</span>
+          </div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-header">
+            <span class="stack-logo">🗄️</span>
+            <h3>Supabase</h3>
+            <span class="stack-role">Database</span>
+          </div>
+          <p class="stack-reason">Real-time database with built-in authentication. Your pricing, menus, and client data are always in sync.</p>
+          <div class="stack-vs">
+            <span class="vs-label">vs. Google Sheets:</span>
+            <span class="vs-reason">100× faster queries, real-time sync across devices, enterprise-grade security.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module 7: Integrations -->
+  <section class="module" id="integrations" style="background: var(--color-bg-warm)">
+    <div class="module-content">
+      <header class="module-header animate-in">
+        <span class="module-number">07</span>
+        <h1 class="module-title">What Does It Plug Into?</h1>
+        <p class="module-subtitle">Seamlessly connects with the tools you already use.</p>
+      </header>
+
+      <div class="integration-map animate-in">
+        <div class="int-hub">
+          <div class="int-hub-icon">⚙️</div>
+          <span>Core System</span>
+        </div>
+        <div class="int-spokes">
+          <div class="int-spoke">
+            <div class="int-spoke-icon">💬</div>
+            <span>WhatsApp</span>
+          </div>
+          <div class="int-spoke">
+            <div class="int-spoke-icon">📊</div>
+            <span>Google Sheets</span>
+          </div>
+          <div class="int-spoke">
+            <div class="int-spoke-icon">📅</div>
+            <span>Google Calendar</span>
+          </div>
+          <div class="int-spoke">
+            <div class="int-spoke-icon">🔗</div>
+            <span>Supplier APIs</span>
+          </div>
+        </div>
+        <div class="int-legend">
+          <span class="legend-item"><span class="legend-dot comm"></span> Communication</span>
+          <span class="legend-item"><span class="legend-dot storage"></span> Storage</span>
+          <span class="legend-item"><span class="legend-dot ai"></span> AI/Processing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module 8: Going Live -->
+  <section class="module" id="going-live">
+    <div class="module-content">
+      <header class="module-header animate-in">
+        <span class="module-number">08</span>
+        <h1 class="module-title">How Do We Actually Run This?</h1>
+        <p class="module-subtitle">From launch to scale — here's what to expect.</p>
+      </header>
+
+      <div class="deployment-notes animate-in">
+        <div class="deploy-columns">
+          <div class="deploy-column">
+            <h4>Day 1</h4>
+            <div class="deploy-item">
+              <strong>Setup</strong>
+              <span>WhatsApp Business API configuration + menu database</span>
+            </div>
+            <div class="deploy-item">
+              <strong>Expected Volume</strong>
+              <span>~10 quotes/day</span>
+            </div>
+            <div class="deploy-item">
+              <strong>Maintenance</strong>
+              <span>30 min/month</span>
+            </div>
+          </div>
+          <div class="deploy-column">
+            <h4>After 6 Months</h4>
+            <div class="deploy-item">
+              <strong>Setup</strong>
+              <span>Full automation + analytics dashboard</span>
+            </div>
+            <div class="deploy-item">
+              <strong>Expected Volume</strong>
+              <span>~50 quotes/day</span>
+            </div>
+            <div class="deploy-item">
+              <strong>Maintenance</strong>
+              <span>1 hour/month</span>
+            </div>
+          </div>
+          <div class="deploy-column">
+            <h4>At Scale</h4>
+            <div class="deploy-item">
+              <strong>Setup</strong>
+              <span>Dedicated infrastructure + multi-location</span>
+            </div>
+            <div class="deploy-item">
+              <strong>Expected Volume</strong>
+              <span>200+ quotes/day</span>
+            </div>
+            <div class="deploy-item">
+              <strong>Maintenance</strong>
+              <span>2 hours/month</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="api-cost-section">
+          <div class="cost-header">
+            <h4>Estimated API Costs</h4>
+            <div class="currency-toggle">
+              <button class="currency-btn active" data-currency="inr">INR</button>
+              <button class="currency-btn" data-currency="usd">USD</button>
+            </div>
+          </div>
+          <div class="cost-breakdown">
+            <div class="cost-row">
+              <span class="service-name">OpenAI GPT-4 API</span>
+              <span class="service-cost inr">₹3,500/month</span>
+              <span class="service-cost usd hidden">$42/month</span>
+            </div>
+            <div class="cost-row">
+              <span class="service-name">WhatsApp Business API</span>
+              <span class="service-cost inr">₹1,800/month</span>
+              <span class="service-cost usd hidden">$22/month</span>
+            </div>
+            <div class="cost-row">
+              <span class="service-name">Supabase Database</span>
+              <span class="service-cost inr">₹850/month</span>
+              <span class="service-cost usd hidden">$10/month</span>
+            </div>
+            <div class="cost-total">
+              <span class="total-label">Total Estimated</span>
+              <span class="total-value inr">₹6,150/month</span>
+              <span class="total-value usd hidden">$74/month</span>
+            </div>
+          </div>
+          <div class="rate-info">
+            <span class="rate-note">Rate: 1 USD = ₹83.50 + 2.5% levy</span>
+            <span class="rate-source">Source: exchangerate.host, Apr 2026</span>
+          </div>
+        </div>
+
+        <div class="deploy-contact">
+          <h4>Who to Call</h4>
+          <div class="contact-item">
+            <span class="contact-label">System issues:</span>
+            <span>Dhīmahi Technolabs support</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">WhatsApp issues:</span>
+            <span>Meta Business support</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module 8.5: Screenshots -->
+  <section class="module" id="screenshots" style="background: var(--color-bg-warm)">
+    <div class="module-content">
+      <header class="module-header animate-in">
+        <span class="module-number">09</span>
+        <h1 class="module-title">See It In Action</h1>
+        <p class="module-subtitle">Real screens from the live implementation — not mockups.</p>
+      </header>
+
+      <div class="screenshots-gallery animate-in">
+        <div class="gallery-grid">
+          <div class="gallery-card" data-lightbox="1">
+            <div class="gallery-placeholder">
+              <div class="gallery-placeholder-icon">💬</div>
+              <p>Screenshot: WhatsApp Quote Card</p>
+              <p style="font-size: var(--text-xs); margin-top: var(--space-2);">Beautiful quote card sent via WhatsApp with itemized breakdown</p>
+            </div>
+            <p class="gallery-caption">The quote card your client receives — professional, complete, and ready to book.</p>
+          </div>
+          <div class="gallery-card" data-lightbox="2">
+            <div class="gallery-placeholder">
+              <div class="gallery-placeholder-icon">📊</div>
+              <p>Screenshot: AI Forecasting Dashboard</p>
+              <p style="font-size: var(--text-xs); margin-top: var(--space-2);">Real-time ingredient predictions based on events</p>
+            </div>
+            <p class="gallery-caption">See exactly what ingredients you need, when to order, and expected costs.</p>
+          </div>
+          <div class="gallery-card" data-lightbox="3">
+            <div class="gallery-placeholder">
+              <div class="gallery-placeholder-icon">📋</div>
+              <p>Screenshot: Quote Management Panel</p>
+              <p style="font-size: var(--text-xs); margin-top: var(--space-2);">Track all quotes and conversions in one place</p>
+            </div>
+            <p class="gallery-caption">Your command center — see pending quotes, conversion rates, and revenue at a glance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module 9: Next Steps -->
+  <section class="module" id="next-steps">
+    <div class="module-content">
+      <header class="module-header animate-in">
+        <span class="module-number">10</span>
+        <h1 class="module-title">What Happens Next?</h1>
+        <p class="module-subtitle">Ready to streamline your catering operations? Here's how to get started.</p>
+      </header>
+
+      <div class="next-steps animate-in">
+        <a href="https://dhimahitechnolabs.com/consultation/" class="btn">Get Free Consultation</a>
+        <a href="https://dhimahitechnolabs.com/services/" class="btn btn-secondary">View Our Services</a>
+        
+        <div class="timeline-note">
+          <p><strong>Typical timeline:</strong> 2-3 weeks from consultation to live system. We handle all WhatsApp API setup, menu database configuration, and staff training.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox hidden" id="lightbox">
+    <button class="lightbox-close" aria-label="Close">✕</button>
+    <img class="lightbox-img" src="" alt="">
+    <p class="lightbox-caption"></p>
+  </div>
+
+  <script>
+    // Intersection Observer for animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+    document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+
+    // Progress bar
+    function updateProgressBar() {
+      const scrollTop = window.scrollY;
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / scrollHeight) * 100;
+      document.querySelector('.progress-bar').style.width = progress + '%';
+      
+      // Update nav dots
+      const modules = document.querySelectorAll('.module, .hook-module');
+      let current = 0;
+      modules.forEach((mod, i) => {
+        const rect = mod.getBoundingClientRect();
+        if (rect.top <= window.innerHeight / 2) current = i;
+      });
+      document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === current);
+      });
+    }
+    window.addEventListener('scroll', () => requestAnimationFrame(updateProgressBar), { passive: true });
+
+    // Before/After Toggle
+    document.querySelectorAll('.toggle-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const panel = btn.dataset.panel;
+        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+        document.querySelector(`.${panel}-panel`).classList.add('active');
+      });
+    });
+
+    // Sequence Diagram
+    const seqSteps = document.querySelectorAll('.seq-step');
+    let seqIndex = 0;
+
+    function seqNext() {
+      if (seqIndex >= seqSteps.length) return;
+      const step = seqSteps[seqIndex];
+      step.style.display = 'flex';
+      step.style.animation = 'fadeSlideUp 0.3s var(--ease-out)';
+      seqIndex++;
+      updateSeqProgress();
+    }
+
+    function seqPlayAll() {
+      seqReset();
+      const interval = setInterval(() => {
+        if (seqIndex >= seqSteps.length) { clearInterval(interval); return; }
+        seqNext();
+      }, 1500);
+    }
+
+    function seqReset() {
+      seqIndex = 0;
+      seqSteps.forEach(s => s.style.display = 'none');
+      updateSeqProgress();
+    }
+
+    function updateSeqProgress() {
+      const progress = (seqIndex / seqSteps.length) * 100;
+      document.getElementById('seq-progress').style.width = progress + '%';
+      document.getElementById('seq-progress-text').textContent = `Step ${seqIndex} / ${seqSteps.length}`;
+    }
+
+    // Architecture Map
+    const nodeData = {
+      'whatsapp-form': {
+        businessName: 'WhatsApp Form',
+        oneLineSummary: 'Captures event details directly from clients',
+        input: 'Client clicks WhatsApp link',
+        output: 'Event details (date, guests, menu)'
+      },
+      'lead-capture': {
+        businessName: 'Lead Capture',
+        oneLineSummary: 'Processes incoming inquiries instantly',
+        input: 'Raw event details',
+        output: 'Structured lead data'
+      },
+      'ai-engine': {
+        businessName: 'AI Engine',
+        oneLineSummary: 'Calculates ingredients and costs automatically',
+        input: 'Menu + guest count + supplier prices',
+        output: 'Itemized cost breakdown'
+      },
+      'pricing-db': {
+        businessName: 'Pricing DB',
+        oneLineSummary: 'Stores menus, supplier prices, and margins',
+        input: 'Menu items and pricing rules',
+        output: 'Real-time cost calculations'
+      },
+      'quote-generator': {
+        businessName: 'Quote Generator',
+        oneLineSummary: 'Creates beautiful, shareable quote cards',
+        input: 'Cost breakdown + branding',
+        output: 'WhatsApp-ready quote card'
+      }
+    };
+
+    document.querySelectorAll('.arch-node').forEach(node => {
+      node.addEventListener('click', () => {
+        document.querySelectorAll('.arch-node').forEach(n => n.classList.remove('active'));
+        node.classList.add('active');
+        
+        const data = nodeData[node.dataset.name];
+        const detailPanel = document.getElementById('arch-detail');
+        if (data) {
+          detailPanel.innerHTML = `
+            <h4>${data.businessName}</h4>
+            <p>${data.oneLineSummary}</p>
+            <div class="io-row">
+              <span class="input-badge">IN: ${data.input}</span>
+              <span class="output-badge">OUT: ${data.output}</span>
+            </div>
+          `;
+          detailPanel.classList.add('visible');
+        }
+      });
+    });
+
+    // Resilience Explorer
+    const scenarios = [
+      {
+        label: "What if supplier API is down?",
+        severity: 'amber',
+        failureMode: "Can't fetch real-time ingredient prices.",
+        systemResponse: "Uses cached prices from last successful sync. Shows warning but continues with estimated costs.",
+        buyerExperience: "You'd see a small yellow warning on the quote. Prices are still accurate from yesterday's update.",
+        recoveryTime: "Auto-recovers when API is restored, typically <15 min."
+      },
+      {
+        label: "What if client submits twice?",
+        severity: 'green',
+        failureMode: "Duplicate quotes could be created.",
+        systemResponse: "Checks for existing leads by phone number before creating new ones.",
+        buyerExperience: "No action needed — duplicates are prevented automatically.",
+        recoveryTime: "N/A — handled automatically"
+      },
+      {
+        label: "What if AI returns an error?",
+        severity: 'amber',
+        failureMode: "Quote can't be generated automatically.",
+        systemResponse: "Falls back to manual calculation mode. Alerts you to review.",
+        buyerExperience: "You'd receive a notification. The system preserves all client details so you can calculate manually.",
+        recoveryTime: "Immediate after AI service restored"
+      }
+    ];
+
+    document.querySelectorAll('.scenario-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const scenario = scenarios.find(s => s.label === btn.textContent);
+        showScenario(scenario);
+      });
+    });
+
+    function showScenario(scenario) {
+      const detail = document.getElementById('scenario-detail');
+      detail.innerHTML = `
+        <div class="scenario-failure"><strong>Failure Mode:</strong> ${scenario.failureMode}</div>
+        <div class="scenario-response"><strong>System Response:</strong> ${scenario.systemResponse}</div>
+        <div class="scenario-buyer"><strong>What You'd See:</strong> ${scenario.buyerExperience}</div>
+        <div class="scenario-recovery"><strong>Recovery Time:</strong> ${scenario.recoveryTime}</div>
+      `;
+      detail.className = `scenario-detail visible severity-${scenario.severity}`;
+    }
+
+    function resetResilience() {
+      const detail = document.getElementById('scenario-detail');
+      detail.innerHTML = '<p>Select a scenario above to see how the system handles it.</p>';
+      detail.className = 'scenario-detail';
+    }
+
+    // Currency Toggle
+    document.querySelectorAll('.currency-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const container = btn.closest('.api-cost-section');
+        const currency = btn.dataset.currency;
+        
+        container.querySelectorAll('.currency-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const inrElements = container.querySelectorAll('.inr');
+        const usdElements = container.querySelectorAll('.usd');
+        
+        if (currency === 'inr') {
+          inrElements.forEach(el => el.classList.remove('hidden'));
+          usdElements.forEach(el => el.classList.add('hidden'));
+        } else {
+          inrElements.forEach(el => el.classList.add('hidden'));
+          usdElements.forEach(el => el.classList.remove('hidden'));
+        }
+      });
+    });
+
+    // Lightbox
+    document.querySelectorAll('.gallery-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const placeholder = card.querySelector('.gallery-placeholder');
+        const caption = card.querySelector('.gallery-caption').textContent;
+        document.getElementById('lightbox').removeAttribute('hidden');
+        document.querySelector('.lightbox-caption').textContent = caption;
+      });
+    });
+    document.querySelector('.lightbox-close').addEventListener('click', () => {
+      document.getElementById('lightbox').setAttribute('hidden', '');
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') document.getElementById('lightbox').setAttribute('hidden', '');
+    });
+
+    // Nav dots click navigation
+    document.querySelectorAll('.nav-dot').forEach(dot => {
+      dot.addEventListener('click', () => {
+        const target = document.getElementById(dot.dataset.target);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
+      const modules = Array.from(document.querySelectorAll('.module, .hook-module'));
+      const currentIndex = modules.findIndex(m => {
+        const rect = m.getBoundingClientRect();
+        return rect.top >= -100 && rect.top <= 100;
+      });
+      
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+        if (currentIndex < modules.length - 1) {
+          modules[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+      if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+        if (currentIndex > 0) {
+          modules[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jewelry Store Owner - Digital Transformation Demo | Dhimahi Technolabs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #B8860B;
+      --accent-light: #DAA520;
+      --accent-dark: #8B6914;
+      --bg-primary: #FAF9F7;
+      --bg-card: #FFFFFF;
+      --bg-dark: #1C1917;
+      --text-primary: #1C1917;
+      --text-secondary: #57534E;
+      --text-muted: #A8A29E;
+      --text-light: #FAFAF9;
+      --success: #059669;
+      --warning: #D97706;
+      --danger: #DC2626;
+      --border: #E7E5E4;
+      --shadow-sm: 0 1px 2px rgba(28, 25, 23, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(28, 25, 23, 0.1), 0 2px 4px -2px rgba(28, 25, 23, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(28, 25, 23, 0.1), 0 4px 6px -4px rgba(28, 25, 23, 0.1);
+      --font-display: 'Bricolage Grotesque', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+    
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--bg-dark); padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    nav .logo { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--text-light); }
+    nav .progress { display: flex; gap: 0.5rem; align-items: center; }
+    nav .progress-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.3); transition: all 0.3s; }
+    nav .progress-dot.active { background: var(--accent); transform: scale(1.2); }
+    nav .module-name { color: rgba(255,255,255,0.7); font-size: 0.85rem; }
+    
+    main { scroll-snap-type: y proximity; overflow-y: auto; height: 100vh; }
+    section { min-height: 100dvh; scroll-snap-align: start; padding: 6rem 2rem 4rem; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; }
+    
+    .module-headline { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; text-align: center; max-width: 800px; margin-bottom: 1rem; line-height: 1.2; }
+    .module-subhead { font-size: 1.15rem; color: var(--text-secondary); text-align: center; max-width: 600px; margin-bottom: 2rem; }
+    
+    .accent-text { color: var(--accent); }
+    
+    /* Module 0 - Hook */
+    .hook { background: var(--bg-dark); color: var(--text-light); text-align: center; padding: 0; }
+    .hook-content { max-width: 700px; padding: 2rem; }
+    .hook-line1 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; margin-bottom: 1.5rem; line-height: 1.3; }
+    .hook-line1 span { border-bottom: 3px solid var(--accent); }
+    .hook-line2 { font-size: 1.3rem; color: rgba(255,255,255,0.85); }
+    
+    /* Module 1 - Before/After */
+    .before-after-toggle { width: 100%; max-width: 900px; }
+    .toggle-controls { display: flex; gap: 0; margin-bottom: 2rem; justify-content: center; }
+    .toggle-btn { padding: 0.75rem 2rem; border: 2px solid var(--accent); background: transparent; font-family: var(--font-body); font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; color: var(--accent); }
+    .toggle-btn:first-child { border-radius: 8px 0 0 8px; }
+    .toggle-btn:last-child { border-radius: 0 8px 8px 0; border-left: none; }
+    .toggle-btn.active { background: var(--accent); color: white; }
+    .panel { display: none; animation: fadeIn 0.4s ease; }
+    .panel.active { display: block; }
+    .timeline { display: flex; flex-direction: column; gap: 1rem; }
+    .timeline-step { display: flex; align-items: center; gap: 1rem; padding: 1rem; background: var(--bg-card); border-radius: 12px; box-shadow: var(--shadow-sm); border-left: 4px solid var(--danger); }
+    .timeline-step.automated { border-left-color: var(--success); }
+    .step-number { width: 32px; height: 32px; border-radius: 50%; background: var(--danger); color: white; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.9rem; flex-shrink: 0; }
+    .timeline-step.automated .step-number { background: var(--success); }
+    .step-content { flex: 1; }
+    .step-title { font-weight: 600; margin-bottom: 0.25rem; }
+    .step-desc { font-size: 0.9rem; color: var(--text-secondary); }
+    .step-badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-top: 0.5rem; }
+    .step-badge.manual { background: #FEE2E2; color: var(--danger); }
+    .step-badge.auto { background: #D1FAE5; color: var(--success); }
+    .stat-callout { text-align: center; margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); border-radius: 16px; color: white; }
+    .stat-callout .stat-value { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; }
+    .stat-callout .stat-label { opacity: 0.9; }
+    
+    /* Module 2 - Solution Overview */
+    .integration-map { width: 100%; max-width: 900px; position: relative; }
+    .map-center { width: 160px; height: 160px; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); border-radius: 24px; display: flex; align-items: center; justify-content: center; color: white; font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; text-align: center; margin: 0 auto 3rem; box-shadow: var(--shadow-lg); position: relative; z-index: 2; }
+    .map-spokes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .spoke { background: var(--bg-card); padding: 1.25rem; border-radius: 16px; box-shadow: var(--shadow-md); text-align: center; transition: all 0.3s; cursor: pointer; border: 2px solid transparent; }
+    .spoke:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .spoke-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .spoke-title { font-weight: 600; margin-bottom: 0.5rem; }
+    .spoke-desc { font-size: 0.85rem; color: var(--text-secondary); }
+    
+    /* Module 3 - Sequence Diagram */
+    .sequence-container { width: 100%; max-width: 700px; }
+    .seq-step { display: flex; gap: 1rem; margin-bottom: 1.5rem; opacity: 0; transform: translateX(-20px); animation: slideIn 0.5s ease forwards; }
+    .seq-step:nth-child(1) { animation-delay: 0.1s; }
+    .seq-step:nth-child(2) { animation-delay: 0.2s; }
+    .seq-step:nth-child(3) { animation-delay: 0.3s; }
+    .seq-step:nth-child(4) { animation-delay: 0.4s; }
+    .seq-step:nth-child(5) { animation-delay: 0.5s; }
+    .step-marker { width: 40px; height: 40px; background: var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; flex-shrink: 0; }
+    .step-body { flex: 1; background: var(--bg-card); padding: 1rem 1.25rem; border-radius: 12px; box-shadow: var(--shadow-sm); }
+    .component-badge { display: inline-block; padding: 0.25rem 0.75rem; background: #FEF3C7; color: var(--accent-dark); border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .step-description { font-size: 0.95rem; }
+    .step-time { display: block; font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem; }
+    .seq-summary { margin-top: 2rem; padding: 1.5rem; background: var(--bg-card); border-radius: 16px; text-align: center; border: 2px solid var(--success); }
+    .seq-summary .time-auto { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--success); }
+    .seq-summary .time-manual { color: var(--text-muted); text-decoration: line-through; margin-left: 1rem; }
+    
+    /* Module 4 - Architecture Map */
+    .arch-container { width: 100%; max-width: 900px; }
+    .arch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem; }
+    .arch-node { background: var(--bg-card); padding: 1.25rem; border-radius: 12px; box-shadow: var(--shadow-md); text-align: center; cursor: pointer; transition: all 0.3s; border: 2px solid transparent; }
+    .arch-node:hover, .arch-node.active { border-color: var(--accent); transform: scale(1.02); }
+    .arch-node .node-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .arch-node .node-name { font-weight: 600; font-size: 0.9rem; }
+    .arch-connections { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1rem; }
+    .arch-dot { width: 10px; height: 10px; background: var(--accent); border-radius: 50%; animation: pulse 2s infinite; }
+    .arch-detail { background: var(--bg-card); padding: 1.5rem; border-radius: 12px; box-shadow: var(--shadow-md); display: none; }
+    .arch-detail.visible { display: block; animation: fadeIn 0.3s ease; }
+    .arch-detail h3 { font-family: var(--font-display); margin-bottom: 0.5rem; }
+    .arch-detail .io-badges { display: flex; gap: 1rem; margin-top: 1rem; }
+    .io-badge { padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.85rem; font-weight: 500; }
+    .io-badge.in { background: #DBEAFE; color: #1D4ED8; }
+    .io-badge.out { background: #D1FAE5; color: #059669; }
+    
+    /* Module 5 - What Would Break */
+    .break-explorer { width: 100%; max-width: 900px; }
+    .scenario-buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-bottom: 2rem; }
+    .scenario-btn { padding: 0.75rem 1.25rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; font-family: var(--font-body); font-size: 0.9rem; cursor: pointer; transition: all 0.3s; }
+    .scenario-btn:hover { border-color: var(--warning); background: #FEF3C7; }
+    .scenario-btn.active { background: var(--warning); color: white; border-color: var(--warning); }
+    .break-response { background: var(--bg-card); padding: 2rem; border-radius: 16px; box-shadow: var(--shadow-md); display: none; }
+    .break-response.visible { display: block; animation: fadeIn 0.3s ease; }
+    .break-response h3 { font-family: var(--font-display); margin-bottom: 1rem; color: var(--warning); }
+    .break-item { margin-bottom: 1rem; }
+    .break-item strong { display: block; margin-bottom: 0.25rem; }
+    .break-item p { color: var(--text-secondary); font-size: 0.95rem; }
+    .recovery-btn { margin-top: 1.5rem; padding: 0.75rem 1.5rem; background: var(--success); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; }
+    
+    /* Module 6 - Tech Stack */
+    .stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 900px; width: 100%; }
+    .stack-card { background: var(--bg-card); padding: 1.5rem; border-radius: 16px; box-shadow: var(--shadow-md); }
+    .stack-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+    .stack-logo { font-size: 1.5rem; }
+    .stack-header h3 { font-family: var(--font-display); font-size: 1.25rem; }
+    .stack-role { font-size: 0.75rem; color: var(--text-muted); }
+    .stack-reason { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; }
+    .stack-vs { padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.85rem; }
+    .vs-label { font-weight: 600; color: var(--accent-dark); }
+    .vs-reason { color: var(--text-secondary); }
+    
+    /* Module 7 - Integrations */
+    .integrations-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; max-width: 900px; width: 100%; }
+    .integration-card { background: var(--bg-card); padding: 1.25rem; border-radius: 12px; box-shadow: var(--shadow-sm); text-align: center; }
+    .integration-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .integration-name { font-weight: 600; margin-bottom: 0.5rem; }
+    .integration-flow { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .integration-desc { font-size: 0.8rem; color: var(--text-secondary); }
+    
+    /* Module 8 - Going Live */
+    .going-live-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 900px; width: 100%; margin-bottom: 2rem; }
+    .phase-card { background: var(--bg-card); padding: 1.5rem; border-radius: 16px; box-shadow: var(--shadow-md); text-align: center; }
+    .phase-title { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 1rem; color: var(--accent-dark); }
+    .phase-details { font-size: 0.9rem; color: var(--text-secondary); }
+    .phase-details p { margin-bottom: 0.5rem; }
+    .cost-calculator { background: var(--bg-dark); padding: 2rem; border-radius: 16px; color: var(--text-light); max-width: 500px; width: 100%; }
+    .cost-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+    .cost-header h3 { font-family: var(--font-display); }
+    .currency-toggle { display: flex; gap: 0.5rem; }
+    .currency-toggle button { padding: 0.5rem 1rem; background: rgba(255,255,255,0.1); border: none; color: white; border-radius: 6px; cursor: pointer; font-weight: 600; }
+    .currency-toggle button.active { background: var(--accent); }
+    .cost-row { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .cost-total { display: flex; justify-content: space-between; padding-top: 1rem; font-weight: 700; font-size: 1.25rem; }
+    .cost-note { font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-top: 1rem; }
+    
+    /* Module 8.5 - Screenshots Placeholder */
+    .screenshots-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 900px; width: 100%; }
+    .screenshot-placeholder { background: var(--bg-card); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md); }
+    .placeholder-box { aspect-ratio: 16/9; background: linear-gradient(135deg, #E7E5E4 0%, #D6D3D1 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--text-muted); }
+    .placeholder-icon { font-size: 3rem; margin-bottom: 0.5rem; }
+    .placeholder-text { font-size: 0.9rem; }
+    .screenshot-caption { padding: 1rem; font-size: 0.9rem; color: var(--text-secondary); }
+    
+    /* Module 9 - Next Steps */
+    .next-steps-content { max-width: 600px; text-align: center; }
+    .timeline-vertical { display: flex; flex-direction: column; gap: 1rem; margin: 2rem 0; text-align: left; }
+    .timeline-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .timeline-marker { width: 32px; height: 32px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; flex-shrink: 0; }
+    .timeline-text { flex: 1; }
+    .timeline-text h4 { font-weight: 600; margin-bottom: 0.25rem; }
+    .timeline-text p { font-size: 0.9rem; color: var(--text-secondary); }
+    .cta-section { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); padding: 2rem; border-radius: 16px; color: white; }
+    .cta-section h3 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem; }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .cta-primary { padding: 1rem 2rem; background: white; color: var(--accent-dark); border: none; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: transform 0.2s; }
+    .cta-primary:hover { transform: scale(1.05); }
+    .cta-secondary { padding: 1rem 2rem; background: transparent; color: white; border: 2px solid white; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer; }
+    
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideIn { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    
+    @media (max-width: 768px) {
+      .map-spokes { grid-template-columns: 1fr; }
+      .arch-grid { grid-template-columns: 1fr; }
+      .integrations-grid { grid-template-columns: repeat(2, 1fr); }
+      .going-live-grid { grid-template-columns: 1fr; }
+      .screenshots-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Dhimahi Technolabs</div>
+    <div class="module-name" id="moduleName">The Hook</div>
+    <div class="progress">
+      <div class="progress-dot active"></div>
+      <div class="progress-dot"></div>
+      <div class="progress-dot"></div>
+      <div class="progress-dot"></div>
+      <div class="progress-dot"></div>
+      <div class="progress-dot"></div>
+      <div class="progress-dot"></div>
+      <div class="progress-dot"></div>
+      <div class="progress-dot"></div>
+      <div class="progress-dot"></div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <!-- Module 0 - Hook -->
+    <section class="hook" data-module="0">
+      <div class="hook-content">
+        <p class="hook-line1">Your exquisite jewelry deserves more than basic photos on a generic website.</p>
+        <p class="hook-line2">In the next 10 minutes, you'll see exactly how to showcase your craftsmanship online and build the trust high-value jewelry purchases require.</p>
+      </div>
+    </section>
+
+    <!-- Module 1 - Problem / Before/After -->
+    <section data-module="1">
+      <h2 class="module-headline">The Old Way: <span class="accent-text">Manual & Missed Opportunities</span></h2>
+      <p class="module-subhead">See what happens when you rely on basic online presence for high-value jewelry sales.</p>
+      
+      <div class="before-after-toggle">
+        <div class="toggle-controls">
+          <button class="toggle-btn active" data-panel="before">Before</button>
+          <button class="toggle-btn" data-panel="after">After</button>
+        </div>
+        
+        <div class="panel before-panel active">
+          <div class="timeline">
+            <div class="timeline-step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <div class="step-title">Customer finds your website via search</div>
+                <div class="step-desc">Basic product photos, no detailed views or certifications visible</div>
+                <span class="step-badge manual">Manual process</span>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <div class="step-title">Customer requests more information</div>
+                <div class="step-desc">You receive email, respond manually with phone calls</div>
+                <span class="step-badge manual">8-12 hours delay</span>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <div class="step-title">Customer compares with competitors</div>
+                <div class="step-desc">No customer reviews or trust signals on your site</div>
+                <span class="step-badge manual">No visibility</span>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <div class="step-title">Purchase decision delayed or lost</div>
+                <div class="step-desc">Customer visits physical store after weeks of research</div>
+                <span class="step-badge manual">30-40% drop-off</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="panel after-panel">
+          <div class="timeline">
+            <div class="timeline-step automated">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <div class="step-title">Customer lands on stunning showcase</div>
+                <div class="step-desc">High-res 360° views, certification details, customer reviews visible instantly</div>
+                <span class="step-badge auto">Automated</span>
+              </div>
+            </div>
+            <div class="timeline-step automated">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <div class="step-title">AI-powered product recommendations</div>
+                <div class="step-desc">System suggests matching pieces based on browsing preferences</div>
+                <span class="step-badge auto">Instant</span>
+              </div>
+            </div>
+            <div class="timeline-step automated">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <div class="step-title">Secure inquiry or virtual consultation</div>
+                <div class="step-desc">Book appointment or request certificates with one click</div>
+                <span class="step-badge auto">24/7 available</span>
+              </div>
+            </div>
+            <div class="timeline-step automated">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <div class="step-title">Automated follow-up & nurture</div>
+                <div class="step-desc">Personalized follow-ups, exclusive offers for interested buyers</div>
+                <span class="step-badge auto">No manual work</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="stat-callout">
+          <div class="stat-value">From 40% drop-off to 3x more inquiries</div>
+          <div class="stat-label">Automated trust-building that converts browsers into buyers</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Module 2 - Solution Overview -->
+    <section data-module="2">
+      <h2 class="module-headline">The Complete <span class="accent-text">Jewelry Digital Solution</span></h2>
+      <p class="module-subhead">Every touchpoint designed to build trust and showcase your jewelry's true value.</p>
+      
+      <div class="integration-map">
+        <div class="map-center">Your Jewelry<br>Showcase</div>
+        <div class="map-spokes">
+          <div class="spoke">
+            <div class="spoke-icon">📸</div>
+            <div class="spoke-title">360° Product Views</div>
+            <div class="spoke-desc">Stunning visuals from every angle</div>
+          </div>
+          <div class="spoke">
+            <div class="spoke-icon">🏆</div>
+            <div class="spoke-title">Certification Display</div>
+            <div class="spoke-desc">Build trust with transparency</div>
+          </div>
+          <div class="spoke">
+            <div class="spoke-icon">⭐</div>
+            <div class="spoke-title">Review System</div>
+            <div class="spoke-desc">Real customer testimonials</div>
+          </div>
+          <div class="spoke">
+            <div class="spoke-icon">🔒</div>
+            <div class="spoke-title">Secure Payments</div>
+            <div class="spoke-desc">Safe transactions for high-value items</div>
+          </div>
+          <div class="spoke">
+            <div class="spoke-icon">📅</div>
+            <div class="spoke-title">Virtual Consultations</div>
+            <div class="spoke-desc">Personal guidance from anywhere</div>
+          </div>
+          <div class="spoke">
+            <div class="spoke-icon">📊</div>
+            <div class="spoke-title">Inventory Management</div>
+            <div class="spoke-desc">Track every piece effortlessly</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Module 3 - Sequence Diagram -->
+    <section data-module="3">
+      <h2 class="module-headline">How a Customer <span class="accent-text">Becomes a Buyer</span></h2>
+      <p class="module-subhead">Follow one real customer journey from first click to purchase.</p>
+      
+      <div class="sequence-container">
+        <div class="seq-step">
+          <div class="step-marker">1</div>
+          <div class="step-body">
+            <span class="component-badge">Website</span>
+            <p class="step-description">Customer lands on your jewelry showcase and browses your collection with high-resolution images and filtering options.</p>
+            <span class="step-time">+0s — Instant load</span>
+          </div>
+        </div>
+        
+        <div class="seq-step">
+          <div class="step-marker">2</div>
+          <div class="step-body">
+            <span class="component-badge">AI Recommendation Engine</span>
+            <p class="step-description">System analyzes browsing patterns and suggests matching pieces — earrings to match a viewed necklace, for example.</p>
+            <span class="step-time">+0.5s — Real-time analysis</span>
+          </div>
+        </div>
+        
+        <div class="step">
+          <div class="step-marker">3</div>
+          <div class="step-body">
+            <span class="component-badge">Product Detail Page</span>
+            <p class="step-description">Customer views certification details, metal purity, gemstone specs, and reads verified customer reviews.</p>
+            <span class="step-time">+2s — All info visible</span>
+          </div>
+        </div>
+        
+        <div class="seq-step">
+          <div class="step-marker">4</div>
+          <div class="step-body">
+            <span class="component-badge">Inquiry System</span>
+            <p class="step-description">Customer requests virtual try-on consultation or asks about customization options with one click.</p>
+            <span class="step-time">+3s — Instant submission</span>
+          </div>
+        </div>
+        
+        <div class="seq-step">
+          <div class="step-marker">5</div>
+          <div class="step-body">
+            <span class="component-badge">CRM & Notifications</span>
+            <p class="step-description">You receive instant notification with full customer details. Automated follow-up sequence begins with personalized response.</p>
+            <span class="step-time">+30s — You get notified</span>
+          </div>
+        </div>
+        
+        <div class="seq-summary">
+          <div class="time-auto">Complete journey: 3 minutes</div>
+          <div class="time-manual">vs. Manual: 2-3 weeks</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Module 4 - Architecture Map -->
+    <section data-module="4">
+      <h2 class="module-headline">The <span class="accent-text">Moving Parts</span></h2>
+      <p class="module-subhead">Click any component to understand what it does and why it matters.</p>
+      
+      <div class="arch-container">
+        <div class="arch-grid">
+          <div class="arch-node" data-node="showcase">
+            <div class="node-icon">💎</div>
+            <div class="node-name">Jewelry Showcase</div>
+          </div>
+          <div class="arch-node" data-node="catalog">
+            <div class="node-icon">📦</div>
+            <div class="node-name">Product Catalog</div>
+          </div>
+          <div class="arch-node" data-node="media">
+            <div class="node-icon">🖼️</div>
+            <div class="node-name">Media Manager</div>
+          </div>
+          <div class="arch-node" data-node="ai">
+            <div class="node-icon">🤖</div>
+            <div class="node-name">AI Engine</div>
+          </div>
+          <div class="arch-node" data-node="crm">
+            <div class="node-icon">👥</div>
+            <div class="node-name">Customer CRM</div>
+          </div>
+          <div class="arch-node" data-node="payment">
+            <div class="node-icon">💳</div>
+            <div class="node-name">Payment Gateway</div>
+          </div>
+          <div class="arch-node" data-node="review">
+            <div class="node-icon">⭐</div>
+            <div class="node-name">Review System</div>
+          </div>
+          <div class="arch-node" data-node="analytics">
+            <div class="node-icon">📈</div>
+            <div class="node-name">Analytics</div>
+          </div>
+          <div class="arch-node" data-node="consult">
+            <div class="node-icon">📹</div>
+            <div class="node-name">Virtual Consult</div>
+          </div>
+        </div>
+        
+        <div class="arch-connections">
+          <div class="arch-dot"></div>
+          <div class="arch-dot"></div>
+          <div class="arch-dot"></div>
+        </div>
+        
+        <div class="arch-detail" id="archDetail">
+          <h3>Jewelry Showcase</h3>
+          <p>The stunning frontend that displays your jewelry collection with high-resolution imagery, 360° views, and elegant presentation.</p>
+          <div class="io-badges">
+            <span class="io-badge in">IN: Product data, Images</span>
+            <span class="io-badge out">OUT: Customer browsing, Queries</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Module 5 - What Would Break -->
+    <section data-module="5">
+      <h2 class="module-headline">What Happens When <span class="accent-text">Something Goes Wrong?</span></h2>
+      <p class="module-subhead">We proactively address concerns before you have to ask.</p>
+      
+      <div class="break-explorer">
+        <div class="scenario-buttons">
+          <button class="scenario-btn" data-scenario="api">What if the payment gateway is down?</button>
+          <button class="scenario-btn" data-scenario="images">What if high-res images fail to load?</button>
+          <button class="scenario-btn" data-scenario="duplicate">What if a customer submits twice?</button>
+          <button class="scenario-btn" data-scenario="data">What if database reaches capacity?</button>
+        </div>
+        
+        <div class="break-response" id="breakResponse">
+          <h3>Payment Gateway Downtime</h3>
+          <div class="break-item">
+            <strong>What happens:</strong>
+            <p>Customer's payment cannot be processed at that moment.</p>
+          </div>
+          <div class="break-item">
+            <strong>How the system responds:</strong>
+            <p>Payment is queued automatically. Customer sees a friendly message. You receive instant notification. Retry happens every 5 minutes for 2 hours.</p>
+          </div>
+          <div class="break-item">
+            <strong>What the customer sees:</strong>
+            <p>"We're experiencing high demand. Your order is saved — we'll notify you when payment can be completed." Nothing is lost.</p>
+          </div>
+          <button class="recovery-btn">Reset to Healthy</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Module 6 - Tech Stack -->
+    <section data-module="6">
+      <h2 class="module-headline">Why These <span class="accent-text">Tools & Platforms?</span></h2>
+      <p class="module-subhead">Every technology choice serves a business purpose, not a technical preference.</p>
+      
+      <div class="stack-grid">
+        <div class="stack-card">
+          <div class="stack-header">
+            <span class="stack-logo">🎨</span>
+            <h3>Next.js</h3>
+            <span class="stack-role">Frontend Framework</span>
+          </div>
+          <p class="stack-reason">Lightning-fast loading for image-heavy jewelry showcase. SEO-optimized so customers find you on Google.</p>
+          <div class="stack-vs">
+            <span class="vs-label">vs. WordPress:</span>
+            <span class="vs-reason">10× faster, enterprise-grade security, full control over presentation.</span>
+          </div>
+        </div>
+        
+        <div class="stack-card">
+          <div class="stack-header">
+            <span class="stack-logo">🖼️</span>
+            <h3>Cloudinary</h3>
+            <span class="stack-role">Image Optimization</span>
+          </div>
+          <p class="stack-reason">Automatic image optimization for stunning 360° views without slow loading times. Resizes for every device.</p>
+          <div class="stack-vs">
+            <span class="vs-label">vs. Local storage:</span>
+            <span class="vs-reason">CDN delivery worldwide, auto-compression, no bandwidth worries.</span>
+          </div>
+        </div>
+        
+        <div class="stack-card">
+          <div class="stack-header">
+            <span class="stack-logo">🔒</span>
+            <h3>Razorpay</h3>
+            <span class="stack-role">Payments (INR)</span>
+          </div>
+          <p class="stack-reason">India's most trusted payment gateway for high-value jewelry transactions with UPI, cards, and EMI support.</p>
+          <div class="stack-vs">
+            <span class="vs-label">vs. International gateways:</span>
+            <span class="vs-reason">Lower fees for INR, local customer trust, better conversion in India.</span>
+          </div>
+        </div>
+        
+        <div class="stack-card">
+          <div class="stack-header">
+            <span class="stack-logo">🤖</span>
+            <h3>OpenAI</h3>
+            <span class="stack-role">Recommendations</span>
+          </div>
+          <p class="stack-reason">Smart product recommendations that increase average order value by understanding customer preferences.</p>
+          <div class="stack-vs">
+            <span class="vs-label">vs. Manual suggestions:</span>
+            <span class="vs-reason">Personalized at scale — no staff time, works 24/7 across all visitors.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Module 7 - Integrations -->
+    <section data-module="7">
+      <h2 class="module-headline">What It <span class="accent-text">Connects To</span></h2>
+      <p class="module-subhead">Your jewelry showcase integrates with the tools you already use.</p>
+      
+      <div class="integrations-grid">
+        <div class="integration-card">
+          <div class="integration-icon">📱</div>
+          <div class="integration-name">WhatsApp Business</div>
+          <div class="integration-flow">→ OUT</div>
+          <div class="integration-desc">Order notifications, consultation reminders</div>
+        </div>
+        <div class="integration-card">
+          <div class="integration-icon">📧</div>
+          <div class="integration-name">Email (SMTP)</div>
+          <div class="integration-flow">↔ IN/OUT</div>
+          <div class="integration-desc">Inquiry confirmations, follow-ups</div>
+        </div>
+        <div class="integration-card">
+          <div class="integration-icon">📦</div>
+          <div class="integration-name">Shipping Partners</div>
+          <div class="integration-flow">→ OUT</div>
+          <div class="integration-desc">Insurance, tracking for valuable items</div>
+        </div>
+        <div class="integration-card">
+          <div class="integration-icon">⭐</div>
+          <div class="integration-name">Google Reviews</div>
+          <div class="integration-flow">← IN</div>
+          <div class="integration-desc">Pull verified reviews automatically</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Module 8 - Going Live -->
+    <section data-module="8">
+      <h2 class="module-headline">From Launch to <span class="accent-text">Growth</span></h2>
+      <p class="module-subhead">What happens at each stage of your digital journey.</p>
+      
+      <div class="going-live-grid">
+        <div class="phase-card">
+          <div class="phase-title">Day 1</div>
+          <div class="phase-details">
+            <p><strong>Infrastructure:</strong> Cloud-hosted, CDN-backed</p>
+            <p><strong>Uptime:</strong> 99.9% guaranteed</p>
+            <p><strong>Support:</strong> Direct contact with our team</p>
+          </div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-title">After 6 Months</div>
+          <div class="phase-details">
+            <p><strong>Traffic:</strong> Growing organic visibility</p>
+            <p><strong>Reviews:</strong> Accumulating social proof</p>
+            <p><strong>Updates:</strong> Monthly feature enhancements</p>
+          </div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-title">At Scale</div>
+          <div class="phase-details">
+            <p><strong>Volume:</strong> Handles hundreds of daily visitors</p>
+            <p><strong>Growth:</strong> Proven SEO + ads funnel</p>
+            <p><strong>ROI:</strong> 3-5x revenue growth typical</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="cost-calculator">
+        <div class="cost-header">
+          <h3>Estimated Monthly Investment</h3>
+          <div class="currency-toggle">
+            <button class="active" data-currency="INR">INR</button>
+            <button data-currency="USD">USD</button>
+          </div>
+        </div>
+        <div class="cost-row">
+          <span>Next.js Hosting (Vercel)</span>
+          <span class="cost-value" data-inr="₹2,500" data-usd="$30">₹2,500</span>
+        </div>
+        <div class="cost-row">
+          <span>Cloudinary (Images)</span>
+          <span class="cost-value" data-inr="₹1,200" data-usd="$15">₹1,200</span>
+        </div>
+        <div class="cost-row">
+          <span>OpenAI (Recommendations)</span>
+          <span class="cost-value" data-inr="₹3,000" data-usd="$35">₹3,000</span>
+        </div>
+        <div class="cost-row">
+          <span>Razorpay (Payments)</span>
+          <span class="cost-value" data-inr="₹800" data-usd="$10">₹800</span>
+        </div>
+        <div class="cost-row">
+          <span>Support & Maintenance</span>
+          <span class="cost-value" data-inr="₹2,000" data-usd="$25">₹2,000</span>
+        </div>
+        <div class="cost-total">
+          <span>Total</span>
+          <span class="cost-value-total" data-inr="₹9,500" data-usd="$115">₹9,500/month</span>
+        </div>
+        <div class="cost-note">Estimated based on 500 monthly visitors. Actual costs vary with usage.</div>
+      </div>
+    </section>
+
+    <!-- Module 8.5 - Screenshots (Placeholders) -->
+    <section data-module="8.5">
+      <h2 class="module-headline">See It In <span class="accent-text">Action</span></h2>
+      <p class="module-subhead">Real implementation examples — replace with your actual screenshots.</p>
+      
+      <div class="screenshots-grid">
+        <div class="screenshot-placeholder">
+          <div class="placeholder-box">
+            <span class="placeholder-icon">💎</span>
+            <span class="placeholder-text">Screenshot 1: Homepage</span>
+          </div>
+          <p class="screenshot-caption">Your stunning jewelry showcase homepage with hero carousel and featured collections.</p>
+        </div>
+        <div class="screenshot-placeholder">
+          <div class="placeholder-box">
+            <span class="placeholder-icon">🔍</span>
+            <span class="placeholder-text">Screenshot 2: Product Detail</span>
+          </div>
+          <p class="screenshot-caption">Product detail page with 360° views, certification info, and customer reviews.</p>
+        </div>
+        <div class="screenshot-placeholder">
+          <div class="placeholder-box">
+            <span class="placeholder-icon">📊</span>
+            <span class="placeholder-text">Screenshot 3: Dashboard</span>
+          </div>
+          <p class="screenshot-caption">Your business dashboard showing inquiries, popular products, and conversion analytics.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Module 9 - Next Steps -->
+    <section data-module="9">
+      <div class="next-steps-content">
+        <h2 class="module-headline">Ready to <span class="accent-text">Transform</span> Your Jewelry Business?</h2>
+        
+        <div class="timeline-vertical">
+          <div class="timeline-item">
+            <div class="timeline-marker">1</div>
+            <div class="timeline-text">
+              <h4>Discovery Call (Free)</h4>
+              <p>We understand your unique jewelry business, current challenges, and growth goals.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker">2</div>
+            <div class="timeline-text">
+              <h4>Custom Proposal (48 hours)</h4>
+              <p>Detailed plan with timeline, features, and investment tailored to your needs.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker">3</div>
+            <div class="timeline-text">
+              <h4>Website Development (6-8 weeks)</h4>
+              <p>Stunning jewelry showcase built with your collection, with trust-building features.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker">4</div>
+            <div class="timeline-text">
+              <h4>Go Live & Grow</h4>
+              <p>Launch with training, ongoing support, and digital marketing to attract customers.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cta-section">
+          <h3>Start Your Transformation Today</h3>
+          <div class="cta-buttons">
+            <button class="cta-primary">Get Free Consultation</button>
+            <button class="cta-secondary">View Portfolio</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function() {
+      const sections = document.querySelectorAll('section');
+      const dots = document.querySelectorAll('.progress-dot');
+      const moduleName = document.getElementById('moduleName');
+      const moduleNames = ['The Hook', 'The Problem', 'The Solution', 'How It Works', 'The Architecture', 'What Could Break', 'Why These Tools', 'Integrations', 'Going Live', 'Screenshots', 'Next Steps'];
+      
+      // Module 1 - Before/After Toggle
+      document.querySelectorAll('.toggle-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+          document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+          btn.classList.add('active');
+          document.querySelector('.' + btn.dataset.panel + '-panel').classList.add('active');
+        });
+      });
+      
+      // Module 4 - Architecture Map
+      const archNodes = document.querySelectorAll('.arch-node');
+      const archDetail = document.getElementById('archDetail');
+      const nodeData = {
+        showcase: { name: 'Jewelry Showcase', desc: 'The stunning frontend that displays your jewelry collection with high-resolution imagery, 360° views, and elegant presentation.', in: 'Product data, Images', out: 'Customer browsing, Queries' },
+        catalog: { name: 'Product Catalog', desc: 'Manages your complete jewelry inventory with detailed specifications, pricing, certifications, and availability status.', in: 'Inventory data', out: 'Product details, Stock status' },
+        media: { name: 'Media Manager', desc: 'Handles all images and videos — stores, optimizes, and delivers jewelry photos at the right size for every device.', in: 'Raw images', out: 'Optimized images, Thumbnails' },
+        ai: { name: 'AI Recommendation Engine', desc: 'Analyzes customer behavior to suggest matching jewelry pieces and personalize the shopping experience.', in: 'Customer behavior', out: 'Product recommendations' },
+        crm: { name: 'Customer CRM', desc: 'Tracks every customer interaction, inquiry, and purchase to help you build lasting relationships.', in: 'Customer data', out: 'Insights, Follow-up triggers' },
+        payment: { name: 'Payment Gateway', desc: 'Processes secure payments with multiple options including UPI, cards, and EMI for high-value jewelry.', in: 'Payment requests', out: 'Transaction confirmations' },
+        review: { name: 'Review System', desc: 'Collects and displays verified customer reviews to build trust for high-value purchases.', in: 'Customer feedback', out: 'Displayed ratings, Trust badges' },
+        analytics: { name: 'Analytics Dashboard', desc: 'Shows you visitor trends, popular products, conversion rates, and growth opportunities.', in: 'Event data', out: 'Business insights, Reports' },
+        consult: { name: 'Virtual Consultation', desc: 'Enables video calls with customers to showcase pieces, answer questions, and close sales remotely.', in: 'Booking requests', out: 'Video call links, Scheduling' }
+      };
+      
+      archNodes.forEach(node => {
+        node.addEventListener('click', () => {
+          archNodes.forEach(n => n.classList.remove('active'));
+          node.classList.add('active');
+          const data = nodeData[node.dataset.node];
+          archDetail.innerHTML = `<h3>${data.name}</h3><p>${data.desc}</p><div class="io-badges"><span class="io-badge in">IN: ${data.in}</span><span class="io-badge out">OUT: ${data.out}</span></div>`;
+          archDetail.classList.add('visible');
+        });
+      });
+      
+      // Module 5 - What Would Break
+      const scenarioButtons = document.querySelectorAll('.scenario-btn');
+      const breakResponse = document.getElementById('breakResponse');
+      const scenarios = {
+        api: { title: 'Payment Gateway Downtime', items: [
+          { label: 'What happens:', text: "Customer's payment cannot be processed at that moment." },
+          { label: 'How the system responds:', text: 'Payment is queued automatically. Customer sees a friendly message. You receive instant notification. Retry happens every 5 minutes for 2 hours.' },
+          { label: 'What the customer sees:', text: '"We\'re experiencing high demand. Your order is saved — we\'ll notify you when payment can be completed." Nothing is lost.' }
+        ]},
+        images: { title: 'Image Loading Failure', items: [
+          { label: 'What happens:', text: 'High-resolution jewelry images fail to load on customer devices.' },
+          { label: 'How the system responds:', text: 'Fallback to optimized lower-resolution images instantly. Background retry for high-res versions.' },
+          { label: 'What the customer sees:', text: 'Beautiful jewelry images still visible — just slightly smaller while loading. No broken image icons.' }
+        ]},
+        duplicate: { title: 'Duplicate Submissions', items: [
+          { label: 'What happens:', text: 'Customer accidentally clicks submit twice on an inquiry form.' },
+          { label: 'How the system responds:', text: 'Deduplication algorithm detects identical submissions within 5 seconds and merges them.' },
+          { label: 'What the customer sees:', text: 'Only one inquiry created — no confusion, no duplicate follow-ups from your team.' }
+        ]},
+        data: { title: 'Database Capacity', items: [
+          { label: 'What happens:', text: 'Database approaches storage limits with thousands of products and customer records.' },
+          { label: 'How the system responds:', text: 'Automatic archival of old data to cold storage. Early warning at 80% capacity. Seamless scaling options.' },
+          { label: 'What you see:', text: 'Dashboard warning 30 days before any action needed. Plan for growth before it becomes urgent.' }
+        ]}
+      };
+      
+      scenarioButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          scenarioButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const scenario = scenarios[btn.dataset.scenario];
+          let html = `<h3>${scenario.title}</h3>`;
+          scenario.items.forEach(item => {
+            html += `<div class="break-item"><strong>${item.label}</strong><p>${item.text}</p></div>`;
+          });
+          html += '<button class="recovery-btn" onclick="resetBreakExplorer()">Reset to Healthy</button>';
+          breakResponse.innerHTML = html;
+          breakResponse.classList.add('visible');
+        });
+      });
+      
+      window.resetBreakExplorer = function() {
+        scenarioButtons.forEach(b => b.classList.remove('active'));
+        breakResponse.classList.remove('visible');
+      };
+      
+      // Module 8 - Currency Toggle
+      document.querySelectorAll('.currency-toggle button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.currency-toggle button').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const currency = btn.dataset.currency;
+          document.querySelectorAll('.cost-value').forEach(el => {
+            el.textContent = el.dataset[currency.toLowerCase()];
+          });
+          document.querySelector('.cost-value-total').textContent = document.querySelector('.cost-value-total').dataset[currency.toLowerCase()] + '/month';
+        });
+      });
+      
+      // Scroll progress
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.dataset.module);
+            dots.forEach((dot, i) => dot.classList.toggle('active', i <= index));
+            moduleName.textContent = moduleNames[index] || 'Demo';
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      sections.forEach(section => observer.observe(section));
+      
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        const currentSection = Array.from(sections).find(s => {
+          const rect = s.getBoundingClientRect();
+          return rect.top >= -100 && rect.top <= 100;
+        });
+        const currentIndex = currentSection ? parseInt(currentSection.dataset.module) : 0;
+        
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+          e.preventDefault();
+          if (currentIndex < sections.length - 1) {
+            sections[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+          }
+        } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          if (currentIndex > 0) {
+            sections[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
