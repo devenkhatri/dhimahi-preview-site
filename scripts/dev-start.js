@@ -35,8 +35,9 @@ console.log('🚀 Starting Next.js development server with content watching...')
 // Start development server with content watching
 const { spawn } = require('child_process');
 
-// Start Next.js dev server
-const nextProcess = spawn('next', ['dev'], { 
+// Start Next.js dev server with Turbopack (Next.js 16 default)
+// Using --turbo flag explicitly to avoid webpack conflicts
+const nextProcess = spawn('next', ['dev', '--turbo'], { 
   stdio: ['inherit', 'inherit', 'inherit'],
   shell: true 
 });

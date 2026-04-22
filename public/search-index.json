@@ -1429,6 +1429,22 @@
   },
   {
     "type": "persona",
+    "title": "Catering Business Owners",
+    "excerpt": "Managing large-scale event catering but struggling with manual quotes, unpredictable ingredient forecasting, and chaotic live event operations.",
+    "href": "/personas/catering-business",
+    "icon": "/uploads/personas/catering-business-icon.png",
+    "tags": [
+      "Catering",
+      "AI Forecasting",
+      "Vendor Portal",
+      "Event Operations",
+      "persona",
+      "business type",
+      "customer story"
+    ]
+  },
+  {
+    "type": "persona",
     "title": "Chartered Accountants & Financial Professionals",
     "excerpt": "Financial professionals seeking to modernize client services, automate routine tasks, and enhance practice efficiency through technology.",
     "href": "/personas/chartered-accountants",
@@ -1545,6 +1561,22 @@
       "Healthcare",
       "Wellness",
       "Patient Management",
+      "persona",
+      "business type",
+      "customer story"
+    ]
+  },
+  {
+    "type": "persona",
+    "title": "Real Estate Agents",
+    "excerpt": "Managing multiple property portfolios but struggling with slow property matching, cold lead re-engagement, and manual follow-ups.",
+    "href": "/personas/real-estate-agents",
+    "icon": "/uploads/personas/real-estate-agents-icon.png",
+    "tags": [
+      "Real Estate",
+      "AI Voice Agent",
+      "Pipeline Visibility",
+      "Auto-Scheduling",
       "persona",
       "business type",
       "customer story"
