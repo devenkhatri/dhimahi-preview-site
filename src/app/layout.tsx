@@ -8,6 +8,7 @@ import FormProvider from "@/components/forms/FormProvider";
 import WebVitals from "@/components/WebVitals";
 import Analytics from "@/components/Analytics";
 import PerformanceMonitor from "@/components/PerformanceMonitor";
+import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import ClientOnly from "@/components/ClientOnly";
 import { getGeneralSettings } from "@/lib/settings";
@@ -266,6 +267,7 @@ export default function RootLayout({
             </ErrorBoundary>
           </ClientOnly>
         </FormProvider>
+        <VercelAnalytics />
       </body>
     </html>
   );
