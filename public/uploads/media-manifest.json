@@ -1,10 +1,10 @@
 {
-  "generated": "2026-02-22T05:01:06.016Z",
-  "totalFiles": 77,
+  "generated": "2026-06-20T11:21:47.449Z",
+  "totalFiles": 159,
   "categories": {
     "personas": {
-      "count": 13,
-      "totalSize": 102415415
+      "count": 95,
+      "totalSize": 119205649
     },
     "team": {
       "count": 64,
@@ -13,11 +13,109 @@
   },
   "files": [
     {
+      "path": "personas/catering-business-icon.png",
+      "category": "personas",
+      "size": 27779,
+      "lastModified": "2026-03-18T10:28:26.243Z",
+      "extension": ".png"
+    },
+    {
+      "path": "personas/infographics/builders-infographic-1024w.webp",
+      "category": "personas",
+      "size": 87814,
+      "lastModified": "2026-02-22T04:59:58.535Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/builders-infographic-1280w.webp",
+      "category": "personas",
+      "size": 121186,
+      "lastModified": "2026-02-22T04:59:58.925Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/builders-infographic-1536w.webp",
+      "category": "personas",
+      "size": 154518,
+      "lastModified": "2026-02-22T04:59:59.404Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/builders-infographic-1920w.webp",
+      "category": "personas",
+      "size": 206590,
+      "lastModified": "2026-02-22T04:59:59.938Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/builders-infographic-640w.webp",
+      "category": "personas",
+      "size": 41642,
+      "lastModified": "2026-02-22T04:59:57.879Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/builders-infographic-768w.webp",
+      "category": "personas",
+      "size": 56238,
+      "lastModified": "2026-02-22T04:59:58.190Z",
+      "extension": ".webp"
+    },
+    {
       "path": "personas/infographics/builders-infographic.png",
       "category": "personas",
       "size": 8090958,
       "lastModified": "2026-02-21T12:58:47.525Z",
       "extension": ".png"
+    },
+    {
+      "path": "personas/infographics/catering-business-infographic.png",
+      "category": "personas",
+      "size": 8058225,
+      "lastModified": "2026-04-08T07:06:53.807Z",
+      "extension": ".png"
+    },
+    {
+      "path": "personas/infographics/chartered-accountants-infographic-1024w.webp",
+      "category": "personas",
+      "size": 89978,
+      "lastModified": "2026-02-22T05:00:00.853Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/chartered-accountants-infographic-1280w.webp",
+      "category": "personas",
+      "size": 124466,
+      "lastModified": "2026-02-22T05:00:01.222Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/chartered-accountants-infographic-1536w.webp",
+      "category": "personas",
+      "size": 159786,
+      "lastModified": "2026-02-22T05:00:01.648Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/chartered-accountants-infographic-1920w.webp",
+      "category": "personas",
+      "size": 210472,
+      "lastModified": "2026-02-22T05:00:02.158Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/chartered-accountants-infographic-640w.webp",
+      "category": "personas",
+      "size": 42622,
+      "lastModified": "2026-02-22T05:00:00.211Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/chartered-accountants-infographic-768w.webp",
+      "category": "personas",
+      "size": 57676,
+      "lastModified": "2026-02-22T05:00:00.517Z",
+      "extension": ".webp"
     },
     {
       "path": "personas/infographics/chartered-accountants-infographic.png",
@@ -27,11 +125,95 @@
       "extension": ".png"
     },
     {
+      "path": "personas/infographics/digital-media-house-infographic-1024w.webp",
+      "category": "personas",
+      "size": 98948,
+      "lastModified": "2026-02-22T05:00:03.043Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/digital-media-house-infographic-1280w.webp",
+      "category": "personas",
+      "size": 137160,
+      "lastModified": "2026-02-22T05:00:03.423Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/digital-media-house-infographic-1536w.webp",
+      "category": "personas",
+      "size": 173476,
+      "lastModified": "2026-02-22T05:00:03.860Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/digital-media-house-infographic-1920w.webp",
+      "category": "personas",
+      "size": 233730,
+      "lastModified": "2026-02-22T05:00:04.525Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/digital-media-house-infographic-640w.webp",
+      "category": "personas",
+      "size": 46406,
+      "lastModified": "2026-02-22T05:00:02.397Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/digital-media-house-infographic-768w.webp",
+      "category": "personas",
+      "size": 62514,
+      "lastModified": "2026-02-22T05:00:02.702Z",
+      "extension": ".webp"
+    },
+    {
       "path": "personas/infographics/digital-media-house-infographic.png",
       "category": "personas",
       "size": 7616895,
       "lastModified": "2026-02-21T13:02:04.071Z",
       "extension": ".png"
+    },
+    {
+      "path": "personas/infographics/doctors-infographic-1024w.webp",
+      "category": "personas",
+      "size": 84282,
+      "lastModified": "2026-02-22T05:00:05.392Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/doctors-infographic-1280w.webp",
+      "category": "personas",
+      "size": 114742,
+      "lastModified": "2026-02-22T05:00:05.750Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/doctors-infographic-1536w.webp",
+      "category": "personas",
+      "size": 145534,
+      "lastModified": "2026-02-22T05:00:06.164Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/doctors-infographic-1920w.webp",
+      "category": "personas",
+      "size": 190066,
+      "lastModified": "2026-02-22T05:00:06.680Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/doctors-infographic-640w.webp",
+      "category": "personas",
+      "size": 40322,
+      "lastModified": "2026-02-22T05:00:04.767Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/doctors-infographic-768w.webp",
+      "category": "personas",
+      "size": 55726,
+      "lastModified": "2026-02-22T05:00:05.072Z",
+      "extension": ".webp"
     },
     {
       "path": "personas/infographics/doctors-infographic.png",
@@ -41,11 +223,95 @@
       "extension": ".png"
     },
     {
+      "path": "personas/infographics/ecommerce-business-owners-infographic-1024w.webp",
+      "category": "personas",
+      "size": 82298,
+      "lastModified": "2026-02-22T05:00:07.550Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/ecommerce-business-owners-infographic-1280w.webp",
+      "category": "personas",
+      "size": 109710,
+      "lastModified": "2026-02-22T05:00:07.907Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/ecommerce-business-owners-infographic-1536w.webp",
+      "category": "personas",
+      "size": 140804,
+      "lastModified": "2026-02-22T05:00:08.339Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/ecommerce-business-owners-infographic-1920w.webp",
+      "category": "personas",
+      "size": 184498,
+      "lastModified": "2026-02-22T05:00:08.851Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/ecommerce-business-owners-infographic-640w.webp",
+      "category": "personas",
+      "size": 40980,
+      "lastModified": "2026-02-22T05:00:06.930Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/ecommerce-business-owners-infographic-768w.webp",
+      "category": "personas",
+      "size": 53668,
+      "lastModified": "2026-02-22T05:00:07.227Z",
+      "extension": ".webp"
+    },
+    {
       "path": "personas/infographics/ecommerce-business-owners-infographic.png",
       "category": "personas",
       "size": 7651922,
       "lastModified": "2026-02-21T13:08:49.721Z",
       "extension": ".png"
+    },
+    {
+      "path": "personas/infographics/friends-family-members-infographic-1024w.webp",
+      "category": "personas",
+      "size": 83982,
+      "lastModified": "2026-02-22T05:00:09.723Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/friends-family-members-infographic-1280w.webp",
+      "category": "personas",
+      "size": 115254,
+      "lastModified": "2026-02-22T05:00:10.081Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/friends-family-members-infographic-1536w.webp",
+      "category": "personas",
+      "size": 144530,
+      "lastModified": "2026-02-22T05:00:10.482Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/friends-family-members-infographic-1920w.webp",
+      "category": "personas",
+      "size": 195564,
+      "lastModified": "2026-02-22T05:00:11.006Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/friends-family-members-infographic-640w.webp",
+      "category": "personas",
+      "size": 40986,
+      "lastModified": "2026-02-22T05:00:09.102Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/friends-family-members-infographic-768w.webp",
+      "category": "personas",
+      "size": 54608,
+      "lastModified": "2026-02-22T05:00:09.399Z",
+      "extension": ".webp"
     },
     {
       "path": "personas/infographics/friends-family-members-infographic.png",
@@ -55,11 +321,95 @@
       "extension": ".png"
     },
     {
+      "path": "personas/infographics/it-colleagues-infographic-1024w.webp",
+      "category": "personas",
+      "size": 93952,
+      "lastModified": "2026-02-22T05:00:11.911Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/it-colleagues-infographic-1280w.webp",
+      "category": "personas",
+      "size": 129412,
+      "lastModified": "2026-02-22T05:00:12.289Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/it-colleagues-infographic-1536w.webp",
+      "category": "personas",
+      "size": 166014,
+      "lastModified": "2026-02-22T05:00:12.709Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/it-colleagues-infographic-1920w.webp",
+      "category": "personas",
+      "size": 221086,
+      "lastModified": "2026-02-22T05:00:13.227Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/it-colleagues-infographic-640w.webp",
+      "category": "personas",
+      "size": 42810,
+      "lastModified": "2026-02-22T05:00:11.269Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/it-colleagues-infographic-768w.webp",
+      "category": "personas",
+      "size": 58840,
+      "lastModified": "2026-02-22T05:00:11.576Z",
+      "extension": ".webp"
+    },
+    {
       "path": "personas/infographics/it-colleagues-infographic.png",
       "category": "personas",
       "size": 8019135,
       "lastModified": "2026-02-21T13:21:52.537Z",
       "extension": ".png"
+    },
+    {
+      "path": "personas/infographics/jewelry-store-owner-infographic-1024w.webp",
+      "category": "personas",
+      "size": 74914,
+      "lastModified": "2026-02-22T05:00:14.123Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/jewelry-store-owner-infographic-1280w.webp",
+      "category": "personas",
+      "size": 101834,
+      "lastModified": "2026-02-22T05:00:14.511Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/jewelry-store-owner-infographic-1536w.webp",
+      "category": "personas",
+      "size": 132016,
+      "lastModified": "2026-02-22T05:00:14.919Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/jewelry-store-owner-infographic-1920w.webp",
+      "category": "personas",
+      "size": 175026,
+      "lastModified": "2026-02-22T05:00:15.425Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/jewelry-store-owner-infographic-640w.webp",
+      "category": "personas",
+      "size": 36760,
+      "lastModified": "2026-02-22T05:00:13.485Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/jewelry-store-owner-infographic-768w.webp",
+      "category": "personas",
+      "size": 49270,
+      "lastModified": "2026-02-22T05:00:13.794Z",
+      "extension": ".webp"
     },
     {
       "path": "personas/infographics/jewelry-store-owner-infographic.png",
@@ -69,11 +419,102 @@
       "extension": ".png"
     },
     {
+      "path": "personas/infographics/physiotherapists-infographic-1024w.webp",
+      "category": "personas",
+      "size": 89496,
+      "lastModified": "2026-02-22T05:00:16.312Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/physiotherapists-infographic-1280w.webp",
+      "category": "personas",
+      "size": 121418,
+      "lastModified": "2026-02-22T05:00:16.691Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/physiotherapists-infographic-1536w.webp",
+      "category": "personas",
+      "size": 157276,
+      "lastModified": "2026-02-22T05:00:17.126Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/physiotherapists-infographic-1920w.webp",
+      "category": "personas",
+      "size": 207952,
+      "lastModified": "2026-02-22T05:00:17.640Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/physiotherapists-infographic-640w.webp",
+      "category": "personas",
+      "size": 41076,
+      "lastModified": "2026-02-22T05:00:15.679Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/physiotherapists-infographic-768w.webp",
+      "category": "personas",
+      "size": 56752,
+      "lastModified": "2026-02-22T05:00:15.980Z",
+      "extension": ".webp"
+    },
+    {
       "path": "personas/infographics/physiotherapists-infographic.png",
       "category": "personas",
       "size": 8020915,
       "lastModified": "2026-02-22T04:40:44.506Z",
       "extension": ".png"
+    },
+    {
+      "path": "personas/infographics/real-estate-agents-infographic.png",
+      "category": "personas",
+      "size": 52474,
+      "lastModified": "2026-03-18T11:04:29.893Z",
+      "extension": ".png"
+    },
+    {
+      "path": "personas/infographics/restaurant-owner-infographic-1024w.webp",
+      "category": "personas",
+      "size": 73832,
+      "lastModified": "2026-02-22T05:00:19.031Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/restaurant-owner-infographic-1280w.webp",
+      "category": "personas",
+      "size": 99138,
+      "lastModified": "2026-02-22T05:00:19.437Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/restaurant-owner-infographic-1536w.webp",
+      "category": "personas",
+      "size": 124236,
+      "lastModified": "2026-02-22T05:00:19.853Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/restaurant-owner-infographic-1920w.webp",
+      "category": "personas",
+      "size": 160768,
+      "lastModified": "2026-02-22T05:00:20.428Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/restaurant-owner-infographic-640w.webp",
+      "category": "personas",
+      "size": 37646,
+      "lastModified": "2026-02-22T05:00:17.906Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/restaurant-owner-infographic-768w.webp",
+      "category": "personas",
+      "size": 50042,
+      "lastModified": "2026-02-22T05:00:18.426Z",
+      "extension": ".webp"
     },
     {
       "path": "personas/infographics/restaurant-owner-infographic.png",
@@ -83,11 +524,95 @@
       "extension": ".png"
     },
     {
+      "path": "personas/infographics/retail-entrepreneur-infographic-1024w.webp",
+      "category": "personas",
+      "size": 81510,
+      "lastModified": "2026-02-22T05:00:21.440Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/retail-entrepreneur-infographic-1280w.webp",
+      "category": "personas",
+      "size": 112674,
+      "lastModified": "2026-02-22T05:00:21.798Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/retail-entrepreneur-infographic-1536w.webp",
+      "category": "personas",
+      "size": 144950,
+      "lastModified": "2026-02-22T05:00:22.235Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/retail-entrepreneur-infographic-1920w.webp",
+      "category": "personas",
+      "size": 191200,
+      "lastModified": "2026-02-22T05:00:22.741Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/retail-entrepreneur-infographic-640w.webp",
+      "category": "personas",
+      "size": 38598,
+      "lastModified": "2026-02-22T05:00:20.690Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/retail-entrepreneur-infographic-768w.webp",
+      "category": "personas",
+      "size": 52778,
+      "lastModified": "2026-02-22T05:00:21.123Z",
+      "extension": ".webp"
+    },
+    {
       "path": "personas/infographics/retail-entrepreneur-infographic.png",
       "category": "personas",
       "size": 7652869,
       "lastModified": "2026-02-22T04:49:02.648Z",
       "extension": ".png"
+    },
+    {
+      "path": "personas/infographics/small-business-owner-infographic-1024w.webp",
+      "category": "personas",
+      "size": 85848,
+      "lastModified": "2026-02-22T05:00:23.628Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/small-business-owner-infographic-1280w.webp",
+      "category": "personas",
+      "size": 115744,
+      "lastModified": "2026-02-22T05:00:24.008Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/small-business-owner-infographic-1536w.webp",
+      "category": "personas",
+      "size": 145836,
+      "lastModified": "2026-02-22T05:00:24.434Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/small-business-owner-infographic-1920w.webp",
+      "category": "personas",
+      "size": 192140,
+      "lastModified": "2026-02-22T05:00:24.942Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/small-business-owner-infographic-640w.webp",
+      "category": "personas",
+      "size": 41940,
+      "lastModified": "2026-02-22T05:00:22.988Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/small-business-owner-infographic-768w.webp",
+      "category": "personas",
+      "size": 56638,
+      "lastModified": "2026-02-22T05:00:23.294Z",
+      "extension": ".webp"
     },
     {
       "path": "personas/infographics/small-business-owner-infographic.png",
@@ -97,10 +622,59 @@
       "extension": ".png"
     },
     {
+      "path": "personas/infographics/textile-manufacturer-infographic-1024w.webp",
+      "category": "personas",
+      "size": 114380,
+      "lastModified": "2026-02-22T05:00:25.885Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/textile-manufacturer-infographic-1280w.webp",
+      "category": "personas",
+      "size": 159856,
+      "lastModified": "2026-02-22T05:00:26.275Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/textile-manufacturer-infographic-1536w.webp",
+      "category": "personas",
+      "size": 206960,
+      "lastModified": "2026-02-22T05:00:26.736Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/textile-manufacturer-infographic-1920w.webp",
+      "category": "personas",
+      "size": 278330,
+      "lastModified": "2026-02-22T05:00:27.303Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/textile-manufacturer-infographic-640w.webp",
+      "category": "personas",
+      "size": 50210,
+      "lastModified": "2026-02-22T05:00:25.207Z",
+      "extension": ".webp"
+    },
+    {
+      "path": "personas/infographics/textile-manufacturer-infographic-768w.webp",
+      "category": "personas",
+      "size": 70368,
+      "lastModified": "2026-02-22T05:00:25.527Z",
+      "extension": ".webp"
+    },
+    {
       "path": "personas/infographics/textile-manufacturer-infographic.png",
       "category": "personas",
       "size": 8467546,
       "lastModified": "2026-02-22T04:59:37.660Z",
+      "extension": ".png"
+    },
+    {
+      "path": "personas/real-estate-agents-icon.png",
+      "category": "personas",
+      "size": 27454,
+      "lastModified": "2026-03-18T10:28:26.248Z",
       "extension": ".png"
     },
     {

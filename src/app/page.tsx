@@ -42,8 +42,12 @@ function ReasonCard({ icon, title, body }: { icon: string; title: string; body: 
 function TestimonialCard({ quote, author }: { quote: string; author: string; }) {
   return (
     <div className="rounded-2xl bg-white p-4 sm:p-6 shadow-soft">
-      <p className="italic leading-relaxed text-sm sm:text-base">"{quote}"</p>
-      <div className="mt-4 text-xs sm:text-sm text-gray-600">— {author}</div>
+      <blockquote className="italic leading-relaxed text-sm sm:text-base border-l-4 border-primary pl-4">
+        <p>&#8220;{quote}&#8221;</p>
+        <footer className="mt-4 text-xs sm:text-sm text-gray-600 not-italic">
+          &#8212; <cite>{author}</cite>
+        </footer>
+      </blockquote>
     </div>
   );
 }

@@ -1,0 +1,162 @@
+# Dhīmahi Technolabs – Full Site Content
+
+> This document is a comprehensive plain-text dump of all public content on https://www.dhimahitechnolabs.com, structured for LLM ingestion and Answer Engine Optimisation (AEO).
+
+---
+
+## Homepage
+
+### Hero
+
+**Headline**: From Digital Chaos to Business Clarity
+
+**Subheadline**: At Dhīmahi, we help small and medium businesses in Ahmedabad & Gandhinagar grow with AI solutions, digital marketing, and smart IT strategy — without enterprise complexity or cost. We Turn Technology Into Your Growth Engine.
+
+**Trust Badge**: Gujarat's Preferred IT Partner
+
+**Key Statistics**:
+- 25+ Years of Experience
+- 200+ Businesses Transformed
+- 100% Client Satisfaction
+
+**Trust Indicators**: Local focused · ROI-first approach · Practical solutions
+
+---
+
+### Why Choose Dhīmahi Technolabs?
+
+With 25+ years of IT expertise, we help SMEs take smarter digital steps — practical, affordable, and future-ready.
+
+**25+ Years of Experience**: Deep expertise in IT, digital marketing, and AI — guiding SMEs with proven strategies, not experiments.
+
+**Local Focus**: We understand the needs of Ahmedabad & Gandhinagar businesses and provide solutions tailored to your market.
+
+**Practical & Affordable**: No enterprise complexity — just straightforward, cost-effective IT and digital solutions that deliver ROI.
+
+**Future-Ready Solutions**: From AI to automation, we help you stay ahead of the curve and prepare your business for tomorrow.
+
+---
+
+### Client Testimonials
+
+> "We wanted to take our retail furniture business online. Dhīmahi designed a modern e-commerce website with integrated payments and inventory tracking. Within weeks of launch, we started getting online orders and reaching customers beyond our local store."
+— Owner, Furniture Retail Store (Gandhinagar)
+
+> "Our website was outdated and invisible on Google. Dhimahi redesigned it and implemented SEO. Within 3 months, we started getting steady inquiries and 40% more leads."
+— Director, Service Company (Gandhinagar)
+
+> "Dhīmahi built a custom app to track physiotherapy sessions and manage gym member subscriptions. What once took hours on spreadsheets is now handled in minutes, giving us more time to focus on patient care and client satisfaction."
+— Doctor, Physiotherapy & Fitness Center (Gandhinagar)
+
+> "With Dhimahi Technolabs, we automated our sales follow-ups using AI tools. Our response time improved by 70%, and our small sales team now closes more deals effortlessly."
+— Owner, Manufacturing SME (Ahmedabad)
+
+> "We wanted to modernize our coaching institute's operations. Dhīmahi created a digital portal for student registrations, fee payments, and class schedules. The process became seamless, and enrollments grew by 35%."
+— Founder, Coaching Institute (Ahmedabad)
+
+> "Our clinic struggled with missed appointments and manual reminders. Dhīmahi developed an automated booking and notification system, reducing no-shows by 60% and improving patient satisfaction."
+— Founder, Multispeciality Clinic (Ahmedabad)
+
+---
+
+## Services
+
+### AI & Automation Consulting
+URL: https://www.dhimahitechnolabs.com/services/ai-automation
+
+We help SMEs adopt AI in a practical, affordable way — from strategy to implementation. Our AI & Automation services include:
+
+- **AI Adoption Strategy**: Assess your business readiness and create a roadmap for AI integration.
+- **Business Process Automation**: Identify and automate repetitive workflows to save time and reduce costs.
+- **Chatbots & Virtual Assistants**: Deploy intelligent assistants to handle customer queries 24/7.
+- **Data-Driven Insights**: Leverage your data to make smarter, faster business decisions.
+
+### Digital Marketing
+URL: https://www.dhimahitechnolabs.com/services/digital-marketing
+
+We help Gujarat SMEs grow their online presence and generate qualified leads through:
+
+- **Search Engine Optimisation (SEO)**: Rank higher on Google for local and industry-specific searches.
+- **Social Media Marketing (SMM)**: Build brand awareness and engage your audience on the right platforms.
+- **Pay-Per-Click (PPC) Campaigns**: Generate immediate traffic and leads with targeted advertising.
+- **Content Marketing**: Establish authority and attract customers with valuable, relevant content.
+
+### Application Portfolio Rationalisation
+URL: https://www.dhimahitechnolabs.com/services/application-portfolio-rationalisation
+
+We help businesses audit and optimise their software landscape to reduce costs and improve efficiency:
+
+- **Technology Landscape Assessment**: Map all your current applications and identify redundancies.
+- **Cost Optimisation & Consolidation**: Eliminate unused or overlapping tools to reduce IT spend.
+- **AI Integration Opportunity Mapping**: Identify where AI can replace or enhance existing applications.
+
+---
+
+## About Dhīmahi Technolabs
+
+Dhīmahi Technolabs is Gujarat's preferred IT partner for small and medium enterprises. Founded in 1999, we have 25+ years of experience helping businesses in Ahmedabad and Gandhinagar embrace technology for real, measurable growth.
+
+**Mission**: To empower small and medium businesses in Ahmedabad & Gandhinagar and beyond with practical, affordable, and future-ready technology solutions that drive real business growth.
+
+**Vision**: To be Gujarat's most trusted IT consultancy, known for transforming SMEs into digitally empowered, future-ready businesses that compete confidently in the modern marketplace.
+
+**Our Values**:
+- Client-first: Every solution is designed around your specific business needs.
+- Practical: No overengineering — we solve real problems with proven tools.
+- Transparent: Clear pricing, timelines, and honest communication.
+- Local expertise: We know the Gujarat SME market from the inside out.
+
+---
+
+## Contact & Location
+
+- **Primary Email**: hello@dhimahitechnolabs.com
+- **Support Email**: support@dhimahitechnolabs.com
+- **Phone / WhatsApp**: Available on website
+- **Address**: Dhīmahi Technolabs, Gandhinagar, Gujarat, India
+- **Business Hours**: Mon–Fri, 9:00 AM – 6:00 PM IST
+- **Timezone**: Asia/Kolkata (IST, UTC+5:30)
+
+---
+
+## Book a Free Consultation
+URL: https://www.dhimahitechnolabs.com/consultation
+
+Your first consultation is free. We explore how AI, digital growth, and smart IT strategy can help your business. No sales pressure — just practical advice from experienced IT professionals.
+
+---
+
+## Get a Project Quote
+URL: https://www.dhimahitechnolabs.com/quote
+
+Describe your project and receive a tailored, transparent quote. We work with SME budgets and scope projects to deliver maximum ROI.
+
+---
+
+## Social Media & Links
+
+- Website: https://www.dhimahitechnolabs.com
+- LinkedIn: https://linkedin.com/company/dhimahi-technolabs
+- Instagram: https://www.instagram.com/dhimahi.technolabs/
+- Facebook: https://www.facebook.com/dhimahi.technolabs
+- YouTube: https://youtube.com/@dhimahitechnolabs
+- X (Twitter): https://x.com/dhimahitechno
+
+---
+
+## Sitemap (Key URLs)
+
+- https://www.dhimahitechnolabs.com/
+- https://www.dhimahitechnolabs.com/services
+- https://www.dhimahitechnolabs.com/services/ai-automation
+- https://www.dhimahitechnolabs.com/services/digital-marketing
+- https://www.dhimahitechnolabs.com/services/application-portfolio-rationalisation
+- https://www.dhimahitechnolabs.com/portfolio
+- https://www.dhimahitechnolabs.com/insights
+- https://www.dhimahitechnolabs.com/about
+- https://www.dhimahitechnolabs.com/consultation
+- https://www.dhimahitechnolabs.com/quote
+- https://www.dhimahitechnolabs.com/resources
+- https://www.dhimahitechnolabs.com/sitemap.xml
+- https://www.dhimahitechnolabs.com/robots.txt
+- https://www.dhimahitechnolabs.com/llms.txt

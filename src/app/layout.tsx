@@ -82,6 +82,10 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
         <link rel="dns-prefetch" href="//www.google-analytics.com" />
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+
+        {/* LLMs.txt for Answer Engine Optimisation (AEO) */}
+        <link rel="alternate" type="text/plain" title="LLMs manifest" href="/llms.txt" />
+        <link rel="alternate" type="text/plain" title="LLMs full content" href="/llms-full.txt" />
       </head>
       <body className="font-sans antialiased text-gray-800" suppressHydrationWarning>
         {/* Organization JSON-LD */}
