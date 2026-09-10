@@ -185,7 +185,7 @@ export async function getLinkedInPosts(): Promise<LinkedInPost[]> {
       title = explicitTitle;
     } else {
       const firstLine = desc.split('\n').map((l) => l.trim()).find((l) => l.length > 0) || desc.trim();
-      const cleanTitle = firstLine.replace(/^[#\s*-_]+/, '').trim();
+      const cleanTitle = firstLine.replace(/^[-#*_\s]+/, '').trim();
       title = cleanTitle.length > 90 ? cleanTitle.substring(0, 87).trim() + '...' : cleanTitle || 'LinkedIn Update';
     }
 
