@@ -124,7 +124,11 @@ export async function getLinkedInPosts(): Promise<LinkedInPost[]> {
 
   let rows: string[][];
   try {
-    const res = await fetch(apiUrl, { cache: 'no-store' });
+    const res = await fetch(apiUrl, {
+      // force-cache: fetch once at build time, bake into static HTML.
+      // Fresh data arrives on each new Vercel build (triggered by GitHub Actions cron).
+      cache: 'force-cache',
+    });
 
     if (!res.ok) {
       const body = await res.text();
