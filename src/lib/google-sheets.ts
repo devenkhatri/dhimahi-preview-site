@@ -185,6 +185,8 @@ export async function getLinkedInPosts(): Promise<LinkedInPost[]> {
     });
   });
 
-  console.log(`[google-sheets] ✅ Loaded ${posts.length} LinkedIn posts from "${SHEET_TAB}".`);
+  console.warn(
+    `[google-sheets] ✅ Loaded ${posts.length} LinkedIn posts from "${SHEET_TAB}".`
+  );
   return posts;
 }

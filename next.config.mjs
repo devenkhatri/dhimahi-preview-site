@@ -58,8 +58,12 @@ const nextConfig = {
   },
   
   // Performance optimizations
+  // Only strip console.log in production — preserve warn/error so build-time
+  // diagnostics (e.g. [google-sheets] messages) still appear in Vercel logs.
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
+    removeConsole: process.env.NODE_ENV === 'production'
+      ? { exclude: ['warn', 'error'] }
+      : false,
   },
 
   // CMS content processing
