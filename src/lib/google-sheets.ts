@@ -49,16 +49,20 @@ export interface LinkedInPost {
 
 const SHEET_TAB = 'LinkedIn Posts Scrapped Raw';
 
-// Expected column header names (case-insensitive match)
+// Exact column header names from the "LinkedIn Posts Scrapped Raw" tab
+// (case-insensitive match is applied when building the column map)
 const COL = {
-  TITLE:     'article title',
-  LINK:      'link',
-  DESC:      'scraped description',
-  AUTHOR:    'author info',
-  REACTIONS: 'reaction counts',
-  COMMENTS:  'comment counts',
-  REPOSTS:   'repost counts',
-  MEDIA:     'media urls',
+  DESC:      'article/description',       // Full post body text
+  LINK:      'socialContent/permalink',   // Direct LinkedIn post URL
+  SHARE_URL: 'socialContent/shareUrl',    // Fallback link if permalink is empty
+  FIRST_NAME:'author/firstName',          // Author first name
+  LAST_NAME: 'author/lastName',           // Author last name
+  HEADLINE:  'author/headline',           // Author headline / title
+  REACTIONS: 'engagement/reactionCount',  // Total reactions
+  LIKES:     'engagement/likeCount',      // Like count
+  COMMENTS:  'engagement/commentCount',   // Comment count
+  DATE:      'postedAt/date',             // ISO date e.g. 2026-02-07T06:00:00Z
+  IMAGE:     'images/0',                  // First image attachment URL
 } as const;
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -119,7 +123,7 @@ export async function getLinkedInPosts(): Promise<LinkedInPost[]> {
     return [];
   }
 
-  const range  = encodeURIComponent(`${SHEET_TAB}!A:Z`);
+  const range  = encodeURIComponent(SHEET_TAB);
   const apiUrl = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
 
   let rows: string[][];
@@ -158,29 +162,40 @@ export async function getLinkedInPosts(): Promise<LinkedInPost[]> {
   dataRows.forEach((row, idx) => {
     const get = (col: string): string => (row[colMap[col]] ?? '').trim();
 
-    const title = get(COL.TITLE);
-    const link  = get(COL.LINK);
+    const desc = get(COL.DESC);
+    const link = get(COL.LINK) || get(COL.SHARE_URL);
 
-    if (!title || !link) {
-      if (title || link) {
-        console.warn(`[google-sheets] Row ${idx + 2}: skipped — missing title or link.`);
-      }
+    if (!desc && !link) {
       return;
     }
 
+    if (!link) {
+      console.warn(`[google-sheets] Row ${idx + 2}: skipped — missing post URL.`);
+      return;
+    }
+
+    // Extract a readable title from the first line of the post
+    const firstLine = desc.split('\n').map((l) => l.trim()).find((l) => l.length > 0) || desc.trim();
+    const cleanTitle = firstLine.replace(/^[#\s*-_]+/, '').trim();
+    const title = cleanTitle.length > 90 ? cleanTitle.substring(0, 87).trim() + '...' : cleanTitle || 'LinkedIn Update';
     const slug = toSlug(title) || `linkedin-post-${idx + 2}`;
+
+    const authorName = [get(COL.FIRST_NAME), get(COL.LAST_NAME)]
+      .filter(Boolean)
+      .join(' ')
+      .trim();
 
     posts.push({
       slug,
       title,
-      excerpt:      get(COL.DESC)    || 'Read this LinkedIn post by Deven Goratela.',
-      date:         today,
-      author:       get(COL.AUTHOR)  || 'Deven Goratela',
+      excerpt:      desc || 'Read this LinkedIn post by Deven Goratela.',
+      date:         get(COL.DATE) || today,
+      author:       authorName || 'Deven Goratela',
       externalUrl:  link,
-      coverImage:   firstUrl(get(COL.MEDIA)),
-      likes:        toNumber(get(COL.REACTIONS)),
+      coverImage:   firstUrl(get(COL.IMAGE)),
+      likes:        toNumber(get(COL.REACTIONS)) || toNumber(get(COL.LIKES)),
       comments:     toNumber(get(COL.COMMENTS)),
-      reposts:      toNumber(get(COL.REPOSTS)),
+      reposts:      0,
       tags:         ['LinkedIn'],
       category:     'LinkedIn Post',
       readTime:     2,
