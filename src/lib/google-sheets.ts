@@ -50,19 +50,21 @@ export interface LinkedInPost {
 const SHEET_TAB = 'LinkedIn Posts Scrapped Raw';
 
 // Exact column header names from the "LinkedIn Posts Scrapped Raw" tab
-// (case-insensitive match is applied when building the column map)
+// (lookup is case-insensitive)
 const COL = {
-  DESC:      'article/description',       // Full post body text
-  LINK:      'socialContent/permalink',   // Direct LinkedIn post URL
-  SHARE_URL: 'socialContent/shareUrl',    // Fallback link if permalink is empty
-  FIRST_NAME:'author/firstName',          // Author first name
-  LAST_NAME: 'author/lastName',           // Author last name
-  HEADLINE:  'author/headline',           // Author headline / title
-  REACTIONS: 'engagement/reactionCount',  // Total reactions
-  LIKES:     'engagement/likeCount',      // Like count
-  COMMENTS:  'engagement/commentCount',   // Comment count
-  DATE:      'postedAt/date',             // ISO date e.g. 2026-02-07T06:00:00Z
-  IMAGE:     'images/0',                  // First image attachment URL
+  CONTENT:        'content',                  // Primary post text
+  DESC:           'article/description',      // Fallback post text
+  TITLE:          'article/title',            // Explicit article title if present
+  LINK:           'linkedinUrl',              // Primary post URL
+  SHARE_URL:      'socialContent/shareUrl',   // Fallback post URL
+  AUTHOR:         'author/name',              // Author full name
+  AUTHOR_INFO:    'author/info',              // Author headline
+  LIKES:          'engagement/likes',         // Likes count
+  COMMENTS:       'engagement/comments',      // Comments count
+  SHARES:         'engagement/shares',        // Reposts/shares count
+  DATE:           'postedAt/date',            // ISO date string
+  IMAGE:          'postImages/0/url',         // Post image attachment URL
+  IMAGE_FALLBACK: 'article/image/url',        // Fallback image URL
 } as const;
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -98,12 +100,11 @@ function buildColumnMap(headers: string[]): Record<string, number> {
 }
 
 function validateHeaders(colMap: Record<string, number>): void {
-  const required = Object.values(COL);
+  const required = [COL.CONTENT, COL.LINK, COL.DATE];
   for (const col of required) {
-    if (colMap[col] === undefined) {
+    if (colMap[col.toLowerCase().trim()] === undefined) {
       console.warn(
-        `[google-sheets] ⚠️  Missing expected column "${col}" in "${SHEET_TAB}". ` +
-        `Rows may be skipped or fields may be empty.`
+        `[google-sheets] ⚠️  Missing expected column "${col}" in "${SHEET_TAB}".`
       );
     }
   }
@@ -158,11 +159,15 @@ export async function getLinkedInPosts(): Promise<LinkedInPost[]> {
 
   const today = new Date().toISOString();
   const posts: LinkedInPost[] = [];
+  const seenSlugs = new Set<string>();
 
   dataRows.forEach((row, idx) => {
-    const get = (col: string): string => (row[colMap[col]] ?? '').trim();
+    const get = (col: string): string => {
+      const colIdx = colMap[col.toLowerCase().trim()];
+      return (colIdx !== undefined && colIdx < row.length ? (row[colIdx] ?? '') : '').trim();
+    };
 
-    const desc = get(COL.DESC);
+    const desc = get(COL.CONTENT) || get(COL.DESC);
     const link = get(COL.LINK) || get(COL.SHARE_URL);
 
     if (!desc && !link) {
@@ -174,28 +179,40 @@ export async function getLinkedInPosts(): Promise<LinkedInPost[]> {
       return;
     }
 
-    // Extract a readable title from the first line of the post
-    const firstLine = desc.split('\n').map((l) => l.trim()).find((l) => l.length > 0) || desc.trim();
-    const cleanTitle = firstLine.replace(/^[#\s*-_]+/, '').trim();
-    const title = cleanTitle.length > 90 ? cleanTitle.substring(0, 87).trim() + '...' : cleanTitle || 'LinkedIn Update';
-    const slug = toSlug(title) || `linkedin-post-${idx + 2}`;
+    const explicitTitle = get(COL.TITLE);
+    let title: string;
+    if (explicitTitle) {
+      title = explicitTitle;
+    } else {
+      const firstLine = desc.split('\n').map((l) => l.trim()).find((l) => l.length > 0) || desc.trim();
+      const cleanTitle = firstLine.replace(/^[#\s*-_]+/, '').trim();
+      title = cleanTitle.length > 90 ? cleanTitle.substring(0, 87).trim() + '...' : cleanTitle || 'LinkedIn Update';
+    }
 
-    const authorName = [get(COL.FIRST_NAME), get(COL.LAST_NAME)]
-      .filter(Boolean)
-      .join(' ')
-      .trim();
+    let baseSlug = toSlug(title) || `linkedin-post-${idx + 2}`;
+    let slug = baseSlug;
+    let dup = 1;
+    while (seenSlugs.has(slug)) {
+      dup++;
+      slug = `${baseSlug}-${dup}`;
+    }
+    seenSlugs.add(slug);
+
+    const author = get(COL.AUTHOR) || 'Deven Goratela';
+    const date = get(COL.DATE) || today;
+    const coverImage = firstUrl(get(COL.IMAGE)) || firstUrl(get(COL.IMAGE_FALLBACK));
 
     posts.push({
       slug,
       title,
       excerpt:      desc || 'Read this LinkedIn post by Deven Goratela.',
-      date:         get(COL.DATE) || today,
-      author:       authorName || 'Deven Goratela',
+      date,
+      author,
       externalUrl:  link,
-      coverImage:   firstUrl(get(COL.IMAGE)),
-      likes:        toNumber(get(COL.REACTIONS)) || toNumber(get(COL.LIKES)),
+      coverImage,
+      likes:        toNumber(get(COL.LIKES)),
       comments:     toNumber(get(COL.COMMENTS)),
-      reposts:      0,
+      reposts:      toNumber(get(COL.SHARES)),
       tags:         ['LinkedIn'],
       category:     'LinkedIn Post',
       readTime:     2,
